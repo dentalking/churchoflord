@@ -23,7 +23,7 @@ export default function AboutPage() {
           
           <h2 className="text-2xl font-bold mb-4">주님의교회 역사</h2>
           <p className="mb-4">
-            주님의교회는 [설립 연도]에 경상북도 경주시 내남면에 설립되었습니다. 
+            주님의교회는 2011년에 경상북도 경주시 내남면에 설립되었습니다. 
             경주역에서 약 10분 거리의 아름다운 산골에 위치한 우리 교회는 지역 사회를 섬기고 
             건강한 신앙 공동체를 형성하기 위해 노력해왔습니다.
           </p>
@@ -32,7 +32,7 @@ export default function AboutPage() {
           <p className="mb-4">
             주님의교회는 하나님의 말씀을 중심으로 믿음의 공동체를 세우고, 
             지역 사회와 함께 성장하는 건강한 교회를 지향합니다. 
-            특히 경주역 신도시 주민들에게 평온한 신앙의 쉼터가 되어드리고자 합니다.
+            특히 바쁜 도시 생활에 지친 분들에게 평온한 신앙의 쉼터가 되어드리고자 합니다.
           </p>
           
           <div className="bg-slate-50 p-6 rounded-lg">
