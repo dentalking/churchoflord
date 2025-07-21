@@ -9,6 +9,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Label } from "@/components/ui/label";
 import { Calendar, Upload, MessageSquare, Video, Settings, Users, Trash2, Edit, Plus } from "lucide-react";
 import type { Notice, Sermon, Event } from "@/types/database";
+import dynamic from "next/dynamic";
+
+const ContentManager = dynamic(() => import('./ContentManager'), { 
+  ssr: false,
+  loading: () => <div className="text-center py-8">Loading...</div>
+});
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 export default function AdminPage() {
@@ -873,46 +879,6 @@ function EventManager({ adminPassword }: { adminPassword: string }) {
   );
 }
 
-// 콘텐츠 관리 컴포넌트 (간단 버전)
-function ContentManager({ adminPassword }: { adminPassword: string }) {
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <Card>
-        <CardHeader>
-          <CardTitle>이미지 업로드</CardTitle>
-          <CardDescription>
-            교회 사진, 콩과나무로 제품 사진 등을 업로드하세요.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
-            <Upload className="h-12 w-12 mx-auto text-gray-400 mb-4" />
-            <p className="text-gray-600 mb-4">
-              이미지 업로드 기능은 준비 중입니다
-            </p>
-            <p className="text-sm text-gray-500">
-              Supabase Storage 연동 예정
-            </p>
-          </div>
-        </CardContent>
-      </Card>
-
-      <Card>
-        <CardHeader>
-          <CardTitle>콩과나무로 제품 관리</CardTitle>
-          <CardDescription>
-            콩과나무로 프로젝트 제품 정보를 관리하세요.
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <p className="text-gray-600">
-            제품 관리 기능은 준비 중입니다
-          </p>
-        </CardContent>
-      </Card>
-    </div>
-  );
-}
 
 // 설정 관리 컴포넌트
 function SettingsManager() {

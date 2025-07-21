@@ -1,15 +1,34 @@
+"use client";
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "교회 활동",
-  description: "콩과나무로 프로젝트, 전도 활동, 공동체 활동 등 주님의교회의 다양한 사역을 소개합니다. 건강한 나눔과 섬김을 실천하는 교회입니다.",
-  keywords: "콩과나무로, 경주역 전도, 교회 활동, 사역, 나눔 프로젝트, 건강한 먹거리",
-};
+import { useState, useEffect } from "react";
+import type { Product } from "@/types/database";
 
 export default function ActivitiesPage() {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // 제품 목록 불러오기
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = async () => {
+    try {
+      const response = await fetch('/api/products');
+      const data = await response.json();
+      if (data.data) {
+        setProducts(data.data);
+      }
+    } catch (error) {
+      console.error('Error fetching products:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   // 예시 갤러리 데이터
   const beanTreeImages = [
     { id: 1, title: "콩과나무로 제품", description: "건강한 원료로 만든 수제 식품" },
@@ -92,6 +111,46 @@ export default function ActivitiesPage() {
                 </CardContent>
               </Card>
             </div>
+          </div>
+
+          {/* 제품 목록 */}
+          <div className="mb-8">
+            <h3 className="text-xl font-bold mb-4">콩과나무로 제품</h3>
+            {loading ? (
+              <p className="text-center py-8 text-gray-500">불러오는 중...</p>
+            ) : products.length === 0 ? (
+              <p className="text-center py-8 text-gray-500">등록된 제품이 없습니다.</p>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                {products.map((product) => (
+                  <Card key={product.id} className="overflow-hidden">
+                    <div className="aspect-square relative bg-gray-100">
+                      {product.image_url ? (
+                        <Image 
+                          src={product.image_url} 
+                          alt={product.name}
+                          fill
+                          className="object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center">
+                          <span className="text-gray-400">이미지 준비중</span>
+                        </div>
+                      )}
+                    </div>
+                    <CardContent className="p-4">
+                      <h4 className="font-semibold mb-1">{product.name}</h4>
+                      {product.description && (
+                        <p className="text-sm text-gray-600 mb-2">{product.description}</p>
+                      )}
+                      <p className="text-lg font-bold text-green-600">
+                        {product.price.toLocaleString()}원
+                      </p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            )}
           </div>
           
           <div>
