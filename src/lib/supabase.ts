@@ -140,25 +140,41 @@ export type Database = {
 };
 
 // 환경 변수 확인
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error('Missing Supabase environment variables');
+// 클라이언트 생성 함수
+function getSupabaseClient() {
+  if (!supabaseUrl || !supabaseAnonKey) {
+    console.error('Missing Supabase environment variables');
+    // 빌드 시점에는 에러를 throw하지 않고, 런타임에만 체크
+    if (typeof window !== 'undefined') {
+      throw new Error('Missing Supabase environment variables');
+    }
+  }
+  return createClient<Database>(supabaseUrl, supabaseAnonKey);
 }
 
-// 클라이언트 생성
-export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey);
+// 클라이언트 export
+export const supabase = supabaseUrl && supabaseAnonKey 
+  ? createClient<Database>(supabaseUrl, supabaseAnonKey)
+  : {} as ReturnType<typeof createClient<Database>>;
 
 // 서버사이드용 클라이언트 (관리자 기능용)
 export const createServerSupabaseClient = () => {
-  const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+  const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
+  
+  if (!url || !anonKey) {
+    throw new Error('Missing Supabase environment variables');
+  }
   
   if (!supabaseServiceKey || supabaseServiceKey === 'your_supabase_service_role_key') {
     console.warn('Warning: Using anon key instead of service role key. Some admin features may not work properly.');
     // Service Role Key가 없으면 임시로 anon key 사용
-    return createClient<Database>(supabaseUrl, supabaseAnonKey);
+    return createClient<Database>(url, anonKey);
   }
   
-  return createClient<Database>(supabaseUrl, supabaseServiceKey);
+  return createClient<Database>(url, supabaseServiceKey);
 };
