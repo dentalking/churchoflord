@@ -1,55 +1,71 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import Link from "next/link";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "공지사항",
-  description: "주님의교회 최신 소식과 이벤트를 확인하세요. 경주역 신도시 주민 초청 이벤트, 콩과나무로 프로젝트 소식 등을 전해드립니다.",
-  keywords: "교회 공지사항, 신도시 이벤트, 콩과나무로, 주보, 교회 소식",
-};
+import { useEffect, useState } from "react";
+import type { Notice } from "@/types/database";
 
 export default function NoticesPage() {
-  // 예시 공지사항 데이터
-  const notices = [
-    { id: 1, title: "신도시 입주민 초청 봄 예배 안내", date: "2025.04.18", category: "이벤트", isImportant: true },
-    { id: 2, title: "4월 셋째 주 주보", date: "2025.04.14", category: "주보", isImportant: false },
-    { id: 3, title: "콩과나무로 봄 제품 출시 안내", date: "2025.04.10", category: "소식", isImportant: false },
-    { id: 4, title: "경주역 주변 전도 활동 참가자 모집", date: "2025.04.05", category: "모집", isImportant: true },
-    { id: 5, title: "4월 둘째 주 주보", date: "2025.04.07", category: "주보", isImportant: false },
-  ];
+  const [notices, setNotices] = useState<Notice[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [highlightedNotice, setHighlightedNotice] = useState<Notice | null>(null);
+
+  useEffect(() => {
+    fetchNotices();
+  }, []);
+
+  const fetchNotices = async () => {
+    try {
+      const response = await fetch('/api/notices');
+      const data = await response.json();
+      if (data.data) {
+        setNotices(data.data);
+        // 가장 최근의 중요 공지사항 찾기
+        const importantNotice = data.data.find((notice: Notice) => notice.is_important);
+        setHighlightedNotice(importantNotice || data.data[0]);
+      }
+    } catch (error) {
+      console.error('Error fetching notices:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="container py-12">
       <h1 className="text-4xl font-bold mb-8">공지사항</h1>
       
       {/* 하이라이트 공지 */}
-      <div className="mb-12">
-        <Card className="bg-slate-50">
-          <CardHeader>
-            <CardTitle className="text-2xl">신도시 입주민 초청 봄 예배 안내</CardTitle>
-            <CardDescription>2025.04.18 | 이벤트</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p className="mb-4">
-              경주역 신도시에 새롭게 입주하신 분들을 위한 특별 초청 예배를 준비했습니다.
-              아름다운 봄 산길을 함께 걸으며 예배드리는 시간을 갖고자 합니다.
-            </p>
-            <ul className="list-disc pl-5 space-y-2">
-              <li>일시: 2025년 5월 10일 토요일 오전 10시</li>
-              <li>장소: 주님의교회 야외 예배 공간</li>
-              <li>대상: 경주역 신도시 입주민 누구나</li>
-              <li>내용: 봄 산책, 야외 예배, 점심 식사, 콩과나무로 제품 나눔</li>
-            </ul>
-          </CardContent>
-          <CardFooter>
-            <Button asChild>
-              <Link href="/contact?event=봄예배">참가 신청하기</Link>
-            </Button>
-          </CardFooter>
-        </Card>
-      </div>
+      {loading ? (
+        <div className="mb-12">
+          <Card className="bg-slate-50">
+            <CardContent className="py-8">
+              <p className="text-center text-gray-500">불러오는 중...</p>
+            </CardContent>
+          </Card>
+        </div>
+      ) : highlightedNotice ? (
+        <div className="mb-12">
+          <Card className="bg-slate-50">
+            <CardHeader>
+              <CardTitle className="text-2xl">{highlightedNotice.title}</CardTitle>
+              <CardDescription>
+                {new Date(highlightedNotice.created_at).toLocaleDateString('ko-KR')} | {highlightedNotice.category}
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="whitespace-pre-wrap">{highlightedNotice.content}</p>
+            </CardContent>
+            <CardFooter>
+              <Button asChild>
+                <Link href={`/notices/${highlightedNotice.id}`}>자세히 보기</Link>
+              </Button>
+            </CardFooter>
+          </Card>
+        </div>
+      ) : null}
       
       {/* 공지사항 목록 */}
       <div>
@@ -65,33 +81,43 @@ export default function NoticesPage() {
           </div>
         </div>
         
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="w-[100px]">번호</TableHead>
-              <TableHead>제목</TableHead>
-              <TableHead className="w-[150px]">카테고리</TableHead>
-              <TableHead className="w-[150px]">등록일</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {notices.map((notice) => (
-              <TableRow key={notice.id}>
-                <TableCell>{notice.id}</TableCell>
-                <TableCell>
-                  <Link href={`/notices/${notice.id}`} className="hover:underline">
-                    {notice.isImportant && (
-                      <span className="text-red-500 font-bold mr-2">[중요]</span>
-                    )}
-                    {notice.title}
-                  </Link>
-                </TableCell>
-                <TableCell>{notice.category}</TableCell>
-                <TableCell>{notice.date}</TableCell>
+        {loading ? (
+          <div className="py-8">
+            <p className="text-center text-gray-500">불러오는 중...</p>
+          </div>
+        ) : notices.length === 0 ? (
+          <div className="py-8">
+            <p className="text-center text-gray-500">등록된 공지사항이 없습니다.</p>
+          </div>
+        ) : (
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead className="w-[100px]">번호</TableHead>
+                <TableHead>제목</TableHead>
+                <TableHead className="w-[150px]">카테고리</TableHead>
+                <TableHead className="w-[150px]">등록일</TableHead>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+            </TableHeader>
+            <TableBody>
+              {notices.map((notice, index) => (
+                <TableRow key={notice.id}>
+                  <TableCell>{notices.length - index}</TableCell>
+                  <TableCell>
+                    <Link href={`/notices/${notice.id}`} className="hover:underline">
+                      {notice.is_important && (
+                        <span className="text-red-500 font-bold mr-2">[중요]</span>
+                      )}
+                      {notice.title}
+                    </Link>
+                  </TableCell>
+                  <TableCell>{notice.category}</TableCell>
+                  <TableCell>{new Date(notice.created_at).toLocaleDateString('ko-KR')}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        )}
         
         <div className="flex justify-center mt-8">
           <div className="flex items-center gap-2">
