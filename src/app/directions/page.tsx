@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { Car, Bus, Clock, MapPin, Phone, MessageSquare, Navigation, Home } from "lucide-react";
+import { NaverMapButton, KakaoMapButton, NaverMapButtonSmall, PickupServiceButton } from "@/components/ui/interactive-buttons";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -133,10 +134,7 @@ export default function DirectionsPage() {
                   <p className="text-sm text-slate-500 mt-1">주차 안내 도우미 배치</p>
                 </div>
 
-                <Button className="w-full" onClick={() => window.open('https://map.naver.com/v5/search/경주시%20내남면%20내외로%202175', '_blank')}>
-                  <Navigation className="mr-2 h-4 w-4" />
-                  네이버 지도로 길찾기
-                </Button>
+                <NaverMapButtonSmall />
               </CardContent>
             </Card>
 
@@ -169,10 +167,7 @@ export default function DirectionsPage() {
                   <p className="text-yellow-700 text-sm">첫 3개월간 무료 이용 가능</p>
                 </div>
 
-                <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                  <MessageSquare className="mr-2 h-4 w-4" />
-                  픽업 서비스 예약
-                </Button>
+                <PickupServiceButton />
               </CardContent>
             </Card>
 
@@ -237,23 +232,8 @@ export default function DirectionsPage() {
               </div>
               
               <div className="mt-6 flex flex-col sm:flex-row gap-4">
-                <Button 
-                  size="lg" 
-                  className="flex-1"
-                  onClick={() => window.open('https://map.naver.com/v5/search/경주시%20내남면%20내외로%202175', '_blank')}
-                >
-                  <Navigation className="mr-2 h-5 w-5" />
-                  네이버 지도
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="flex-1"
-                  onClick={() => window.open('https://map.kakao.com/link/search/경주시%20내남면%20내외로%202175', '_blank')}
-                >
-                  <MapPin className="mr-2 h-5 w-5" />
-                  카카오맵
-                </Button>
+                <NaverMapButton className="flex-1" />
+                <KakaoMapButton className="flex-1" />
               </div>
             </div>
 

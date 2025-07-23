@@ -1,3 +1,5 @@
+"use client";
+
 import { MessageCircle, Facebook, Instagram, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 

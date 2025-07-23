@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Calendar, MapPin, Clock, Users, Heart, Video, Wifi } from "lucide-react";
 import { SocialShare, QuickShare } from "@/components/ui/social-share";
+import { OnlineWorshipButton, KakaoTalkButton } from "@/components/ui/interactive-buttons";
 
 export default function Home() {
   return (
@@ -236,10 +237,7 @@ export default function Home() {
               <Button variant="outline" size="lg" className="rounded-full px-6" asChild>
                 <Link href="/worship">예배 시간 전체 보기</Link>
               </Button>
-              <Button size="lg" className="rounded-full px-6 bg-red-600 hover:bg-red-700">
-                <Video className="mr-2 h-5 w-5" />
-                온라인 예배 참여
-              </Button>
+              <OnlineWorshipButton className="rounded-full px-6" />
             </div>
             
             {/* 온라인 예배 안내 */}
@@ -588,11 +586,9 @@ export default function Home() {
                   궁금한 것이 있으시면 언제든 연락해 주세요.
                 </p>
                 <div className="space-y-2">
-                  <Button size="sm" className="w-full bg-yellow-400 hover:bg-yellow-500 text-black" asChild>
-                    <Link href="#" onClick={() => window.open('https://pf.kakao.com/_xjxoEdn', '_blank')}>
-                      카카오톡 문의
-                    </Link>
-                  </Button>
+                  <KakaoTalkButton>
+                    카카오톡 문의
+                  </KakaoTalkButton>
                   <Button size="sm" variant="outline" className="w-full text-emerald-600 border-emerald-600" asChild>
                     <Link href="tel:010-4162-2701">전화 문의</Link>
                   </Button>
