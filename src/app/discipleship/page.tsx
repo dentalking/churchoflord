@@ -9,7 +9,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "제자훈련 - 주님의교회",
   description: "말씀으로 온전한 그리스도의 제자를 세우는 주님의교회 제자훈련 과정입니다. 새가족반부터 사역훈련까지 체계적인 양육 프로그램을 제공합니다.",
-  keywords: "제자훈련, 새가족반, 성경공부, 사역훈련, 경주역 신도시 교회, 양육 프로그램",
+  keywords: "제자훈련, 새가족반, 성경공부, 사역훈련, 양육 프로그램, 경주 교회",
 };
 
 export default function DiscipleshipPage() {
@@ -231,13 +231,13 @@ export default function DiscipleshipPage() {
         </div>
       </section>
 
-      {/* 경주역 신도시 주민을 위한 특별 안내 */}
+      {/* 맞춤형 프로그램 안내 */}
       <section className="mb-16">
         <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8">
           <div className="text-center mb-8">
-            <Badge variant="secondary" className="mb-4">🌱 신도시 주민 특별 과정</Badge>
+            <Badge variant="secondary" className="mb-4">🌱 맞춤형 프로그램</Badge>
             <h2 className="text-2xl font-bold mb-4">
-              바쁜 신도시 생활 속에서도 <span className="text-green-600">함께 성장해요</span>
+              바쁜 일상 속에서도 <span className="text-green-600">함께 성장해요</span>
             </h2>
           </div>
           

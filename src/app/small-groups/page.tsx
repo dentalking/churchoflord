@@ -12,18 +12,18 @@ export default function SmallGroupsPage() {
   const districtGroups = [
     {
       id: 1,
-      name: "경주역 1구역",
+      name: "동부 1구역",
       leader: "김성훈 집사",
-      area: "경주역 신도시 A지구",
+      area: "동부 지역 A지구",
       members: 12,
       meetingTime: "매주 금요일 저녁 7:30",
-      description: "신도시에 새로 이사오신 젊은 가정들이 함께 모이는 구역입니다."
+      description: "이 지역에 새로 이사오신 젊은 가정들이 함께 모이는 구역입니다."
     },
     {
       id: 2,
-      name: "경주역 2구역",
+      name: "동부 2구역",
       leader: "박은영 권사",
-      area: "경주역 신도시 B지구",
+      area: "동부 지역 B지구",
       members: 15,
       meetingTime: "매주 토요일 오전 10:00",
       description: "아이들과 함께 하는 가족 중심 구역 모임입니다."
@@ -360,13 +360,13 @@ export default function SmallGroupsPage() {
         </Tabs>
       </section>
 
-      {/* 신도시 주민 특별 안내 */}
+      {/* 새가족을 위한 특별 안내 */}
       <section className="mt-16 mb-16">
         <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8">
           <div className="text-center mb-8">
-            <Badge variant="secondary" className="mb-4">🏘️ 경주역 신도시 특별</Badge>
+            <Badge variant="secondary" className="mb-4">🏘️ 새가족 환영</Badge>
             <h2 className="text-2xl font-bold mb-4">
-              새로운 동네, <span className="text-blue-600">새로운 친구들</span>
+              새로운 시작, <span className="text-blue-600">새로운 친구들</span>
             </h2>
           </div>
           
@@ -397,7 +397,7 @@ export default function SmallGroupsPage() {
               </div>
               <h3 className="font-semibold mb-2">정착 도우미</h3>
               <p className="text-sm text-slate-600">
-                신도시 생활 정보부터 신앙 상담까지 따뜻한 도움
+                지역 생활 정보부터 신앙 상담까지 따뜻한 도움
               </p>
             </div>
           </div>

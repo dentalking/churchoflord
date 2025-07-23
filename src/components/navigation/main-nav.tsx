@@ -96,11 +96,6 @@ export function MainNav() {
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/newtown" legacyBehavior passHref>
-                <NavigationMenuLink className="font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full">신도시 주민</NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
               <Link href="/contact" legacyBehavior passHref>
                 <NavigationMenuLink className="font-medium">문의</NavigationMenuLink>
               </Link>
@@ -154,7 +149,7 @@ export function MainNav() {
             <nav className="space-y-4">
               <Link 
                 href="/" 
-                className="block py-2 text-lg font-medium"
+                className="block py-3 text-lg font-medium"
                 onClick={() => setIsOpen(false)}
               >
                 홈
@@ -164,21 +159,21 @@ export function MainNav() {
                 <h3 className="font-medium text-slate-600 text-sm uppercase tracking-wide">교회 소개</h3>
                 <Link 
                   href="/about" 
-                  className="block py-2 pl-4 text-slate-700"
+                  className="block py-3 pl-4 text-slate-700"
                   onClick={() => setIsOpen(false)}
                 >
                   교회 역사 및 비전
                 </Link>
                 <Link 
                   href="/about#pastors" 
-                  className="block py-2 pl-4 text-slate-700"
+                  className="block py-3 pl-4 text-slate-700"
                   onClick={() => setIsOpen(false)}
                 >
                   담임목사 및 교역자 소개
                 </Link>
                 <Link 
                   href="/about#ministry" 
-                  className="block py-2 pl-4 text-slate-700"
+                  className="block py-3 pl-4 text-slate-700"
                   onClick={() => setIsOpen(false)}
                 >
                   주요 사역
@@ -187,7 +182,7 @@ export function MainNav() {
 
               <Link 
                 href="/worship" 
-                className="block py-2 text-lg font-medium"
+                className="block py-3 text-lg font-medium"
                 onClick={() => setIsOpen(false)}
               >
                 예배 안내
@@ -195,7 +190,7 @@ export function MainNav() {
 
               <Link 
                 href="/sermons" 
-                className="block py-2 text-lg font-medium"
+                className="block py-3 text-lg font-medium"
                 onClick={() => setIsOpen(false)}
               >
                 설교 영상
@@ -205,14 +200,14 @@ export function MainNav() {
                 <h3 className="font-medium text-slate-600 text-sm uppercase tracking-wide">양육</h3>
                 <Link 
                   href="/discipleship" 
-                  className="block py-2 pl-4 text-slate-700"
+                  className="block py-3 pl-4 text-slate-700"
                   onClick={() => setIsOpen(false)}
                 >
                   제자훈련
                 </Link>
                 <Link 
                   href="/small-groups" 
-                  className="block py-2 pl-4 text-slate-700"
+                  className="block py-3 pl-4 text-slate-700"
                   onClick={() => setIsOpen(false)}
                 >
                   소그룹
@@ -221,7 +216,7 @@ export function MainNav() {
 
               <Link 
                 href="/notices" 
-                className="block py-2 text-lg font-medium"
+                className="block py-3 text-lg font-medium"
                 onClick={() => setIsOpen(false)}
               >
                 공지사항
@@ -229,7 +224,7 @@ export function MainNav() {
 
               <Link 
                 href="/activities" 
-                className="block py-2 text-lg font-medium"
+                className="block py-3 text-lg font-medium"
                 onClick={() => setIsOpen(false)}
               >
                 교회 활동
@@ -237,7 +232,7 @@ export function MainNav() {
 
               <Link 
                 href="/missions" 
-                className="block py-2 text-lg font-medium"
+                className="block py-3 text-lg font-medium"
                 onClick={() => setIsOpen(false)}
               >
                 선교
@@ -245,23 +240,15 @@ export function MainNav() {
 
               <Link 
                 href="/directions" 
-                className="block py-2 text-lg font-medium"
+                className="block py-3 text-lg font-medium"
                 onClick={() => setIsOpen(false)}
               >
                 오시는 길
               </Link>
 
               <Link 
-                href="/newtown" 
-                className="block py-2 text-lg font-medium text-green-600 bg-green-50 rounded-lg px-3"
-                onClick={() => setIsOpen(false)}
-              >
-                🏠 신도시 주민 전용
-              </Link>
-
-              <Link 
                 href="/contact" 
-                className="block py-2 text-lg font-medium"
+                className="block py-3 text-lg font-medium"
                 onClick={() => setIsOpen(false)}
               >
                 문의하기
@@ -295,8 +282,8 @@ export function MainNav() {
 
                 <div className="text-center pt-4">
                   <p className="text-sm text-slate-600">
-                    경주역에서 10분 거리<br />
-                    평온한 신앙의 쉼터
+                    도심 가까운 평온한 산속<br />
+                    따뜻한 신앙의 쉼터
                   </p>
                 </div>
               </div>

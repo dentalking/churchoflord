@@ -37,14 +37,14 @@ export default function Home() {
             </h1>
             <p className="text-xl md:text-2xl mb-8 leading-relaxed">
               "수고하고 무거운 짐 진 자들아 내게로 오라 내가 너희를 쉬게 하리라" (마 11:28)<br className="hidden sm:block" />
-              🏔️ <strong>경주역에서 10분</strong>, 평온한 산속에서 말씀과 함께<br className="hidden sm:block" />
+              🏔️ <strong>도시 가까운 평온한 산속</strong>에서 말씀과 함께<br className="hidden sm:block" />
               🌱 <strong>작지만 따뜻한 믿음 공동체</strong>가 여러분을 기다립니다
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="rounded-full px-6" asChild>
+              <Button size="lg" className="rounded-full px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200" asChild>
                 <Link href="/worship">예배 안내</Link>
               </Button>
-              <Button size="lg" variant="outline" className="rounded-full px-6 backdrop-blur-sm bg-white/10" asChild>
+              <Button size="lg" variant="outline" className="rounded-full px-8 py-6 text-lg font-semibold backdrop-blur-sm bg-white/10 hover:bg-white/20 transform hover:scale-105 transition-all duration-200 border-2" asChild>
                 <Link href="/directions">오시는 길</Link>
               </Button>
             </div>
@@ -73,7 +73,7 @@ export default function Home() {
                 <MapPin className="h-6 w-6 text-slate-700" />
                 <div>
                   <p className="font-medium">경주시 내남면 내외로 2175</p>
-                  <p className="text-sm text-slate-600">경주역에서 차로 10분</p>
+                  <p className="text-sm text-slate-600">도시에서 가까운 평온한 산길</p>
                 </div>
               </div>
             </div>
@@ -114,7 +114,7 @@ export default function Home() {
                   <h3 className="text-xl font-bold mb-4 text-slate-900">목회자 인사</h3>
                   <div className="bg-slate-50 p-6 rounded-xl">
                     <p className="text-slate-700 leading-relaxed mb-4">
-                      "경주역 신도시에 새롭게 정착하신 모든 분들을 진심으로 환영합니다.
+                      "이 지역에 새롭게 정착하신 모든 분들을 진심으로 환영합니다.
                     </p>
                     <p className="text-slate-700 leading-relaxed mb-4">
                       우리는 작지만 하나님의 말씀을 사랑하고, 서로를 격려하며, 
@@ -139,17 +139,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 경주역 신도시 주민 환영 섹션 */}
+      {/* 새가족 환영 섹션 */}
       <section className="py-20 bg-gradient-to-b from-slate-50 to-white">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
             <span className="inline-block px-4 py-1 rounded-full bg-green-100 text-green-800 text-sm font-medium mb-4">🌱 새가족 돌봄 사역</span>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              경주역에서 10분, <span className="text-green-600">서로 섬기는 믿음 공동체</span>
+              평온한 산속에서 만나는 <span className="text-green-600">서로 섬기는 믿음 공동체</span>
             </h2>
             <p className="text-lg mb-8 text-slate-700 leading-relaxed">
               <strong>"피곤하고 짐 진 모든 사람들아"</strong><br />
-              주님의 초대를 받은 우리가 이제 <span className="text-green-600 font-semibold">새롭게 정착하신 가족들을 따뜻하게 맞아드립니다</span><br />
+              주님의 초대를 받은 우리가 이제 <span className="text-green-600 font-semibold">새롭게 오신 모든 분들을 따뜻하게 맞아드립니다</span><br />
               🙏 <strong>서로 돌보는 따뜻한 공동체</strong> 🌱 <strong>함께 자라가는 신앙 생활</strong> ❤️ <strong>나누고 섬기는 사랑</strong>
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-xl mx-auto mb-8">
@@ -159,7 +159,7 @@ export default function Home() {
                 </div>
                 <div className="text-left">
                   <h3 className="font-medium text-lg">따뜻한 공동체</h3>
-                  <p className="text-slate-600">신도시에서 온 새가족을 위한 특별 환영과 케어</p>
+                  <p className="text-slate-600">새로 오신 모든 분들을 위한 특별한 환영과 돌봄</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -172,8 +172,8 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <Button size="lg" className="rounded-full px-6" asChild>
-              <Link href="/contact?type=newtown">방문 예약하기</Link>
+            <Button size="lg" className="rounded-full px-8 py-4 text-base font-medium shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200" asChild>
+              <Link href="/contact">방문 예약하기</Link>
             </Button>
           </div>
         </div>
@@ -349,12 +349,12 @@ export default function Home() {
             </Card>
           </div>
 
-          {/* 신도시 주민을 위한 특별 안내 */}
+          {/* 유연한 프로그램 안내 */}
           <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-8 max-w-4xl mx-auto">
             <div className="text-center">
-              <Badge variant="secondary" className="mb-4">💡 경주역 신도시 주민 특별</Badge>
+              <Badge variant="secondary" className="mb-4">💡 맞춤형 프로그램</Badge>
               <h3 className="text-2xl font-bold mb-4 text-slate-900">
-                바쁜 신도시 생활에 맞춘 <span className="text-indigo-600">유연한 프로그램</span>
+                바쁜 현대인을 위한 <span className="text-indigo-600">유연한 프로그램</span>
               </h3>
               <p className="text-slate-700 mb-6">
                 직장인을 위한 저녁반, 주부를 위한 오전반, 온라인 병행 수업 등<br />
@@ -468,12 +468,12 @@ export default function Home() {
           <div className="text-center mb-12">
             <span className="inline-block px-4 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-medium mb-4">⛪ 온오프라인 하이브리드 예배</span>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              바쁜 신도시 생활, <span className="text-blue-600">유연한 예배 참여</span>
+              바쁜 일상 속에서도 <span className="text-blue-600">유연한 예배 참여</span>
             </h2>
             <p className="text-lg mb-0 text-slate-700 max-w-2xl mx-auto">
               <strong>매주 꼭 와야 한다는 부담감은 NO!</strong><br />
               직접 오시면 👥 <strong>따뜻한 산속 공동체 경험</strong>, 바쁘시면 💻 <strong>온라인으로 편리하게 참여</strong><br />
-              신도시 맞벌이 가정을 위한 <span className="text-blue-600 font-semibold">진짜 현실적인 교회</span>입니다.
+              현대인의 바쁜 일상을 이해하는 <span className="text-blue-600 font-semibold">진짜 현실적인 교회</span>입니다.
             </p>
           </div>
           
@@ -554,7 +554,7 @@ export default function Home() {
                 <h3 className="text-lg font-bold text-blue-900">온라인 예배 안내</h3>
               </div>
               <p className="text-blue-800 mb-4">
-                경주역 신도시에서 직접 오기 어려운 분들을 위해 온라인 예배를 제공합니다.
+                직접 오기 어려운 상황에 계신 분들을 위해 온라인 예배를 제공합니다.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
                 <div className="bg-white/60 p-3 rounded-lg">
@@ -671,22 +671,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 신도시 주민 초청 이벤트 배너 */}
+      {/* 봄맞이 특별 예배 이벤트 배너 */}
       <section className="py-12 bg-green-50">
         <div className="container">
           <div className="rounded-2xl bg-gradient-to-r from-green-600 to-green-700 overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-2">
               <div className="p-8 md:p-12 text-white">
                 <div className="flex items-start justify-between mb-4">
-                  <h2 className="text-2xl md:text-3xl font-bold">신도시 입주민 초청 봄 예배</h2>
+                  <h2 className="text-2xl md:text-3xl font-bold">봄맞이 특별 초청 예배</h2>
                   <SocialShare 
-                    title="신도시 입주민 초청 봄 예배 - 주님의교회"
-                    description="경주역 신도시에 새롭게 입주하신 분들을 위한 특별 초청 예배입니다. 아름다운 봄 산길을 함께 걸으며 예배드리는 시간을 갖고자 합니다."
+                    title="봄맞이 특별 초청 예배 - 주님의교회"
+                    description="아름다운 봄 산길을 함께 걸으며 예배드리는 특별한 시간에 여러분을 초대합니다."
                     className="ml-4 flex-shrink-0"
                   />
                 </div>
                 <p className="mb-6">
-                  경주역 신도시에 새롭게 입주하신 분들을 위한 특별 초청 예배를 준비했습니다.
+                  이 지역에 새롭게 오신 분들과 함께하는 특별 초청 예배를 준비했습니다.
                   아름다운 봄 산길을 함께 걸으며 예배드리는 시간을 갖고자 합니다.
                 </p>
                 <ul className="space-y-2 mb-8">
@@ -735,9 +735,9 @@ export default function Home() {
             </div>
             <div className="order-1 lg:order-2">
               <span className="inline-block px-4 py-1 rounded-full bg-slate-200 text-slate-800 text-sm font-medium mb-4">오시는 길</span>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">경주역에서 10분, 평온한 산길</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">도심 가까운 평온한 산길</h2>
               <p className="text-lg mb-6 text-slate-700 leading-relaxed">
-                경주역에서 차로 약 10분 거리에 위치한 주님의교회는 아름다운 산길을 따라 오시면 만나실 수 있습니다. 
+                도시에서 멀지 않은 곳에 위치한 주님의교회는 아름다운 산길을 따라 오시면 만나실 수 있습니다. 
                 바쁜 일상에서 벗어나 평온한 자연 속에서 신앙의 쉼을 경험하세요.
               </p>
               <div className="bg-slate-50 p-6 rounded-lg mb-6">
@@ -748,7 +748,7 @@ export default function Home() {
                     <Clock className="h-5 w-5 text-slate-500 mt-0.5" />
                     <div>
                       <h4 className="font-medium text-sm">소요 시간</h4>
-                      <p className="text-sm text-slate-600">경주역에서 차로 10분</p>
+                      <p className="text-sm text-slate-600">도심에서 차로 약 10분</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
@@ -989,13 +989,13 @@ export default function Home() {
             <p className="text-lg mb-8 text-slate-300">
               <strong>"두세 사람이 내 이름으로 모인 곳에는 나도 그들 중에 있느니라" (마 18:20)</strong><br />
               🙏 <strong>따뜻한 예배 공동체</strong> + 🌱 <strong>서로 돌보는 가족 같은 교회</strong> + ❤️ <strong>함께 자라가는 신앙</strong><br />
-              경주역에서 10분, <span className="text-yellow-400 font-semibold">하나님의 은혜가 넘치는 곳</span>에 여러분을 초대합니다.
+              평온한 산속에 자리한 <span className="text-yellow-400 font-semibold">하나님의 은혜가 넘치는 곳</span>에 여러분을 초대합니다.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-slate-900 hover:bg-slate-100" asChild>
+              <Button size="lg" className="bg-white text-slate-900 hover:bg-slate-100 px-8 py-4 text-base font-medium shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200" asChild>
                 <Link href="/contact">문의하기</Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-4 text-base font-medium hover:border-yellow-400 transform hover:scale-105 transition-all duration-200 border-2" asChild>
                 <Link href="/worship">예배 참석하기</Link>
               </Button>
             </div>

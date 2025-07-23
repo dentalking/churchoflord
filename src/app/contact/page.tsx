@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ExternalLink, MessageSquare, MapPin, Phone, Mail, Calendar } from "lucide-react";
+import ContactForm from "./contact-form";
 
 export default function ContactPage() {
   // 카카오톡 채널 연결 함수
@@ -33,7 +34,7 @@ export default function ContactPage() {
               </p>
               <ul className="list-disc pl-5 space-y-2">
                 <li>예배 방문 및 안내 문의</li>
-                <li>신도시 주민 초청 이벤트 참여</li>
+                <li>새가족 초청 이벤트 참여</li>
                 <li>콩과나무로 제품 문의</li>
                 <li>새신자 상담 예약</li>
                 <li>기타 모든 문의사항</li>
@@ -68,7 +69,8 @@ export default function ContactPage() {
             </CardContent>
           </Card>
 
-
+          {/* 온라인 문의 양식 */}
+          <ContactForm />
         </div>
         
         <div className="space-y-6">
@@ -108,7 +110,7 @@ export default function ContactPage() {
                 카카오톡 채널로 예약하시면 담당자가 맞이하여 교회를 안내해 드립니다.
               </p>
               <p className="mb-4">
-                특히 경주역 신도시에서 오시는 분들을 위해 교회까지 안내도 가능합니다.
+                특히 도심에서 오시는 분들을 위해 교회까지 안내도 가능합니다.
               </p>
               <Button 
                 variant="outline" 

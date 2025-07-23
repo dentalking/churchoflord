@@ -9,7 +9,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "선교 비전 - 주님의교회",
   description: "땅끝까지 복음을 전하는 주님의교회 선교 비전입니다. 경주에서 시작하여 온 세계로 나아가는 선교 사역을 소개합니다.",
-  keywords: "선교, 해외선교, 국내선교, 단기선교, 선교사 파송, 경주역 신도시 교회",
+  keywords: "선교, 해외선교, 국내선교, 단기선교, 선교사 파송, 경주 교회",
 };
 
 export default function MissionsPage() {
@@ -90,7 +90,7 @@ export default function MissionsPage() {
                 모든 민족을 제자로
               </h2>
               <p className="text-lg mb-6 text-slate-700 leading-relaxed">
-                주님의교회는 <strong>경주역 신도시에서 시작하여</strong> 
+                주님의교회는 <strong>이 지역에서 시작하여</strong> 
                 온 세계로 복음을 전하는 선교적 교회입니다. 
                 지역 교회가 곧 <span className="text-orange-600 font-semibold">선교하는 교회</span>가 되어야 한다는 
                 비전을 가지고 있습니다.
@@ -348,13 +348,13 @@ export default function MissionsPage() {
         </div>
       </section>
 
-      {/* 경주역 신도시 특별 선교 */}
+      {/* 지역 특별 선교 */}
       <section className="mb-16">
         <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8">
           <div className="text-center mb-8">
-            <Badge variant="secondary" className="mb-4">🏘️ 신도시 선교</Badge>
+            <Badge variant="secondary" className="mb-4">🏘️ 지역 선교</Badge>
             <h2 className="text-2xl font-bold mb-4">
-              경주역 신도시, <span className="text-green-600">우리의 예루살렘</span>
+              이 지역, <span className="text-green-600">우리의 예루살렘</span>
             </h2>
           </div>
           

@@ -5,8 +5,8 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "예배 안내",
-  description: "주님의교회 예배 시간 안내입니다. 주일예배, 새벽기도회, 수요/금요기도회 일정을 확인하세요. 경주역 신도시 주민 여러분을 환영합니다.",
-  keywords: "예배 시간, 주일예배, 새벽기도회, 수요기도회, 금요기도회, 경주역 신도시 교회",
+  description: "주님의교회 예배 시간 안내입니다. 주일예배, 새벽기도회, 수요/금요기도회 일정을 확인하세요. 이 지역 주민 여러분을 환영합니다.",
+  keywords: "예배 시간, 주일예배, 새벽기도회, 수요기도회, 금요기도회, 경주 교회",
 };
 
 export default function WorshipPage() {
@@ -85,7 +85,7 @@ export default function WorshipPage() {
               예배 후에는 새신자 환영실에서 담임목사님과의 만남 및 교회 안내가 있습니다.
             </p>
             <p className="mb-4">
-              경주역 신도시에서 오시는 분들은 경주역에서 약 10분 거리에 위치해 있으며, 
+              도심에서 약 10분 거리에 위치해 있으며, 
               아름다운 산길을 따라 오시면 됩니다.
             </p>
             <Button asChild>
@@ -110,13 +110,13 @@ export default function WorshipPage() {
           </div>
           
           <div className="bg-slate-50 p-6 rounded-lg">
-            <h2 className="text-2xl font-bold mb-4">신도시 입주민 초청 이벤트</h2>
+            <h2 className="text-2xl font-bold mb-4">새가족 초청 이벤트</h2>
             <p className="mb-4">
-              경주역 신도시에 새롭게 입주하신 분들을 위한 특별 초청 예배를 준비하고 있습니다. 
+              이 지역에 새롭게 오신 분들을 위한 특별 초청 예배를 준비하고 있습니다. 
               아래 버튼을 통해 참여 신청을 해주세요.
             </p>
             <Button variant="outline" asChild>
-              <Link href="/contact?event=신도시주민초청">초청 이벤트 참여하기</Link>
+              <Link href="/contact?event=새가족초청">초청 이벤트 참여하기</Link>
             </Button>
           </div>
         </div>
