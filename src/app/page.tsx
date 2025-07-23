@@ -1,9 +1,10 @@
 // src/app/page.tsx
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import Image from "next/image";
-import { Calendar, MapPin, Clock, Users, Heart, Video, Wifi } from "lucide-react";
+import { Calendar, MapPin, Clock, Users, Heart, Video, Wifi, BookOpen, Music } from "lucide-react";
 import { SocialShare, QuickShare } from "@/components/ui/social-share";
 import { OnlineWorshipButton, KakaoTalkButton } from "@/components/ui/interactive-buttons";
 
@@ -223,6 +224,145 @@ export default function Home() {
                 fill 
                 className="object-cover"
               />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 제자훈련과 소그룹 섹션 */}
+      <section className="py-20 bg-gradient-to-br from-indigo-50 to-blue-50">
+        <div className="container">
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-1 rounded-full bg-indigo-100 text-indigo-800 text-sm font-medium mb-4">📚 제자훈련 & 소그룹</span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              평신도를 <span className="text-indigo-600">깨우는 교회</span>
+            </h2>
+            <p className="text-lg mb-0 text-slate-700 max-w-2xl mx-auto">
+              "가서 모든 민족을 제자로 삼아" (마 28:19)<br />
+              체계적인 제자훈련과 친밀한 소그룹으로 온전한 그리스도의 제자를 세웁니다.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+            {/* 제자훈련 카드 */}
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300">
+              <CardHeader>
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center">
+                    <BookOpen className="h-8 w-8 text-blue-600" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-2xl">제자훈련 과정</CardTitle>
+                    <CardDescription>새가족부터 사역자까지 4단계 양육</CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-slate-600 mb-6">
+                  옥한흠 목사님의 제자훈련 철학을 바탕으로 모든 성도가 
+                  말씀으로 훈련받아 재생산하는 제자가 되도록 체계적으로 양육합니다.
+                </p>
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                      <span className="text-sm font-bold text-green-600">1</span>
+                    </div>
+                    <span className="text-sm"><strong>새가족반</strong> - 4주 과정</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                      <span className="text-sm font-bold text-blue-600">2</span>
+                    </div>
+                    <span className="text-sm"><strong>기초 성경공부</strong> - 12주 과정</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
+                      <span className="text-sm font-bold text-purple-600">3</span>
+                    </div>
+                    <span className="text-sm"><strong>제자훈련</strong> - 32주 과정</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
+                      <span className="text-sm font-bold text-orange-600">4</span>
+                    </div>
+                    <span className="text-sm"><strong>사역훈련</strong> - 32주 과정</span>
+                  </div>
+                </div>
+                <Button asChild>
+                  <Link href="/discipleship">제자훈련 자세히 보기</Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* 소그룹 카드 */}
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300">
+              <CardHeader>
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center">
+                    <Users className="h-8 w-8 text-green-600" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-2xl">소그룹 공동체</CardTitle>
+                    <CardDescription>함께 자라가는 친밀한 교제</CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-slate-600 mb-6">
+                  대그룹 예배에서 경험할 수 없는 친밀한 관계와 깊은 나눔이 있는 
+                  소그룹에서 진정한 코이노니아를 경험하세요.
+                </p>
+                <div className="grid grid-cols-2 gap-4 mb-6">
+                  <div className="bg-slate-50 p-4 rounded-lg">
+                    <h4 className="font-medium mb-1 flex items-center gap-2">
+                      <MapPin className="h-4 w-4 text-slate-600" />
+                      구역 모임
+                    </h4>
+                    <p className="text-sm text-slate-600">지역별 이웃 공동체</p>
+                  </div>
+                  <div className="bg-slate-50 p-4 rounded-lg">
+                    <h4 className="font-medium mb-1 flex items-center gap-2">
+                      <Heart className="h-4 w-4 text-slate-600" />
+                      연령별 목장
+                    </h4>
+                    <p className="text-sm text-slate-600">세대별 맞춤 모임</p>
+                  </div>
+                  <div className="bg-slate-50 p-4 rounded-lg">
+                    <h4 className="font-medium mb-1 flex items-center gap-2">
+                      <BookOpen className="h-4 w-4 text-slate-600" />
+                      말씀 묵상
+                    </h4>
+                    <p className="text-sm text-slate-600">함께하는 QT 모임</p>
+                  </div>
+                  <div className="bg-slate-50 p-4 rounded-lg">
+                    <h4 className="font-medium mb-1 flex items-center gap-2">
+                      <Music className="h-4 w-4 text-slate-600" />
+                      관심사별
+                    </h4>
+                    <p className="text-sm text-slate-600">찬양, 독서, 기도 등</p>
+                  </div>
+                </div>
+                <Button asChild>
+                  <Link href="/small-groups">소그룹 참여하기</Link>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* 신도시 주민을 위한 특별 안내 */}
+          <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-8 max-w-4xl mx-auto">
+            <div className="text-center">
+              <Badge variant="secondary" className="mb-4">💡 경주역 신도시 주민 특별</Badge>
+              <h3 className="text-2xl font-bold mb-4 text-slate-900">
+                바쁜 신도시 생활에 맞춘 <span className="text-indigo-600">유연한 프로그램</span>
+              </h3>
+              <p className="text-slate-700 mb-6">
+                직장인을 위한 저녁반, 주부를 위한 오전반, 온라인 병행 수업 등<br />
+                <span className="text-indigo-600 font-medium">여러분의 일정에 맞춰 함께 성장할 수 있습니다!</span>
+              </p>
+              <Button size="lg" className="rounded-full px-8 bg-indigo-600 hover:bg-indigo-700" asChild>
+                <Link href="/contact?type=discipleship">제자훈련 상담 신청</Link>
+              </Button>
             </div>
           </div>
         </div>

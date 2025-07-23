@@ -93,6 +93,22 @@ export default function WorshipPage() {
             </Button>
           </div>
           
+          <div className="bg-slate-50 p-6 rounded-lg mb-6">
+            <h2 className="text-2xl font-bold mb-4">예배 후 소그룹 모임</h2>
+            <p className="mb-4">
+              주일예배 후에는 다양한 소그룹 모임이 있습니다. 
+              친밀한 교제와 말씀 나눔을 통해 더욱 깊은 신앙생활을 경험하세요.
+            </p>
+            <div className="space-y-2 mb-4">
+              <p className="text-sm">• <strong>구역 모임</strong>: 지역별로 모이는 이웃 공동체</p>
+              <p className="text-sm">• <strong>연령별 목장</strong>: 비슷한 세대가 함께하는 모임</p>
+              <p className="text-sm">• <strong>새가족 모임</strong>: 처음 오신 분들을 위한 환영 모임</p>
+            </div>
+            <Button asChild>
+              <Link href="/small-groups">소그룹 자세히 보기</Link>
+            </Button>
+          </div>
+          
           <div className="bg-slate-50 p-6 rounded-lg">
             <h2 className="text-2xl font-bold mb-4">신도시 입주민 초청 이벤트</h2>
             <p className="mb-4">

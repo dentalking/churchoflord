@@ -57,6 +57,25 @@ export function MainNav() {
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
+              <NavigationMenuTrigger>양육</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid gap-3 p-4 w-[400px]">
+                  <li>
+                    <Link href="/discipleship" className="block p-3 hover:bg-slate-100 rounded-md">
+                      <div className="font-medium mb-1">제자훈련</div>
+                      <p className="text-sm text-slate-600">새가족반부터 사역훈련까지 체계적인 양육</p>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/small-groups" className="block p-3 hover:bg-slate-100 rounded-md">
+                      <div className="font-medium mb-1">소그룹</div>
+                      <p className="text-sm text-slate-600">구역 모임, 목장, 관심사별 소그룹</p>
+                    </Link>
+                  </li>
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
               <Link href="/notices" legacyBehavior passHref>
                 <NavigationMenuLink className="font-medium">공지사항</NavigationMenuLink>
               </Link>
@@ -64,6 +83,11 @@ export function MainNav() {
             <NavigationMenuItem>
               <Link href="/activities" legacyBehavior passHref>
                 <NavigationMenuLink className="font-medium">교회 활동</NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/missions" legacyBehavior passHref>
+                <NavigationMenuLink className="font-medium">선교</NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
@@ -177,6 +201,24 @@ export function MainNav() {
                 설교 영상
               </Link>
 
+              <div className="space-y-2">
+                <h3 className="font-medium text-slate-600 text-sm uppercase tracking-wide">양육</h3>
+                <Link 
+                  href="/discipleship" 
+                  className="block py-2 pl-4 text-slate-700"
+                  onClick={() => setIsOpen(false)}
+                >
+                  제자훈련
+                </Link>
+                <Link 
+                  href="/small-groups" 
+                  className="block py-2 pl-4 text-slate-700"
+                  onClick={() => setIsOpen(false)}
+                >
+                  소그룹
+                </Link>
+              </div>
+
               <Link 
                 href="/notices" 
                 className="block py-2 text-lg font-medium"
@@ -191,6 +233,14 @@ export function MainNav() {
                 onClick={() => setIsOpen(false)}
               >
                 교회 활동
+              </Link>
+
+              <Link 
+                href="/missions" 
+                className="block py-2 text-lg font-medium"
+                onClick={() => setIsOpen(false)}
+              >
+                선교
               </Link>
 
               <Link 
