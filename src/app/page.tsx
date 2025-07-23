@@ -29,15 +29,15 @@ export default function Home() {
         <div className="container relative z-30 text-white">
           <div className="max-w-2xl">
             <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight">
-              경주 유일의<br />
+              하나님의 말씀으로<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
-                자연 속 힐링 교회
+                세워지는 교회
               </span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 leading-relaxed">
-              🌿 <strong>경주역 신도시 전용 픽업 서비스</strong><br className="hidden sm:block" />
-              🏔️ <strong>아름다운 산길 10분</strong>, 도심 속 영적 오아시스<br className="hidden sm:block" />
-              🌱 <strong>콩과나무로</strong> 건강한 나눔까지 경험하세요
+              "수고하고 무거운 짐 진 자들아 내게로 오라 내가 너희를 쉬게 하리라" (마 11:28)<br className="hidden sm:block" />
+              🏔️ <strong>경주역에서 10분</strong>, 평온한 산속에서 말씀과 함께<br className="hidden sm:block" />
+              🌱 <strong>작지만 따뜻한 믿음 공동체</strong>가 여러분을 기다립니다
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="rounded-full px-6" asChild>
@@ -80,18 +80,76 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 목회자 인사말 및 말씀 중심 섹션 */}
+      <section className="py-20 bg-white">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="inline-block px-4 py-1 rounded-full bg-indigo-100 text-indigo-800 text-sm font-medium mb-4">📖 이달의 말씀</span>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                하나님의 말씀으로 <span className="text-indigo-600">함께 자라가는 공동체</span>
+              </h2>
+            </div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="bg-gradient-to-br from-indigo-50 to-blue-50 p-8 rounded-2xl">
+                <h3 className="text-2xl font-bold text-indigo-900 mb-4">2025년 1월 표어</h3>
+                <blockquote className="text-lg text-indigo-800 mb-6 italic leading-relaxed">
+                  "그러므로 이제 그리스도 예수 안에 있는 자에게는 결코 정죄함이 없나니 
+                  이는 그리스도 예수 안에 있는 생명의 성령의 법이 죄와 사망의 법에서 
+                  너를 해방하였음이라"
+                </blockquote>
+                <p className="text-right text-indigo-700 font-semibold">- 로마서 8:1-2 -</p>
+                <div className="mt-6 p-4 bg-white/70 rounded-lg">
+                  <p className="text-indigo-900 font-medium">
+                    새해를 맞아 우리 모두 그리스도 안에서 참된 자유와 평안을 누리며, 
+                    서로 사랑하고 격려하는 한 해가 되기를 소망합니다.
+                  </p>
+                </div>
+              </div>
+              
+              <div>
+                <div className="mb-8">
+                  <h3 className="text-xl font-bold mb-4 text-slate-900">목회자 인사</h3>
+                  <div className="bg-slate-50 p-6 rounded-xl">
+                    <p className="text-slate-700 leading-relaxed mb-4">
+                      "경주역 신도시에 새롭게 정착하신 모든 분들을 진심으로 환영합니다.
+                    </p>
+                    <p className="text-slate-700 leading-relaxed mb-4">
+                      우리는 작지만 하나님의 말씀을 사랑하고, 서로를 격려하며, 
+                      이 지역을 섬기려는 평범한 믿음의 공동체입니다.
+                    </p>
+                    <p className="text-slate-700 leading-relaxed mb-4">
+                      바쁜 일상 속에서도 잠시 쉼을 얻고, 하나님의 사랑을 경험하며, 
+                      따뜻한 교제를 나누는 시간이 되기를 소망합니다."
+                    </p>
+                    <p className="text-right text-slate-600 font-medium">- 방재홍 목사 -</p>
+                  </div>
+                </div>
+                
+                <div className="text-center">
+                  <Button variant="outline" asChild>
+                    <Link href="/sermons">설교 말씀 듣기</Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 경주역 신도시 주민 환영 섹션 */}
       <section className="py-20 bg-gradient-to-b from-slate-50 to-white">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
-            <span className="inline-block px-4 py-1 rounded-full bg-green-100 text-green-800 text-sm font-medium mb-4">🎁 신도시 주민만의 특별 혜택</span>
+            <span className="inline-block px-4 py-1 rounded-full bg-green-100 text-green-800 text-sm font-medium mb-4">🌱 새가족 돌봄 사역</span>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              경주역 10분, 하지만 <span className="text-green-600">완전히 다른 세상</span>
+              경주역에서 10분, <span className="text-green-600">서로 섬기는 믿음 공동체</span>
             </h2>
             <p className="text-lg mb-8 text-slate-700 leading-relaxed">
-              <strong>매일 지하철 2호선 소음에 지치셨나요?</strong><br />
-              신도시 아파트 단지를 벗어나 단 10분이면, <span className="text-green-600 font-semibold">새소리와 바람소리만 들리는 평온한 교회</span>에서<br />
-              💚 <strong>3개월 무료 픽업 서비스</strong> 🏡 <strong>신도시 가족 전용 모임</strong> 🌱 <strong>건강한 콩과나무로 선물</strong>까지!
+              <strong>"피곤하고 짐 진 모든 사람들아"</strong><br />
+              주님의 초대를 받은 우리가 이제 <span className="text-green-600 font-semibold">새롭게 정착하신 가족들을 따뜻하게 맞아드립니다</span><br />
+              🙏 <strong>서로 돌보는 따뜻한 공동체</strong> 🌱 <strong>함께 자라가는 신앙 생활</strong> ❤️ <strong>나누고 섬기는 사랑</strong>
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-xl mx-auto mb-8">
               <div className="flex items-start gap-3">
@@ -125,15 +183,15 @@ export default function Home() {
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="inline-block px-4 py-1 rounded-full bg-amber-100 text-amber-800 text-sm font-medium mb-4">🌟 경주 유일 특별 사역</span>
+              <span className="inline-block px-4 py-1 rounded-full bg-amber-100 text-amber-800 text-sm font-medium mb-4">🌱 콩과나무로 나눔 사역</span>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                건강도 챙기고, 나눔도 실천하는<br />
-                <span className="text-amber-600">'콩과나무로' 프로젝트</span>
+                말씀으로 시작된 건강한 나눔<br />
+                <span className="text-amber-600">'콩과나무로' 섬김 사역</span>
               </h2>
               <p className="text-lg mb-6 text-slate-700 leading-relaxed">
-                <strong>시중 건강식품 가격의 절반, 하지만 품질은 두 배!</strong><br />
-                내남면 청정 자연에서 목사님이 직접 재배한 🫘 <strong>무농약 콩</strong>과 🌰 <strong>자연 견과</strong>로 만든 건강 제품이<br />
-                신도시 주민 여러분의 <span className="text-amber-600 font-semibold">건강한 식탁과 이웃 사랑을 동시에</span> 책임집니다.
+                <strong>"나누어 주는 것이 받는 것보다 복이 있다" (행 20:35)</strong><br />
+                하나님께서 주신 청정 자연에서 정성을 담아 🫘 <strong>무농약 콩</strong>과 🌰 <strong>자연 견과</strong>로 만든 건강 제품으로<br />
+                <span className="text-amber-600 font-semibold">지역 공동체를 섬기고 선교 사역에 쓰임</span>이 될 수 있도록 합니다.
               </p>
               <div className="grid grid-cols-2 gap-4 mb-8">
                 <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-400">
@@ -165,6 +223,100 @@ export default function Home() {
                 fill 
                 className="object-cover"
               />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 섬김과 나눔 사역 섹션 */}
+      <section className="py-20 bg-gradient-to-br from-green-50 to-emerald-50">
+        <div className="container">
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-1 rounded-full bg-emerald-100 text-emerald-800 text-sm font-medium mb-4">🤲 섬김과 나눔</span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              받은 사랑을 <span className="text-emerald-600">나누는 교회</span>
+            </h2>
+            <p className="text-lg mb-0 text-slate-700 max-w-2xl mx-auto">
+              "서로 짐을 지라 그리하여 그리스도의 법을 성취하라" (갈 6:2)<br />
+              하나님께 받은 은혜를 이웃과 함께 나누며 지역 사회를 섬깁니다.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* 지역 사회 섬김 */}
+            <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:bg-white transition-all duration-300">
+              <CardHeader className="text-center pb-2">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Heart className="h-8 w-8 text-blue-600" />
+                </div>
+                <CardTitle className="text-xl">지역 사회 섬김</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-slate-600 mb-4">
+                  홀로 계신 어르신들과 어려운 이웃분들을 정기적으로 방문하여 
+                  말씀과 사랑을 나누고 있습니다.
+                </p>
+                <ul className="text-sm text-slate-500 text-left space-y-1">
+                  <li>• 매월 독거 어르신 방문</li>
+                  <li>• 생필품 및 반찬 나눔</li>
+                  <li>• 말씀과 기도 시간</li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* 새가족 양육 */}
+            <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:bg-white transition-all duration-300">
+              <CardHeader className="text-center pb-2">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="h-8 w-8 text-green-600" />
+                </div>
+                <CardTitle className="text-xl">새가족 양육</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-slate-600 mb-4">
+                  새로 오신 분들이 신앙 생활에 잘 정착하실 수 있도록 
+                  일대일 멘토링과 양육을 제공합니다.
+                </p>
+                <ul className="text-sm text-slate-500 text-left space-y-1">
+                  <li>• 개인별 맞춤 양육</li>
+                  <li>• 기초 신앙 교육</li>
+                  <li>• 교제와 나눔의 시간</li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* 선교와 나눔 */}
+            <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:bg-white transition-all duration-300">
+              <CardHeader className="text-center pb-2">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-purple-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <MapPin className="h-8 w-8 text-purple-600" />
+                </div>
+                <CardTitle className="text-xl">선교와 나눔</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-slate-600 mb-4">
+                  콩과나무로 사역을 통한 수익금 전액을 국내외 선교와 
+                  이웃 돕기에 사용하고 있습니다.
+                </p>
+                <ul className="text-sm text-slate-500 text-left space-y-1">
+                  <li>• 아프리카 선교 후원</li>
+                  <li>• 지역 복지 시설 지원</li>
+                  <li>• 어려운 가정 돕기</li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="mt-16 text-center">
+            <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-8 max-w-2xl mx-auto">
+              <h3 className="text-2xl font-bold mb-4 text-slate-900">함께 섬기고 싶으신가요?</h3>
+              <p className="text-slate-700 mb-6">
+                "각각 은사를 받은 대로 하나님의 각양 은혜의 선한 청지기같이 서로 봉사하라" (벧전 4:10)<br />
+                <span className="text-emerald-600 font-medium">여러분의 달란트로 하나님 나라를 섬겨보세요!</span>
+              </p>
+              <Button size="lg" className="rounded-full px-8 bg-emerald-600 hover:bg-emerald-700" asChild>
+                <Link href="/contact?type=volunteer">섬김 사역 문의하기</Link>
+              </Button>
             </div>
           </div>
         </div>
@@ -480,7 +632,7 @@ export default function Home() {
       <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
         <div className="container">
           <div className="text-center mb-16">
-            <span className="inline-block px-4 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-medium mb-4">🤗 첫 방문자를 위한 VIP 가이드</span>
+            <span className="inline-block px-4 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-medium mb-4">🤗 첫 방문자를 위한 안내</span>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               "교회가 처음이에요..." <span className="text-blue-600">걱정 마세요!</span>
             </h2>
@@ -654,10 +806,11 @@ export default function Home() {
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">방재홍 담임목사</h3>
                 <p className="text-slate-600 mb-3">
-                  주님의교회 설립자이자 지역 사회를 섬기는 목회자. 경주 지역 선교와 아프리카 선교를 위해 헌신.
+                  하나님의 은혜로 이 작은 교회를 섬기게 되었습니다. 
+                  말씀 중심의 목회와 지역 사회 섬김에 마음을 두고 있습니다.
                 </p>
                 <p className="text-slate-600 italic">
-                  "신도시 주민 여러분, 평온한 산골 교회에서 함께 신앙의 쉼을 누리세요."
+                  "함께 말씀을 나누고 서로를 격려하며, 하나님 나라를 이루어가는 소중한 동역자가 되어주세요."
                 </p>
               </div>
             </div>
@@ -674,10 +827,11 @@ export default function Home() {
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">정성아 협동목사</h3>
                 <p className="text-slate-600 mb-3">
-                  찬양 사역과 새신자 양육에 열정을 가진 목회자. '콩과나무로' 프로젝트를 통해 공동체의 나눔을 실천.
+                  찬양과 기도를 통해 하나님께 나아가는 길을 함께 걷고 있습니다. 
+                  새로 오신 분들의 신앙 성장을 돕는 일에 기쁨을 느낍니다.
                 </p>
                 <p className="text-slate-600 italic">
-                  "경주역에서 10분, 건강한 신앙 공동체로 초대합니다."
+                  "하나님의 사랑 안에서 서로 돌보며 함께 자라가는 교회가 되기를 소망합니다."
                 </p>
               </div>
             </div>
@@ -690,12 +844,12 @@ export default function Home() {
         <div className="container">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              지금 시작하면 <span className="text-yellow-400">3개월 무료 혜택!</span>
+              <span className="text-yellow-400">함께 예배드려요</span>
             </h2>
             <p className="text-lg mb-8 text-slate-300">
-              <strong>✨ 신도시 주민 한정 특가 이벤트 ✨</strong><br />
-              📅 <strong>3개월 무료 픽업 서비스</strong> + 🎁 <strong>콩과나무로 건강 선물세트</strong> + 👨‍👩‍👧‍👦 <strong>신도시 가족 모임 우선 참여</strong><br />
-              경주역 10분 거리, 하지만 <span className="text-yellow-400 font-semibold">인생이 바뀌는 경험</span>이 기다립니다.
+              <strong>"두세 사람이 내 이름으로 모인 곳에는 나도 그들 중에 있느니라" (마 18:20)</strong><br />
+              🙏 <strong>따뜻한 예배 공동체</strong> + 🌱 <strong>서로 돌보는 가족 같은 교회</strong> + ❤️ <strong>함께 자라가는 신앙</strong><br />
+              경주역에서 10분, <span className="text-yellow-400 font-semibold">하나님의 은혜가 넘치는 곳</span>에 여러분을 초대합니다.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-white text-slate-900 hover:bg-slate-100" asChild>

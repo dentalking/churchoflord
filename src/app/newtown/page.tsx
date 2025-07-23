@@ -24,16 +24,16 @@ export default function NewtownPage() {
             </div>
             
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-slate-900">
-              아파트 단지 벗어나 10분이면<br />
+              새로운 시작을 하신 여러분과<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
-                완전히 다른 세상
-              </span>이 기다려요
+                함께 자라가는 믿음
+              </span>을 꿈꿉니다
             </h1>
             
             <p className="text-xl md:text-2xl mb-8 text-slate-700 leading-relaxed">
-              <strong>📱 매일 스마트폰 알림에 지치고, 🚗 주차전쟁에 스트레스받고, 🏢 빌딩숲에 답답하셨죠?</strong><br />
-              경주역 신도시 주민만을 위한 <span className="text-green-600 font-bold">특별 멤버십 교회</span>에서<br />
-              🌿 새소리 • 🏔️ 산바람 • 🤗 진짜 사람냄새 나는 공동체를 만나보세요!
+              <strong>"평안을 너희에게 끼치노니 곧 나의 평안을 너희에게 주노라" (요 14:27)</strong><br />
+              새로운 곳에서 새로운 시작을 하신 여러분을 <span className="text-green-600 font-bold">따뜻한 믿음의 가족</span>으로 초대합니다<br />
+              🌿 자연 속에서 • 🏔️ 평온함 속에서 • 🤗 서로 격려하며 신앙 생활을 함께해요!
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -53,14 +53,14 @@ export default function NewtownPage() {
       <section className="py-20">
         <div className="container">
           <div className="text-center mb-16">
-            <span className="inline-block px-4 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-medium mb-4">🎁 신도시 주민 VIP 멤버십</span>
+            <span className="inline-block px-4 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-medium mb-4">🌱 새가족 돌봄 사역</span>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              다른 교회 vs 주님의교회, <span className="text-blue-600">이 정도 차이!</span>
+              새로운 곳에서의 신앙 생활, <span className="text-blue-600">함께 시작해요!</span>
             </h2>
             <p className="text-lg text-slate-700 max-w-2xl mx-auto">
-              <strong>"교회 찾아서 이것저것 알아보기 귀찮으시죠?"</strong><br />
-              비교 끝! 신도시 주민이라면 <span className="text-red-500 font-bold">무조건 여기</span>가 답입니다.<br />
-              💰 <strong>돈도 절약되고</strong> ⏰ <strong>시간도 절약되고</strong> ❤️ <strong>마음도 편해지는</strong> 확실한 선택!
+              <strong>"그리스도 안에서 한 몸이 되어 서로 지체가 되었느니라" (롬 12:5)</strong><br />
+              새로운 환경에서 신앙 생활을 시작하는 것이 <span className="text-blue-600 font-bold">쉽지 않으시죠?</span><br />
+              🙏 <strong>서로 기도하고</strong> 💕 <strong>서로 돌보며</strong> ✨ <strong>함께 자라가는</strong> 따뜻한 공동체입니다!
             </p>
           </div>
 
@@ -254,8 +254,9 @@ export default function NewtownPage() {
                   </div>
                 </div>
                 <p className="text-slate-700 italic leading-relaxed">
-                  "처음에는 멀다고 생각했는데, 산길을 따라 올라가면서 마음이 정말 평온해져요. 
-                  아이들도 자연 속에서 뛰어놀 수 있어서 좋아하고, 무엇보다 교우분들이 따뜻하게 맞아주셔서 감사해요."
+                  "신도시로 이사 온 후 마음이 많이 불안했는데, 이곳에서 하나님의 평안을 경험했어요. 
+                  아이들도 주일학교에서 즐겁게 말씀을 배우고, 교우분들의 따뜻한 관심 덕분에 
+                  새로운 곳에서의 삶이 축복이 되었습니다."
                 </p>
               </CardContent>
             </Card>
@@ -272,8 +273,9 @@ export default function NewtownPage() {
                   </div>
                 </div>
                 <p className="text-slate-700 italic leading-relaxed">
-                  "픽업 서비스가 정말 좋았어요! 처음 몇 달은 길도 잘 모르고 걱정했는데, 
-                  목사님께서 직접 마중 나와주셔서 든든했습니다. 이제는 우리 가족의 소중한 신앙 터전이 되었어요."
+                  "교회를 처음 찾았을 때 많은 걱정이 있었는데, 목사님과 교우분들이 진심으로 
+                  맞아주시는 모습에 감동받았어요. 말씀을 통해 위로받고, 기도를 통해 힘을 얻으며, 
+                  이제는 가족 모두가 신앙 안에서 참된 기쁨을 누리고 있습니다."
                 </p>
               </CardContent>
             </Card>
