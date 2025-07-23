@@ -3,7 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
 import Image from "next/image";
-import { Calendar, MapPin, Clock, Users, Heart } from "lucide-react";
+import { Calendar, MapPin, Clock, Users, Heart, Video, Wifi } from "lucide-react";
+import { SocialShare, QuickShare } from "@/components/ui/social-share";
 
 export default function Home() {
   return (
@@ -230,10 +231,40 @@ export default function Home() {
             </Card>
           </div>
           
-          <div className="mt-10 text-center">
-            <Button variant="outline" size="lg" className="rounded-full px-6" asChild>
-              <Link href="/worship">예배 시간 전체 보기</Link>
-            </Button>
+          <div className="mt-10 text-center space-y-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button variant="outline" size="lg" className="rounded-full px-6" asChild>
+                <Link href="/worship">예배 시간 전체 보기</Link>
+              </Button>
+              <Button size="lg" className="rounded-full px-6 bg-red-600 hover:bg-red-700">
+                <Video className="mr-2 h-5 w-5" />
+                온라인 예배 참여
+              </Button>
+            </div>
+            
+            {/* 온라인 예배 안내 */}
+            <div className="bg-blue-50 rounded-2xl p-6 max-w-2xl mx-auto">
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <Wifi className="h-5 w-5 text-blue-600" />
+                <h3 className="text-lg font-bold text-blue-900">온라인 예배 안내</h3>
+              </div>
+              <p className="text-blue-800 mb-4">
+                경주역 신도시에서 직접 오기 어려운 분들을 위해 온라인 예배를 제공합니다.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                <div className="bg-white/60 p-3 rounded-lg">
+                  <h4 className="font-medium text-blue-900 mb-1">📱 스마트폰/태블릿</h4>
+                  <p className="text-blue-700">카카오톡 채널을 통해 링크 전송</p>
+                </div>
+                <div className="bg-white/60 p-3 rounded-lg">
+                  <h4 className="font-medium text-blue-900 mb-1">💻 PC/노트북</h4>
+                  <p className="text-blue-700">유튜브 라이브 스트리밍</p>
+                </div>
+              </div>
+              <p className="text-xs text-blue-600 mt-4">
+                * 온라인 예배 링크는 예배 30분 전에 전송됩니다
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -261,7 +292,14 @@ export default function Home() {
                   className="absolute top-0 left-0 w-full h-full border-0"
                 ></iframe>
               </div>
-              <h3 className="text-xl font-bold mb-2">평안을 너희에게 주노라</h3>
+              <div className="flex items-start justify-between mb-2">
+                <h3 className="text-xl font-bold">평안을 너희에게 주노라</h3>
+                <SocialShare 
+                  title="평안을 너희에게 주노라 - 주님의교회 설교"
+                  description="방재홍 목사님의 설교 말씀입니다. 경주역 신도시 주민 여러분께 은혜가 되길 바랍니다."
+                  className="ml-2"
+                />
+              </div>
               <p className="text-slate-600 mb-4">방재홍 목사 | 2025.04.14</p>
               <Link href="/sermons" className="text-violet-600 font-medium hover:underline">모든 설교 보기</Link>
             </div>
@@ -278,8 +316,14 @@ export default function Home() {
                       className="object-cover"
                     />
                   </div>
-                  <div>
-                    <h4 className="font-medium">산골에서 만나는 하나님</h4>
+                  <div className="flex-1">
+                    <div className="flex items-start justify-between">
+                      <h4 className="font-medium">산골에서 만나는 하나님</h4>
+                      <QuickShare 
+                        title="산골에서 만나는 하나님 - 주님의교회"
+                        description="방재홍 목사님의 설교 말씀"
+                      />
+                    </div>
                     <p className="text-sm text-slate-600 mb-1">방재홍 목사 | 2025.04.07</p>
                     <Link href="/sermons/2" className="text-sm text-violet-600 hover:underline">시청하기</Link>
                   </div>
@@ -328,7 +372,14 @@ export default function Home() {
           <div className="rounded-2xl bg-gradient-to-r from-green-600 to-green-700 overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-2">
               <div className="p-8 md:p-12 text-white">
-                <h2 className="text-2xl md:text-3xl font-bold mb-4">신도시 입주민 초청 봄 예배</h2>
+                <div className="flex items-start justify-between mb-4">
+                  <h2 className="text-2xl md:text-3xl font-bold">신도시 입주민 초청 봄 예배</h2>
+                  <SocialShare 
+                    title="신도시 입주민 초청 봄 예배 - 주님의교회"
+                    description="경주역 신도시에 새롭게 입주하신 분들을 위한 특별 초청 예배입니다. 아름다운 봄 산길을 함께 걸으며 예배드리는 시간을 갖고자 합니다."
+                    className="ml-4 flex-shrink-0"
+                  />
+                </div>
                 <p className="mb-6">
                   경주역 신도시에 새롭게 입주하신 분들을 위한 특별 초청 예배를 준비했습니다.
                   아름다운 봄 산길을 함께 걸으며 예배드리는 시간을 갖고자 합니다.
@@ -406,6 +457,159 @@ export default function Home() {
               </div>
               <Button asChild>
                 <Link href="/directions">자세한 오시는 길</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 첫 방문자 가이드 섹션 */}
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div className="container">
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-medium mb-4">첫 방문자 가이드</span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">처음 오시는 분들을 위한 안내</h2>
+            <p className="text-lg mb-0 text-slate-700 max-w-2xl mx-auto">
+              주님의교회에 처음 오시는 분들이 편안하게 예배에 참여할 수 있도록 자세한 안내를 드립니다.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* 복장 안내 */}
+            <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:bg-white transition-all duration-300">
+              <CardHeader className="text-center pb-2">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="h-8 w-8 text-blue-600" />
+                </div>
+                <CardTitle className="text-xl">복장 안내</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-slate-600 mb-4">
+                  평상복으로 편안하게 오세요. 특별한 복장 규정은 없습니다.
+                </p>
+                <ul className="text-sm text-slate-500 text-left space-y-1">
+                  <li>• 편안한 일상복 착용</li>
+                  <li>• 겨울철 실내 난방 완비</li>
+                  <li>• 여름철 에어컨 가동</li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* 주차 안내 */}
+            <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:bg-white transition-all duration-300">
+              <CardHeader className="text-center pb-2">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <MapPin className="h-8 w-8 text-green-600" />
+                </div>
+                <CardTitle className="text-xl">주차 안내</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-slate-600 mb-4">
+                  교회 주변에 넉넉한 주차 공간이 마련되어 있습니다.
+                </p>
+                <ul className="text-sm text-slate-500 text-left space-y-1">
+                  <li>• 교회 앞 주차장 50대</li>
+                  <li>• 인근 노상주차 가능</li>
+                  <li>• 주차 안내 도우미 배치</li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* 예배 순서 */}
+            <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:bg-white transition-all duration-300">
+              <CardHeader className="text-center pb-2">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-purple-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Calendar className="h-8 w-8 text-purple-600" />
+                </div>
+                <CardTitle className="text-xl">예배 순서</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-slate-600 mb-4">
+                  약 1시간 30분 정도 소요되며, 찬양-설교-기도 순서로 진행됩니다.
+                </p>
+                <ul className="text-sm text-slate-500 text-left space-y-1">
+                  <li>• 오전 10:50 예배 시작 준비</li>
+                  <li>• 오전 11:00 예배 시작</li>
+                  <li>• 오후 12:30 예배 종료</li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* 아이 돌봄 */}
+            <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:bg-white transition-all duration-300">
+              <CardHeader className="text-center pb-2">
+                <div className="w-16 h-16 bg-gradient-to-br from-pink-100 to-pink-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Heart className="h-8 w-8 text-pink-600" />
+                </div>
+                <CardTitle className="text-xl">아이 돌봄</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-slate-600 mb-4">
+                  영유아부터 초등학생까지 연령별 맞춤 프로그램을 운영합니다.
+                </p>
+                <ul className="text-sm text-slate-500 text-left space-y-1">
+                  <li>• 영유아부 별도 운영</li>
+                  <li>• 전문 교사 상주</li>
+                  <li>• 안전한 돌봄 시설</li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* 교통편 */}
+            <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:bg-white transition-all duration-300">
+              <CardHeader className="text-center pb-2">
+                <div className="w-16 h-16 bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Clock className="h-8 w-8 text-yellow-600" />
+                </div>
+                <CardTitle className="text-xl">교통편</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-slate-600 mb-4">
+                  경주역에서 픽업 서비스도 이용하실 수 있습니다.
+                </p>
+                <ul className="text-sm text-slate-500 text-left space-y-1">
+                  <li>• 경주역에서 차로 10분</li>
+                  <li>• 주일 오전 픽업 서비스</li>
+                  <li>• 사전 연락 시 도움</li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* 문의 및 환영 */}
+            <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:bg-white transition-all duration-300">
+              <CardHeader className="text-center pb-2">
+                <div className="w-16 h-16 bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="h-8 w-8 text-emerald-600" />
+                </div>
+                <CardTitle className="text-xl">환영 및 문의</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-slate-600 mb-4">
+                  궁금한 것이 있으시면 언제든 연락해 주세요.
+                </p>
+                <div className="space-y-2">
+                  <Button size="sm" className="w-full bg-yellow-400 hover:bg-yellow-500 text-black" asChild>
+                    <Link href="#" onClick={() => window.open('https://pf.kakao.com/_xjxoEdn', '_blank')}>
+                      카카오톡 문의
+                    </Link>
+                  </Button>
+                  <Button size="sm" variant="outline" className="w-full text-emerald-600 border-emerald-600" asChild>
+                    <Link href="tel:010-4162-2701">전화 문의</Link>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="mt-16 text-center">
+            <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-8 max-w-2xl mx-auto">
+              <h3 className="text-2xl font-bold mb-4 text-slate-900">🎉 첫 방문 시 특별 선물</h3>
+              <p className="text-slate-700 mb-6">
+                처음 오시는 분들께는 콩과나무로 건강 제품과 교회 안내서를 선물로 드립니다.<br />
+                <span className="text-emerald-600 font-medium">따뜻한 환영과 함께 편안한 예배를 경험해보세요!</span>
+              </p>
+              <Button size="lg" className="rounded-full px-8" asChild>
+                <Link href="/contact?type=first-visit">첫 방문 예약하기</Link>
               </Button>
             </div>
           </div>

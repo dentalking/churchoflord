@@ -72,6 +72,11 @@ export function MainNav() {
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
+              <Link href="/newtown" legacyBehavior passHref>
+                <NavigationMenuLink className="font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full">신도시 주민</NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
               <Link href="/contact" legacyBehavior passHref>
                 <NavigationMenuLink className="font-medium">문의</NavigationMenuLink>
               </Link>
@@ -194,6 +199,14 @@ export function MainNav() {
                 onClick={() => setIsOpen(false)}
               >
                 오시는 길
+              </Link>
+
+              <Link 
+                href="/newtown" 
+                className="block py-2 text-lg font-medium text-green-600 bg-green-50 rounded-lg px-3"
+                onClick={() => setIsOpen(false)}
+              >
+                🏠 신도시 주민 전용
               </Link>
 
               <Link 

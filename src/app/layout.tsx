@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/navigation/header";
 import { Footer } from "@/components/navigation/footer";
+import { FloatingChat } from "@/components/ui/floating-chat";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -57,6 +58,7 @@ export default function RootLayout({
           </main>
           <Footer />
         </div>
+        <FloatingChat />
       </body>
     </html>
   );
