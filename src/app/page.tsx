@@ -28,10 +28,16 @@ export default function Home() {
         
         <div className="container relative z-30 text-white">
           <div className="max-w-2xl">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight">평온한 신앙의 쉼터<br />주님의교회</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight">
+              경주 유일의<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
+                자연 속 힐링 교회
+              </span>
+            </h1>
             <p className="text-xl md:text-2xl mb-8 leading-relaxed">
-              경주역에서 10분, 아름다운 산길을 따라<br className="hidden sm:block" /> 
-              평온한 신앙의 쉼터로 여러분을 초대합니다
+              🌿 <strong>경주역 신도시 전용 픽업 서비스</strong><br className="hidden sm:block" />
+              🏔️ <strong>아름다운 산길 10분</strong>, 도심 속 영적 오아시스<br className="hidden sm:block" />
+              🌱 <strong>콩과나무로</strong> 건강한 나눔까지 경험하세요
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="rounded-full px-6" asChild>
@@ -78,11 +84,14 @@ export default function Home() {
       <section className="py-20 bg-gradient-to-b from-slate-50 to-white">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
-            <span className="inline-block px-4 py-1 rounded-full bg-green-100 text-green-800 text-sm font-medium mb-4">경주역 신도시 주민 환영</span>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">평온한 신앙 생활의 시작</h2>
+            <span className="inline-block px-4 py-1 rounded-full bg-green-100 text-green-800 text-sm font-medium mb-4">🎁 신도시 주민만의 특별 혜택</span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              경주역 10분, 하지만 <span className="text-green-600">완전히 다른 세상</span>
+            </h2>
             <p className="text-lg mb-8 text-slate-700 leading-relaxed">
-              경주역 신도시에 새롭게 정착하신 여러분, 주님의교회는 아름다운 산길 10분 거리에 자리 잡은 
-              평온한 신앙의 터전입니다. '콩과나무로'의 건강한 나눔과 따뜻한 공동체가 여러분을 기다립니다.
+              <strong>매일 지하철 2호선 소음에 지치셨나요?</strong><br />
+              신도시 아파트 단지를 벗어나 단 10분이면, <span className="text-green-600 font-semibold">새소리와 바람소리만 들리는 평온한 교회</span>에서<br />
+              💚 <strong>3개월 무료 픽업 서비스</strong> 🏡 <strong>신도시 가족 전용 모임</strong> 🌱 <strong>건강한 콩과나무로 선물</strong>까지!
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-xl mx-auto mb-8">
               <div className="flex items-start gap-3">
@@ -116,29 +125,32 @@ export default function Home() {
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="inline-block px-4 py-1 rounded-full bg-amber-100 text-amber-800 text-sm font-medium mb-4">주요 사역</span>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">콩과나무로 프로젝트</h2>
+              <span className="inline-block px-4 py-1 rounded-full bg-amber-100 text-amber-800 text-sm font-medium mb-4">🌟 경주 유일 특별 사역</span>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                건강도 챙기고, 나눔도 실천하는<br />
+                <span className="text-amber-600">'콩과나무로' 프로젝트</span>
+              </h2>
               <p className="text-lg mb-6 text-slate-700 leading-relaxed">
-                '콩과나무로'는 주님의교회에서 진행하는 건강하고 자연 친화적인 제품을 통한 나눔 사역입니다. 
-                내남면의 청정 자연에서 직접 재배한 콩과 나무 열매를 사용하여 
-                화학 첨가물 없이 건강한 재료만으로 만든 제품을 통해 지역 사회와 함께 나눔의 정신을 실천합니다.
+                <strong>시중 건강식품 가격의 절반, 하지만 품질은 두 배!</strong><br />
+                내남면 청정 자연에서 목사님이 직접 재배한 🫘 <strong>무농약 콩</strong>과 🌰 <strong>자연 견과</strong>로 만든 건강 제품이<br />
+                신도시 주민 여러분의 <span className="text-amber-600 font-semibold">건강한 식탁과 이웃 사랑을 동시에</span> 책임집니다.
               </p>
               <div className="grid grid-cols-2 gap-4 mb-8">
-                <div className="bg-amber-50 p-4 rounded-lg">
-                  <h3 className="font-medium mb-2">건강한 재료</h3>
-                  <p className="text-sm text-slate-600">자연에서 직접 재배한 원료만 사용</p>
+                <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-400">
+                  <h3 className="font-medium mb-2">💚 무농약 재배</h3>
+                  <p className="text-sm text-slate-600">목사님이 직접 키운 건강한 원료</p>
                 </div>
-                <div className="bg-amber-50 p-4 rounded-lg">
-                  <h3 className="font-medium mb-2">전통 방식</h3>
-                  <p className="text-sm text-slate-600">정성을 담아 전통 방식으로 제작</p>
+                <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-400">
+                  <h3 className="font-medium mb-2">👨‍🍳 할머니 비법</h3>
+                  <p className="text-sm text-slate-600">3대째 내려온 전통 제조법</p>
                 </div>
-                <div className="bg-amber-50 p-4 rounded-lg">
-                  <h3 className="font-medium mb-2">환경 보호</h3>
-                  <p className="text-sm text-slate-600">친환경 포장재와 제작 과정</p>
+                <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-400">
+                  <h3 className="font-medium mb-2">🌍 지구도 살리고</h3>
+                  <p className="text-sm text-slate-600">100% 친환경 포장재 사용</p>
                 </div>
-                <div className="bg-amber-50 p-4 rounded-lg">
-                  <h3 className="font-medium mb-2">나눔 실천</h3>
-                  <p className="text-sm text-slate-600">수익금은 지역사회와 선교에 사용</p>
+                <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-400">
+                  <h3 className="font-medium mb-2">❤️ 나눔도 실천</h3>
+                  <p className="text-sm text-slate-600">수익금 전액 선교 사업에 투입</p>
                 </div>
               </div>
               <Button asChild>
@@ -162,11 +174,14 @@ export default function Home() {
       <section className="py-20 bg-slate-50">
         <div className="container">
           <div className="text-center mb-12">
-            <span className="inline-block px-4 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-medium mb-4">예배 안내</span>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">함께 드리는 예배</h2>
+            <span className="inline-block px-4 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-medium mb-4">⛪ 온오프라인 하이브리드 예배</span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              바쁜 신도시 생활, <span className="text-blue-600">유연한 예배 참여</span>
+            </h2>
             <p className="text-lg mb-0 text-slate-700 max-w-2xl mx-auto">
-              주님의교회는 산속의 평온함 속에서 하나님을 예배하며 서로를 돌보는 공동체입니다. 
-              다양한 예배와 모임을 통해 함께 성장하는 시간을 가집니다.
+              <strong>매주 꼭 와야 한다는 부담감은 NO!</strong><br />
+              직접 오시면 👥 <strong>따뜻한 산속 공동체 경험</strong>, 바쁘시면 💻 <strong>온라인으로 편리하게 참여</strong><br />
+              신도시 맞벌이 가정을 위한 <span className="text-blue-600 font-semibold">진짜 현실적인 교회</span>입니다.
             </p>
           </div>
           
@@ -465,10 +480,13 @@ export default function Home() {
       <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
         <div className="container">
           <div className="text-center mb-16">
-            <span className="inline-block px-4 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-medium mb-4">첫 방문자 가이드</span>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">처음 오시는 분들을 위한 안내</h2>
+            <span className="inline-block px-4 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-medium mb-4">🤗 첫 방문자를 위한 VIP 가이드</span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              "교회가 처음이에요..." <span className="text-blue-600">걱정 마세요!</span>
+            </h2>
             <p className="text-lg mb-0 text-slate-700 max-w-2xl mx-auto">
-              주님의교회에 처음 오시는 분들이 편안하게 예배에 참여할 수 있도록 자세한 안내를 드립니다.
+              <strong>무엇을 입고 와야 할지, 어디에 앉아야 할지, 언제 일어서야 할지...</strong><br />
+              모든 궁금증을 미리 해결해드립니다! 첫 방문부터 <span className="text-blue-600 font-semibold">편안하고 자연스럽게</span> 예배하세요.
             </p>
           </div>
 
@@ -671,10 +689,13 @@ export default function Home() {
       <section className="py-20 bg-slate-900 text-white">
         <div className="container">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">함께 신앙의 여정을 걸어요</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              지금 시작하면 <span className="text-yellow-400">3개월 무료 혜택!</span>
+            </h2>
             <p className="text-lg mb-8 text-slate-300">
-              주님의교회는 언제나 여러분을 환영합니다. 
-              특히 경주역 신도시 주민 여러분, 아름다운 산길을 따라 평온한 신앙 생활의 시작을 함께 하세요.
+              <strong>✨ 신도시 주민 한정 특가 이벤트 ✨</strong><br />
+              📅 <strong>3개월 무료 픽업 서비스</strong> + 🎁 <strong>콩과나무로 건강 선물세트</strong> + 👨‍👩‍👧‍👦 <strong>신도시 가족 모임 우선 참여</strong><br />
+              경주역 10분 거리, 하지만 <span className="text-yellow-400 font-semibold">인생이 바뀌는 경험</span>이 기다립니다.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-white text-slate-900 hover:bg-slate-100" asChild>

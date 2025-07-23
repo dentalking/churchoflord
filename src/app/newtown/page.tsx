@@ -24,15 +24,16 @@ export default function NewtownPage() {
             </div>
             
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-slate-900">
-              새로운 터전에서<br />
+              아파트 단지 벗어나 10분이면<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
-                평온한 신앙 생활
-              </span>을 시작하세요
+                완전히 다른 세상
+              </span>이 기다려요
             </h1>
             
             <p className="text-xl md:text-2xl mb-8 text-slate-700 leading-relaxed">
-              경주역 신도시에 새롭게 정착하신 여러분,<br />
-              주님의교회가 여러분의 든든한 신앙 공동체가 되어드리겠습니다.
+              <strong>📱 매일 스마트폰 알림에 지치고, 🚗 주차전쟁에 스트레스받고, 🏢 빌딩숲에 답답하셨죠?</strong><br />
+              경주역 신도시 주민만을 위한 <span className="text-green-600 font-bold">특별 멤버십 교회</span>에서<br />
+              🌿 새소리 • 🏔️ 산바람 • 🤗 진짜 사람냄새 나는 공동체를 만나보세요!
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -52,10 +53,14 @@ export default function NewtownPage() {
       <section className="py-20">
         <div className="container">
           <div className="text-center mb-16">
-            <span className="inline-block px-4 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-medium mb-4">신도시 주민 특별 혜택</span>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">왜 주님의교회를 선택해야 할까요?</h2>
+            <span className="inline-block px-4 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-medium mb-4">🎁 신도시 주민 VIP 멤버십</span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              다른 교회 vs 주님의교회, <span className="text-blue-600">이 정도 차이!</span>
+            </h2>
             <p className="text-lg text-slate-700 max-w-2xl mx-auto">
-              경주역 신도시에서 10분 거리, 새로운 환경에 적응하는 여러분을 위한 특별한 배려가 준비되어 있습니다.
+              <strong>"교회 찾아서 이것저것 알아보기 귀찮으시죠?"</strong><br />
+              비교 끝! 신도시 주민이라면 <span className="text-red-500 font-bold">무조건 여기</span>가 답입니다.<br />
+              💰 <strong>돈도 절약되고</strong> ⏰ <strong>시간도 절약되고</strong> ❤️ <strong>마음도 편해지는</strong> 확실한 선택!
             </p>
           </div>
 
