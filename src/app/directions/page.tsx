@@ -2,14 +2,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import { Car, Bus, Clock, MapPin, Phone, MessageSquare, Navigation, Home } from "lucide-react";
+import { Car, Bus, Clock, MapPin, Phone, MessageSquare, Navigation, Home, Heart, Users } from "lucide-react";
 import { NaverMapButton, KakaoMapButton, NaverMapButtonSmall, PickupServiceButton } from "@/components/ui/interactive-buttons";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "오시는 길",
-  description: "경주역에서 주님의교회까지 오시는 길을 안내합니다. 차로 10분 거리, 아름다운 산길을 따라 오시면 됩니다. 차량 운행 서비스도 제공합니다.",
-  keywords: "교회 위치, 경주역에서 오는 길, 차량 운행, 주차장, 경주시 내남면",
+  description: "도심에서 가까운 평온한 산속 주님의교회로 오시는 길을 안내합니다. 따뜻한 믿음 공동체가 모든 분들을 환영합니다.",
+  keywords: "교회 위치, 오시는 길, 공동체 교통편, 주차장, 경주시 내남면",
 };
 
 export default function DirectionsPage() {
@@ -21,49 +21,50 @@ export default function DirectionsPage() {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
               <Navigation className="h-4 w-4" />
-              경주역에서 10분 거리
+              도심에서 가까운 평온한 산속
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">오시는 길</h1>
             <p className="text-xl text-slate-700 max-w-3xl mx-auto">
-              경주역 신도시에서 아름다운 산길을 따라 주님의교회까지,<br />
-              다양한 교통편으로 편리하게 오실 수 있습니다.
+              "수고하고 무거운 짐 진 자들아 내게로 오라" (마 11:28)<br />
+              하나님의 부르심에 응답하여 주님의교회로 오시는 모든 분들을 환영합니다.
             </p>
           </div>
         </div>
       </section>
 
-      {/* 신도시 주민 특별 안내 */}
+      {/* 교회 공동체 안내 */}
       <section className="py-16">
         <div className="container">
           <div className="bg-gradient-to-r from-green-600 to-blue-600 rounded-3xl overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-2">
               <div className="p-12 text-white">
                 <div className="flex items-center gap-3 mb-6">
-                  <Home className="h-8 w-8" />
-                  <h2 className="text-3xl font-bold">신도시 주민 특별 서비스</h2>
+                  <Heart className="h-8 w-8" />
+                  <h2 className="text-3xl font-bold">따뜻한 믿음 공동체</h2>
                 </div>
                 <p className="text-xl mb-8 text-green-100">
-                  경주역 신도시에 새롭게 정착하신 분들을 위한 특별한 교통편 서비스를 제공합니다.
+                  "서로 사랑하기를 형제우애하듯 하고" (롬 12:10)<br />
+                  처음 오시는 모든 분들을 가족처럼 따뜻하게 맞아드립니다.
                 </p>
                 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
                     <div className="bg-white/20 p-3 rounded-full">
-                      <Bus className="h-6 w-6" />
+                      <Users className="h-6 w-6" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold mb-2">무료 픽업 서비스</h3>
-                      <p className="text-green-100">처음 3개월간 경주역에서 교회까지 무료 픽업</p>
+                      <h3 className="text-xl font-bold mb-2">함께하는 교통편</h3>
+                      <p className="text-green-100">교우들과 함께 카풀이나 대중교통으로 편안하게</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-4">
                     <div className="bg-white/20 p-3 rounded-full">
-                      <Clock className="h-6 w-6" />
+                      <Heart className="h-6 w-6" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold mb-2">개인 맞춤 안내</h3>
-                      <p className="text-green-100">첫 방문 시 개인적으로 길 안내 및 동행 서비스</p>
+                      <h3 className="text-xl font-bold mb-2">새가족 돌봄</h3>
+                      <p className="text-green-100">첫 방문부터 신앙 생활까지 함께 동행하며 섬김</p>
                     </div>
                   </div>
                 </div>
@@ -71,7 +72,7 @@ export default function DirectionsPage() {
                 <div className="flex flex-col sm:flex-row gap-4 mt-8">
                   <Button size="lg" className="bg-yellow-400 hover:bg-yellow-500 text-black font-medium">
                     <MessageSquare className="mr-2 h-5 w-5" />
-                    픽업 서비스 신청
+                    교통편 문의하기
                   </Button>
                   <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
                     <Link href="tel:010-4162-2701">
@@ -85,7 +86,7 @@ export default function DirectionsPage() {
               <div className="relative min-h-[400px]">
                 <Image
                   src="/images/direction/pathway.png"
-                  alt="경주역에서 교회까지의 아름다운 길"
+                  alt="주님의교회로 오시는 평온한 산길"
                   fill
                   className="object-cover"
                 />
@@ -138,15 +139,15 @@ export default function DirectionsPage() {
               </CardContent>
             </Card>
 
-            {/* 픽업 서비스 */}
+            {/* 공동체 교통편 */}
             <Card className="border-0 shadow-xl hover:shadow-2xl transition-shadow border-t-4 border-t-blue-500">
               <CardHeader className="text-center pb-2">
                 <div className="w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Bus className="h-10 w-10 text-blue-600" />
                 </div>
-                <CardTitle className="text-2xl">픽업 서비스</CardTitle>
+                <CardTitle className="text-2xl">공동체 교통편</CardTitle>
                 <div className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
-                  신도시 주민 특혜
+                  함께 오는 기쁨
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -162,9 +163,9 @@ export default function DirectionsPage() {
                   <p className="text-blue-700">용강 홈플러스 오후 1:00 출발</p>
                 </div>
 
-                <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
-                  <h3 className="font-bold text-yellow-800 mb-2">🎁 신도시 주민 특별 혜택</h3>
-                  <p className="text-yellow-700 text-sm">첫 3개월간 무료 이용 가능</p>
+                <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+                  <h3 className="font-bold text-green-800 mb-2">❤️ 새가족 돌봄</h3>
+                  <p className="text-green-700 text-sm">처음 오시는 분들을 위한 특별 배려</p>
                 </div>
 
                 <PickupServiceButton />
@@ -300,8 +301,8 @@ export default function DirectionsPage() {
           <div className="bg-gradient-to-br from-green-600 to-blue-600 rounded-3xl p-12 text-white text-center">
             <h2 className="text-3xl font-bold mb-6">길을 찾는데 도움이 필요하신가요?</h2>
             <p className="text-xl mb-8 text-green-100">
-              언제든 연락주시면 친절하게 안내해드리겠습니다.<br />
-              특히 신도시에서 처음 오시는 분들은 개인적으로 도움을 드립니다.
+              "서로 짐을 지라 그리하면 너희가 그리스도의 법을 성취하리라" (갈 6:2)<br />
+              처음 오시는 모든 분들을 형제자매로 따뜻하게 맞아드립니다.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">

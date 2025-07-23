@@ -42,9 +42,9 @@ export default function ActivitiesPage() {
   ];
   
   const missionImages = [
-    { id: 1, title: "경주역 전도", description: "경주역 신도시 주민 초청" },
+    { id: 1, title: "지역 전도", description: "이 지역에 사는 모든 분들에게 복음 전파" },
     { id: 2, title: "가을 산책 예배", description: "산길에서 드리는 감사 예배" },
-    { id: 3, title: "신도시 주민 방문", description: "신도시 주민 가정 방문" },
+    { id: 3, title: "가정 방문", description: "지역 주민 가정 방문 및 돌봄" },
     { id: 4, title: "지역 행사 참여", description: "지역 사회 행사 참여" },
   ];
   
@@ -181,17 +181,18 @@ export default function ActivitiesPage() {
         
         <TabsContent value="mission">
           <div className="mb-8">
-            <h2 className="text-2xl font-bold mb-4">경주역 전도 활동</h2>
+            <h2 className="text-2xl font-bold mb-4">지역 사랑 전도 활동</h2>
             <p className="mb-6">
-              경주역 신도시에 새롭게 이주하신 분들에게 평온한 신앙 생활을 소개하고 
-              주님의교회의 따뜻한 공동체를 알리는 활동을 진행하고 있습니다.
+              "가서 모든 민족을 제자로 삼으라" (마 28:19)의 명령에 순종하여 
+              이 지역에 사는 모든 분들에게 하나님의 사랑을 전하는 활동을 진행하고 있습니다.
             </p>
             
             <div className="bg-slate-50 p-6 rounded-lg mb-8">
-              <h3 className="text-xl font-bold mb-3">신도시 주민을 위한 메시지</h3>
+              <h3 className="text-xl font-bold mb-3">전도의 심장</h3>
               <p>
-                경주역 신도시에 새롭게 정착하신 여러분, 주님의교회는 아름다운 산길 10분 거리에 자리 잡은 평온한 신앙의 터전입니다. 
-                '콩과나무로'의 건강한 나눔과 따뜻한 공동체가 여러분을 기다립니다.
+                "너희는 세상에서 빛이라 산위에 세운 동네가 숨겨지지 못할 것이요" (마 5:14)
+                주님의교회는 이 지역에 하나님의 사랑을 비추는 빛이 되기를 원합니다. 
+                '콩과나무로'의 건강한 나눔과 따뜻한 섬김을 통해 지역을 섬기고 있습니다.
               </p>
             </div>
           </div>
