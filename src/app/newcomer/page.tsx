@@ -40,8 +40,8 @@ export default function NewcomerPage() {
         </h1>
         <p className="text-xl text-slate-600 max-w-3xl mx-auto">
           "나그네 되었을 때에 영접하였고" (마 25:35)<br />
-          소규모 신앙 공동체에서만 가능한 개인별 맞춤 돌봄으로 여러분을 기다립니다.<br />
-          하나님께서 인도하신 귀한 발걸음, 가족같은 따뜻함 속에서 함께 신앙의 여정을 시작해보세요
+          소규모 신앙공동체에서만 가능한 개인별 맞춤 돌봄으로 여러분을 기다립니다.<br />
+          하나님께서 인도하신 귀한 발걸음, 형제자매의 사랑으로 함께 신앙의 여정을 시작해보세요
         </p>
       </div>
 
@@ -218,7 +218,7 @@ export default function NewcomerPage() {
                   <div className="space-y-4">
                     <h3 className="font-semibold">함께 만들어갈 소그룹</h3>
                     <ul className="space-y-2 text-sm">
-                      <li>• 새로운 가족들과 함께 소그룹 구성</li>
+                      <li>• 새로운 성도님들과 함께 소그룹 구성</li>
                       <li>• 주중 가정 모임 계획 중</li>
                       <li>• 세대별 맞춤 모임 준비</li>
                       <li>• 함께 기도하고 말씀 나누는 시간</li>

@@ -3,6 +3,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -325,154 +326,98 @@ export default function ActivitiesPage() {
         
         <TabsContent value="ministry">
           <div className="mb-8">
-            <h2 className="text-2xl font-bold mb-4">제자 양성</h2>
+            <h2 className="text-2xl font-bold mb-4">평신도 사역</h2>
             <p className="mb-6 text-slate-700">
-              "너희는 가서 모든 민족을 제자로 삼아 내가 너희에게 분부한 모든 것을 가르쳐 지키게 하라" (마 28:19-20)<br />
-              성경적 제자도와 건전한 신학을 바탕으로 말씀으로 무장된 제자들을 세우고, 
-              또 다른 제자를 재생산하는 성숙한 그리스도인들을 양성합니다.
+              "그가 어떤 사람은 사도로, 어떤 사람은 선지자로, 어떤 사람은 복음 전하는 자로, 
+              어떤 사람은 목사와 교사로 삼으셨으니 이는 성도를 온전하게 하여 봉사의 일을 하게 하며 
+              그리스도의 몸을 세우려 하심이라" (엡 4:11-12)<br />
+              소규모 교회이기에 모든 성도가 함께 사역에 참여하는 것이 더욱 중요합니다.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">예배 사역팀</CardTitle>
-                <CardDescription>팀장: 박다윗 집사</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm mb-3">
-                  찬양팀, 성가대, 방송팀, 안내팀이 함께 예배를 섬깁니다.
-                </p>
-                <ul className="text-sm space-y-1 text-slate-600">
-                  <li>• 찬양팀: 매주 목요일 연습</li>
-                  <li>• 성가대: 매주 주일 오후 연습</li>
-                  <li>• 방송팀: 예배 음향/영상 담당</li>
-                  <li>• 안내팀: 예배 안내 및 환영</li>
-                </ul>
-              </CardContent>
-            </Card>
-            
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">교육 사역팀</CardTitle>
-                <CardDescription>팀장: 이한나 집사</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm mb-3">
-                  주일학교와 청소년부, 청년부를 섬기는 교사들의 사역입니다.
-                </p>
-                <ul className="text-sm space-y-1 text-slate-600">
-                  <li>• 영유아부: 0-5세 양육</li>
-                  <li>• 유초등부: 6-13세 교육</li>
-                  <li>• 중고등부: 청소년 제자훈련</li>
-                  <li>• 청년부: 청년 양육과 훈련</li>
-                </ul>
-              </CardContent>
-            </Card>
-            
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">봉사 사역팀</CardTitle>
-                <CardDescription>팀장: 최미선 권사</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm mb-3">
-                  교회 내외의 다양한 봉사로 사랑을 실천합니다.
-                </p>
-                <ul className="text-sm space-y-1 text-slate-600">
-                  <li>• 친교팀: 예배 후 식사 준비</li>
-                  <li>• 새가족팀: 새가족 환영과 정착</li>
-                  <li>• 경조팀: 경조사 지원</li>
-                  <li>• 환경미화팀: 교회 청소 및 관리</li>
-                </ul>
-              </CardContent>
-            </Card>
-            
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">전도 사역팀</CardTitle>
-                <CardDescription>팀장: 김요한 집사</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm mb-3">
-                  지역 전도와 복음 전파를 위해 활동합니다.
-                </p>
-                <ul className="text-sm space-y-1 text-slate-600">
-                  <li>• 거리 전도: 매월 셋째 주 토요일</li>
-                  <li>• 병원 심방: 매주 화요일</li>
-                  <li>• 신도시 전도: 정기 방문 전도</li>
-                  <li>• 온라인 전도: SNS 복음 전파</li>
-                </ul>
-              </CardContent>
-            </Card>
-            
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">선교 사역팀</CardTitle>
-                <CardDescription>팀장: 정바울 장로</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm mb-3">
-                  국내외 선교 활동을 기획하고 지원합니다.
-                </p>
-                <ul className="text-sm space-y-1 text-slate-600">
-                  <li>• 선교사 후원: 정기 후원 관리</li>
-                  <li>• 단기선교: 연 2회 해외 선교</li>
-                  <li>• 농어촌 선교: 국내 미자립 교회 지원</li>
-                  <li>• 선교 기도회: 매월 첫째 주 금요일</li>
-                </ul>
-              </CardContent>
-            </Card>
-            
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">행정 사역팀</CardTitle>
-                <CardDescription>팀장: 서마태 집사</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm mb-3">
-                  교회 행정과 재정을 투명하게 관리합니다.
-                </p>
-                <ul className="text-sm space-y-1 text-slate-600">
-                  <li>• 재정팀: 헌금 관리 및 회계</li>
-                  <li>• 서기팀: 교회 문서 관리</li>
-                  <li>• 홍보팀: 웹사이트 및 SNS 관리</li>
-                  <li>• 시설관리팀: 건물 및 장비 관리</li>
-                </ul>
-              </CardContent>
-            </Card>
+          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-8 mb-8">
+            <div className="max-w-3xl mx-auto text-center">
+              <h3 className="text-2xl font-bold mb-4">함께 만들어갈 사역</h3>
+              <p className="text-slate-700 mb-6">
+                현재 소규모로 운영되고 있는 우리 교회는 새로 오시는 분들과 함께 
+                다양한 사역을 시작하려 합니다. 당신의 은사와 재능이 필요합니다!
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-lg">예배 섬김</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm mb-3">
+                      찬양 인도, 악기 연주, 음향 등으로 예배를 섬길 분들을 찾습니다.
+                    </p>
+                    <Badge variant="secondary">함께 시작해요</Badge>
+                  </CardContent>
+                </Card>
+                
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-lg">교육 사역</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm mb-3">
+                      주일학교 교사, 성경공부 인도자 등 다음 세대를 위한 사역자를 찾습니다.
+                    </p>
+                    <Badge variant="secondary">준비 중</Badge>
+                  </CardContent>
+                </Card>
+                
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-lg">봉사 사역</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm mb-3">
+                      친교 준비, 교회 환경 관리 등 손길이 필요한 곳에서 섬길 분들을 찾습니다.
+                    </p>
+                    <Badge variant="secondary">참여 가능</Badge>
+                  </CardContent>
+                </Card>
+              </div>
+              
+              <p className="text-slate-600 mb-6">
+                소규모 교회의 장점은 모든 성도가 사역에 참여할 수 있다는 것입니다.<br />
+                당신의 작은 섬김이 교회 전체에 큰 변화를 만듭니다.
+              </p>
+              
+              <Button asChild size="lg">
+                <Link href="/contact?type=ministry">사역 참여 문의하기</Link>
+              </Button>
+            </div>
           </div>
           
           <div className="bg-indigo-50 rounded-lg p-8">
-            <h3 className="text-xl font-bold mb-4">평신도 사역자로 함께하세요!</h3>
+            <h3 className="text-xl font-bold mb-4">소규모 교회의 특별한 기회</h3>
             <p className="mb-6">
-              하나님께서 주신 은사를 발견하고 개발하여 교회와 이웃을 섬기는 
-              평신도 사역자가 되어보세요. 제자훈련과 사역훈련을 통해 
-              준비된 사역자로 세워드립니다.
+              작은 교회이기에 당신의 섬김이 더욱 의미 있습니다. <br />
+              함께 교회를 세워가는 동역자가 되어주세요.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
               <div className="bg-white p-4 rounded">
-                <h4 className="font-medium mb-2">1단계: 은사 발견</h4>
+                <h4 className="font-medium mb-2">즉시 참여</h4>
                 <p className="text-sm text-slate-600">
-                  은사 발견 세미나를 통해 나의 은사를 찾아보세요
+                  복잡한 절차 없이 바로 사역에 참여할 수 있습니다
                 </p>
               </div>
               <div className="bg-white p-4 rounded">
-                <h4 className="font-medium mb-2">2단계: 훈련 과정</h4>
+                <h4 className="font-medium mb-2">다양한 경험</h4>
                 <p className="text-sm text-slate-600">
-                  사역별 전문 훈련을 통해 사역 역량을 키워가세요
+                  여러 분야의 사역을 경험하며 은사를 발견합니다
                 </p>
               </div>
               <div className="bg-white p-4 rounded">
-                <h4 className="font-medium mb-2">3단계: 사역 참여</h4>
+                <h4 className="font-medium mb-2">함께 성장</h4>
                 <p className="text-sm text-slate-600">
-                  훈련받은 사역자로 교회와 지역을 섬기세요
+                  교회와 함께 성장하는 기쁨을 누릴 수 있습니다
                 </p>
               </div>
             </div>
-            <Button asChild>
-              <Link href="/contact?type=ministry">사역 참여 문의하기</Link>
-            </Button>
           </div>
         </TabsContent>
       </Tabs>

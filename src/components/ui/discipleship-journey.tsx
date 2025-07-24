@@ -150,7 +150,7 @@ export function DiscipleshipJourney() {
         <h2 className="text-3xl font-bold mb-4">제자양육의 여정</h2>
         <p className="text-lg text-slate-600 max-w-3xl mx-auto">
           "또 네가 많은 증인 앞에서 내게 들은 바를 충성된 사람들에게 부탁하라 저희가 또 다른 사람들을 가르칠 수 있는 자가 되게 하라" (딤후 2:2)<br />
-          소규모 공동체이기에 가능한 개인별 맞춤 제자훈련과 일대일 멘토링을 통한 체계적 양육 과정
+          소규모 공동체이기에 가능한 개인별 맞춤 제자훈련과 세심한 돌봄을 통한 체계적 양육 과정
         </p>
       </div>
 

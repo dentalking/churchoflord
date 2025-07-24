@@ -144,11 +144,12 @@ export default function SmallGroupsPage() {
       <div className="text-center mb-12">
         <Badge className="mb-4">👥 소그룹 사역</Badge>
         <h1 className="text-4xl font-bold mb-6">
-          함께 자라가는 <span className="text-green-600">소그룹 공동체</span>
+          함께 시작할 <span className="text-green-600">소그룹 공동체</span>
         </h1>
         <p className="text-lg text-slate-700 max-w-3xl mx-auto">
           "두세 사람이 내 이름으로 모인 곳에는 나도 그들 중에 있느니라" (마 18:20)<br />
-          대그룹 예배에서 경험할 수 없는 친밀한 교제와 돌봄이 있는 소그룹에서 진정한 공동체를 경험하세요.
+          소규모 교회의 장점을 살려 새로 오시는 분들과 함께 소그룹을 만들어가려 합니다. 
+          소수이기에 더욱 깊고 친밀한 교제가 가능합니다.
         </p>
       </div>
 
@@ -180,7 +181,7 @@ export default function SmallGroupsPage() {
                     친밀한 관계
                   </h3>
                   <p className="text-sm text-slate-600">
-                    10명 내외의 소그룹에서 깊은 나눔과 교제
+                    5-7명의 소규모 모임에서 깊은 나눔과 교제
                   </p>
                 </div>
                 <div className="bg-white/70 rounded-lg p-4">
@@ -189,7 +190,7 @@ export default function SmallGroupsPage() {
                     상호 돌봄
                   </h3>
                   <p className="text-sm text-slate-600">
-                    기쁨과 어려움을 함께 나누는 영적 가족
+                    기쁨과 어려움을 함께 나누는 신앙공동체
                   </p>
                 </div>
                 <div className="bg-white/70 rounded-lg p-4">
@@ -229,38 +230,24 @@ export default function SmallGroupsPage() {
             <div className="text-center mb-8">
               <h2 className="text-2xl font-bold mb-4">지역별 구역 모임</h2>
               <p className="text-slate-600 max-w-2xl mx-auto">
-                거주 지역을 중심으로 모이는 구역 모임입니다. 
-                이웃과 함께 신앙생활을 하며 지역 사회를 섬깁니다.
+                거주 지역을 중심으로 모이는 구역 모임을 준비하고 있습니다. 
+                새로 오시는 분들과 함께 시작하려 합니다.
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {districtGroups.map((group) => (
-                <Card key={group.id} className="hover:shadow-lg transition-shadow">
-                  <CardHeader>
-                    <div className="flex items-start justify-between">
-                      <div>
-                        <CardTitle className="text-xl">{group.name}</CardTitle>
-                        <CardDescription>{group.leader} 인도</CardDescription>
-                      </div>
-                      <Badge variant="secondary">{group.members}명</Badge>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-slate-600 mb-4">{group.description}</p>
-                    <div className="space-y-2 text-sm">
-                      <div className="flex items-center gap-2">
-                        <MapPin className="h-4 w-4 text-slate-500" />
-                        <span>{group.area}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Clock className="h-4 w-4 text-slate-500" />
-                        <span>{group.meetingTime}</span>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-8 text-center">
+              <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="h-8 w-8 text-yellow-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">함께 시작해요!</h3>
+              <p className="text-slate-700 mb-4 max-w-2xl mx-auto">
+                현재 새로운 구역 모임을 준비 중입니다.<br />
+                경주역 신도시 지역을 중심으로 2-3가정이 모이는 따뜻한 모임을 계획하고 있습니다.<br />
+                함께 시작하실 분들을 기다립니다.
+              </p>
+              <Button asChild>
+                <Link href="/contact?type=smallgroup">구역 모임 문의하기</Link>
+              </Button>
             </div>
           </TabsContent>
           
@@ -269,44 +256,23 @@ export default function SmallGroupsPage() {
               <h2 className="text-2xl font-bold mb-4">연령별 목장 모임</h2>
               <p className="text-slate-600 max-w-2xl mx-auto">
                 비슷한 연령대와 인생 단계에 있는 분들이 함께 모여 
-                공감대를 형성하고 함께 성장하는 목장입니다.
+                공감대를 형성하고 함께 성장하는 목장을 준비 중입니다.
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {lifeGroups.map((group) => {
-                const Icon = group.icon;
-                return (
-                  <Card key={group.id} className="hover:shadow-lg transition-shadow">
-                    <CardHeader>
-                      <div className="flex items-start justify-between">
-                        <div className="flex items-start gap-3">
-                          <div className={`w-12 h-12 ${group.bgColor} rounded-full flex items-center justify-center`}>
-                            <Icon className={`h-6 w-6 ${group.color}`} />
-                          </div>
-                          <div>
-                            <CardTitle className="text-xl">{group.name}</CardTitle>
-                            <CardDescription>{group.leader} 인도</CardDescription>
-                          </div>
-                        </div>
-                        <Badge variant="secondary">{group.members}명</Badge>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-2 text-sm">
-                        <div className="flex items-center gap-2">
-                          <Users className="h-4 w-4 text-slate-500" />
-                          <span>{group.age}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <Clock className="h-4 w-4 text-slate-500" />
-                          <span>{group.meetingTime}</span>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                );
-              })}
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-8 text-center">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Heart className="h-8 w-8 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">여러분의 참여를 기다립니다</h3>
+              <p className="text-slate-700 mb-4 max-w-2xl mx-auto">
+                청년, 신혼부부, 자녀양육 가정 등 각 연령과 상황에 맞는 목장을 준비하고 있습니다.<br />
+                3-4가정이 모여 서로의 삶을 나누고 함께 성장하는 친밀한 모임을 시작하려 합니다.<br />
+                첫 멤버가 되어주세요!
+              </p>
+              <Button asChild>
+                <Link href="/contact?type=smallgroup">목장 모임 문의하기</Link>
+              </Button>
             </div>
           </TabsContent>
           
@@ -315,46 +281,23 @@ export default function SmallGroupsPage() {
               <h2 className="text-2xl font-bold mb-4">관심사별 소그룹</h2>
               <p className="text-slate-600 max-w-2xl mx-auto">
                 공통의 관심사와 은사를 가진 분들이 모여 
-                함께 배우고 성장하며 섬기는 소그룹입니다.
+                함께 배우고 성장하며 섬기는 소그룹을 계획하고 있습니다.
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {interestGroups.map((group) => {
-                const Icon = group.icon;
-                return (
-                  <Card key={group.id} className="hover:shadow-lg transition-shadow">
-                    <CardHeader>
-                      <div className="flex items-start gap-3">
-                        <div className="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center">
-                          <Icon className="h-6 w-6 text-indigo-600" />
-                        </div>
-                        <div className="flex-1">
-                          <CardTitle className="text-xl">{group.name}</CardTitle>
-                          <CardDescription>{group.leader} 인도</CardDescription>
-                        </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-slate-600 mb-3">{group.description}</p>
-                      <div className="flex items-center gap-2 text-sm text-slate-500 mb-3">
-                        <Clock className="h-4 w-4" />
-                        <span>{group.meetingTime}</span>
-                        <span className="mx-2">•</span>
-                        <Users className="h-4 w-4" />
-                        <span>{group.members}명</span>
-                      </div>
-                      <div className="flex gap-2 flex-wrap">
-                        {group.tags.map((tag) => (
-                          <Badge key={tag} variant="secondary" className="text-xs">
-                            {tag}
-                          </Badge>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                );
-              })}
+            <div className="bg-purple-50 border border-purple-200 rounded-lg p-8 text-center">
+              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <BookOpen className="h-8 w-8 text-purple-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">관심사를 알려주세요!</h3>
+              <p className="text-slate-700 mb-4 max-w-2xl mx-auto">
+                말씀 묵상, 찬양, 기도, 독서 등 다양한 관심사별 모임을 준비하고 있습니다.<br />
+                어떤 모임에 참여하고 싶으신지 알려주시면, 비슷한 관심을 가진 분들과 연결해드립니다.<br />
+                소규모이기에 더욱 집중된 모임이 가능합니다.
+              </p>
+              <Button asChild>
+                <Link href="/contact?type=smallgroup">관심사 소그룹 문의하기</Link>
+              </Button>
             </div>
           </TabsContent>
         </Tabs>
