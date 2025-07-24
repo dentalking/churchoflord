@@ -289,10 +289,10 @@ export default function NewcomerPage() {
                 </div>
                 
                 <div className="bg-slate-50 rounded-lg p-6">
-                  <h3 className="font-semibold mb-3">옥한흠 목사님의 제자훈련 철학</h3>
+                  <h3 className="font-semibold mb-3">건전한 신학과 체계적 양육</h3>
                   <p className="text-sm text-slate-700 mb-3">
-                    "제자가 제자를 만드는" 재생산의 원리에 따라 체계적이고 지속적인 양육을 통해 
-                    영적으로 성숙한 그리스도인으로 세워드립니다.
+                    개혁주의의 성경적 정통성과 성령의 역사가 조화된 건전한 신학을 바탕으로 
+                    "제자가 제자를 만드는" 재생산의 원리에 따라 체계적이고 지속적인 양육을 진행합니다.
                   </p>
                   <p className="text-sm text-slate-600">
                     각 단계마다 개인의 속도에 맞춰 진행되며, 말씀 암송, 큐티, 

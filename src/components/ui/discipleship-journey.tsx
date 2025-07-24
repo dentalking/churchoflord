@@ -150,7 +150,7 @@ export function DiscipleshipJourney() {
         <h2 className="text-3xl font-bold mb-4">제자양육의 여정</h2>
         <p className="text-lg text-slate-600 max-w-3xl mx-auto">
           "또 네가 많은 증인 앞에서 내게 들은 바를 충성된 사람들에게 부탁하라 저희가 또 다른 사람들을 가르칠 수 있는 자가 되게 하라" (딤후 2:2)<br />
-          옥한흠 목사님의 제자훈련 철학에 따른 체계적 양육 과정
+          성경적 제자도와 개혁주의 전통에 기반한 체계적 양육 과정
         </p>
       </div>
 
@@ -280,16 +280,26 @@ export function DiscipleshipJourney() {
         </Card>
       )}
 
-      {/* 철학 설명 */}
+      {/* 신학적 철학 설명 */}
       <Card className="bg-slate-50 border-slate-200">
         <CardHeader>
-          <CardTitle className="text-center">옥한흠 목사님의 제자훈련 철학</CardTitle>
+          <CardTitle className="text-center">건강한 신학과 제자훈련</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
             <div>
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                <Users className="h-8 w-8 text-blue-600" />
+                <BookOpen className="h-8 w-8 text-blue-600" />
+              </div>
+              <h3 className="font-semibold mb-2">성경적 정통성</h3>
+              <p className="text-sm text-slate-600">
+                개혁주의 전통과 성령의 역사가 조화된 건전한 신학을 바탕으로 합니다
+              </p>
+            </div>
+            
+            <div>
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <Users className="h-8 w-8 text-green-600" />
               </div>
               <h3 className="font-semibold mb-2">재생산의 원리</h3>
               <p className="text-sm text-slate-600">
@@ -298,31 +308,21 @@ export function DiscipleshipJourney() {
             </div>
             
             <div>
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                <BookOpen className="h-8 w-8 text-green-600" />
-              </div>
-              <h3 className="font-semibold mb-2">말씀 중심</h3>
-              <p className="text-sm text-slate-600">
-                모든 양육 과정이 성경 말씀을 기초로 하여 진행됩니다
-              </p>
-            </div>
-            
-            <div>
               <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
                 <Crown className="h-8 w-8 text-purple-600" />
               </div>
-              <h3 className="font-semibold mb-2">평생 헌신</h3>
+              <h3 className="font-semibold mb-2">균형잡힌 신앙</h3>
               <p className="text-sm text-slate-600">
-                한 번의 과정이 아닌 평생에 걸친 제자도의 삶을 추구합니다
+                말씀과 성령, 개혁주의와 은사주의의 건강한 균형을 추구합니다
               </p>
             </div>
           </div>
           
           <div className="bg-white rounded-lg p-6 mt-6">
             <p className="text-slate-700 text-center">
-              "제자훈련은 그리스도의 성품을 닮아가며, 그분의 사명을 감당할 수 있는 
-              온전한 그리스도인을 양육하는 것입니다. 이는 교회의 본질적 사명이며, 
-              모든 성도가 걸어가야 할 신앙의 여정입니다."
+              주님의교회는 <strong>고신교단의 개혁주의 정통성</strong>과 <strong>예하성의 성령 충만한 신앙</strong>을 아우르는 
+              넓은 스펙트럼의 건강한 신학을 바탕으로, 순수한 복음과 온전한 제자도를 통해 
+              그리스도의 몸을 세워가는 공동체입니다.
             </p>
           </div>
         </CardContent>

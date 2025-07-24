@@ -328,7 +328,7 @@ export default function ActivitiesPage() {
             <h2 className="text-2xl font-bold mb-4">제자 양성</h2>
             <p className="mb-6 text-slate-700">
               "너희는 가서 모든 민족을 제자로 삼아 내가 너희에게 분부한 모든 것을 가르쳐 지키게 하라" (마 28:19-20)<br />
-              옥한흠 목사님의 제자훈련 철학에 따라 말씀으로 무장된 제자들을 세우고, 
+              성경적 제자도와 건전한 신학을 바탕으로 말씀으로 무장된 제자들을 세우고, 
               또 다른 제자를 재생산하는 성숙한 그리스도인들을 양성합니다.
             </p>
           </div>

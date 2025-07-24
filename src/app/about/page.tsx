@@ -85,11 +85,20 @@ export default function AboutPage() {
             특히 바쁜 도시 생활에 지친 분들에게 평온한 신앙의 쉼터가 되어드리고자 합니다.
           </p>
           
+          <div className="bg-green-50 p-6 rounded-lg border border-green-200 mb-6">
+            <h3 className="text-xl font-bold mb-3 text-green-800">건전한 신학의 교회</h3>
+            <p className="text-green-700">
+              주님의교회는 <strong>개혁주의의 성경적 정통성</strong>과 <strong>성령의 역사</strong>가 조화된 
+              건전하고 균형잡힌 신학을 추구합니다. 현시대의 많은 이단과 극단적 사상들 속에서 
+              성경적 진리를 견고히 지키며, 순수한 복음으로 하나님 나라를 확장해 나가는 교회입니다.
+            </p>
+          </div>
+          
           <div className="bg-slate-50 p-6 rounded-lg">
             <h3 className="text-xl font-bold mb-3">경주역 신도시 주민을 위한 메시지</h3>
             <p>
               경주역 신도시에 새롭게 정착하신 여러분, 주님의교회는 아름다운 산길 10분 거리에 자리 잡은 평온한 신앙의 터전입니다. 
-              '콩과나무로'의 건강한 나눔과 따뜻한 공동체가 여러분을 기다립니다.
+              정통성 있는 복음과 '콩과나무로'의 건강한 나눔, 따뜻한 공동체가 여러분을 기다립니다.
             </p>
           </div>
         </TabsContent>
@@ -113,13 +122,23 @@ export default function AboutPage() {
                     "내가 선한 싸움을 싸우고 나의 달려갈 길을 마치고 믿음을 지켰으니" (딤후 4:7)
                   </p>
                 </div>
-                <p>
-                  주님의교회 설립자이자 지역 사회를 섬기는 목회자. 경주 지역 선교와 아프리카 선교를 위해 헌신. 
-                  신도시 주민 여러분, 평온한 산골 교회에서 함께 신앙의 쉼을 누리세요.
+                <p className="mb-4">
+                  주님의교회 설립자이자 지역 사회를 섬기는 목회자. 고신교단의 개혁주의 정통성과 예하성의 성령 충만한 신앙을 
+                  아우르는 넓은 스펙트럼의 건전한 신학으로 순수한 신앙 공동체를 세워가고 있습니다. 
+                  경주 지역 선교와 아프리카 선교를 위해 헌신하며, 신도시 주민 여러분을 평온한 산골 교회로 초대합니다.
                 </p>
+                <div className="bg-blue-50 rounded-lg p-4 mb-4 border border-blue-200">
+                  <h4 className="font-semibold text-blue-800 mb-2">신학적 배경과 정통성</h4>
+                  <p className="text-sm text-blue-700">
+                    고신교단 출신으로 개혁주의 신학의 견고한 기초 위에, 현재는 예하성 소속으로 
+                    성령의 역사와 은사를 인정하는 균형잡힌 신앙을 추구합니다. 이는 현시대 많은 
+                    이단과 극단적 사상들 속에서 성경적 정통성을 지키며 건강한 교회를 세우고자 하는 열정의 결과입니다.
+                  </p>
+                </div>
                 <div className="text-sm space-y-1 text-slate-600">
                   <p>• 총신대학교 신학대학원 졸업</p>
-                  <p>• 대한예수교장로회 목사 안수</p>
+                  <p>• 대한예수교장로회(고신) 목사 안수</p>
+                  <p>• 현재 예수교하나님의성회 소속</p>
                   <p>• 경주 지역 선교회 이사</p>
                   <p>• 아프리카 케냐 선교 사역</p>
                 </div>
