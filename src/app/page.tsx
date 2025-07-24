@@ -48,8 +48,7 @@ export default function Home() {
             </Button>
             <Button 
               size="lg" 
-              variant="outline" 
-              className="border-white text-white hover:bg-white/20 font-medium px-8"
+              className="border-2 border-white bg-white/10 text-white hover:bg-white hover:text-slate-900 font-medium px-8 backdrop-blur-sm"
               asChild
             >
               <Link href="/directions">
@@ -435,8 +434,7 @@ export default function Home() {
               </Button>
               <Button 
                 size="lg" 
-                variant="outline" 
-                className="border-white text-white hover:bg-white/10"
+                className="border-2 border-white bg-white/10 text-white hover:bg-white hover:text-slate-900 backdrop-blur-sm"
                 asChild
               >
                 <Link href="/contact">
