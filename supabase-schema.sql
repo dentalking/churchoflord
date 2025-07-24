@@ -102,7 +102,7 @@ CREATE TRIGGER update_prayer_requests_updated_at BEFORE UPDATE ON prayer_request
 
 -- 기본 데이터 삽입
 INSERT INTO notices (title, content, category, is_important, author) VALUES
-('신도시 입주민 초청 봄 예배 안내', '경주역 신도시에 새롭게 입주하신 분들을 위한 특별 초청 예배를 준비했습니다.', '이벤트', true, '방재홍 목사'),
+('봄맞이 특별 초청 예배 안내', '경주 지역에 새롭게 오신 모든 분들을 위한 특별 초청 예배를 준비했습니다.', '이벤트', true, '방재홍 목사'),
 ('4월 셋째 주 주보', '주님의 평안이 함께하시길 기도합니다.', '주보', false, '교회 사무실'),
 ('콩과나무로 봄 제품 출시', '봄을 맞아 새로운 제품을 준비했습니다.', '소식', false, '정성아 목사');
 

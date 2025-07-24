@@ -57,7 +57,7 @@ INSERT INTO sermons (title, pastor, youtube_url, description, sermon_date) VALUE
 
 -- 샘플 이벤트
 INSERT INTO events (title, description, event_date, event_time, location) VALUES
-('신도시 주민 초청 예배', '경주역 신도시 입주민을 위한 특별 예배', '2025-02-01', '10:00', '주님의교회'),
+('새가족 초청 예배', '경주 지역 새가족을 위한 특별 예배', '2025-02-01', '10:00', '주님의교회'),
 ('콩과나무로 나눔 바자회', '콩과나무로 제품 나눔 행사', '2025-02-15', '14:00', '교회 마당');
 
 -- 샘플 제품

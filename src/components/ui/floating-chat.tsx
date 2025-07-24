@@ -51,7 +51,7 @@ export function FloatingChat() {
                 </Button>
               </div>
               <CardDescription className="text-sm">
-                경주역 신도시 주민 여러분을 환영합니다!
+                모든 분들을 따뜻하게 환영합니다!
               </CardDescription>
             </CardHeader>
             
@@ -107,11 +107,11 @@ export function FloatingChat() {
               {/* 방문 예약 링크 */}
               <div className="pt-2">
                 <Link 
-                  href="/contact?type=newtown" 
+                  href="/contact" 
                   className="text-sm text-blue-600 hover:underline"
                   onClick={() => setIsOpen(false)}
                 >
-                  → 신도시 주민 방문 예약하기
+                  → 방문 예약하기
                 </Link>
               </div>
             </CardContent>

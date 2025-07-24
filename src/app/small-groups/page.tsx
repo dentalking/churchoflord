@@ -242,7 +242,7 @@ export default function SmallGroupsPage() {
               <h3 className="text-xl font-semibold mb-3">함께 시작해요!</h3>
               <p className="text-slate-700 mb-4 max-w-2xl mx-auto">
                 현재 새로운 구역 모임을 준비 중입니다.<br />
-                경주역 신도시 지역을 중심으로 2-3가정이 모이는 따뜻한 모임을 계획하고 있습니다.<br />
+                지역별로 2-3가정이 모이는 따뜻한 모임을 계획하고 있습니다.<br />
                 함께 시작하실 분들을 기다립니다.
               </p>
               <Button asChild>

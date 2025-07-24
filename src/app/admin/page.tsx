@@ -937,7 +937,7 @@ function EventManager({ adminPassword }: { adminPassword: string }) {
         <CardHeader>
           <CardTitle>{editingId ? '이벤트 수정' : '이벤트 추가'}</CardTitle>
           <CardDescription>
-            신도시 주민 초청 이벤트나 특별 행사를 추가하세요.
+            교회 행사와 특별 이벤트를 추가하세요.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">

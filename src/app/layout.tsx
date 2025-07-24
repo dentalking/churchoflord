@@ -9,11 +9,11 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "주님의교회 - 경주역 신도시에서 10분 거리의 평온한 신앙 공동체",
+    default: "주님의교회 - 경주 내남면 평온한 산속의 신앙공동체",
     template: "%s | 주님의교회"
   },
-  description: "경주역 신도시에서 10분, 아름다운 산길을 따라 평온한 신앙의 쉼터로 여러분을 초대합니다. 콩과나무로 프로젝트와 함께하는 건강한 교회 공동체입니다.",
-  keywords: "경주역, 신도시, 교회, 주님의교회, 콩과나무로, 경주시 내남면, 평온한 신앙, 산골교회, 예배",
+  description: "경주역에서 10분, 아름다운 산길을 따라 평온한 신앙의 쉼터로 여러분을 초대합니다. 콩과나무로 프로젝트와 함께하는 건강한 교회 공동체입니다.",
+  keywords: "경주교회, 주님의교회, 콩과나무로, 경주시 내남면, 평온한 신앙, 산골교회, 예배, 소규모교회",
   authors: [{ name: "주님의교회" }],
   creator: "주님의교회",
   publisher: "주님의교회",
@@ -22,12 +22,12 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     url: "https://www.churchoflord.kr",
     siteName: "주님의교회",
-    title: "주님의교회 - 경주역 신도시에서 10분 거리의 평온한 신앙 공동체",
-    description: "경주역 신도시에서 10분, 아름다운 산길을 따라 평온한 신앙의 쉼터로 여러분을 초대합니다.",
+    title: "주님의교회 - 경주 내남면 평온한 산속의 신앙공동체",
+    description: "경주역에서 10분, 아름다운 산길을 따라 평온한 신앙의 쉼터로 여러분을 초대합니다.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "주님의교회 - 경주역 신도시 평온한 신앙 공동체",
+    title: "주님의교회 - 경주 평온한 산속의 신앙공동체",
     description: "경주역에서 10분, 콩과나무로 프로젝트와 함께하는 건강한 교회 공동체",
   },
   robots: {

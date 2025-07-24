@@ -4,8 +4,8 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "교회 소개",
-  description: "주님의교회의 역사, 비전, 교역자 소개를 확인하세요. 경주역 신도시에서 10분 거리의 평온한 산골 교회입니다.",
-  keywords: "주님의교회 소개, 방재홍 목사, 정성아 목사, 경주역 신도시 교회, 교회 역사",
+  description: "주님의교회의 역사, 비전, 교역자 소개를 확인하세요. 경주역에서 10분 거리의 평온한 산골 교회입니다.",
+  keywords: "주님의교회 소개, 방재홍 목사, 정성아 목사, 경주 내남면 교회, 교회 역사",
 };
 
 export default function AboutPage() {
@@ -95,9 +95,9 @@ export default function AboutPage() {
           </div>
           
           <div className="bg-slate-50 p-6 rounded-lg">
-            <h3 className="text-xl font-bold mb-3">경주역 신도시 주민을 위한 메시지</h3>
+            <h3 className="text-xl font-bold mb-3">모든 이웃을 위한 메시지</h3>
             <p>
-              경주역 신도시에 새롭게 정착하신 여러분, 주님의교회는 아름다운 산길 10분 거리에 자리 잡은 소규모 신앙공동체입니다. 
+              경주 지역에 거주하시는 모든 분들을 환영합니다. 주님의교회는 아름다운 산길 10분 거리에 자리 잡은 소규모 신앙공동체입니다. 
               한 분 한 분의 이름을 기억하고, 개인별 맞춤 양육이 가능한 형제자매의 사랑으로 여러분을 기다리고 있습니다. 
               정통성 있는 복음과 '콩과나무로'의 건강한 나눔 속에서 함께 신앙의 여정을 시작해보세요.
             </p>
@@ -126,7 +126,7 @@ export default function AboutPage() {
                 <p className="mb-4">
                   주님의교회 설립자이자 고신대학교에서 학사부터 선교학 석사까지 체계적인 신학 교육을 받은 목회자입니다. 
                   고신교단의 개혁주의 정통성과 예하성의 성령 충만한 신앙을 아우르는 넓은 스펙트럼의 건전한 신학으로 
-                  순수한 신앙 공동체를 세워가고 있습니다. 신도시 주민 여러분을 평온한 산골 교회로 초대합니다.
+                  순수한 신앙 공동체를 세워가고 있습니다. 여러분 모두를 평온한 산골 교회로 초대합니다.
                 </p>
                 <div className="bg-blue-50 rounded-lg p-4 mb-4 border border-blue-200">
                   <h4 className="font-semibold text-blue-800 mb-2">신학적 배경과 정통성</h4>
