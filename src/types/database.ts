@@ -9,6 +9,7 @@ export interface Notice {
   author: string;
   created_at: string;
   updated_at: string;
+  deleted_at?: string | null;
 }
 
 export interface Sermon {
@@ -21,6 +22,7 @@ export interface Sermon {
   sermon_date: string;
   created_at: string;
   updated_at: string;
+  deleted_at?: string | null;
 }
 
 export interface Event {
@@ -33,6 +35,7 @@ export interface Event {
   is_active: boolean;
   created_at: string;
   updated_at: string;
+  deleted_at?: string | null;
 }
 
 export interface Product {
@@ -44,4 +47,5 @@ export interface Product {
   is_available: boolean;
   created_at: string;
   updated_at: string;
+  deleted_at?: string | null;
 }

@@ -20,6 +20,8 @@ export default function ContentManager({ adminPassword }: ContentManagerProps) {
   const [loading, setLoading] = useState(false);
   const [uploading, setUploading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const multiFileInputRef = useRef<HTMLInputElement>(null);
+  const [uploadProgress, setUploadProgress] = useState<{[key: string]: number}>({});
   
   // 제품 폼 상태
   const [productName, setProductName] = useState("");
@@ -30,6 +32,10 @@ export default function ContentManager({ adminPassword }: ContentManagerProps) {
   
   // 업로드된 이미지 미리보기
   const [previewUrl, setPreviewUrl] = useState("");
+  
+  // 대량 업로드 상태
+  const [bulkUploadMode, setBulkUploadMode] = useState(false);
+  const [uploadedImages, setUploadedImages] = useState<string[]>([]);
 
   // 제품 목록 불러오기
   const fetchProducts = async () => {
@@ -91,6 +97,75 @@ export default function ContentManager({ adminPassword }: ContentManagerProps) {
       alert('이미지 업로드 중 오류가 발생했습니다.');
     } finally {
       setUploading(false);
+    }
+  };
+
+  // 대량 이미지 업로드 처리
+  const handleBulkImageUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = event.target.files;
+    if (!files || files.length === 0) return;
+
+    // 파일 개수 제한 (최대 10개)
+    if (files.length > 10) {
+      alert('한 번에 최대 10개까지 업로드 가능합니다.');
+      return;
+    }
+
+    const uploadPromises = [];
+    const newUploadedImages: string[] = [];
+
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      
+      // 파일 크기 체크 (5MB)
+      if (file.size > 5 * 1024 * 1024) {
+        alert(`${file.name} 파일이 5MB를 초과합니다.`);
+        continue;
+      }
+
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('bucket', 'product-images');
+      formData.append('folder', 'bulk-uploads');
+
+      const uploadPromise = fetch('/api/upload', {
+        method: 'POST',
+        headers: {
+          'x-admin-password': adminPassword
+        },
+        body: formData
+      }).then(async (response) => {
+        if (response.ok) {
+          const data = await response.json();
+          newUploadedImages.push(data.url);
+          setUploadProgress(prev => ({ ...prev, [file.name]: 100 }));
+        } else {
+          throw new Error(`${file.name} 업로드 실패`);
+        }
+      }).catch(error => {
+        console.error(`Error uploading ${file.name}:`, error);
+        setUploadProgress(prev => ({ ...prev, [file.name]: -1 }));
+      });
+
+      uploadPromises.push(uploadPromise);
+      // 업로드 진행 상태 표시
+      setUploadProgress(prev => ({ ...prev, [file.name]: 0 }));
+    }
+
+    setUploading(true);
+    try {
+      await Promise.allSettled(uploadPromises);
+      setUploadedImages(prev => [...prev, ...newUploadedImages]);
+      
+      if (newUploadedImages.length > 0) {
+        alert(`${newUploadedImages.length}개의 이미지가 성공적으로 업로드되었습니다.`);
+      }
+    } finally {
+      setUploading(false);
+      // 3초 후 진행률 초기화
+      setTimeout(() => {
+        setUploadProgress({});
+      }, 3000);
     }
   };
 
@@ -179,10 +254,107 @@ export default function ContentManager({ adminPassword }: ContentManagerProps) {
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
     }
+    if (multiFileInputRef.current) {
+      multiFileInputRef.current.value = '';
+    }
+    setBulkUploadMode(false);
+    setUploadedImages([]);
   };
 
   return (
     <div className="space-y-6">
+      {/* 대량 이미지 업로드 섹션 */}
+      <Card>
+        <CardHeader>
+          <div className="flex justify-between items-center">
+            <div>
+              <CardTitle>이미지 관리</CardTitle>
+              <CardDescription>
+                제품 이미지를 개별 또는 대량으로 업로드하세요.
+              </CardDescription>
+            </div>
+            <Button
+              variant={bulkUploadMode ? "secondary" : "outline"}
+              onClick={() => setBulkUploadMode(!bulkUploadMode)}
+            >
+              {bulkUploadMode ? "개별 업로드로 전환" : "대량 업로드 모드"}
+            </Button>
+          </div>
+        </CardHeader>
+        <CardContent>
+          {bulkUploadMode ? (
+            <div className="space-y-4">
+              <div>
+                <input
+                  ref={multiFileInputRef}
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  onChange={handleBulkImageUpload}
+                  className="hidden"
+                />
+                <Button
+                  onClick={() => multiFileInputRef.current?.click()}
+                  disabled={uploading}
+                  className="w-full"
+                  variant="outline"
+                >
+                  {uploading ? (
+                    '업로드 중...'
+                  ) : (
+                    <>
+                      <Upload className="h-4 w-4 mr-2" />
+                      여러 이미지 선택 (최대 10개)
+                    </>
+                  )}
+                </Button>
+              </div>
+
+              {/* 업로드 진행률 표시 */}
+              {Object.keys(uploadProgress).length > 0 && (
+                <div className="space-y-2">
+                  {Object.entries(uploadProgress).map(([filename, progress]) => (
+                    <div key={filename} className="flex items-center gap-2">
+                      <span className="text-sm truncate flex-1">{filename}</span>
+                      {progress === -1 ? (
+                        <span className="text-red-500 text-sm">실패</span>
+                      ) : progress === 100 ? (
+                        <span className="text-green-500 text-sm">완료</span>
+                      ) : (
+                        <span className="text-blue-500 text-sm">업로드 중...</span>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* 업로드된 이미지 갤러리 */}
+              {uploadedImages.length > 0 && (
+                <div>
+                  <h4 className="font-medium mb-2">업로드된 이미지 ({uploadedImages.length}개)</h4>
+                  <div className="grid grid-cols-4 gap-2">
+                    {uploadedImages.map((url, index) => (
+                      <div key={index} className="relative aspect-square bg-gray-100 rounded overflow-hidden">
+                        <Image
+                          src={url}
+                          alt={`업로드된 이미지 ${index + 1}`}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          ) : (
+            <p className="text-center text-gray-500 py-4">
+              대량 업로드 모드를 활성화하여 여러 이미지를 한 번에 업로드하세요.
+            </p>
+          )}
+        </CardContent>
+      </Card>
+
       {/* 제품 추가/수정 폼 */}
       <Card>
         <CardHeader>

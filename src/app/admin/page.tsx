@@ -7,9 +7,12 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Label } from "@/components/ui/label";
-import { Calendar, Upload, MessageSquare, Video, Settings, Users, Trash2, Edit, Plus } from "lucide-react";
+import { Calendar, Upload, MessageSquare, Video, Settings, Users, Trash2, Edit, Plus, RotateCcw, Download, Eye } from "lucide-react";
 import type { Notice, Sermon, Event } from "@/types/database";
 import dynamic from "next/dynamic";
+import { ConfirmDialog } from "@/components/ui/confirm-dialog";
+import { PreviewModal } from "@/components/ui/preview-modal";
+import { exportNoticesToExcel, exportSermonsToExcel, exportEventsToExcel } from "@/utils/excel";
 
 const ContentManager = dynamic(() => import('./ContentManager'), { 
   ssr: false,
@@ -83,7 +86,7 @@ export default function AdminPage() {
       </div>
 
       <Tabs defaultValue="notices" className="space-y-6">
-        <TabsList className="grid grid-cols-5 lg:w-[600px]">
+        <TabsList className="grid grid-cols-6 lg:w-[700px]">
           <TabsTrigger value="notices" className="flex items-center gap-2">
             <MessageSquare className="h-4 w-4" />
             공지사항
@@ -99,6 +102,10 @@ export default function AdminPage() {
           <TabsTrigger value="content" className="flex items-center gap-2">
             <Upload className="h-4 w-4" />
             콘텐츠
+          </TabsTrigger>
+          <TabsTrigger value="trash" className="flex items-center gap-2">
+            <Trash2 className="h-4 w-4" />
+            휴지통
           </TabsTrigger>
           <TabsTrigger value="settings" className="flex items-center gap-2">
             <Settings className="h-4 w-4" />
@@ -122,6 +129,10 @@ export default function AdminPage() {
           <ContentManager adminPassword={adminPassword} />
         </TabsContent>
 
+        <TabsContent value="trash">
+          <TrashManager adminPassword={adminPassword} />
+        </TabsContent>
+
         <TabsContent value="settings">
           <SettingsManager />
         </TabsContent>
@@ -139,6 +150,18 @@ function NoticeManager({ adminPassword }: { adminPassword: string }) {
   const [category, setCategory] = useState("일반");
   const [isImportant, setIsImportant] = useState(false);
   const [editingId, setEditingId] = useState<number | null>(null);
+  
+  // 검색 및 필터링 상태
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filterCategory, setFilterCategory] = useState("전체");
+  const [sortBy, setSortBy] = useState("latest");
+  
+  // 삭제 확인 다이얼로그 상태
+  const [deleteConfirmOpen, setDeleteConfirmOpen] = useState(false);
+  const [deletingId, setDeletingId] = useState<number | null>(null);
+  
+  // 미리보기 상태
+  const [previewOpen, setPreviewOpen] = useState(false);
 
   // 공지사항 목록 불러오기
   const fetchNotices = async () => {
@@ -196,12 +219,18 @@ function NoticeManager({ adminPassword }: { adminPassword: string }) {
     }
   };
 
+  // 삭제 확인
+  const handleDeleteClick = (id: number) => {
+    setDeletingId(id);
+    setDeleteConfirmOpen(true);
+  };
+
   // 공지사항 삭제
-  const handleDelete = async (id: number) => {
-    if (!confirm('정말 삭제하시겠습니까?')) return;
+  const handleDelete = async () => {
+    if (!deletingId) return;
 
     try {
-      const response = await fetch(`/api/notices?id=${id}`, {
+      const response = await fetch(`/api/notices?id=${deletingId}`, {
         method: 'DELETE',
         headers: {
           'x-admin-password': adminPassword
@@ -209,7 +238,7 @@ function NoticeManager({ adminPassword }: { adminPassword: string }) {
       });
 
       if (response.ok) {
-        alert('공지사항이 삭제되었습니다.');
+        alert('공지사항이 삭제되었습니다. 휴지통에서 30일간 보관됩니다.');
         fetchNotices();
       } else {
         alert('삭제에 실패했습니다.');
@@ -217,6 +246,9 @@ function NoticeManager({ adminPassword }: { adminPassword: string }) {
     } catch (error) {
       console.error('Error deleting notice:', error);
       alert('삭제 중 오류가 발생했습니다.');
+    } finally {
+      setDeleteConfirmOpen(false);
+      setDeletingId(null);
     }
   };
 
@@ -237,6 +269,39 @@ function NoticeManager({ adminPassword }: { adminPassword: string }) {
     setIsImportant(false);
     setEditingId(null);
   };
+
+  // 필터링 및 정렬된 공지사항 목록
+  const filteredAndSortedNotices = notices
+    .filter(notice => {
+      // 검색어 필터링
+      if (searchTerm) {
+        const searchLower = searchTerm.toLowerCase();
+        const titleMatch = notice.title.toLowerCase().includes(searchLower);
+        const contentMatch = notice.content.toLowerCase().includes(searchLower);
+        if (!titleMatch && !contentMatch) return false;
+      }
+      
+      // 카테고리 필터링
+      if (filterCategory !== "전체" && notice.category !== filterCategory) {
+        return false;
+      }
+      
+      return true;
+    })
+    .sort((a, b) => {
+      // 정렬
+      if (sortBy === "latest") {
+        return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+      } else if (sortBy === "oldest") {
+        return new Date(a.created_at).getTime() - new Date(b.created_at).getTime();
+      } else if (sortBy === "important") {
+        // 중요 공지를 먼저, 그 다음 최신순
+        if (a.is_important && !b.is_important) return -1;
+        if (!a.is_important && b.is_important) return 1;
+        return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+      }
+      return 0;
+    });
 
   return (
     <div className="space-y-6">
@@ -300,6 +365,16 @@ function NoticeManager({ adminPassword }: { adminPassword: string }) {
           </div>
 
           <div className="flex gap-2">
+            {(title || content) && (
+              <Button 
+                onClick={() => setPreviewOpen(true)} 
+                variant="outline"
+                type="button"
+              >
+                <Eye className="h-4 w-4 mr-2" />
+                미리보기
+              </Button>
+            )}
             <Button onClick={handleSubmit} className="flex-1">
               {editingId ? '수정하기' : '공지사항 게시'}
             </Button>
@@ -315,29 +390,86 @@ function NoticeManager({ adminPassword }: { adminPassword: string }) {
       {/* 공지사항 목록 */}
       <Card>
         <CardHeader>
-          <CardTitle>공지사항 목록</CardTitle>
-          <CardDescription>
-            등록된 공지사항을 관리하세요.
-          </CardDescription>
+          <div className="space-y-4">
+            <div className="flex justify-between items-start">
+              <div>
+                <CardTitle>공지사항 목록</CardTitle>
+                <CardDescription>
+                  등록된 공지사항을 관리하세요.
+                </CardDescription>
+              </div>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => exportNoticesToExcel(notices)}
+                disabled={notices.length === 0}
+              >
+                <Download className="h-4 w-4 mr-2" />
+                Excel 다운로드
+              </Button>
+            </div>
+            
+            {/* 검색 및 필터링 UI */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex-1">
+                <Input
+                  placeholder="제목 또는 내용 검색..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full"
+                />
+              </div>
+              
+              <div className="flex gap-2">
+                <select
+                  value={filterCategory}
+                  onChange={(e) => setFilterCategory(e.target.value)}
+                  className="px-3 py-2 border rounded-md"
+                >
+                  <option value="전체">전체 카테고리</option>
+                  <option value="일반">일반</option>
+                  <option value="이벤트">이벤트</option>
+                  <option value="주보">주보</option>
+                  <option value="소식">소식</option>
+                </select>
+                
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  className="px-3 py-2 border rounded-md"
+                >
+                  <option value="latest">최신순</option>
+                  <option value="oldest">오래된순</option>
+                  <option value="important">중요 공지 우선</option>
+                </select>
+              </div>
+            </div>
+          </div>
         </CardHeader>
         <CardContent>
           {loading ? (
             <p className="text-center py-4">불러오는 중...</p>
           ) : notices.length === 0 ? (
             <p className="text-center py-4 text-gray-500">등록된 공지사항이 없습니다.</p>
+          ) : filteredAndSortedNotices.length === 0 ? (
+            <p className="text-center py-4 text-gray-500">검색 결과가 없습니다.</p>
           ) : (
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>제목</TableHead>
-                  <TableHead>카테고리</TableHead>
-                  <TableHead>작성자</TableHead>
-                  <TableHead>작성일</TableHead>
-                  <TableHead className="text-right">관리</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {notices.map((notice) => (
+            <>
+              <div className="mb-4 text-sm text-gray-600">
+                총 {filteredAndSortedNotices.length}개의 공지사항
+              </div>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>제목</TableHead>
+                    <TableHead>카테고리</TableHead>
+                    <TableHead>작성자</TableHead>
+                    <TableHead>작성일</TableHead>
+                    <TableHead className="text-right">관리</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {filteredAndSortedNotices.map((notice) => (
                   <TableRow key={notice.id}>
                     <TableCell>
                       {notice.is_important && (
@@ -361,7 +493,7 @@ function NoticeManager({ adminPassword }: { adminPassword: string }) {
                       <Button
                         size="sm"
                         variant="ghost"
-                        onClick={() => handleDelete(notice.id)}
+                        onClick={() => handleDeleteClick(notice.id)}
                       >
                         <Trash2 className="h-4 w-4" />
                       </Button>
@@ -370,9 +502,44 @@ function NoticeManager({ adminPassword }: { adminPassword: string }) {
                 ))}
               </TableBody>
             </Table>
+            </>
           )}
         </CardContent>
       </Card>
+      
+      {/* 삭제 확인 다이얼로그 */}
+      <ConfirmDialog
+        open={deleteConfirmOpen}
+        onOpenChange={setDeleteConfirmOpen}
+        onConfirm={handleDelete}
+        title="공지사항을 삭제하시겠습니까?"
+        description="삭제된 공지사항은 30일 동안 휴지통에 보관되며, 휴지통에서 복구할 수 있습니다."
+      />
+      
+      {/* 미리보기 모달 */}
+      <PreviewModal
+        open={previewOpen}
+        onOpenChange={setPreviewOpen}
+        title="공지사항"
+        content={
+          <div className="space-y-4">
+            <div>
+              <h2 className="text-2xl font-bold">
+                {isImportant && <span className="text-red-500">[중요] </span>}
+                {title || '제목 없음'}
+              </h2>
+              <div className="flex gap-4 text-sm text-gray-600 mt-2">
+                <span>카테고리: {category}</span>
+                <span>작성자: 방재홍 목사</span>
+                <span>{new Date().toLocaleDateString('ko-KR')}</span>
+              </div>
+            </div>
+            <div className="prose max-w-none">
+              <p className="whitespace-pre-wrap">{content || '내용 없음'}</p>
+            </div>
+          </div>
+        }
+      />
     </div>
   );
 }
@@ -571,10 +738,23 @@ function SermonManager({ adminPassword }: { adminPassword: string }) {
       {/* 설교 목록 */}
       <Card>
         <CardHeader>
-          <CardTitle>설교 영상 목록</CardTitle>
-          <CardDescription>
-            등록된 설교 영상을 관리하세요.
-          </CardDescription>
+          <div className="flex justify-between items-start">
+            <div>
+              <CardTitle>설교 영상 목록</CardTitle>
+              <CardDescription>
+                등록된 설교 영상을 관리하세요.
+              </CardDescription>
+            </div>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => exportSermonsToExcel(sermons)}
+              disabled={sermons.length === 0}
+            >
+              <Download className="h-4 w-4 mr-2" />
+              Excel 다운로드
+            </Button>
+          </div>
         </CardHeader>
         <CardContent>
           {loading ? (
@@ -822,10 +1002,23 @@ function EventManager({ adminPassword }: { adminPassword: string }) {
       {/* 이벤트 목록 */}
       <Card>
         <CardHeader>
-          <CardTitle>이벤트 목록</CardTitle>
-          <CardDescription>
-            예정된 이벤트를 관리하세요.
-          </CardDescription>
+          <div className="flex justify-between items-start">
+            <div>
+              <CardTitle>이벤트 목록</CardTitle>
+              <CardDescription>
+                예정된 이벤트를 관리하세요.
+              </CardDescription>
+            </div>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => exportEventsToExcel(events)}
+              disabled={events.length === 0}
+            >
+              <Download className="h-4 w-4 mr-2" />
+              Excel 다운로드
+            </Button>
+          </div>
         </CardHeader>
         <CardContent>
           {loading ? (
@@ -879,6 +1072,188 @@ function EventManager({ adminPassword }: { adminPassword: string }) {
   );
 }
 
+
+// 휴지통 관리 컴포넌트
+function TrashManager({ adminPassword }: { adminPassword: string }) {
+  const [trashedItems, setTrashedItems] = useState<{
+    notices: Notice[];
+    sermons: Sermon[];
+    events: Event[];
+  }>({
+    notices: [],
+    sermons: [],
+    events: []
+  });
+  const [loading, setLoading] = useState(false);
+  const [activeTab, setActiveTab] = useState<'notices' | 'sermons' | 'events'>('notices');
+
+  // 휴지통 데이터 불러오기
+  const fetchTrashedItems = async () => {
+    try {
+      setLoading(true);
+      
+      // 공지사항 휴지통
+      const noticesRes = await fetch('/api/notices?deleted=true');
+      const noticesData = await noticesRes.json();
+      
+      // 설교 휴지통
+      const sermonsRes = await fetch('/api/sermons?deleted=true');
+      const sermonsData = await sermonsRes.json();
+      
+      // 이벤트 휴지통
+      const eventsRes = await fetch('/api/events?deleted=true');
+      const eventsData = await eventsRes.json();
+      
+      setTrashedItems({
+        notices: noticesData.data || [],
+        sermons: sermonsData.data || [],
+        events: eventsData.data || []
+      });
+    } catch (error) {
+      console.error('Error fetching trashed items:', error);
+      alert('휴지통 데이터를 불러오는데 실패했습니다.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchTrashedItems();
+  }, []);
+
+  // 복구 처리
+  const handleRestore = async (type: 'notices' | 'sermons' | 'events', id: number) => {
+    if (!confirm('이 항목을 복구하시겠습니까?')) return;
+
+    try {
+      const response = await fetch(`/api/${type}/restore?id=${id}`, {
+        method: 'PUT',
+        headers: {
+          'x-admin-password': adminPassword
+        }
+      });
+
+      if (response.ok) {
+        alert('항목이 복구되었습니다.');
+        fetchTrashedItems();
+      } else {
+        alert('복구에 실패했습니다.');
+      }
+    } catch (error) {
+      console.error('Error restoring item:', error);
+      alert('복구 중 오류가 발생했습니다.');
+    }
+  };
+
+  // 영구 삭제
+  const handlePermanentDelete = async (type: 'notices' | 'sermons' | 'events', id: number) => {
+    if (!confirm('정말로 영구 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.')) return;
+
+    try {
+      const response = await fetch(`/api/${type}?id=${id}&permanent=true`, {
+        method: 'DELETE',
+        headers: {
+          'x-admin-password': adminPassword
+        }
+      });
+
+      if (response.ok) {
+        alert('항목이 영구 삭제되었습니다.');
+        fetchTrashedItems();
+      } else {
+        alert('삭제에 실패했습니다.');
+      }
+    } catch (error) {
+      console.error('Error deleting permanently:', error);
+      alert('삭제 중 오류가 발생했습니다.');
+    }
+  };
+
+  const currentItems = trashedItems[activeTab];
+
+  return (
+    <div className="space-y-6">
+      <Card>
+        <CardHeader>
+          <CardTitle>휴지통</CardTitle>
+          <CardDescription>
+            삭제된 항목들을 관리합니다. 30일 후 자동으로 영구 삭제됩니다.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Tabs value={activeTab} onValueChange={(value) => setActiveTab(value as 'notices' | 'sermons' | 'events')}>
+            <TabsList className="grid grid-cols-3 w-full max-w-md">
+              <TabsTrigger value="notices">
+                공지사항 ({trashedItems.notices.length})
+              </TabsTrigger>
+              <TabsTrigger value="sermons">
+                설교 ({trashedItems.sermons.length})
+              </TabsTrigger>
+              <TabsTrigger value="events">
+                이벤트 ({trashedItems.events.length})
+              </TabsTrigger>
+            </TabsList>
+
+            <TabsContent value={activeTab} className="mt-6">
+              {loading ? (
+                <p className="text-center py-4">불러오는 중...</p>
+              ) : currentItems.length === 0 ? (
+                <p className="text-center py-8 text-gray-500">휴지통이 비어있습니다.</p>
+              ) : (
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>제목</TableHead>
+                      <TableHead>삭제일</TableHead>
+                      <TableHead>자동 삭제까지</TableHead>
+                      <TableHead className="text-right">관리</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {currentItems.map((item) => {
+                      const deletedAt = new Date(item.deleted_at || '');
+                      const autoDeleteDate = new Date(deletedAt);
+                      autoDeleteDate.setDate(autoDeleteDate.getDate() + 30);
+                      const daysLeft = Math.ceil((autoDeleteDate.getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24));
+                      
+                      return (
+                        <TableRow key={item.id}>
+                          <TableCell>{(item as Notice | Sermon | Event).title}</TableCell>
+                          <TableCell>{deletedAt.toLocaleDateString('ko-KR')}</TableCell>
+                          <TableCell>
+                            <span className={daysLeft < 7 ? 'text-red-500' : ''}>
+                              {daysLeft}일
+                            </span>
+                          </TableCell>
+                          <TableCell className="text-right">
+                            <Button
+                              size="sm"
+                              variant="ghost"
+                              onClick={() => handleRestore(activeTab, item.id)}
+                            >
+                              <RotateCcw className="h-4 w-4" />
+                            </Button>
+                            <Button
+                              size="sm"
+                              variant="ghost"
+                              onClick={() => handlePermanentDelete(activeTab, item.id)}
+                            >
+                              <Trash2 className="h-4 w-4 text-red-500" />
+                            </Button>
+                          </TableCell>
+                        </TableRow>
+                      );
+                    })}
+                  </TableBody>
+                </Table>
+              )}
+            </TabsContent>
+          </Tabs>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
 
 // 설정 관리 컴포넌트
 function SettingsManager() {
