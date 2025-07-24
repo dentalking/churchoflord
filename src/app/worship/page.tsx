@@ -52,7 +52,9 @@ export default function WorshipPage() {
               </CardHeader>
               <CardContent>
                 <p className="mb-3">말씀과 기도로 하나님과 깊이 교제하는 시간입니다.</p>
-                <p className="text-sm text-slate-600">"쉽지 않고 기도하며" (눠 1:9)</p>
+                <div className="bg-slate-50 rounded p-3 text-sm text-slate-700">
+                  <p className="italic">"아무 것도 염려하지 말고 다만 모든 일에 기도와 간구로 너희 구할 것을 감사함으로 하나님께 아뢰라" (빌 4:6)</p>
+                </div>
               </CardContent>
             </Card>
             

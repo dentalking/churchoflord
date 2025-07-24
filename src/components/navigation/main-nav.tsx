@@ -61,6 +61,12 @@ export function MainNav() {
               <NavigationMenuContent>
                 <ul className="grid gap-3 p-4 w-[400px]">
                   <li>
+                    <Link href="/meditation" className="block p-3 hover:bg-slate-100 rounded-md">
+                      <div className="font-medium mb-1">말씀 묵상</div>
+                      <p className="text-sm text-slate-600">주간 말씀 묵상과 경건의 시간 가이드</p>
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/discipleship" className="block p-3 hover:bg-slate-100 rounded-md">
                       <div className="font-medium mb-1">제자훈련</div>
                       <p className="text-sm text-slate-600">새가족반부터 사역훈련까지 체계적인 양육</p>
@@ -74,6 +80,11 @@ export function MainNav() {
                   </li>
                 </ul>
               </NavigationMenuContent>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/prayer" legacyBehavior passHref>
+                <NavigationMenuLink className="font-medium">기도 요청</NavigationMenuLink>
+              </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <Link href="/notices" legacyBehavior passHref>
@@ -199,6 +210,13 @@ export function MainNav() {
               <div className="space-y-2">
                 <h3 className="font-medium text-slate-600 text-sm uppercase tracking-wide">양육</h3>
                 <Link 
+                  href="/meditation" 
+                  className="block py-3 pl-4 text-slate-700"
+                  onClick={() => setIsOpen(false)}
+                >
+                  말씀 묵상
+                </Link>
+                <Link 
                   href="/discipleship" 
                   className="block py-3 pl-4 text-slate-700"
                   onClick={() => setIsOpen(false)}
@@ -213,6 +231,14 @@ export function MainNav() {
                   소그룹
                 </Link>
               </div>
+
+              <Link 
+                href="/prayer" 
+                className="block py-3 text-lg font-medium"
+                onClick={() => setIsOpen(false)}
+              >
+                기도 요청
+              </Link>
 
               <Link 
                 href="/notices" 

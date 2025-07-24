@@ -86,13 +86,20 @@ export default function MissionsPage() {
         <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-8 md:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-6">
-                모든 민족을 제자로
+              <h2 className="text-2xl font-bold mb-6">
+                성경적 선교의 원리
               </h2>
+              <div className="bg-white rounded-lg p-6 border border-slate-200 mb-6">
+                <p className="text-slate-700 italic mb-2">
+                  "너희는 가서 모든 민족을 제자로 삼아 아버지와 아들과 성령의 이름으로 세례를 베풀고 
+                  내가 너희에게 분부한 모든 것을 가르쳐 지키게 하라"
+                </p>
+                <p className="text-slate-600 text-sm">- 마태복음 28:19-20 -</p>
+              </div>
               <p className="text-lg mb-6 text-slate-700 leading-relaxed">
                 주님의교회는 <strong>이 지역에서 시작하여</strong> 
                 온 세계로 복음을 전하는 선교적 교회입니다. 
-                지역 교회가 곧 <span className="text-orange-600 font-semibold">선교하는 교회</span>가 되어야 한다는 
+                지역 교회가 곧 <strong>선교하는 교회</strong>가 되어야 한다는 
                 비전을 가지고 있습니다.
               </p>
               <div className="space-y-4">

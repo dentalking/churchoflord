@@ -49,3 +49,20 @@ export interface Product {
   updated_at: string;
   deleted_at?: string | null;
 }
+
+export interface PrayerRequest {
+  id: number;
+  name: string | null;
+  phone_number: string | null;
+  email: string | null;
+  category: string;
+  title: string;
+  content: string;
+  is_anonymous: boolean;
+  is_private: boolean;
+  is_urgent: boolean;
+  status: string;
+  admin_notes: string | null;
+  created_at: string;
+  updated_at: string;
+}

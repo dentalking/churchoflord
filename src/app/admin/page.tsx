@@ -7,8 +7,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Label } from "@/components/ui/label";
-import { Calendar, Upload, MessageSquare, Video, Settings, Users, Trash2, Edit, Plus, RotateCcw, Download, Eye } from "lucide-react";
-import type { Notice, Sermon, Event } from "@/types/database";
+import { Calendar, Upload, MessageSquare, Video, Settings, Users, Trash2, Edit, Plus, RotateCcw, Download, Eye, Heart } from "lucide-react";
+import type { Notice, Sermon, Event, PrayerRequest } from "@/types/database";
 import dynamic from "next/dynamic";
 import { ConfirmDialog } from "@/components/ui/confirm-dialog";
 import { PreviewModal } from "@/components/ui/preview-modal";
@@ -86,7 +86,7 @@ export default function AdminPage() {
       </div>
 
       <Tabs defaultValue="notices" className="space-y-6">
-        <TabsList className="grid grid-cols-6 lg:w-[700px]">
+        <TabsList className="grid grid-cols-7 lg:w-[840px]">
           <TabsTrigger value="notices" className="flex items-center gap-2">
             <MessageSquare className="h-4 w-4" />
             공지사항
@@ -98,6 +98,10 @@ export default function AdminPage() {
           <TabsTrigger value="events" className="flex items-center gap-2">
             <Calendar className="h-4 w-4" />
             이벤트
+          </TabsTrigger>
+          <TabsTrigger value="prayers" className="flex items-center gap-2">
+            <Heart className="h-4 w-4" />
+            기도 요청
           </TabsTrigger>
           <TabsTrigger value="content" className="flex items-center gap-2">
             <Upload className="h-4 w-4" />
@@ -123,6 +127,10 @@ export default function AdminPage() {
 
         <TabsContent value="events">
           <EventManager adminPassword={adminPassword} />
+        </TabsContent>
+
+        <TabsContent value="prayers">
+          <PrayerManager adminPassword={adminPassword} />
         </TabsContent>
 
         <TabsContent value="content">
@@ -1072,6 +1080,354 @@ function EventManager({ adminPassword }: { adminPassword: string }) {
   );
 }
 
+// 기도 요청 관리 컴포넌트  
+function PrayerManager({ adminPassword }: { adminPassword: string }) {
+  const [prayerRequests, setPrayerRequests] = useState<PrayerRequest[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [editingId, setEditingId] = useState<number | null>(null);
+  const [status, setStatus] = useState("");
+  const [adminNotes, setAdminNotes] = useState("");
+  
+  // 검색 및 필터링 상태
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filterCategory, setFilterCategory] = useState("전체");
+  const [filterStatus, setFilterStatus] = useState("전체");
+  
+  // 삭제 확인 다이얼로그 상태
+  const [deleteConfirmOpen, setDeleteConfirmOpen] = useState(false);
+  const [deletingId, setDeletingId] = useState<number | null>(null);
+
+  // 기도 요청 목록 불러오기
+  const fetchPrayerRequests = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch('/api/prayer-requests', {
+        headers: {
+          'x-admin-password': adminPassword
+        }
+      });
+      const data = await response.json();
+      if (data.data) {
+        setPrayerRequests(data.data);
+      }
+    } catch (error) {
+      console.error('Error fetching prayer requests:', error);
+      alert('기도 요청 목록을 불러오는데 실패했습니다.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchPrayerRequests();
+  }, [adminPassword]);
+
+  // 기도 요청 상태 업데이트
+  const handleSubmit = async () => {
+    if (!editingId) return;
+    
+    try {
+      const response = await fetch('/api/prayer-requests', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-admin-password': adminPassword
+        },
+        body: JSON.stringify({
+          id: editingId,
+          status,
+          adminNotes
+        })
+      });
+
+      if (!response.ok) throw new Error('Failed to update prayer request');
+
+      await fetchPrayerRequests();
+      setEditingId(null);
+      setStatus("");
+      setAdminNotes("");
+      alert('기도 요청이 업데이트되었습니다.');
+    } catch (error) {
+      console.error('Error updating prayer request:', error);
+      alert('기도 요청 업데이트에 실패했습니다.');
+    }
+  };
+
+  // 수정 시작
+  const handleEdit = (request: PrayerRequest) => {
+    setEditingId(request.id);
+    setStatus(request.status);
+    setAdminNotes(request.admin_notes || "");
+  };
+
+  // 수정 취소
+  const handleCancel = () => {
+    setEditingId(null);
+    setStatus("");
+    setAdminNotes("");
+  };
+
+  // 삭제 확인 다이얼로그 열기
+  const handleDeleteClick = (id: number) => {
+    setDeletingId(id);
+    setDeleteConfirmOpen(true);
+  };
+
+  // 기도 요청 삭제
+  const handleDelete = async () => {
+    if (!deletingId) return;
+    
+    try {
+      const response = await fetch(`/api/prayer-requests?id=${deletingId}`, {
+        method: 'DELETE',
+        headers: {
+          'x-admin-password': adminPassword
+        }
+      });
+
+      if (!response.ok) throw new Error('Failed to delete prayer request');
+
+      await fetchPrayerRequests();
+      alert('기도 요청이 삭제되었습니다.');
+    } catch (error) {
+      console.error('Error deleting prayer request:', error);
+      alert('기도 요청 삭제에 실패했습니다.');
+    } finally {
+      setDeleteConfirmOpen(false);
+      setDeletingId(null);
+    }
+  };
+
+  // 필터링된 기도 요청 목록
+  const filteredPrayerRequests = prayerRequests.filter(request => {
+    const matchesSearch = request.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         request.content.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory = filterCategory === "전체" || request.category === filterCategory;
+    const matchesStatus = filterStatus === "전체" || request.status === filterStatus;
+    
+    return matchesSearch && matchesCategory && matchesStatus;
+  });
+
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case 'pending': return 'text-yellow-600 bg-yellow-50';
+      case 'praying': return 'text-blue-600 bg-blue-50';
+      case 'answered': return 'text-green-600 bg-green-50';
+      case 'completed': return 'text-gray-600 bg-gray-50';
+      default: return 'text-gray-600 bg-gray-50';
+    }
+  };
+
+  const getStatusText = (status: string) => {
+    switch (status) {
+      case 'pending': return '대기';
+      case 'praying': return '기도 중';
+      case 'answered': return '응답됨';
+      case 'completed': return '완료';
+      default: return status;
+    }
+  };
+
+  return (
+    <div className="space-y-6">
+      {/* 기도 요청 상태 수정 폼 */}
+      {editingId && (
+        <Card>
+          <CardHeader>
+            <CardTitle>기도 요청 관리</CardTitle>
+            <CardDescription>
+              기도 요청의 상태를 업데이트하고 관리자 노트를 추가하세요.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <Label htmlFor="status">상태</Label>
+                <select
+                  id="status"
+                  value={status}
+                  onChange={(e) => setStatus(e.target.value)}
+                  className="w-full p-2 border border-gray-300 rounded-md"
+                >
+                  <option value="pending">대기</option>
+                  <option value="praying">기도 중</option>
+                  <option value="answered">응답됨</option>
+                  <option value="completed">완료</option>
+                </select>
+              </div>
+            </div>
+            
+            <div>
+              <Label htmlFor="adminNotes">관리자 노트</Label>
+              <Textarea
+                id="adminNotes"
+                value={adminNotes}
+                onChange={(e) => setAdminNotes(e.target.value)}
+                placeholder="내부적으로 기록할 노트를 작성하세요..."
+                rows={3}
+              />
+            </div>
+
+            <div className="flex gap-2">
+              <Button onClick={handleSubmit}>
+                업데이트
+              </Button>
+              <Button variant="outline" onClick={handleCancel}>
+                취소
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      )}
+
+      {/* 기도 요청 목록 */}
+      <Card>
+        <CardHeader className="flex flex-row items-center justify-between">
+          <div>
+            <CardTitle className="flex items-center gap-2">
+              <Heart className="h-5 w-5" />
+              기도 요청 관리
+            </CardTitle>
+            <CardDescription>
+              교회에 접수된 기도 요청을 관리하고 상태를 업데이트하세요.
+            </CardDescription>
+          </div>
+        </CardHeader>
+        <CardContent>
+          {loading ? (
+            <p className="text-center py-4">로딩 중...</p>
+          ) : (
+            <>
+              {/* 검색 및 필터링 UI */}
+              <div className="mb-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+                <Input
+                  placeholder="제목이나 내용으로 검색..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
+                <select
+                  value={filterCategory}
+                  onChange={(e) => setFilterCategory(e.target.value)}
+                  className="p-2 border border-gray-300 rounded-md"
+                >
+                  <option value="전체">모든 분류</option>
+                  <option value="건강">건강</option>
+                  <option value="가족">가족</option>
+                  <option value="직장">직장/학업</option>
+                  <option value="신앙">신앙</option>
+                  <option value="관계">인간관계</option>
+                  <option value="경제">경제</option>
+                  <option value="감사">감사</option>
+                  <option value="기타">기타</option>
+                </select>
+                <select
+                  value={filterStatus}
+                  onChange={(e) => setFilterStatus(e.target.value)}
+                  className="p-2 border border-gray-300 rounded-md"
+                >
+                  <option value="전체">모든 상태</option>
+                  <option value="pending">대기</option>
+                  <option value="praying">기도 중</option>
+                  <option value="answered">응답됨</option>
+                  <option value="completed">완료</option>
+                </select>
+              </div>
+
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>제목</TableHead>
+                    <TableHead>분류</TableHead>
+                    <TableHead>이름</TableHead>
+                    <TableHead>연락처</TableHead>
+                    <TableHead>상태</TableHead>
+                    <TableHead>긴급</TableHead>
+                    <TableHead>비공개</TableHead>
+                    <TableHead>요청일</TableHead>
+                    <TableHead>관리</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {filteredPrayerRequests.map((request) => (
+                    <TableRow key={request.id}>
+                      <TableCell className="font-medium">
+                        <div>
+                          <div className="font-medium">
+                            {request.is_anonymous && <span className="text-gray-500">[익명] </span>}
+                            {request.title}
+                          </div>
+                          <div className="text-sm text-gray-500 truncate max-w-xs">
+                            {request.content}
+                          </div>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <span className="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-700">
+                          {request.category}
+                        </span>
+                      </TableCell>
+                      <TableCell>
+                        {request.is_anonymous ? "익명" : (request.name || "-")}
+                      </TableCell>
+                      <TableCell>
+                        {request.is_anonymous ? "-" : (request.phone_number || "-")}
+                      </TableCell>
+                      <TableCell>
+                        <span className={`px-2 py-1 text-xs rounded-full ${getStatusColor(request.status)}`}>
+                          {getStatusText(request.status)}
+                        </span>
+                      </TableCell>
+                      <TableCell>
+                        {request.is_urgent && <span className="text-red-500">🔴</span>}
+                      </TableCell>
+                      <TableCell>
+                        {request.is_private && <span className="text-blue-500">🔒</span>}
+                      </TableCell>
+                      <TableCell>
+                        {new Date(request.created_at).toLocaleDateString('ko-KR')}
+                      </TableCell>
+                      <TableCell>
+                        <div className="flex gap-2">
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            onClick={() => handleEdit(request)}
+                          >
+                            <Edit className="h-4 w-4" />
+                          </Button>
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            onClick={() => handleDeleteClick(request.id)}
+                          >
+                            <Trash2 className="h-4 w-4" />
+                          </Button>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+
+              {filteredPrayerRequests.length === 0 && (
+                <p className="text-center py-8 text-gray-500">기도 요청이 없습니다.</p>
+              )}
+            </>
+          )}
+        </CardContent>
+      </Card>
+
+      {/* 삭제 확인 다이얼로그 */}
+      <ConfirmDialog
+        open={deleteConfirmOpen}
+        onOpenChange={setDeleteConfirmOpen}
+        onConfirm={handleDelete}
+        title="기도 요청 삭제"
+        description="이 기도 요청을 정말 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다."
+      />
+    </div>
+  );
+}
 
 // 휴지통 관리 컴포넌트
 function TrashManager({ adminPassword }: { adminPassword: string }) {

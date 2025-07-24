@@ -24,9 +24,16 @@ export default function DirectionsPage() {
               도심에서 가까운 평온한 산속
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">오시는 길</h1>
-            <p className="text-xl text-slate-700 max-w-3xl mx-auto">
-              "수고하고 무거운 짐 진 자들아 내게로 오라" (마 11:28)<br />
-              하나님의 부르심에 응답하여 주님의교회로 오시는 모든 분들을 환영합니다.
+            <div className="bg-white/80 rounded-lg p-6 border border-slate-200 max-w-4xl mx-auto">
+              <p className="text-lg text-slate-700 italic mb-4">
+                "수고하고 무거운 짐 진 자들아 다 내게로 오라 
+                내가 너희를 쉼게 하리라"
+              </p>
+              <p className="text-slate-600">- 마태복음 11:28 -</p>
+            </div>
+            <p className="text-lg text-slate-700 mt-6 max-w-3xl mx-auto">
+              도심에서 가까운 평온한 산속, 주님의교회로 오시는 모든 분들을 환영합니다.<br />
+              하나님의 안식과 평안이 있는 곳으로 초대합니다.
             </p>
           </div>
         </div>
@@ -42,8 +49,13 @@ export default function DirectionsPage() {
                   <Heart className="h-8 w-8" />
                   <h2 className="text-3xl font-bold">따뜻한 믿음 공동체</h2>
                 </div>
-                <p className="text-xl mb-8 text-green-100">
-                  "서로 사랑하기를 형제우애하듯 하고" (롬 12:10)<br />
+                <div className="bg-white/10 rounded-lg p-4 mb-8">
+                  <p className="text-lg text-green-100 italic mb-2">
+                    "형제를 사랑하여 서로 우애하고 존경하기를 서로 먼저 하라"
+                  </p>
+                  <p className="text-green-200 text-sm">- 로마서 12:10 -</p>
+                </div>
+                <p className="text-xl text-green-100">
                   처음 오시는 모든 분들을 가족처럼 따뜻하게 맞아드립니다.
                 </p>
                 
@@ -300,8 +312,13 @@ export default function DirectionsPage() {
         <div className="container">
           <div className="bg-gradient-to-br from-green-600 to-blue-600 rounded-3xl p-12 text-white text-center">
             <h2 className="text-3xl font-bold mb-6">길을 찾는데 도움이 필요하신가요?</h2>
-            <p className="text-xl mb-8 text-green-100">
-              "서로 짐을 지라 그리하면 너희가 그리스도의 법을 성취하리라" (갈 6:2)<br />
+            <div className="bg-white/10 rounded-lg p-4 max-w-3xl mx-auto mb-8">
+              <p className="text-lg text-green-100 italic mb-2">
+                "너희가 짐을 서로 지라 그리하여 그리스도의 법을 성취하라"
+              </p>
+              <p className="text-green-200 text-sm">- 갈라디아서 6:2 -</p>
+            </div>
+            <p className="text-xl text-green-100">
               처음 오시는 모든 분들을 형제자매로 따뜻하게 맞아드립니다.
             </p>
             

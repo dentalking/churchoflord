@@ -32,13 +32,53 @@ export default function AboutPage() {
           </div>
           
           <h2 className="text-2xl font-bold mb-4">주님의교회 역사</h2>
+          <div className="bg-slate-50 rounded-lg p-6 mb-6 border border-slate-200">
+            <p className="text-slate-700 italic mb-2">
+              "한 사람이 씨를 뿌리러 나가서 뿌릴새 더러는 길가에 떨어지매 새들이 와서 먹어버렸고...
+              좋은 땅에 떨어지매 어떤 것은 백 배, 어떤 것은 육십 배, 어떤 것은 삼십 배의 결실을 하였느니라"
+            </p>
+            <p className="text-slate-600 text-sm">- 마태복음 13:3-8 -</p>
+          </div>
           <p className="mb-4">
             주님의교회는 2011년에 경상북도 경주시 내남면에 설립되었습니다. 
             경주역에서 약 10분 거리의 아름다운 산골에 위치한 우리 교회는 지역 사회를 섬기고 
             건강한 신앙 공동체를 형성하기 위해 노력해왔습니다.
           </p>
+          <p className="mb-4">
+            작은 씨앗으로 시작된 우리 교회는 하나님의 은혜로 자라나 지역 사회의 빛과 소금이 되고자 합니다.
+            순수한 복음을 전하고, 말씀 중심의 예배를 드리며, 서로 사랑하는 공동체로 성장해 왔습니다.
+          </p>
           
           <h2 className="text-2xl font-bold mb-4">교회 비전</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+            <div className="bg-white rounded-lg p-6 border border-slate-200">
+              <h3 className="font-bold mb-3 text-slate-800">예배 중심</h3>
+              <p className="text-sm text-slate-600 mb-3">
+                "신령과 진정으로 예배하는 자들을 아버지께서 찾으시느니라" (요 4:23)
+              </p>
+              <p className="text-sm">
+                살아있는 예배를 통해 하나님을 만나고 변화되는 공동체
+              </p>
+            </div>
+            <div className="bg-white rounded-lg p-6 border border-slate-200">
+              <h3 className="font-bold mb-3 text-slate-800">말씀 중심</h3>
+              <p className="text-sm text-slate-600 mb-3">
+                "모든 성경은 하나님의 감동으로 된 것으로 교훈과 책망과 바르게 함과 의로 교육하기에 유익하니" (딤후 3:16)
+              </p>
+              <p className="text-sm">
+                성경 말씀을 삶의 기준으로 삼고 순종하는 공동체
+              </p>
+            </div>
+            <div className="bg-white rounded-lg p-6 border border-slate-200">
+              <h3 className="font-bold mb-3 text-slate-800">사랑 중심</h3>
+              <p className="text-sm text-slate-600 mb-3">
+                "새 계명을 너희에게 주노니 서로 사랑하라" (요 13:34)
+              </p>
+              <p className="text-sm">
+                그리스도의 사랑으로 서로를 품고 섬기는 공동체
+              </p>
+            </div>
+          </div>
           <p className="mb-4">
             주님의교회는 하나님의 말씀을 중심으로 믿음의 공동체를 세우고, 
             지역 사회와 함께 성장하는 건강한 교회를 지향합니다. 
@@ -67,10 +107,23 @@ export default function AboutPage() {
                 />
               </div>
               <h2 className="text-2xl font-bold">방재홍 담임목사</h2>
-              <p>
-                주님의교회 설립자이자 지역 사회를 섬기는 목회자. 경주 지역 선교와 아프리카 선교를 위해 헌신. 
-                신도시 주민 여러분, 평온한 산골 교회에서 함께 신앙의 쉼을 누리세요.
-              </p>
+              <div className="space-y-3">
+                <div className="bg-slate-50 rounded-lg p-4 border border-slate-200">
+                  <p className="text-sm text-slate-700 italic">
+                    "내가 선한 싸움을 싸우고 나의 달려갈 길을 마치고 믿음을 지켰으니" (딤후 4:7)
+                  </p>
+                </div>
+                <p>
+                  주님의교회 설립자이자 지역 사회를 섬기는 목회자. 경주 지역 선교와 아프리카 선교를 위해 헌신. 
+                  신도시 주민 여러분, 평온한 산골 교회에서 함께 신앙의 쉼을 누리세요.
+                </p>
+                <div className="text-sm space-y-1 text-slate-600">
+                  <p>• 총신대학교 신학대학원 졸업</p>
+                  <p>• 대한예수교장로회 목사 안수</p>
+                  <p>• 경주 지역 선교회 이사</p>
+                  <p>• 아프리카 케냐 선교 사역</p>
+                </div>
+              </div>
             </div>
             
             <div className="space-y-4">
@@ -84,10 +137,23 @@ export default function AboutPage() {
                 />
               </div>
               <h2 className="text-2xl font-bold">정성아 협동목사</h2>
-              <p>
-                찬양 사역과 새신자 양육에 열정을 가진 목회자. '콩과나무로' 프로젝트를 통해 공동체의 나눔을 실천. 
-                경주역에서 10분, 건강한 신앙 공동체로 초대합니다.
-              </p>
+              <div className="space-y-3">
+                <div className="bg-slate-50 rounded-lg p-4 border border-slate-200">
+                  <p className="text-sm text-slate-700 italic">
+                    "너희가 서로 사랑하면 이로써 모든 사람이 너희가 내 제자인 줄 알리라" (요 13:35)
+                  </p>
+                </div>
+                <p>
+                  찬양 사역과 새신자 양육에 열정을 가진 목회자. '콩과나무로' 프로젝트를 통해 공동체의 나눔을 실천. 
+                  경주역에서 10분, 건강한 신앙 공동체로 초대합니다.
+                </p>
+                <div className="text-sm space-y-1 text-slate-600">
+                  <p>• 장로회신학대학교 신학대학원 졸업</p>
+                  <p>• 교회음악 전공</p>
+                  <p>• 새가족 양육 사역</p>
+                  <p>• 콩과나무로 프로젝트 대표</p>
+                </div>
+              </div>
             </div>
           </div>
         </TabsContent>

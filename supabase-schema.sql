@@ -49,6 +49,24 @@ CREATE TABLE products (
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('Asia/Seoul', NOW())
 );
 
+-- 기도 요청 테이블
+CREATE TABLE prayer_requests (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100),
+  phone_number VARCHAR(20),
+  email VARCHAR(255),
+  category VARCHAR(50) DEFAULT '일반',
+  title VARCHAR(255) NOT NULL,
+  content TEXT NOT NULL,
+  is_anonymous BOOLEAN DEFAULT false,
+  is_private BOOLEAN DEFAULT false,
+  is_urgent BOOLEAN DEFAULT false,
+  status VARCHAR(20) DEFAULT 'pending',
+  admin_notes TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('Asia/Seoul', NOW()),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('Asia/Seoul', NOW())
+);
+
 -- 관리자 로그 테이블 (옵션)
 CREATE TABLE admin_logs (
   id SERIAL PRIMARY KEY,
@@ -79,6 +97,9 @@ CREATE TRIGGER update_events_updated_at BEFORE UPDATE ON events
 CREATE TRIGGER update_products_updated_at BEFORE UPDATE ON products 
   FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
+CREATE TRIGGER update_prayer_requests_updated_at BEFORE UPDATE ON prayer_requests 
+  FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
 -- 기본 데이터 삽입
 INSERT INTO notices (title, content, category, is_important, author) VALUES
 ('신도시 입주민 초청 봄 예배 안내', '경주역 신도시에 새롭게 입주하신 분들을 위한 특별 초청 예배를 준비했습니다.', '이벤트', true, '방재홍 목사'),
@@ -95,6 +116,7 @@ ALTER TABLE notices ENABLE ROW LEVEL SECURITY;
 ALTER TABLE sermons ENABLE ROW LEVEL SECURITY;
 ALTER TABLE events ENABLE ROW LEVEL SECURITY;
 ALTER TABLE products ENABLE ROW LEVEL SECURITY;
+ALTER TABLE prayer_requests ENABLE ROW LEVEL SECURITY;
 
 -- 읽기는 모두 가능
 CREATE POLICY "Enable read access for all users" ON notices FOR SELECT USING (true);
@@ -118,3 +140,9 @@ CREATE POLICY "Enable delete for authenticated users only" ON events FOR DELETE 
 CREATE POLICY "Enable insert for authenticated users only" ON products FOR INSERT WITH CHECK (true);
 CREATE POLICY "Enable update for authenticated users only" ON products FOR UPDATE USING (true) WITH CHECK (true);
 CREATE POLICY "Enable delete for authenticated users only" ON products FOR DELETE USING (true);
+
+-- 기도 요청은 누구나 제출 가능하지만, 읽기는 관리자만 가능
+CREATE POLICY "Enable insert for all users" ON prayer_requests FOR INSERT WITH CHECK (true);
+CREATE POLICY "Enable read for authenticated users only" ON prayer_requests FOR SELECT USING (true);
+CREATE POLICY "Enable update for authenticated users only" ON prayer_requests FOR UPDATE USING (true) WITH CHECK (true);
+CREATE POLICY "Enable delete for authenticated users only" ON prayer_requests FOR DELETE USING (true);

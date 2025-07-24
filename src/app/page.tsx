@@ -13,21 +13,21 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-y-12 pb-16">
       {/* 말씀 기반 안내 배너 */}
-      <div className="bg-gradient-to-r from-slate-700 via-slate-600 to-slate-800 text-white py-4 px-4 text-center relative overflow-hidden">
-        <div className="relative z-10 max-w-6xl mx-auto">
+      <div className="bg-slate-800 text-white py-4 px-4 text-center">
+        <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3">
               <span className="text-2xl">✝</span>
               <div className="text-left">
-                <p className="text-lg font-bold">"내게로 오라 내가 너희를 쉬게 하리라" (마 11:28)</p>
-                <p className="text-sm opacity-90">말씀 중심의 작은 교회 공동체</p>
+                <p className="text-lg font-semibold">"내게로 오라 내가 너희를 쉬게 하리라" (마 11:28)</p>
+                <p className="text-sm text-slate-300">말씀 중심의 작은 교회 공동체</p>
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
-              <Button size="sm" className="bg-white/20 hover:bg-white/30 border border-white/30 text-white backdrop-blur-sm">
+              <Button size="sm" variant="outline" className="border-white text-white hover:bg-white hover:text-slate-800">
                 예배 참석 안내
               </Button>
-              <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">
+              <Button size="sm" className="bg-white text-slate-800 hover:bg-slate-100">
                 온라인 예배
               </Button>
             </div>
@@ -36,8 +36,7 @@ export default function Home() {
       </div>
       {/* 1. 히어로 섹션 - 말씀 중심의 메시지 */}
       <section className="relative h-[90vh] flex items-center justify-center">
-        <div className="absolute inset-0 bg-black/60 z-10" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/70 z-20" />
+        <div className="absolute inset-0 bg-black/50 z-10" />
         
         <div className="absolute inset-0 z-0">
           <Image 
@@ -53,14 +52,14 @@ export default function Home() {
           <div className="max-w-4xl mx-auto">
             {/* 말씀 중심 메시지 */}
             <div className="mb-8">
-              <span className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full text-lg font-medium mb-6">
+              <span className="inline-block px-6 py-2 bg-black/40 rounded-lg text-lg font-medium mb-6 border border-white/20">
                 "사람이 떡으로만 살 것이 아니요"
               </span>
             </div>
             
             <h1 className="text-5xl md:text-6xl font-bold mb-8 leading-tight">
               하나님의 말씀으로<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-400">
+              <span className="text-yellow-200 font-normal">
                 제자를 세우는
               </span><br />
               교회
@@ -73,12 +72,12 @@ export default function Home() {
             </p>
             
             {/* 교회 본질 메시지 */}
-            <div className="mb-8 p-6 bg-white/15 backdrop-blur-sm rounded-2xl border border-white/20">
+            <div className="mb-8 p-6 bg-black/30 rounded-lg border border-white/30">
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-2xl">✝</span>
-                <h3 className="text-xl font-bold text-white">주님의교회는</h3>
+                <h3 className="text-xl font-semibold text-white">주님의교회는</h3>
               </div>
-              <p className="text-lg text-slate-100 leading-relaxed">
+              <p className="text-lg text-slate-200 leading-relaxed">
                 화려하지 않지만 진실하게, 크지 않지만 깊이 있게<br />
                 <strong>하나님의 말씀</strong>을 사랑하고 <strong>제자의 삶</strong>을 추구하는<br />
                 겸손한 믿음의 공동체입니다
@@ -86,14 +85,14 @@ export default function Home() {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button size="lg" className="group relative bg-white text-slate-900 hover:bg-slate-50 rounded-full px-10 py-6 text-xl font-medium shadow-lg hover:shadow-xl transition-all duration-300" asChild>
+              <Button size="lg" className="bg-white text-slate-900 hover:bg-slate-100 px-10 py-4 text-lg font-medium" asChild>
                 <Link href="/contact?type=first-visit">
-                  <span className="relative z-10">예배에 함께하세요</span>
+                  예배에 함께하세요
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" className="group relative border-white text-white hover:bg-white/10 rounded-full px-10 py-6 text-xl font-medium backdrop-blur-sm border-2 transition-all duration-300" asChild>
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/20 px-10 py-4 text-lg font-medium" asChild>
                 <Link href="#church-ministry">
-                  <span className="relative z-10">제자훈련 알아보기</span>
+                  제자훈련 알아보기
                 </Link>
               </Button>
             </div>
@@ -101,27 +100,25 @@ export default function Home() {
         </div>
         
         {/* 스크롤 유도 */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 animate-bounce hover:animate-pulse cursor-pointer group">
-          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center group-hover:border-white/80 transition-colors duration-300">
-            <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse group-hover:bg-white/80 transition-colors duration-300"></div>
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 text-center">
+          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-white/50 rounded-full mt-2"></div>
           </div>
-          <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span className="text-white/70 text-xs whitespace-nowrap">아래로 스크롤하세요</span>
-          </div>
+          <span className="text-white/70 text-xs">아래로 스크롤</span>
         </div>
       </section>
 
       {/* 2. 교회 철학 - 공동체의 따뜻함 */}
-      <section id="church-philosophy" className="py-24 bg-gradient-to-br from-green-50 via-blue-50 to-indigo-50">
+      <section id="church-philosophy" className="py-24 bg-slate-50">
         <div className="container">
           <div className="text-center mb-20">
-            <span className="inline-block px-6 py-3 bg-green-100 text-green-800 text-lg font-semibold rounded-full mb-8">
-              💚 우리가 꿈꾸는 교회
+            <span className="inline-block px-6 py-3 bg-white text-slate-700 text-lg font-medium border border-slate-200 rounded-lg mb-8">
+              우리가 꿈꾸는 교회
             </span>
-            <h2 className="text-5xl md:text-6xl font-bold mb-8">
-              말씀 중심, <span className="text-green-600">사랑 실천</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-8">
+              말씀 중심, <span className="text-slate-700">사랑 실천</span>
             </h2>
-            <p className="text-2xl text-slate-700 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
               작지만 진실한 공동체에서 하나님의 사랑을 경험하고<br />
               이웃과 함께 나누며 자라가는 교회입니다
             </p>
@@ -129,33 +126,28 @@ export default function Home() {
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-20">
             {/* 말씀 중심 */}
-            <Card className="group border-0 shadow-2xl bg-white/90 backdrop-blur-sm hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 hover:rotate-1 cursor-pointer">
+            <Card className="border border-slate-200 shadow-md bg-white hover:shadow-lg transition-shadow duration-200">
               <CardHeader className="text-center pb-6">
-                <div className="w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
-                  <BookOpen className="h-10 w-10 text-blue-600 group-hover:text-blue-700" />
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <BookOpen className="h-8 w-8 text-blue-600" />
                 </div>
-                <CardTitle className="text-2xl group-hover:text-blue-700 transition-colors duration-300">말씀 중심의 신앙</CardTitle>
+                <CardTitle className="text-xl">말씀 중심의 신앙</CardTitle>
               </CardHeader>
               <CardContent className="text-center">
-                <p className="text-slate-600 mb-6 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
+                <p className="text-slate-600 mb-6 leading-relaxed text-sm">
                   "사람이 떡으로만 살 것이 아니요 하나님의 입으로부터 나오는 모든 말씀으로 살 것이라" (마 4:4)
                 </p>
-                <p className="text-slate-700 group-hover:text-slate-800 transition-colors duration-300 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500">
+                <p className="text-slate-700 text-sm leading-relaxed">
                   성경 말씀을 삶의 중심에 두고, 체계적인 제자훈련을 통해 
                   온전한 그리스도인으로 자라갑니다.
                 </p>
-                <div className="mt-4 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500 delay-100">
-                  <Button size="sm" variant="outline" className="text-blue-600 border-blue-600 hover:bg-blue-50">
-                    제자훈련 알아보기
-                  </Button>
-                </div>
               </CardContent>
             </Card>
             
             {/* 사랑의 공동체 */}
-            <Card className="group border-0 shadow-lg bg-white hover:shadow-xl transition-all duration-300">
+            <Card className="border border-slate-200 shadow-md bg-white hover:shadow-lg transition-shadow duration-200">
               <CardHeader className="text-center pb-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Heart className="h-8 w-8 text-green-600" />
                 </div>
                 <CardTitle className="text-xl">사랑의 공동체</CardTitle>
@@ -172,9 +164,9 @@ export default function Home() {
             </Card>
             
             {/* 섬김의 삶 */}
-            <Card className="group border-0 shadow-lg bg-white hover:shadow-xl transition-all duration-300">
+            <Card className="border border-slate-200 shadow-md bg-white hover:shadow-lg transition-shadow duration-200">
               <CardHeader className="text-center pb-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-amber-100 to-amber-200 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Users className="h-8 w-8 text-amber-600" />
                 </div>
                 <CardTitle className="text-xl">섬김의 삶</CardTitle>
@@ -192,21 +184,21 @@ export default function Home() {
           </div>
           
           {/* 말씀으로 섬기는 목회자들 */}
-          <div className="bg-white rounded-2xl p-12 shadow-lg max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h3 className="text-2xl font-bold mb-4 text-slate-900">✝ 말씀으로 섬기는 목회자들</h3>
+          <div className="bg-white rounded-lg p-8 border border-slate-200 max-w-6xl mx-auto">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold mb-4 text-slate-900">말씀으로 섬기는 목회자들</h3>
               <p className="text-slate-600">"내 양을 먹이라" 하신 주님의 말씀에 순종하여 성도들을 섬기는 교역자들입니다</p>
-              <div className="mt-6 p-4 bg-slate-50 rounded-xl border border-slate-200">
+              <div className="mt-4 p-4 bg-slate-50 rounded-lg border border-slate-200">
                 <p className="text-sm text-slate-700">
-                  학발보다는 거룩함으로, 웅변보다는 삶의 모래으로 말씀을 전하는 목회자들입니다
+                  학벌보다는 거룩함으로, 웅변보다는 삶의 모범으로 말씀을 전하는 목회자들입니다
                 </p>
               </div>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               {/* 담임목사 */}
-              <div className="bg-white/60 rounded-2xl p-8 shadow-lg">
-                <div className="flex items-center gap-6 mb-6">
-                  <div className="relative w-24 h-24 rounded-full overflow-hidden">
+              <div className="bg-slate-50 rounded-lg p-6 border border-slate-200">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="relative w-16 h-16 rounded-full overflow-hidden">
                     <Image 
                       src="/images/pastors/KakaoTalk_20250418_233455866_02.jpg" 
                       alt="방재홍 담임목사" 
@@ -215,19 +207,19 @@ export default function Home() {
                     />
                   </div>
                   <div>
-                    <h4 className="text-2xl font-bold text-slate-900">방재홍 담임목사</h4>
-                    <p className="text-slate-600">말씀 중심 목회와 지역 섬김</p>
+                    <h4 className="text-xl font-bold text-slate-900">방재홍 담임목사</h4>
+                    <p className="text-slate-600 text-sm">말씀 중심 목회와 지역 섬김</p>
                   </div>
                 </div>
-                <blockquote className="text-lg text-slate-700 leading-relaxed italic">
+                <blockquote className="text-sm text-slate-700 leading-relaxed">
                   "주님의 말씀을 사랑하고 배워서 순종하는 제자들을 세우고 싶습니다. 작지만 성경적이고, 겸손하지만 진실하게 주님을 따르는 공동체가 되기를 원합니다."
                 </blockquote>
               </div>
               
               {/* 협동목사 */}
-              <div className="bg-white/60 rounded-2xl p-8 shadow-lg">
-                <div className="flex items-center gap-6 mb-6">
-                  <div className="relative w-24 h-24 rounded-full overflow-hidden">
+              <div className="bg-slate-50 rounded-lg p-6 border border-slate-200">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="relative w-16 h-16 rounded-full overflow-hidden">
                     <Image 
                       src="/images/pastors/KakaoTalk_20250418_233624229.jpg" 
                       alt="정성아 협동목사" 
@@ -236,13 +228,164 @@ export default function Home() {
                     />
                   </div>
                   <div>
-                    <h4 className="text-2xl font-bold text-slate-900">정성아 협동목사</h4>
-                    <p className="text-slate-600">찬양과 새가족 양육</p>
+                    <h4 className="text-xl font-bold text-slate-900">정성아 협동목사</h4>
+                    <p className="text-slate-600 text-sm">찬양과 새가족 양육</p>
                   </div>
                 </div>
-                <blockquote className="text-lg text-slate-700 leading-relaxed italic">
+                <blockquote className="text-sm text-slate-700 leading-relaxed">
                   "말씀을 사랑하는 성도들과 함께 찬양과 기도로 주님께 나아가고 있습니다. 한 영혼 한 영혼을 소중히 여기며, 말씀 안에서 성장하는 공동체가 되기를 소망합니다."
                 </blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 신조 및 신앙고백 */}
+      <section className="py-24 bg-white">
+        <div className="container">
+          <div className="text-center mb-16">
+            <span className="inline-block px-6 py-3 bg-slate-100 text-slate-700 text-lg font-medium border border-slate-200 rounded-lg mb-8">
+              우리의 신앙
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-8">
+              <span className="text-slate-700">성경이 말하는 신앙</span>
+            </h2>
+            <p className="text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
+              성경 말씀에 근거한 우리의 신앙고백과<br />
+              순수한 복음의 진리를 고백합니다
+            </p>
+          </div>
+          
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              {/* 우리의 신조 */}
+              <div className="bg-slate-50 rounded-lg p-8 border border-slate-200">
+                <div className="text-center mb-6">
+                  <div className="w-16 h-16 bg-slate-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <BookOpen className="h-8 w-8 text-slate-600" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-4">우리의 신조</h3>
+                </div>
+                
+                <div className="space-y-4 text-sm">
+                  <div className="border-l-4 border-slate-400 pl-4">
+                    <h4 className="font-semibold text-slate-900 mb-2">성경</h4>
+                    <p className="text-slate-700 leading-relaxed">
+                      신구약 66권의 성경은 하나님의 영감으로 기록된 무오한 하나님의 말씀이며, 
+                      신앙과 생활의 유일한 규범입니다.
+                    </p>
+                    <p className="text-slate-600 text-xs mt-1 italic">"모든 성경은 하나님의 감동으로 된 것으로" (딤후 3:16)</p>
+                  </div>
+                  
+                  <div className="border-l-4 border-slate-400 pl-4">
+                    <h4 className="font-semibold text-slate-900 mb-2">삼위일체 하나님</h4>
+                    <p className="text-slate-700 leading-relaxed">
+                      성부, 성자, 성령 하나님은 본질상 하나이시며, 
+                      인격상 구별되시는 삼위일체 하나님이십니다.
+                    </p>
+                    <p className="text-slate-600 text-xs mt-1 italic">"아버지와 아들과 성령의 이름으로" (마 28:19)</p>
+                  </div>
+                  
+                  <div className="border-l-4 border-slate-400 pl-4">
+                    <h4 className="font-semibold text-slate-900 mb-2">예수 그리스도</h4>
+                    <p className="text-slate-700 leading-relaxed">
+                      예수 그리스도는 참 하나님이시며 참 인간이시고, 
+                      우리의 죄를 위해 십자가에서 죽으시고 부활하신 유일한 구주이십니다.
+                    </p>
+                    <p className="text-slate-600 text-xs mt-1 italic">"다른 이로써는 구원을 받을 수 없나니" (행 4:12)</p>
+                  </div>
+                  
+                  <div className="border-l-4 border-slate-400 pl-4">
+                    <h4 className="font-semibold text-slate-900 mb-2">구원</h4>
+                    <p className="text-slate-700 leading-relaxed">
+                      구원은 오직 은혜로, 오직 믿음으로, 오직 그리스도로 받는 
+                      하나님의 선물이며, 행위가 아닙니다.
+                    </p>
+                    <p className="text-slate-600 text-xs mt-1 italic">"너희는 그 은혜에 의하여 믿음으로 말미암아 구원을 받았으니" (엡 2:8)</p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* 우리의 약속 */}
+              <div className="bg-slate-50 rounded-lg p-8 border border-slate-200">
+                <div className="text-center mb-6">
+                  <div className="w-16 h-16 bg-slate-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Heart className="h-8 w-8 text-slate-600" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-4">우리의 약속</h3>
+                </div>
+                
+                <div className="space-y-4 text-sm">
+                  <div className="border-l-4 border-slate-400 pl-4">
+                    <h4 className="font-semibold text-slate-900 mb-2">말씀 중심</h4>
+                    <p className="text-slate-700 leading-relaxed">
+                      성경 말씀을 삶의 중심에 두고, 말씀에 순종하는 제자의 삶을 
+                      살아가기를 다짐합니다.
+                    </p>
+                    <p className="text-slate-600 text-xs mt-1 italic">"사람이 떡으로만 살 것이 아니요" (마 4:4)</p>
+                  </div>
+                  
+                  <div className="border-l-4 border-slate-400 pl-4">
+                    <h4 className="font-semibold text-slate-900 mb-2">제자 양성</h4>
+                    <p className="text-slate-700 leading-relaxed">
+                      예수 그리스도의 제자를 삼는 사명을 감당하며, 
+                      체계적인 양육을 통해 성숙한 그리스도인을 세웁니다.
+                    </p>
+                    <p className="text-slate-600 text-xs mt-1 italic">"모든 민족을 제자로 삼아" (마 28:19)</p>
+                  </div>
+                  
+                  <div className="border-l-4 border-slate-400 pl-4">
+                    <h4 className="font-semibold text-slate-900 mb-2">겸손한 섬김</h4>
+                    <p className="text-slate-700 leading-relaxed">
+                      화려함보다는 진실함을, 큰 것보다는 깊은 것을 추구하며 
+                      겸손하게 하나님과 이웃을 섬깁니다.
+                    </p>
+                    <p className="text-slate-600 text-xs mt-1 italic">"섬김을 받으려 함이 아니라 섬기려 하고" (막 10:45)</p>
+                  </div>
+                  
+                  <div className="border-l-4 border-slate-400 pl-4">
+                    <h4 className="font-semibold text-slate-900 mb-2">순수한 신앙</h4>
+                    <p className="text-slate-700 leading-relaxed">
+                      세상의 가치가 아닌 하나님의 가치를 추구하며, 
+                      물질주의와 성공주의를 경계하는 순수한 신앙을 지킵니다.
+                    </p>
+                    <p className="text-slate-600 text-xs mt-1 italic">"하나님과 재물을 겸하여 섬길 수 없느니라" (마 6:24)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* 개혁주의 전통 */}
+            <div className="mt-12 bg-slate-800 text-white rounded-lg p-8">
+              <div className="text-center mb-6">
+                <h3 className="text-2xl font-bold mb-4">개혁주의 신앙 전통</h3>
+                <p className="text-slate-300">
+                  우리는 종교개혁의 정신을 계승하며, 성경으로 돌아가는(Sola Scriptura) 신앙을 추구합니다
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-5 gap-6 text-center">
+                <div className="bg-slate-700 rounded-lg p-4">
+                  <h4 className="font-bold mb-2 text-yellow-400">오직 성경</h4>
+                  <p className="text-xs text-slate-300">Sola Scriptura</p>
+                </div>
+                <div className="bg-slate-700 rounded-lg p-4">
+                  <h4 className="font-bold mb-2 text-yellow-400">오직 은혜</h4>
+                  <p className="text-xs text-slate-300">Sola Gratia</p>
+                </div>
+                <div className="bg-slate-700 rounded-lg p-4">
+                  <h4 className="font-bold mb-2 text-yellow-400">오직 믿음</h4>
+                  <p className="text-xs text-slate-300">Sola Fide</p>
+                </div>
+                <div className="bg-slate-700 rounded-lg p-4">
+                  <h4 className="font-bold mb-2 text-yellow-400">오직 그리스도</h4>
+                  <p className="text-xs text-slate-300">Solus Christus</p>
+                </div>
+                <div className="bg-slate-700 rounded-lg p-4">
+                  <h4 className="font-bold mb-2 text-yellow-400">오직 하나님께 영광</h4>
+                  <p className="text-xs text-slate-300">Soli Deo Gloria</p>
+                </div>
               </div>
             </div>
           </div>
