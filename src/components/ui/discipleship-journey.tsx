@@ -16,7 +16,8 @@ import {
   Clock,
   Target,
   Lightbulb,
-  ChevronRight
+  ChevronRight,
+  LucideIcon
 } from "lucide-react";
 
 interface DiscipleshipStage {
@@ -29,7 +30,7 @@ interface DiscipleshipStage {
   reference: string;
   goals: string[];
   activities: string[];
-  icon: any;
+  icon: LucideIcon;
   color: string;
   bgColor: string;
   borderColor: string;

@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { DiscipleshipJourney } from "@/components/ui/discipleship-journey";
 import Link from "next/link";
 import Image from "next/image";
-import { Calendar, MapPin, Clock, Video, Phone, ChevronRight, Play, BookOpen, Heart } from "lucide-react";
+import { Calendar, MapPin, Clock, Video, Phone, ChevronRight, Play, BookOpen, Heart, Users } from "lucide-react";
 
 export default function Home() {
   return (
