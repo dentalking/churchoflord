@@ -43,24 +43,30 @@ export default function SermonsPage() {
 
   return (
     <div className="container py-12">
-      <h1 className="text-4xl font-bold mb-8">설교 영상</h1>
+      <div className="text-center mb-12">
+        <h1 className="text-4xl font-bold mb-4">말씀의 은혜</h1>
+        <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          "그러므로 믿음은 들음에서 나며 들음은 그리스도의 말씀으로 말미암는니라" (롬 10:17)<br />
+          하나님의 말씀이 선포되어 영혼의 양식이 되기를 소망합니다
+        </p>
+      </div>
       
       <Tabs defaultValue="recent">
         <TabsList className="mb-8">
-          <TabsTrigger value="recent">최신 설교</TabsTrigger>
-          <TabsTrigger value="clips">설교 하이라이트</TabsTrigger>
-          <TabsTrigger value="archive">설교 아카이브</TabsTrigger>
+          <TabsTrigger value="recent">최신 말씀</TabsTrigger>
+          <TabsTrigger value="clips">말씀 나눔</TabsTrigger>
+          <TabsTrigger value="archive">말씀 보고</TabsTrigger>
         </TabsList>
         
         <TabsContent value="recent">
           <div className="space-y-8">
             {loading ? (
               <div className="py-12 text-center text-gray-500">
-                불러오는 중...
+                말씀을 불러오는 중...
               </div>
             ) : sermons.length === 0 ? (
               <div className="py-12 text-center text-gray-500">
-                등록된 설교가 없습니다.
+                준비 중인 말씀이 있습니다.
               </div>
             ) : (
               <>
@@ -98,9 +104,12 @@ export default function SermonsPage() {
                           )}
                         </div>
                         <CardContent className="pt-4">
-                          <h3 className="font-bold mb-1">{sermon.title}</h3>
+                          <h3 className="font-bold mb-1 line-clamp-2">{sermon.title}</h3>
                           <p className="text-sm text-gray-500">
-                            {sermon.pastor} | {new Date(sermon.sermon_date).toLocaleDateString('ko-KR')}
+                            {sermon.pastor} 목사
+                          </p>
+                          <p className="text-xs text-gray-400">
+                            {new Date(sermon.sermon_date).toLocaleDateString('ko-KR')}
                           </p>
                         </CardContent>
                       </Card>
@@ -116,7 +125,7 @@ export default function SermonsPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {shortClips.length === 0 ? (
               <div className="col-span-3 py-12 text-center text-gray-500">
-                설교 하이라이트가 준비 중입니다.
+                말씀 나눔 영상을 준비 중입니다.
               </div>
             ) : (
               shortClips.map((clip) => {
@@ -149,9 +158,11 @@ export default function SermonsPage() {
         </TabsContent>
         
         <TabsContent value="archive">
-          <div className="bg-slate-50 p-6 rounded-lg mb-8">
-            <p>
-              주님의교회의 과거 설교 영상 아카이브입니다. 연도와 월별로 정리되어 있습니다.
+          <div className="bg-blue-50 p-6 rounded-lg mb-8 border border-blue-200">
+            <h3 className="text-lg font-bold mb-2 text-blue-900">말씀의 보고</h3>
+            <p className="text-blue-800">
+              "내 입에서 나가는 말이 헛되이 내게로 돌아오지 아니하고 나의 뜻을 이루며 나의 명하여 보낸 일에 형통하리라" (사 55:11)<br />
+              선포된 하나님의 말씀들을 다시 들으며 은혜를 받으세요.
             </p>
           </div>
           

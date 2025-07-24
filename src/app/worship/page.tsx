@@ -4,19 +4,24 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "예배 안내",
-  description: "주님의교회 예배 시간 안내입니다. 주일예배, 새벽기도회, 수요/금요기도회 일정을 확인하세요. 이 지역 주민 여러분을 환영합니다.",
-  keywords: "예배 시간, 주일예배, 새벽기도회, 수요기도회, 금요기도회, 경주 교회",
+  title: "예배 안내 - 주님의교회",
+  description: "신령과 진정으로 드리는 주님의교회 예배 안내입니다. 말씀 중심의 예배로 하나님을 만나세요.",
+  keywords: "말씀 중심 예배, 주일예배, 새벽기도회, 제자훈련, 경주 교회",
 };
 
 export default function WorshipPage() {
   return (
     <div className="container py-12">
-      <h1 className="text-4xl font-bold mb-8">예배 안내</h1>
+      <div className="text-center mb-12">
+        <h1 className="text-4xl font-bold mb-4">예배 안내</h1>
+        <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          "하나님은 영이시니 예배하는 자들도 신령과 진정으로 예배할 때를 찾으시니라" (요 4:23)
+        </p>
+      </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
         <div>
-          <h2 className="text-2xl font-bold mb-6">예배 시간</h2>
+          <h2 className="text-2xl font-bold mb-6">말씀 중심의 예배</h2>
           <div className="space-y-4">
             <Card>
               <CardHeader>
@@ -24,7 +29,8 @@ export default function WorshipPage() {
                 <CardDescription>매주 일요일 오전 11시</CardDescription>
               </CardHeader>
               <CardContent>
-                <p>온 가족이 함께 드리는 주일 예배입니다. 예배 후에는 친교 시간이 있습니다.</p>
+                <p className="mb-3">"하나님의 말씀으로 살 것이라"는 말씀을 중심으로 한 예배입니다.</p>
+                <p className="text-sm text-slate-600">예배 후에는 말씀 나눔과 친교의 시간이 있습니다.</p>
               </CardContent>
             </Card>
             
@@ -34,7 +40,8 @@ export default function WorshipPage() {
                 <CardDescription>매주 일요일 오후 2시</CardDescription>
               </CardHeader>
               <CardContent>
-                <p>찬양과 기도로 함께 드리는 주일 오후 예배입니다.</p>
+                <p className="mb-3">시편과 찬송으로 하나님께 영광 돌리는 예배입니다.</p>
+                <p className="text-sm text-slate-600">"시와 찬과 신령한 노래로 서로 가르치며" (엡 5:19)</p>
               </CardContent>
             </Card>
             
@@ -44,7 +51,8 @@ export default function WorshipPage() {
                 <CardDescription>매주 수요일 오후 2시</CardDescription>
               </CardHeader>
               <CardContent>
-                <p>말씀과 중보기도로 함께하는 수요 기도회입니다.</p>
+                <p className="mb-3">말씀과 기도로 하나님과 깊이 교제하는 시간입니다.</p>
+                <p className="text-sm text-slate-600">"쉽지 않고 기도하며" (눠 1:9)</p>
               </CardContent>
             </Card>
             
@@ -54,7 +62,8 @@ export default function WorshipPage() {
                 <CardDescription>매주 금요일 오후 2시</CardDescription>
               </CardHeader>
               <CardContent>
-                <p>찬양과 말씀, 기도로 한 주를 마무리하는 금요 기도회입니다.</p>
+                <p className="mb-3">한 주간의 은혜를 감사하며 드리는 기도회입니다.</p>
+                <p className="text-sm text-slate-600">"범사에 감사하라" (살전 5:18)</p>
               </CardContent>
             </Card>
             
@@ -64,7 +73,8 @@ export default function WorshipPage() {
                 <CardDescription>매일 오전 5시</CardDescription>
               </CardHeader>
               <CardContent>
-                <p>매일 아침 말씀과 기도로 하루를 시작하는 새벽 기도회입니다.</p>
+                <p className="mb-3">매일 새벽 말씀을 묵상하며 하루를 시작합니다.</p>
+                <p className="text-sm text-slate-600">"아침마다 새로운 진다" (애 3:23)</p>
               </CardContent>
             </Card>
           </div>
@@ -78,45 +88,42 @@ export default function WorshipPage() {
             </div>
           </div>
           
-          <div className="bg-slate-50 p-6 rounded-lg">
-            <h2 className="text-2xl font-bold mb-4">처음 방문하시는 분들을 위한 안내</h2>
-            <p className="mb-4">
-              주님의교회에 처음 방문하시는 분들을 진심으로 환영합니다. 
-              예배 후에는 새신자 환영실에서 담임목사님과의 만남 및 교회 안내가 있습니다.
+          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+            <h2 className="text-2xl font-bold mb-4 text-blue-900">말씀 중심의 예배</h2>
+            <p className="mb-4 text-blue-800">
+              "말씀을 전하는 자는 하나님의 말씀을 하는 것 같이 하고" (벧전 4:11)<br />
+              주님의교회는 말씀을 중심으로 한 예배를 드리며, 
+              설교를 통해 하나님의 뜻을 깨닫고 순종하는 삶을 추구합니다.
             </p>
-            <p className="mb-4">
-              도심에서 약 10분 거리에 위치해 있으며, 
-              아름다운 산길을 따라 오시면 됩니다.
-            </p>
-            <Button asChild>
-              <Link href="/contact">방문 예약하기</Link>
+            <Button asChild className="bg-blue-600 hover:bg-blue-700">
+              <Link href="/contact">예배 참석 문의</Link>
             </Button>
           </div>
           
-          <div className="bg-slate-50 p-6 rounded-lg mb-6">
-            <h2 className="text-2xl font-bold mb-4">예배 후 소그룹 모임</h2>
-            <p className="mb-4">
-              주일예배 후에는 다양한 소그룹 모임이 있습니다. 
-              친밀한 교제와 말씀 나눔을 통해 더욱 깊은 신앙생활을 경험하세요.
+          <div className="bg-green-50 p-6 rounded-lg mb-6 border border-green-200">
+            <h2 className="text-2xl font-bold mb-4 text-green-900">말씀 나눔과 제자훈련</h2>
+            <p className="mb-4 text-green-800">
+              "나는 너희를 어률던지에서 데려다가 밑은 곳에 운전함이라" (시 23:2)<br />
+              예배 후에는 말씀을 더 깊이 묵상하고 삶에 적용하는 시간을 갖습니다.
             </p>
             <div className="space-y-2 mb-4">
-              <p className="text-sm">• <strong>구역 모임</strong>: 지역별로 모이는 이웃 공동체</p>
-              <p className="text-sm">• <strong>연령별 목장</strong>: 비슷한 세대가 함께하는 모임</p>
-              <p className="text-sm">• <strong>새가족 모임</strong>: 처음 오신 분들을 위한 환영 모임</p>
+              <p className="text-sm text-green-700">• <strong>말씀 나눔</strong>: 설교 말씀을 중심으로 한 대화와 나눔</p>
+              <p className="text-sm text-green-700">• <strong>제자훈련</strong>: 체계적인 성경 공부와 신앙 성장</p>
+              <p className="text-sm text-green-700">• <strong>기도 모임</strong>: 서로를 위해 기도하는 시간</p>
             </div>
-            <Button asChild>
-              <Link href="/small-groups">소그룹 자세히 보기</Link>
+            <Button asChild className="bg-green-600 hover:bg-green-700">
+              <Link href="/discipleship">제자훈련 자세히 보기</Link>
             </Button>
           </div>
           
-          <div className="bg-slate-50 p-6 rounded-lg">
-            <h2 className="text-2xl font-bold mb-4">새가족 초청 이벤트</h2>
-            <p className="mb-4">
-              이 지역에 새롭게 오신 분들을 위한 특별 초청 예배를 준비하고 있습니다. 
-              아래 버튼을 통해 참여 신청을 해주세요.
+          <div className="bg-slate-50 p-6 rounded-lg border border-slate-200">
+            <h2 className="text-2xl font-bold mb-4 text-slate-900">처음 방문하시는 분들께</h2>
+            <p className="mb-4 text-slate-700">
+              "바라건대 너희를 과학하는 자처럼 과학하지 말라는 것이니 사랑에는 거짓이 없늤" (롬 12:9)<br />
+              주님의교회는 처음 방문하시는 모든 분들을 진실한 마음으로 환영합니다.
             </p>
-            <Button variant="outline" asChild>
-              <Link href="/contact?event=새가족초청">초청 이벤트 참여하기</Link>
+            <Button variant="outline" asChild className="border-slate-600 text-slate-700 hover:bg-slate-100">
+              <Link href="/contact?type=first-visit">예배 참석 문의</Link>
             </Button>
           </div>
         </div>

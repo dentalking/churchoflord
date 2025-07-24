@@ -14,7 +14,14 @@ export default function ContactPage() {
 
   return (
     <div className="container py-12">
-      <h1 className="text-4xl font-bold mb-8">문의하기</h1>
+      <div className="text-center mb-12">
+        <h1 className="text-4xl font-bold mb-4">교회와 함께하기</h1>
+        <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          "어떤 기도와 간구든지 무엇이든지 아무 것도 염려하지 말고 다만 모든 일에 기도와 간구로 
+          너희 구할 것을 감사함으로 하나님께 아뢰라" (빌 4:6)<br />
+          주님의교회는 여러분의 기도와 문의를 기다립니다
+        </p>
+      </div>
       
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
@@ -22,22 +29,22 @@ export default function ContactPage() {
             <CardHeader>
               <CardTitle className="flex items-center">
                 <MessageSquare className="mr-2 h-5 w-5" />
-                카카오톡 채널로 문의하기
+                친근한 소통의 창구
               </CardTitle>
               <CardDescription>
-                가장 빠르고 편리하게 문의하실 수 있는 방법입니다.
+                "각 사람이 마음문을 열고 서로 가지의 문을 여라" (약 5:16)
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-              <p>
-                '경주 주님의교회' 카카오톡 채널을 통해 다음과 같은 문의를 하실 수 있습니다:
+              <p className="text-slate-700">
+                주님의교회는 여러분과의 소통을 소중히 여깁니다:
               </p>
-              <ul className="list-disc pl-5 space-y-2">
-                <li>예배 방문 및 안내 문의</li>
-                <li>새가족 초청 이벤트 참여</li>
-                <li>콩과나무로 제품 문의</li>
-                <li>새신자 상담 예약</li>
-                <li>기타 모든 문의사항</li>
+              <ul className="list-disc pl-5 space-y-2 text-slate-600">
+                <li>예배와 말씀에 대한 문의</li>
+                <li>제자훈련 참여 상담</li>
+                <li>신앙생활에 대한 경험 나눔</li>
+                <li>기도 요청과 중보기도</li>
+                <li>기타 모든 교제와 소통</li>
               </ul>
               
               <div className="pt-4">
@@ -62,8 +69,8 @@ export default function ContactPage() {
 
               <div className="mt-4 pt-4 border-t border-gray-200">
                 <p className="text-sm text-gray-600">
-                  카카오톡 채널을 통해 문의하시면 빠른 시간 내에 답변드리겠습니다. 
-                  교회 운영 시간에 따라 답변이 지연될 수 있습니다.
+                  "사람의 마음에는 많은 계획이 있어도 오직 여호와의 뜻만이 굳게 서리라" (잠 19:21)<br />
+                  성령님의 인도하심 가운데 진실한 마음으로 답변드리겠습니다.
                 </p>
               </div>
             </CardContent>
@@ -101,16 +108,17 @@ export default function ContactPage() {
             <CardHeader>
               <CardTitle className="flex items-center">
                 <Calendar className="mr-2 h-5 w-5" />
-                방문 예약
+                함께 예배드리기
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="mb-4">
-                주님의교회에 처음 방문하시는 분들을 위해 방문 예약 서비스를 제공하고 있습니다. 
-                카카오톡 채널로 예약하시면 담당자가 맞이하여 교회를 안내해 드립니다.
+              <p className="mb-4 text-slate-700">
+                "모이기를 폐하는 어떤 사람들의 습관과 같이 하지 말고 오직 사랑과 
+                선한 일을 격려하고 서로 권하여" (히 10:24-25)<br />
+                함께 예배드리며 말씀을 나눈 시간을 기다립니다.
               </p>
-              <p className="mb-4">
-                특히 도심에서 오시는 분들을 위해 교회까지 안내도 가능합니다.
+              <p className="mb-4 text-slate-600">
+                처음 방문하시는 분들을 위해 성도들이 사랑으로 준비하고 있습니다.
               </p>
               <Button 
                 variant="outline" 
@@ -127,13 +135,14 @@ export default function ContactPage() {
             <CardHeader>
               <CardTitle className="flex items-center">
                 <MessageSquare className="mr-2 h-5 w-5" />
-                새신자 상담
+                말씀과 기도로 함께
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="mb-4">
-                신앙생활에 대한 궁금증이나 상담이 필요하신 분들은 담임목사님 또는 
-                협동목사님과의 상담 예약이 가능합니다.
+              <p className="mb-4 text-slate-700">
+                "서로 짐을 지라 그리하여 그리스도의 법을 성취하라" (갈 6:2)<br />
+                신앙의 여정에서 함께 기도하고 말씀을 나누는 
+                동반자가 되기를 원합니다.
               </p>
               <Button 
                 variant="outline" 

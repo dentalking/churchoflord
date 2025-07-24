@@ -12,38 +12,37 @@ import { OnlineWorshipButton, KakaoTalkButton } from "@/components/ui/interactiv
 export default function Home() {
   return (
     <div className="flex flex-col gap-y-12 pb-16">
-      {/* 사용자 맞잘 안내 배너 */}
-      <div className="bg-gradient-to-r from-blue-600 via-green-600 to-emerald-600 text-white py-3 px-4 text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%23ffffff%22 fill-opacity=%220.1%22%3E%3Ccircle cx=%2230%22 cy=%2230%22 r=%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+      {/* 말씀 기반 안내 배너 */}
+      <div className="bg-gradient-to-r from-slate-700 via-slate-600 to-slate-800 text-white py-4 px-4 text-center relative overflow-hidden">
         <div className="relative z-10 max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <span className="text-2xl animate-pulse">🌱</span>
+              <span className="text-2xl">✝</span>
               <div className="text-left">
-                <p className="text-lg font-bold">첫 방문이신가요? 환영합니다!</p>
-                <p className="text-sm opacity-90">경주역 신도시 주민들을 위한 따뜻한 산속 공동체</p>
+                <p className="text-lg font-bold">"내게로 오라 내가 너희를 쉬게 하리라" (마 11:28)</p>
+                <p className="text-sm opacity-90">말씀 중심의 작은 교회 공동체</p>
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
               <Button size="sm" className="bg-white/20 hover:bg-white/30 border border-white/30 text-white backdrop-blur-sm">
-                픽업 서비스 신청
+                예배 참석 안내
               </Button>
-              <Button size="sm" className="bg-yellow-400 hover:bg-yellow-500 text-black font-medium">
-                온라인 예배 링크
+              <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">
+                온라인 예배
               </Button>
             </div>
           </div>
         </div>
       </div>
-      {/* 1. 히어로 섹션 - 도시의 피로에서 산속의 평안으로 */}
+      {/* 1. 히어로 섹션 - 말씀 중심의 메시지 */}
       <section className="relative h-[90vh] flex items-center justify-center">
-        <div className="absolute inset-0 bg-black/50 z-10" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/80 z-20" />
+        <div className="absolute inset-0 bg-black/60 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/70 z-20" />
         
         <div className="absolute inset-0 z-0">
           <Image 
             src="/images/hero/KakaoTalk_20250416_201705309.jpg" 
-            alt="도시의 번잡함을 벗어나 평온한 산속으로" 
+            alt="하나님의 말씀이 거하는 곳" 
             fill 
             className="object-cover"
             priority 
@@ -52,55 +51,49 @@ export default function Home() {
         
         <div className="container relative z-30 text-white text-center">
           <div className="max-w-4xl mx-auto">
-            {/* 감정적 여정 시작 */}
+            {/* 말씀 중심 메시지 */}
             <div className="mb-8">
               <span className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full text-lg font-medium mb-6">
-                바쁜 도시 생활에 지치셨나요?
+                "사람이 떡으로만 살 것이 아니요"
               </span>
             </div>
             
-            <h1 className="text-6xl md:text-7xl font-bold mb-8 leading-tight">
-              평온한 산속에서<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-blue-400">
-                마음의 쉼을
-              </span>
+            <h1 className="text-5xl md:text-6xl font-bold mb-8 leading-tight">
+              하나님의 말씀으로<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-400">
+                제자를 세우는
+              </span><br />
+              교회
             </h1>
             
-            <p className="text-2xl md:text-3xl mb-12 leading-relaxed">
-              "수고하고 무거운 짐 진 자들아 내게로 오라" (마 11:28)<br />
-              🏔️ <strong>도심에서 10분</strong>, 자연 속 <strong>작고 따뜻한 믿음 공동체</strong>가<br />
-              여러분의 영혼에 참된 평안을 선물합니다
+            <p className="text-xl md:text-2xl mb-12 leading-relaxed">
+              "그러므로 너희는 가서 모든 민족을 제자로 삼아" (마 28:19)<br />
+              작지만 진실한 <strong>말씀 중심의 교회</strong>에서<br />
+              <strong>그리스도의 제자</strong>로 자라가는 삶을 함께 살아가세요
             </p>
             
-            {/* 사용자 맞춤 메시지 */}
-            <div className="mb-8 p-6 bg-white/20 backdrop-blur-sm rounded-2xl border border-white/30">
+            {/* 교회 본질 메시지 */}
+            <div className="mb-8 p-6 bg-white/15 backdrop-blur-sm rounded-2xl border border-white/20">
               <div className="flex items-center gap-3 mb-4">
-                <span className="text-2xl">📍</span>
-                <h3 className="text-xl font-bold text-white">경주역 신도시 주민 여러분께</h3>
+                <span className="text-2xl">✝</span>
+                <h3 className="text-xl font-bold text-white">주님의교회는</h3>
               </div>
-              <p className="text-lg text-green-100 leading-relaxed">
-                새로 이사 오신 분들, 직장 때문에 바쁜 분들, 아이들 교육 때문에 고민인 분들...<br />
-                <strong>모두를 위한 열린 공간</strong>입니다. 언제든 편안하게 오세요!
+              <p className="text-lg text-slate-100 leading-relaxed">
+                화려하지 않지만 진실하게, 크지 않지만 깊이 있게<br />
+                <strong>하나님의 말씀</strong>을 사랑하고 <strong>제자의 삶</strong>을 추구하는<br />
+                겸손한 믿음의 공동체입니다
               </p>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button size="lg" className="group relative bg-white text-slate-900 hover:bg-green-50 rounded-full px-10 py-6 text-xl font-bold shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 overflow-hidden" asChild>
+              <Button size="lg" className="group relative bg-white text-slate-900 hover:bg-slate-50 rounded-full px-10 py-6 text-xl font-medium shadow-lg hover:shadow-xl transition-all duration-300" asChild>
                 <Link href="/contact?type=first-visit">
-                  <span className="relative z-10">첫 방문 예약하기</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-blue-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-                  <div className="absolute -right-4 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:-right-2 transition-all duration-300">
-                    <span className="text-2xl">✨</span>
-                  </div>
+                  <span className="relative z-10">예배에 함께하세요</span>
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" className="group relative border-white text-white hover:bg-white/10 rounded-full px-10 py-6 text-xl font-bold backdrop-blur-sm border-2 transform hover:scale-105 transition-all duration-300 overflow-hidden" asChild>
-                <Link href="#church-philosophy">
-                  <span className="relative z-10">더 알아보기</span>
-                  <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="absolute -right-4 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:-right-2 transition-all duration-300">
-                    <span className="text-2xl">👇</span>
-                  </div>
+              <Button size="lg" variant="outline" className="group relative border-white text-white hover:bg-white/10 rounded-full px-10 py-6 text-xl font-medium backdrop-blur-sm border-2 transition-all duration-300" asChild>
+                <Link href="#church-ministry">
+                  <span className="relative z-10">제자훈련 알아보기</span>
                 </Link>
               </Button>
             </div>
@@ -159,64 +152,53 @@ export default function Home() {
               </CardContent>
             </Card>
             
-            {/* 공동체 사랑 */}
-            <Card className="group border-0 shadow-2xl bg-white/90 backdrop-blur-sm hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 hover:-rotate-1 cursor-pointer">
+            {/* 사랑의 공동체 */}
+            <Card className="group border-0 shadow-lg bg-white hover:shadow-xl transition-all duration-300">
               <CardHeader className="text-center pb-6">
-                <div className="w-20 h-20 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
-                  <Heart className="h-10 w-10 text-green-600 group-hover:text-green-700 group-hover:animate-pulse" />
+                <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Heart className="h-8 w-8 text-green-600" />
                 </div>
-                <CardTitle className="text-2xl group-hover:text-green-700 transition-colors duration-300">서로 사랑하는 공동체</CardTitle>
+                <CardTitle className="text-xl">사랑의 공동체</CardTitle>
               </CardHeader>
               <CardContent className="text-center">
-                <p className="text-slate-600 mb-6 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
-                  "새 계명을 너희에게 주노니 서로 사랑하라" (요 13:34)
+                <p className="text-slate-600 mb-4 text-sm leading-relaxed">
+                  "새 계명을 너희에게 주노니 서로 사랑하라 내가 너희를 사랑한 것 같이" (요 13:34)
                 </p>
-                <p className="text-slate-700 group-hover:text-slate-800 transition-colors duration-300 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500">
-                  가족 같은 따뜻함으로 서로를 돌보며, 
-                  기쁨과 슬픔을 함께 나누는 진정한 공동체를 이룹니다.
+                <p className="text-slate-700 text-sm leading-relaxed">
+                  주님의 사랑을 배운 자들이 서로를 진실하게 사랑하고, 
+                  말씀 안에서 일치를 이루어가는 공동체입니다.
                 </p>
-                <div className="mt-4 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500 delay-100">
-                  <Button size="sm" variant="outline" className="text-green-600 border-green-600 hover:bg-green-50">
-                    소그룹 참여하기
-                  </Button>
-                </div>
               </CardContent>
             </Card>
             
-            {/* 섬김 실천 */}
-            <Card className="group border-0 shadow-2xl bg-white/90 backdrop-blur-sm hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 hover:rotate-1 cursor-pointer">
+            {/* 섬김의 삶 */}
+            <Card className="group border-0 shadow-lg bg-white hover:shadow-xl transition-all duration-300">
               <CardHeader className="text-center pb-6">
-                <div className="w-20 h-20 bg-gradient-to-br from-amber-100 to-amber-200 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:-rotate-12 transition-all duration-300">
-                  <Users className="h-10 w-10 text-amber-600 group-hover:text-amber-700" />
+                <div className="w-16 h-16 bg-gradient-to-br from-amber-100 to-amber-200 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Users className="h-8 w-8 text-amber-600" />
                 </div>
-                <CardTitle className="text-2xl group-hover:text-amber-700 transition-colors duration-300">나눔과 섬김의 실천</CardTitle>
+                <CardTitle className="text-xl">섬김의 삶</CardTitle>
               </CardHeader>
               <CardContent className="text-center">
-                <p className="text-slate-600 mb-6 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
-                  "나누어 주는 것이 받는 것보다 복이 있다" (행 20:35)
+                <p className="text-slate-600 mb-4 text-sm leading-relaxed">
+                  "각각 은사를 받은 대로 하나님의 여러 가지 은혜의 선한 청지기 같이 서로 봉사하라" (벧전 4:10)
                 </p>
-                <p className="text-slate-700 group-hover:text-slate-800 transition-colors duration-300 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500">
-                  '콩과나무로' 사역을 통해 지역 사회를 섬기고, 
-                  받은 사랑을 이웃에게 나누는 삶을 실천합니다.
+                <p className="text-slate-700 text-sm leading-relaxed">
+                  주님의 사랑에 감사한 자들이 받은 은혜를 나누며, 
+                  겸손하고 착한 마음으로 지역사회를 섬깁니다.
                 </p>
-                <div className="mt-4 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500 delay-100">
-                  <Button size="sm" variant="outline" className="text-amber-600 border-amber-600 hover:bg-amber-50">
-                    콩과나무로 보기
-                  </Button>
-                </div>
               </CardContent>
             </Card>
           </div>
           
-          {/* 섬기는 목회자들 */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-12 shadow-2xl max-w-6xl mx-auto">
+          {/* 말씀으로 섬기는 목회자들 */}
+          <div className="bg-white rounded-2xl p-12 shadow-lg max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold mb-4 text-slate-900">💚 섬기는 목회자들</h3>
-              <p className="text-slate-600">하나님의 사랑으로 여러분을 섬기는 교역자들을 소개합니다</p>
-              {/* 사용자 맞춤 메시지 */}
-              <div className="mt-6 p-4 bg-green-50 rounded-xl border border-green-200">
-                <p className="text-sm text-green-800">
-                  🌿 <strong>첫 방문이신가요?</strong> 목사님들이 직접 환영하고 소개해드립니다!
+              <h3 className="text-2xl font-bold mb-4 text-slate-900">✝ 말씀으로 섬기는 목회자들</h3>
+              <p className="text-slate-600">"내 양을 먹이라" 하신 주님의 말씀에 순종하여 성도들을 섬기는 교역자들입니다</p>
+              <div className="mt-6 p-4 bg-slate-50 rounded-xl border border-slate-200">
+                <p className="text-sm text-slate-700">
+                  학발보다는 거룩함으로, 웅변보다는 삶의 모래으로 말씀을 전하는 목회자들입니다
                 </p>
               </div>
             </div>
@@ -238,7 +220,7 @@ export default function Home() {
                   </div>
                 </div>
                 <blockquote className="text-lg text-slate-700 leading-relaxed italic">
-                  "바쁜 도시 생활에 지친 여러분을 평온한 산속 공동체로 초대합니다. 작지만 진실한 사랑으로, 하나님의 말씀으로 함께 자라가는 교회가 되고 싶습니다."
+                  "주님의 말씀을 사랑하고 배워서 순종하는 제자들을 세우고 싶습니다. 작지만 성경적이고, 겸손하지만 진실하게 주님을 따르는 공동체가 되기를 원합니다."
                 </blockquote>
               </div>
               
@@ -259,7 +241,7 @@ export default function Home() {
                   </div>
                 </div>
                 <blockquote className="text-lg text-slate-700 leading-relaxed italic">
-                  "찬양과 기도를 통해 하나님께 나아가는 길을 함께 걷고 있습니다. 하나님의 사랑 안에서 서로 돌보며 함께 자라가는 교회가 되기를 소망합니다."
+                  "말씀을 사랑하는 성도들과 함께 찬양과 기도로 주님께 나아가고 있습니다. 한 영혼 한 영혼을 소중히 여기며, 말씀 안에서 성장하는 공동체가 되기를 소망합니다."
                 </blockquote>
               </div>
             </div>

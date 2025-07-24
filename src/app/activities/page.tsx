@@ -80,36 +80,36 @@ export default function ActivitiesPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <Card>
                 <CardHeader>
-                  <CardTitle>자연 재료</CardTitle>
+                  <CardTitle>겸손한 섬김</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p>
-                    내남면의 청정 자연에서 직접 재배한 콩과 나무 열매를 사용합니다. 
-                    화학 첨가물 없이 건강한 재료만을 선별합니다.
+                    "주에게 받은 것 외에 무엇이 있다고 자랑하느냐" (고전 4:7)<br />
+                    받은 은혜가 많음을 인정하고, 우리의 작은 수고로 이웃을 섬깁니다.
                   </p>
                 </CardContent>
               </Card>
               
               <Card>
                 <CardHeader>
-                  <CardTitle>건강한 제품</CardTitle>
+                  <CardTitle>진실한 나눔</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p>
-                    전통 방식으로 정성껏 만드는 된장, 간장, 고추장과 계절별 잼, 
-                    차 등 건강한 먹거리를 생산합니다.
+                    "나의 막된아들아 우리가 말과 혀로만 사랑하지 말고 행함과 진실함으로 하자" (요일 3:18)<br />
+                    말보다는 실체로, 계산보다는 진실한 마음으로 나눔을 실천합니다.
                   </p>
                 </CardContent>
               </Card>
               
               <Card>
                 <CardHeader>
-                  <CardTitle>나눔 활동</CardTitle>
+                  <CardTitle>이웃 사랑</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p>
-                    생산된 제품의 수익금은 지역 사회 봉사와 선교 활동에 사용되며, 
-                    일부는 어려운 이웃에게 직접 나눔으로 전달됩니다.
+                    "너희는 나를 사랑하느냐 하시지 말고 내 양을 먹이라" (요 21:17)<br />
+                    주님의 명령에 순종하여 어려운 이웃들을 돌보고 섬깁니다.
                   </p>
                 </CardContent>
               </Card>
@@ -181,18 +181,18 @@ export default function ActivitiesPage() {
         
         <TabsContent value="mission">
           <div className="mb-8">
-            <h2 className="text-2xl font-bold mb-4">지역 사랑 전도 활동</h2>
-            <p className="mb-6">
-              "가서 모든 민족을 제자로 삼으라" (마 28:19)의 명령에 순종하여 
-              이 지역에 사는 모든 분들에게 하나님의 사랑을 전하는 활동을 진행하고 있습니다.
+            <h2 className="text-2xl font-bold mb-4">복음 전파</h2>
+            <p className="mb-6 text-slate-700">
+              "가서 모든 민족을 제자로 삼아 아버지와 아들과 성령의 이름으로 세례를 베풀고" (마 28:19)<br />
+              주님의 지상 명령에 순종하여 이 지역에 복음을 전하는 것이 우리의 사명입니다.
             </p>
             
-            <div className="bg-slate-50 p-6 rounded-lg mb-8">
-              <h3 className="text-xl font-bold mb-3">전도의 심장</h3>
-              <p>
-                "너희는 세상에서 빛이라 산위에 세운 동네가 숨겨지지 못할 것이요" (마 5:14)
-                주님의교회는 이 지역에 하나님의 사랑을 비추는 빛이 되기를 원합니다. 
-                '콩과나무로'의 건강한 나눔과 따뜻한 섬김을 통해 지역을 섬기고 있습니다.
+            <div className="bg-blue-50 p-6 rounded-lg mb-8 border border-blue-200">
+              <h3 className="text-xl font-bold mb-3 text-blue-900">복음의 능력</h3>
+              <p className="text-blue-800">
+                "내가 복음을 부끄러워하지 아니하노니 이 복음은 모든 믿는 자에게 구원을 주시는 하나님의 능력이 됨이라" (롬 1:16)<br />
+                복음의 능력을 믿고 의지하며, 말씀을 중심으로 한 겸손한 전도를 실천합니다. 
+                화려한 방법보다는 성령의 역사하심을 의지합니다.
               </p>
             </div>
           </div>
@@ -222,10 +222,11 @@ export default function ActivitiesPage() {
         
         <TabsContent value="community">
           <div className="mb-8">
-            <h2 className="text-2xl font-bold mb-4">산골 교회 공동체 활동</h2>
-            <p className="mb-6">
-              주님의교회는 아름다운 산골에 위치한 장점을 살려 자연과 함께하는 다양한 공동체 활동을 진행합니다. 
-              성도들간의 친교와 신앙 성장을 위한 프로그램을 제공합니다.
+            <h2 className="text-2xl font-bold mb-4">신앙 공동체의 교제</h2>
+            <p className="mb-6 text-slate-700">
+              "그들이 사도의 가르침을 받아 서로 교제하고 떡을 떼며 오로지 기도하기를 힘쓰니라" (행 2:42)<br />
+              초대교회의 모범을 따라 말씀을 중심으로 한 진실한 교제와 
+              서로를 격려하며 신앙 안에서 자라가는 공동체 생활을 추구합니다.
             </p>
           </div>
           
@@ -254,10 +255,11 @@ export default function ActivitiesPage() {
         
         <TabsContent value="ministry">
           <div className="mb-8">
-            <h2 className="text-2xl font-bold mb-4">평신도 사역</h2>
-            <p className="mb-6">
-              "각각 은사를 받은 대로 하나님의 여러 가지 은혜의 선한 청지기 같이 서로 봉사하라" (벧전 4:10)<br />
-              모든 성도가 받은 은사와 달란트로 교회와 지역사회를 섬기는 평신도 사역자로 세워집니다.
+            <h2 className="text-2xl font-bold mb-4">제자 양성</h2>
+            <p className="mb-6 text-slate-700">
+              "너희는 가서 모든 민족을 제자로 삼아 내가 너희에게 분부한 모든 것을 가르쳐 지키게 하라" (마 28:19-20)<br />
+              옥한흠 목사님의 제자훈련 철학에 따라 말씀으로 무장된 제자들을 세우고, 
+              또 다른 제자를 재생산하는 성숙한 그리스도인들을 양성합니다.
             </p>
           </div>
           

@@ -105,28 +105,34 @@ export default function AboutPage() {
                 />
               </div>
               <div>
-                <h2 className="text-2xl font-bold mb-4">콩과나무로 프로젝트</h2>
-                <p className="mb-4">
-                  '콩과나무로'는 주님의교회에서 진행하는 건강하고 자연 친화적인 제품을 통한 나눔 사역입니다. 
-                  지역 사회와 함께 건강한 먹거리를 나누고 섬김의 정신을 실천합니다.
+                <h2 className="text-2xl font-bold mb-4">제자 양성 사역</h2>
+                <p className="mb-4 text-slate-700">
+                  "또 네가 많은 증인 앞에서 내게 들은 바를 충성된 사람들에게 부탁하라 
+                  저희가 또 다른 사람들을 가르칠 만하리라" (딤후 2:2)<br />
+                  말씀으로 무장된 제자들을 세우고, 그들이 또 다른 제자를 세우는 
+                  재생산하는 제자도의 사역에 헌신합니다.
                 </p>
-                <p>
-                  콩과나무로 제품들은 모두 자연 친화적인 재료로 만들어지며, 
-                  수익금은 지역 사회 봉사와 선교 활동에 사용됩니다.
+                <p className="text-slate-700">
+                  1. <strong>새가족반</strong>: 구원의 확신과 기초 진리<br />
+                  2. <strong>기초 성경공부</strong>: 성경 전반의 체계적 이해<br />
+                  3. <strong>제자훈련</strong>: 예수님의 제자로 성장<br />
+                  4. <strong>사역훈련</strong>: 제자를 세우는 사역자로 헌신
                 </p>
               </div>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="order-2 md:order-1">
-                <h2 className="text-2xl font-bold mb-4">경주역 전도 활동</h2>
-                <p className="mb-4">
-                  경주역 신도시에 새롭게 이주하신 분들에게 평온한 신앙 생활을 소개하고 
-                  주님의교회의 따뜻한 공동체를 알리는 활동을 진행하고 있습니다.
+                <h2 className="text-2xl font-bold mb-4">복음 전파 사역</h2>
+                <p className="mb-4 text-slate-700">
+                  "내가 복음을 부끄러워하지 아니하노니 이 복음은 모든 믿는 자에게 
+                  구원을 주시는 하나님의 능력이 됨이라" (롬 1:16)<br />
+                  복음의 능력을 믿고 겸손하게 말씀을 전하는 사역입니다.
                 </p>
-                <p>
-                  아름다운 산길을 따라 10분 거리에 위치한 주님의교회는 
-                  바쁜 도시 생활 속에서 평온함과 쉼을 찾으실 수 있는 장소입니다.
+                <p className="text-slate-700">
+                  화려한 방법보다는 진실한 삶의 모범으로, 
+                  큰 행사보다는 개인적인 관계 속에서 
+                  복음을 전하고 제자를 세우는 일에 헌신합니다.
                 </p>
               </div>
               <div className="aspect-video relative bg-slate-200 order-1 md:order-2 overflow-hidden rounded-lg">
