@@ -2,6 +2,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { DiscipleshipJourney } from "@/components/ui/discipleship-journey";
 import Link from "next/link";
 import Image from "next/image";
 import { Calendar, MapPin, Clock, Video, Phone, ChevronRight, Play, BookOpen, Heart } from "lucide-react";
@@ -16,7 +17,7 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           <Image 
             src="/images/hero/KakaoTalk_20250416_201705309.jpg" 
-            alt="주님의교회" 
+            alt="주님의교회 예배당 전경 - 아름다운 산속에 위치한 교회 건물" 
             fill 
             className="object-cover"
             priority 
@@ -66,9 +67,16 @@ export default function Home() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
             {/* 예배 시간 */}
             <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-              <Link href="/worship" className="block">
+              <Link 
+                href="/worship" 
+                className="block"
+                aria-label="예배 시간 안내 페이지로 이동"
+              >
                 <CardHeader className="pb-2 md:pb-4">
-                  <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-2 md:mb-3">
+                  <div 
+                    className="w-10 h-10 md:w-12 md:h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-2 md:mb-3"
+                    aria-hidden="true"
+                  >
                     <Clock className="h-5 w-5 md:h-6 md:w-6 text-blue-600" />
                   </div>
                   <CardTitle className="text-base md:text-lg">예배 시간</CardTitle>
@@ -85,9 +93,16 @@ export default function Home() {
 
             {/* 오시는 길 */}
             <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-              <Link href="/directions" className="block">
+              <Link 
+                href="/directions" 
+                className="block"
+                aria-label="교회 오시는 길 안내 페이지로 이동"
+              >
                 <CardHeader className="pb-2 md:pb-4">
-                  <div className="w-10 h-10 md:w-12 md:h-12 bg-green-100 rounded-lg flex items-center justify-center mb-2 md:mb-3">
+                  <div 
+                    className="w-10 h-10 md:w-12 md:h-12 bg-green-100 rounded-lg flex items-center justify-center mb-2 md:mb-3"
+                    aria-hidden="true"
+                  >
                     <MapPin className="h-5 w-5 md:h-6 md:w-6 text-green-600" />
                   </div>
                   <CardTitle className="text-base md:text-lg">오시는 길</CardTitle>
@@ -104,9 +119,16 @@ export default function Home() {
 
             {/* 온라인 예배 */}
             <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-              <Link href="/sermons" className="block">
+              <Link 
+                href="/sermons" 
+                className="block"
+                aria-label="온라인 예배 및 설교 페이지로 이동"
+              >
                 <CardHeader className="pb-2 md:pb-4">
-                  <div className="w-10 h-10 md:w-12 md:h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-2 md:mb-3">
+                  <div 
+                    className="w-10 h-10 md:w-12 md:h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-2 md:mb-3"
+                    aria-hidden="true"
+                  >
                     <Video className="h-5 w-5 md:h-6 md:w-6 text-purple-600" />
                   </div>
                   <CardTitle className="text-base md:text-lg">온라인 예배</CardTitle>
@@ -123,9 +145,16 @@ export default function Home() {
 
             {/* 새가족 안내 */}
             <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-              <Link href="/contact?type=first-visit" className="block">
+              <Link 
+                href="/newcomer" 
+                className="block"
+                aria-label="새가족 환영 및 안내 페이지로 이동"
+              >
                 <CardHeader className="pb-2 md:pb-4">
-                  <div className="w-10 h-10 md:w-12 md:h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-2 md:mb-3">
+                  <div 
+                    className="w-10 h-10 md:w-12 md:h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-2 md:mb-3"
+                    aria-hidden="true"
+                  >
                     <Heart className="h-5 w-5 md:h-6 md:w-6 text-amber-600" />
                   </div>
                   <CardTitle className="text-base md:text-lg">새가족</CardTitle>
@@ -197,7 +226,118 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. 최근 설교 */}
+      {/* 4. 제자훈련 과정 */}
+      <section className="py-12 md:py-16 bg-white">
+        <div className="container">
+          <DiscipleshipJourney />
+        </div>
+      </section>
+
+      {/* 5. 평신도 사역자 */}
+      <section className="py-12 md:py-16 bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div className="container">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-6">모든 성도가 사역자입니다</h2>
+            <div className="bg-white/70 rounded-lg p-6 mb-8 border border-blue-200">
+              <p className="text-lg text-slate-700 italic mb-2">
+                "그가 어떤 사람은 사도로, 어떤 사람은 선지자로, 어떤 사람은 복음 전하는 자로, 
+                어떤 사람은 목사와 교사로 삼으셨으니 이는 성도를 온전하게 하여 봉사의 일을 하게 하며 
+                그리스도의 몸을 세우려 하심이라"
+              </p>
+              <p className="text-slate-600 font-medium">- 에베소서 4:11-12 -</p>
+            </div>
+            
+            <p className="text-lg text-slate-700 mb-12 leading-relaxed">
+              주님의교회는 목회자만이 사역자가 아니라 <strong>모든 성도가 하나님께서 주신 은사를 따라 사역자</strong>가 되어야 한다고 믿습니다.<br/>
+              당신도 하나님 나라의 귀한 일꾼으로 부르심 받았습니다.
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+              <div className="bg-white rounded-lg p-6 shadow-sm border border-blue-100">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Heart className="h-8 w-8 text-blue-600" />
+                </div>
+                <h3 className="font-bold text-lg mb-3">은사 발견</h3>
+                <p className="text-sm text-slate-600 mb-4">
+                  하나님께서 각자에게 주신 고유한 은사와 달란트를 발견하고 개발합니다
+                </p>
+                <ul className="text-xs text-slate-500 space-y-1">
+                  <li>• 은사 진단 테스트</li>
+                  <li>• 개인 상담 및 멘토링</li>
+                  <li>• 다양한 사역 체험 기회</li>
+                </ul>
+              </div>
+              
+              <div className="bg-white rounded-lg p-6 shadow-sm border border-green-100">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <BookOpen className="h-8 w-8 text-green-600" />
+                </div>
+                <h3 className="font-bold text-lg mb-3">사역 훈련</h3>
+                <p className="text-sm text-slate-600 mb-4">
+                  발견한 은사를 효과적으로 사용할 수 있도록 체계적인 훈련을 받습니다
+                </p>
+                <ul className="text-xs text-slate-500 space-y-1">
+                  <li>• 사역별 전문 교육</li>
+                  <li>• 실습과 피드백</li>
+                  <li>• 지속적인 역량 개발</li>
+                </ul>
+              </div>
+              
+              <div className="bg-white rounded-lg p-6 shadow-sm border border-purple-100">
+                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="h-8 w-8 text-purple-600" />
+                </div>
+                <h3 className="font-bold text-lg mb-3">사역 참여</h3>
+                <p className="text-sm text-slate-600 mb-4">
+                  훈련받은 은사로 교회와 지역 사회를 섬기는 사역자가 됩니다
+                </p>
+                <ul className="text-xs text-slate-500 space-y-1">
+                  <li>• 교회 내 다양한 사역팀</li>
+                  <li>• 지역 사회 봉사 활동</li>
+                  <li>• 복음 전파와 제자양육</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-lg p-8 shadow-sm border border-slate-200">
+              <h3 className="text-xl font-bold mb-4">현재 모집 중인 사역</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                {[
+                  { name: "예배팀", description: "찬양, 음향, 영상" },
+                  { name: "교육팀", description: "주일학교, 청년부" },
+                  { name: "봉사팀", description: "친교, 환경, 안내" },
+                  { name: "전도팀", description: "지역 전도, 심방" },
+                  { name: "선교팀", description: "국내외 선교 지원" },
+                  { name: "행정팀", description: "재정, 서기, 홍보" },
+                  { name: "콩과나무로", description: "나눔 프로젝트" },
+                  { name: "기도팀", description: "중보기도, 기도회" }
+                ].map((ministry, index) => (
+                  <div key={index} className="text-center p-3 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors">
+                    <h4 className="font-medium text-sm">{ministry.name}</h4>
+                    <p className="text-xs text-slate-600 mt-1">{ministry.description}</p>
+                  </div>
+                ))}
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" asChild className="bg-blue-600 hover:bg-blue-700">
+                  <Link href="/contact?type=ministry">
+                    사역 참여 신청하기
+                    <ChevronRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+                <Button size="lg" variant="outline" asChild>
+                  <Link href="/activities#ministry">
+                    사역팀 자세히 보기
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. 최근 설교 */}
       <section className="py-12 md:py-16 bg-slate-50">
         <div className="container">
           <div className="max-w-4xl mx-auto">
@@ -213,7 +353,7 @@ export default function Home() {
                 <div className="aspect-video relative bg-slate-200">
                   <Image
                     src="/images/hero/KakaoTalk_20250416_201705309.jpg"
-                    alt="설교 썸네일"
+                    alt="방재홍 목사님 설교 영상 썸네일 - 평안을 너희에게 주노라"
                     fill
                     className="object-cover"
                   />
@@ -257,7 +397,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. 연락처 & 위치 */}
+      {/* 7. 연락처 & 위치 */}
       <section className="py-12 md:py-16 bg-slate-800 text-white">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">

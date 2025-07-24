@@ -168,6 +168,9 @@ export function MainNav() {
           size="sm"
           onClick={toggleMobileMenu}
           className="border-slate-300"
+          aria-label={isOpen ? "메뉴 닫기" : "메뉴 열기"}
+          aria-expanded={isOpen}
+          aria-controls="mobile-menu"
         >
           {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
         </Button>
@@ -175,9 +178,15 @@ export function MainNav() {
 
       {/* Mobile Menu Overlay - 간소화된 구조 */}
       {isOpen && (
-        <div className="lg:hidden fixed inset-0 top-16 bg-white z-50 border-t overflow-y-auto">
+        <div 
+          id="mobile-menu"
+          className="lg:hidden fixed inset-0 top-16 bg-white z-50 border-t overflow-y-auto"
+          role="dialog"
+          aria-modal="true"
+          aria-label="모바일 네비게이션 메뉴"
+        >
           <div className="container py-6">
-            <nav className="space-y-1">
+            <nav className="space-y-1" role="navigation" aria-label="메인 메뉴">
               <Link 
                 href="/" 
                 className="block py-3 px-4 text-lg font-medium hover:bg-slate-50 rounded-lg"

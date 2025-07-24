@@ -6,11 +6,13 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { Loader2, AlertCircle, RefreshCw } from "lucide-react";
 import type { Product } from "@/types/database";
 
 export default function ActivitiesPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   // 제품 목록 불러오기
   useEffect(() => {
@@ -19,13 +21,28 @@ export default function ActivitiesPage() {
 
   const fetchProducts = async () => {
     try {
+      setError(null);
       const response = await fetch('/api/products');
+      
+      if (!response.ok) {
+        throw new Error(`서버 오류: ${response.status}`);
+      }
+      
       const data = await response.json();
+      
+      if (data.error) {
+        throw new Error(data.error);
+      }
+      
       if (data.data) {
         setProducts(data.data);
+      } else {
+        setProducts([]);
       }
     } catch (error) {
       console.error('Error fetching products:', error);
+      setError(error instanceof Error ? error.message : '제품 목록을 불러오는 중 오류가 발생했습니다.');
+      setProducts([]);
     } finally {
       setLoading(false);
     }
@@ -119,39 +136,92 @@ export default function ActivitiesPage() {
           {/* 제품 목록 */}
           <div className="mb-8">
             <h3 className="text-xl font-bold mb-4">콩과나무로 제품</h3>
+            
             {loading ? (
-              <p className="text-center py-8 text-gray-500">불러오는 중...</p>
+              <div className="text-center py-12">
+                <Loader2 className="h-8 w-8 animate-spin mx-auto mb-4 text-green-600" />
+                <p className="text-slate-600">제품 목록을 불러오고 있습니다...</p>
+                <p className="text-sm text-slate-500 mt-2">잠시만 기다려 주세요</p>
+              </div>
+            ) : error ? (
+              <div className="text-center py-12">
+                <AlertCircle className="h-12 w-12 mx-auto mb-4 text-red-500" />
+                <h4 className="text-lg font-semibold text-slate-800 mb-2">제품 목록을 불러올 수 없습니다</h4>
+                <p className="text-slate-600 mb-4">{error}</p>
+                <Button 
+                  onClick={fetchProducts}
+                  variant="outline"
+                  className="inline-flex items-center"
+                >
+                  <RefreshCw className="mr-2 h-4 w-4" />
+                  다시 시도
+                </Button>
+              </div>
             ) : products.length === 0 ? (
-              <p className="text-center py-8 text-gray-500">등록된 제품이 없습니다.</p>
+              <div className="text-center py-12">
+                <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">📦</span>
+                </div>
+                <h4 className="text-lg font-semibold text-slate-800 mb-2">아직 등록된 제품이 없습니다</h4>
+                <p className="text-slate-600 mb-4">곧 건강하고 맛있는 제품들을 준비해서 선보일 예정입니다.</p>
+                <Button 
+                  onClick={fetchProducts}
+                  variant="outline"
+                  size="sm"
+                >
+                  <RefreshCw className="mr-2 h-4 w-4" />
+                  새로고침
+                </Button>
+              </div>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                {products.map((product) => (
-                  <Card key={product.id} className="overflow-hidden">
-                    <div className="aspect-square relative bg-gray-100">
-                      {product.image_url ? (
-                        <Image 
-                          src={product.image_url} 
-                          alt={product.name}
-                          fill
-                          className="object-cover"
-                        />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center">
-                          <span className="text-gray-400">이미지 준비중</span>
-                        </div>
-                      )}
-                    </div>
-                    <CardContent className="p-4">
-                      <h4 className="font-semibold mb-1">{product.name}</h4>
-                      {product.description && (
-                        <p className="text-sm text-gray-600 mb-2">{product.description}</p>
-                      )}
-                      <p className="text-lg font-bold text-green-600">
-                        {product.price.toLocaleString()}원
-                      </p>
-                    </CardContent>
-                  </Card>
-                ))}
+              <div className="space-y-4">
+                <div className="flex justify-between items-center">
+                  <p className="text-sm text-slate-600">
+                    총 {products.length}개의 제품이 있습니다
+                  </p>
+                  <Button 
+                    onClick={fetchProducts}
+                    variant="ghost"
+                    size="sm"
+                    className="text-slate-500 hover:text-slate-700"
+                  >
+                    <RefreshCw className="mr-2 h-4 w-4" />
+                    새로고침
+                  </Button>
+                </div>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                  {products.map((product) => (
+                    <Card key={product.id} className="overflow-hidden hover:shadow-lg transition-shadow">
+                      <div className="aspect-square relative bg-gray-100">
+                        {product.image_url ? (
+                          <Image 
+                            src={product.image_url} 
+                            alt={`${product.name} 제품 이미지`}
+                            fill
+                            className="object-cover"
+                          />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-green-50 to-green-100">
+                            <div className="text-center">
+                              <span className="text-4xl mb-2 block">🌱</span>
+                              <span className="text-sm text-gray-500">이미지 준비중</span>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                      <CardContent className="p-4">
+                        <h4 className="font-semibold mb-1 text-slate-800">{product.name}</h4>
+                        {product.description && (
+                          <p className="text-sm text-slate-600 mb-2 line-clamp-2">{product.description}</p>
+                        )}
+                        <p className="text-lg font-bold text-green-600">
+                          {product.price.toLocaleString()}원
+                        </p>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
               </div>
             )}
           </div>
