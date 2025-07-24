@@ -32,7 +32,7 @@ export default function Home() {
           
           <p className="text-lg md:text-xl mb-10 text-slate-100 font-light">
             경주 도심에서 10분, 평온한 산속에서 드리는 예배<br/>
-            순수한 복음과 따뜻한 공동체가 여러분을 기다립니다
+            소규모 가족공동체에서 함께 성장할 새로운 가족을 기다립니다
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -175,10 +175,11 @@ export default function Home() {
       <section className="py-12 md:py-16 bg-white">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6">순수한 복음, 따뜻한 공동체</h2>
+            <h2 className="text-3xl font-bold mb-6">소규모이기에 가능한 따뜻한 돌봄</h2>
             <p className="text-lg text-slate-600 mb-12 leading-relaxed">
-              주님의교회는 성경 말씀을 중심으로 하는 개혁주의 신앙 공동체입니다.<br/>
-              화려하지 않지만 진실하게, 크지 않지만 깊이 있게 신앙생활을 함께합니다.
+              주님의교회는 성경 말씀을 중심으로 하는 소규모 신앙 공동체입니다.<br/>
+              한 분 한 분을 소중히 여기며, 가족같은 따뜻함 속에서 함께 성장해나가고 있습니다.<br/>
+              <span className="text-slate-700 font-medium">새로운 가족이 되어주실 여러분을 기다리고 있습니다.</span>
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
@@ -186,9 +187,9 @@ export default function Home() {
                 <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <BookOpen className="h-8 w-8 text-slate-600" />
                 </div>
-                <h3 className="font-bold mb-2">말씀 중심</h3>
+                <h3 className="font-bold mb-2">개인별 맞춤 양육</h3>
                 <p className="text-sm text-slate-600">
-                  성경 말씀을 삶의 기준으로 삼고 순종하는 공동체
+                  소규모이기에 가능한 목사님과의 1:1 개인별 성경공부와 영적 성장
                 </p>
               </div>
               
@@ -196,19 +197,19 @@ export default function Home() {
                 <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Heart className="h-8 w-8 text-slate-600" />
                 </div>
-                <h3 className="font-bold mb-2">사랑 실천</h3>
+                <h3 className="font-bold mb-2">가족같은 돌봄</h3>
                 <p className="text-sm text-slate-600">
-                  그리스도의 사랑으로 서로를 섬기는 공동체
+                  한 분 한 분의 이름을 알고, 삶의 이야기를 나누는 따뜻한 공동체
                 </p>
               </div>
               
               <div className="text-center">
                 <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Calendar className="h-8 w-8 text-slate-600" />
+                  <Users className="h-8 w-8 text-slate-600" />
                 </div>
-                <h3 className="font-bold mb-2">제자 양육</h3>
+                <h3 className="font-bold mb-2">함께 성장하는 여정</h3>
                 <p className="text-sm text-slate-600">
-                  체계적인 양육으로 영적 성장을 돕는 공동체
+                  새로운 가족들과 함께 소그룹을 만들어가며 신앙 안에서 성장
                 </p>
               </div>
             </div>
