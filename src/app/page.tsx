@@ -27,7 +27,7 @@ export default function Home() {
         <div className="container relative z-30 text-white text-center max-w-4xl">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             처음 오신 날부터<br/>
-            <span className="text-yellow-300">가족이 되는 교회</span>
+            <span className="text-yellow-300">공동체가 되는 교회</span>
           </h1>
           
           <p className="text-lg md:text-xl mb-10 text-slate-100 font-light">
@@ -177,9 +177,9 @@ export default function Home() {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-6">작은 교회라서 가능한 일들</h2>
             <p className="text-lg text-slate-600 mb-12 leading-relaxed">
-              저희는 30-40명이 모이는 작은 교회입니다.<br/>
+              저희는 20명 이하가 모이는 정말 작은 교회입니다.<br/>
               그래서 목사님이 모든 성도님의 이름과 이야기를 기억합니다.<br/>
-              <span className="text-slate-700 font-medium">당신도 이 따뜻한 가족의 일원이 되어주세요.</span>
+              <span className="text-slate-700 font-medium">당신도 이 따뜻한 공동체의 일원이 되어주세요.</span>
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
@@ -197,9 +197,9 @@ export default function Home() {
                 <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Heart className="h-8 w-8 text-slate-600" />
                 </div>
-                <h3 className="font-bold mb-2">진짜 가족이 되어드려요</h3>
+                <h3 className="font-bold mb-2">진짜 공동체가 되어드려요</h3>
                 <p className="text-sm text-slate-600">
-                  혼자 오셔도 외롭지 않아요. 예배 후 함께 밥 먹고, 차 마시며 일상을 나누는 진짜 가족이 있습니다.
+                  혼자 오셔도 외롭지 않아요. 예배 후 함께 밥 먹고, 차 마시며 일상을 나누는 진짜 공동체가 있습니다.
                 </p>
               </div>
               

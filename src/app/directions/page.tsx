@@ -56,7 +56,7 @@ export default function DirectionsPage() {
                   <p className="text-green-200 text-sm">- 로마서 12:10 -</p>
                 </div>
                 <p className="text-xl text-green-100">
-                  처음 오시는 모든 분들을 가족처럼 따뜻하게 맞아드립니다.
+                  처음 오시는 모든 분들을 공동체의 일원으로 따뜻하게 맞아드립니다.
                 </p>
                 
                 <div className="space-y-6">
@@ -319,7 +319,7 @@ export default function DirectionsPage() {
               <p className="text-green-200 text-sm">- 갈라디아서 6:2 -</p>
             </div>
             <p className="text-xl text-green-100">
-              처음 오시는 모든 분들을 형제자매로 따뜻하게 맞아드립니다.
+              처음 오시는 모든 분들을 공동체의 일원으로 따뜻하게 맞아드립니다.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">

@@ -41,7 +41,7 @@ export default function NewcomerPage() {
         <p className="text-xl text-slate-600 max-w-3xl mx-auto">
           "나그네 되었을 때에 영접하였고" (마 25:35)<br />
           소규모 신앙공동체에서만 가능한 개인별 맞춤 돌봄으로 여러분을 기다립니다.<br />
-          하나님께서 인도하신 귀한 발걸음, 형제자매의 사랑으로 함께 신앙의 여정을 시작해보세요
+          하나님께서 인도하신 귀한 발걸음, 공동체의 사랑으로 함께 신앙의 여정을 시작해보세요
         </p>
       </div>
 
