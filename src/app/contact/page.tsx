@@ -13,7 +13,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="container py-12">
+    <div className="container py-8 sm:py-12 px-4">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold mb-4">주님의교회와 함께하기</h1>
         <p className="text-xl text-slate-600 max-w-3xl mx-auto">
@@ -61,7 +61,7 @@ export default function ContactPage() {
               <div className="pt-4 space-y-3">
                 <Button 
                   onClick={connectToKakao}
-                  className="w-full bg-yellow-400 hover:bg-yellow-500 text-black flex items-center justify-center"
+                  className="w-full bg-yellow-400 hover:bg-yellow-500 text-black flex items-center justify-center py-4 min-h-[48px]"
                 >
                   <MessageSquare className="w-5 h-5 mr-2" />
                   카카오톡으로 문의하기
@@ -69,7 +69,7 @@ export default function ContactPage() {
                 
                 <Button 
                   onClick={() => window.location.href='tel:010-4162-2701'}
-                  className="w-full bg-blue-500 hover:bg-blue-600 text-white flex items-center justify-center"
+                  className="w-full bg-blue-500 hover:bg-blue-600 text-white flex items-center justify-center py-4 min-h-[48px]"
                 >
                   <Phone className="w-5 h-5 mr-2" />
                   전화로 문의하기

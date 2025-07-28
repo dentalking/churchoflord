@@ -27,7 +27,7 @@ export default function NewcomerPage() {
   const stepProgress = (currentStep / totalSteps) * 100;
 
   return (
-    <div className="container py-12">
+    <div className="container py-8 sm:py-12 px-4">
       {/* 헤더 섹션 */}
       <div className="text-center mb-12">
         <div className="inline-flex items-center bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
@@ -311,7 +311,7 @@ export default function NewcomerPage() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button 
             size="lg" 
-            className="bg-yellow-500 hover:bg-yellow-600 text-white"
+            className="bg-yellow-500 hover:bg-yellow-600 text-white py-4 min-h-[48px]"
           >
             <MessageSquare className="mr-2 h-5 w-5" />
             카카오톡으로 상담하기
@@ -320,6 +320,7 @@ export default function NewcomerPage() {
             size="lg" 
             variant="outline"
             asChild
+            className="py-4 min-h-[48px]"
           >
             <Link href="/contact">
               <Phone className="mr-2 h-5 w-5" />

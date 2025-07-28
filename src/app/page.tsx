@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       {/* 1. 심플한 히어로 섹션 */}
-      <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center">
+      <section className="relative h-[60vh] min-h-[400px] sm:h-[70vh] sm:min-h-[500px] flex items-center justify-center">
         <div className="absolute inset-0 bg-black/40 z-10" />
         
         <div className="absolute inset-0 z-0">
@@ -21,16 +21,17 @@ export default function Home() {
             fill 
             className="object-cover"
             priority 
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
           />
         </div>
         
-        <div className="container relative z-30 text-white text-center max-w-4xl">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+        <div className="container relative z-30 text-white text-center max-w-4xl px-4">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
             처음 오신 날부터<br/>
             <span className="text-yellow-300">공동체가 되는 교회</span>
           </h1>
           
-          <p className="text-lg md:text-xl mb-10 text-slate-100 font-light">
+          <p className="text-base sm:text-lg md:text-xl mb-8 sm:mb-10 text-slate-100 font-light leading-relaxed">
             경주역에서 10분, 조용한 산속의 작은 교회<br/>
             목사님이 당신의 이름을 기억하고, 진심으로 환영하는 곳입니다
           </p>
@@ -38,7 +39,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg" 
-              className="bg-white text-slate-900 hover:bg-slate-100 font-medium px-8"
+              className="bg-white text-slate-900 hover:bg-slate-100 font-medium px-8 py-4 min-h-[48px]"
               asChild
             >
               <Link href="/worship">
@@ -48,7 +49,7 @@ export default function Home() {
             </Button>
             <Button 
               size="lg" 
-              className="border-2 border-white bg-white/10 text-white hover:bg-white hover:text-slate-900 font-medium px-8 backdrop-blur-sm"
+              className="border-2 border-white bg-white/10 text-white hover:bg-white hover:text-slate-900 font-medium px-8 py-4 min-h-[48px] backdrop-blur-sm"
               asChild
             >
               <Link href="/directions">
@@ -61,9 +62,9 @@ export default function Home() {
       </section>
 
       {/* 2. 빠른 접근 카드 */}
-      <section className="py-12 md:py-16 bg-slate-50">
-        <div className="container">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
+      <section className="py-8 sm:py-12 md:py-16 bg-slate-50">
+        <div className="container px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
             {/* 예배 시간 */}
             <Card className="hover:shadow-lg transition-shadow cursor-pointer">
               <Link 
@@ -83,8 +84,8 @@ export default function Home() {
                 <CardContent className="pt-0">
                   <div className="space-y-1 md:space-y-2 text-sm text-slate-600">
                     <p className="font-medium text-slate-900">주일예배</p>
-                    <p className="text-xs md:text-sm">오전 11:00</p>
-                    <p className="text-xs text-blue-600 mt-2 md:mt-3 hidden md:block">자세히 보기 →</p>
+                    <p className="text-sm">오전 11:00</p>
+                    <p className="text-sm text-blue-600 mt-2 md:mt-3 hidden sm:block">자세히 보기 →</p>
                   </div>
                 </CardContent>
               </Link>
@@ -109,8 +110,8 @@ export default function Home() {
                 <CardContent className="pt-0">
                   <div className="space-y-1 md:space-y-2 text-sm text-slate-600">
                     <p className="font-medium text-slate-900">경주역 10분</p>
-                    <p className="text-xs md:text-sm">픽업 가능</p>
-                    <p className="text-xs text-green-600 mt-2 md:mt-3 hidden md:block">지도 보기 →</p>
+                    <p className="text-sm">픽업 가능</p>
+                    <p className="text-sm text-green-600 mt-2 md:mt-3 hidden sm:block">지도 보기 →</p>
                   </div>
                 </CardContent>
               </Link>
@@ -135,8 +136,8 @@ export default function Home() {
                 <CardContent className="pt-0">
                   <div className="space-y-1 md:space-y-2 text-sm text-slate-600">
                     <p className="font-medium text-slate-900">실시간</p>
-                    <p className="text-xs md:text-sm">유튜브</p>
-                    <p className="text-xs text-purple-600 mt-2 md:mt-3 hidden md:block">시청하기 →</p>
+                    <p className="text-sm">유튜브</p>
+                    <p className="text-sm text-purple-600 mt-2 md:mt-3 hidden sm:block">시청하기 →</p>
                   </div>
                 </CardContent>
               </Link>
@@ -161,8 +162,8 @@ export default function Home() {
                 <CardContent className="pt-0">
                   <div className="space-y-1 md:space-y-2 text-sm text-slate-600">
                     <p className="font-medium text-slate-900">처음 오신분</p>
-                    <p className="text-xs md:text-sm">맞춤 안내</p>
-                    <p className="text-xs text-amber-600 mt-2 md:mt-3 hidden md:block">문의하기 →</p>
+                    <p className="text-sm">맞춤 안내</p>
+                    <p className="text-sm text-amber-600 mt-2 md:mt-3 hidden sm:block">문의하기 →</p>
                   </div>
                 </CardContent>
               </Link>
@@ -172,8 +173,8 @@ export default function Home() {
       </section>
 
       {/* 3. 교회 소개 */}
-      <section className="py-12 md:py-16 bg-white">
-        <div className="container">
+      <section className="py-8 sm:py-12 md:py-16 bg-white">
+        <div className="container px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-6">작은 교회라서 가능한 일들</h2>
             <p className="text-lg text-slate-600 mb-12 leading-relaxed">
@@ -320,13 +321,13 @@ export default function Home() {
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" asChild className="bg-blue-600 hover:bg-blue-700">
+                <Button size="lg" asChild className="bg-blue-600 hover:bg-blue-700 py-4 min-h-[48px]">
                   <Link href="/contact?type=ministry">
                     사역 참여 신청하기
                     <ChevronRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
-                <Button size="lg" variant="outline" asChild>
+                <Button size="lg" variant="outline" asChild className="py-4 min-h-[48px]">
                   <Link href="/activities#ministry">
                     사역팀 자세히 보기
                   </Link>
@@ -426,7 +427,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 
-                className="bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-medium"
+                className="bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-medium py-4 min-h-[48px]"
                 asChild
               >
                 <Link href="/contact?type=first-visit">
@@ -435,7 +436,7 @@ export default function Home() {
               </Button>
               <Button 
                 size="lg" 
-                className="border-2 border-white bg-white/10 text-white hover:bg-white hover:text-slate-900 backdrop-blur-sm"
+                className="border-2 border-white bg-white/10 text-white hover:bg-white hover:text-slate-900 backdrop-blur-sm py-4 min-h-[48px]"
                 asChild
               >
                 <Link href="/contact">
