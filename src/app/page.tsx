@@ -26,13 +26,13 @@ export default function Home() {
         
         <div className="container relative z-30 text-white text-center max-w-4xl">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            말씀으로 세워지는<br/>
-            <span className="text-yellow-300">주님의교회</span>
+            처음 오신 날부터<br/>
+            <span className="text-yellow-300">가족이 되는 교회</span>
           </h1>
           
           <p className="text-lg md:text-xl mb-10 text-slate-100 font-light">
-            경주 도심에서 10분, 평온한 산속에서 드리는 예배<br/>
-            소규모 신앙공동체에서 함께 믿음의 길을 걸어갈 성도님들을 기다립니다
+            경주역에서 10분, 조용한 산속의 작은 교회<br/>
+            목사님이 당신의 이름을 기억하고, 진심으로 환영하는 곳입니다
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -175,11 +175,11 @@ export default function Home() {
       <section className="py-12 md:py-16 bg-white">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6">소규모이기에 가능한 따뜻한 돌봄</h2>
+            <h2 className="text-3xl font-bold mb-6">작은 교회라서 가능한 일들</h2>
             <p className="text-lg text-slate-600 mb-12 leading-relaxed">
-              주님의교회는 성경 말씀을 중심으로 하는 소규모 신앙공동체입니다.<br/>
-              한 분 한 분을 소중히 여기며, 형제자매의 사랑으로 서로를 돌보고 있습니다.<br/>
-              <span className="text-slate-700 font-medium">믿음의 공동체에 함께하실 여러분을 기다리고 있습니다.</span>
+              저희는 30-40명이 모이는 작은 교회입니다.<br/>
+              그래서 목사님이 모든 성도님의 이름과 이야기를 기억합니다.<br/>
+              <span className="text-slate-700 font-medium">당신도 이 따뜻한 가족의 일원이 되어주세요.</span>
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
@@ -187,9 +187,9 @@ export default function Home() {
                 <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <BookOpen className="h-8 w-8 text-slate-600" />
                 </div>
-                <h3 className="font-bold mb-2">개인별 맞춤 양육</h3>
+                <h3 className="font-bold mb-2">궁금한 건 언제든 물어보세요</h3>
                 <p className="text-sm text-slate-600">
-                  소규모이기에 가능한 개인의 신앙 여정에 맞춘 세심한 돌봄과 양육
+                  예배 중에도, 예배 후에도 편하게 질문하실 수 있어요. 목사님이 직접 성경을 펴서 설명해드립니다.
                 </p>
               </div>
               
@@ -197,9 +197,9 @@ export default function Home() {
                 <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Heart className="h-8 w-8 text-slate-600" />
                 </div>
-                <h3 className="font-bold mb-2">형제자매의 돌봄</h3>
+                <h3 className="font-bold mb-2">진짜 가족이 되어드려요</h3>
                 <p className="text-sm text-slate-600">
-                  한 분 한 분의 이름을 알고, 삶의 이야기를 나누는 따뜻한 공동체
+                  혼자 오셔도 외롭지 않아요. 예배 후 함께 밥 먹고, 차 마시며 일상을 나누는 진짜 가족이 있습니다.
                 </p>
               </div>
               
@@ -207,9 +207,9 @@ export default function Home() {
                 <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="h-8 w-8 text-slate-600" />
                 </div>
-                <h3 className="font-bold mb-2">함께 성장하는 여정</h3>
+                <h3 className="font-bold mb-2">당신의 속도에 맞춰가요</h3>
                 <p className="text-sm text-slate-600">
-                  믿음의 동역자들과 함께 소그룹을 만들어가며 신앙 안에서 성장
+                  처음이라 모르는 게 당연해요. 천천히, 당신의 속도에 맞춰 함께 걸어가겠습니다.
                 </p>
               </div>
             </div>
@@ -237,19 +237,19 @@ export default function Home() {
       <section className="py-12 md:py-16 bg-gradient-to-br from-blue-50 to-indigo-100">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6">모든 성도가 사역자입니다</h2>
+            <h2 className="text-3xl font-bold mb-6">당신도 교회를 함께 만들어가요</h2>
             <div className="bg-white/70 rounded-lg p-6 mb-8 border border-blue-200">
               <p className="text-lg text-slate-700 italic mb-2">
-                "그가 어떤 사람은 사도로, 어떤 사람은 선지자로, 어떤 사람은 복음 전하는 자로, 
-                어떤 사람은 목사와 교사로 삼으셨으니 이는 성도를 온전하게 하여 봉사의 일을 하게 하며 
-                그리스도의 몸을 세우려 하심이라"
+                "우리가 한 몸에 많은 지체를 가졌으나 모든 지체가 같은 기능을 가진 것이 아니니 
+                이와 같이 우리 많은 사람이 그리스도 안에서 한 몸이 되어 서로 지체가 되었느니라"
               </p>
-              <p className="text-slate-600 font-medium">- 에베소서 4:11-12 -</p>
+              <p className="text-slate-600 font-medium">- 로마서 12:4-5 -</p>
             </div>
             
             <p className="text-lg text-slate-700 mb-12 leading-relaxed">
-              주님의교회는 목회자만이 사역자가 아니라 <strong>모든 성도가 하나님께서 주신 은사를 따라 사역자</strong>가 되어야 한다고 믿습니다.<br/>
-              당신도 하나님 나라의 귀한 일꾼으로 부르심 받았습니다.
+              작은 교회라서 당신이 필요해요.<br/>
+              찬양을 좋아하시나요? 아이들을 좋아하시나요? 요리를 잘하시나요?<br/>
+              <strong>당신의 재능과 마음이 교회를 더 풍성하게 만듭니다.</strong>
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">

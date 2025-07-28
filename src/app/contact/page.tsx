@@ -15,11 +15,11 @@ export default function ContactPage() {
   return (
     <div className="container py-12">
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4">교회와 함께하기</h1>
+        <h1 className="text-4xl font-bold mb-4">주님의교회와 함께하기</h1>
         <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-          "어떤 기도와 간구든지 무엇이든지 아무 것도 염려하지 말고 다만 모든 일에 기도와 간구로 
-          너희 구할 것을 감사함으로 하나님께 아뢰라" (빌 4:6)<br />
-          주님의교회는 여러분의 기도와 문의를 기다립니다
+          경주 내남면 산속의 작은 교회, 주님의교회입니다.<br />
+          소규모이기에 가능한 따뜻한 관심과 세심한 돌봄으로 여러분을 섬기겠습니다.<br />
+          <span className="text-slate-700 font-medium">언제든지 편안하게 연락주시기 바랍니다.</span>
         </p>
       </div>
       
@@ -28,42 +28,55 @@ export default function ContactPage() {
           <Card className="mb-6">
             <CardHeader>
               <CardTitle className="flex items-center">
-                <MessageSquare className="mr-2 h-5 w-5" />
-                친근한 소통의 창구
+                <MapPin className="mr-2 h-5 w-5" />
+                네이버플레이스에서 만나는 주님의교회
               </CardTitle>
               <CardDescription>
-                "각 사람이 마음문을 열고 서로 가지의 문을 여라" (약 5:16)
+                온라인으로 먼저 교회를 알아보세요
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-slate-700">
-                주님의교회는 여러분과의 소통을 소중히 여깁니다:
+                <strong>네이버플레이스</strong>에서도 주님의교회를 만나실 수 있습니다:
               </p>
               <ul className="list-disc pl-5 space-y-2 text-slate-600">
-                <li>예배와 말씀에 대한 문의</li>
-                <li>제자훈련 참여 상담</li>
-                <li>신앙생활에 대한 경험 나눔</li>
-                <li>기도 요청과 중보기도</li>
-                <li>기타 모든 교제와 소통</li>
+                <li><strong>교회 정보 확인</strong> - 예배시간, 위치, 연락처</li>
+                <li><strong>교회 사진 보기</strong> - 예배당, 외관, 활동 모습</li>
+                <li><strong>리뷰 및 후기</strong> - 성도들의 생생한 경험담</li>
+                <li><strong>오시는 길 안내</strong> - 정확한 위치와 교통 정보</li>
+                <li><strong>교회 소식</strong> - 최신 행사와 공지사항</li>
               </ul>
               
-              <div className="pt-4">
+              <div className="mt-4 p-4 bg-green-50 rounded-lg border border-green-200">
+                <p className="text-sm text-green-800 font-medium mb-2">
+                  📍 네이버플레이스에서 "주님의교회" 검색하세요!
+                </p>
+                <p className="text-sm text-green-700">
+                  경주 내남면 → 종교시설 → 주님의교회<br />
+                  또는 "경주 내남면 교회"로 검색해보세요.
+                </p>
+              </div>
+              
+              <div className="pt-4 space-y-3">
+                <Button 
+                  onClick={() => window.open('https://place.naver.com/place/search?query=경주%20내남면%20주님의%20교회', '_blank')}
+                  className="w-full bg-green-500 hover:bg-green-600 text-white flex items-center justify-center"
+                >
+                  <MapPin className="w-5 h-5 mr-2" />
+                  네이버플레이스에서 보기
+                </Button>
+                
                 <Button 
                   onClick={connectToKakao}
-                  className="w-full md:w-auto bg-yellow-400 hover:bg-yellow-500 text-black flex items-center justify-center"
+                  className="w-full bg-yellow-400 hover:bg-yellow-500 text-black flex items-center justify-center"
                 >
-                  <svg 
-                    className="w-5 h-5 mr-2" 
-                    xmlns="http://www.w3.org/2000/svg" 
-                    viewBox="0 0 208 191"
-                    fill="currentColor"
-                  >
-                    <path d="M104,0C46.56,0,0,36.71,0,82c0,29.28,19.47,55,48.75,69.48-1.59,5.49-10.24,35.34-10.58,37.69,0,0-.21,1.76.93,2.43a3.14,3.14,0,0,0,2.48.15c3.28-.46,38.21-24.81,44-29A131.56,131.56,0,0,0,104,164c57.44,0,104-36.71,104-82S161.44,0,104,0ZM52.53,104.8a4,4,0,0,1-4,4H39.41a4,4,0,0,1-4-4V62.92a4,4,0,0,1,4-4h9.12a4,4,0,0,1,4,4Zm86.21,0a4,4,0,0,1-4,4H125.62a4,4,0,0,1-4-4V62.92a4,4,0,0,1,4-4h9.12a4,4,0,0,1,4,4ZM120.06,70.09a4,4,0,0,1-4,4H87.94a4,4,0,0,1-4-4V63a4,4,0,0,1,4-4h28.12a4,4,0,0,1,4,4Zm0,33.7a4,4,0,0,1-4,4H87.94a4,4,0,0,1-4-4v-7.1a4,4,0,0,1,4-4h28.12a4,4,0,0,1,4,4Zm36.42,0a4,4,0,0,1-4,4h-9.12a4,4,0,0,1-4-4V62.92a4,4,0,0,1,4-4h9.12a4,4,0,0,1,4,4Z"/>
-                  </svg>
-                  카카오톡 채널 채팅하기
+                  <MessageSquare className="w-5 h-5 mr-2" />
+                  카카오톡으로 문의하기
                 </Button>
-                <p className="mt-2 text-sm text-gray-500">
-                  채널명: 경주 주님의교회
+                
+                <p className="text-sm text-gray-500 text-center">
+                  네이버플레이스에서 교회 정보를 확인하고<br />
+                  카카오톡으로 편하게 문의하세요
                 </p>
               </div>
 

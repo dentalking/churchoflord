@@ -1,0 +1,43 @@
+# 주님의교회 웹사이트 robots.txt
+# 네이버 검색 최적화를 위한 설정
+
+User-agent: *
+Allow: /
+
+# 크롤링 허용 페이지
+Allow: /about
+Allow: /worship
+Allow: /sermons
+Allow: /activities
+Allow: /small-groups
+Allow: /newcomer
+Allow: /newtown
+Allow: /bean-tree
+Allow: /contact
+
+# 관리자 페이지 크롤링 제외
+Disallow: /admin
+Disallow: /api
+
+# 정적 파일 허용
+Allow: /images/
+Allow: /_next/static/
+Allow: /favicon.ico
+
+# 사이트맵 위치
+Sitemap: https://www.churchoflord.kr/sitemap.xml
+
+# 네이버 검색로봇
+User-agent: Yeti
+Allow: /
+
+# 구글 검색로봇  
+User-agent: Googlebot
+Allow: /
+
+# 빙 검색로봇
+User-agent: bingbot
+Allow: /
+
+# 크롤 지연 (서버 부하 방지)
+Crawl-delay: 1

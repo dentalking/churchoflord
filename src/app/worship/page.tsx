@@ -15,7 +15,8 @@ export default function WorshipPage() {
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold mb-4">예배 안내</h1>
         <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-          "하나님은 영이시니 예배하는 자들도 신령과 진정으로 예배할 때를 찾으시니라" (요 4:23)
+          하나님과 만나는 시간, 함께 예배드려요<br/>
+          처음이신 분도 편안하게 참여하실 수 있습니다
         </p>
       </div>
       
