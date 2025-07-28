@@ -28,44 +28,37 @@ export default function ContactPage() {
           <Card className="mb-6">
             <CardHeader>
               <CardTitle className="flex items-center">
-                <MapPin className="mr-2 h-5 w-5" />
-                네이버플레이스에서 만나는 주님의교회
+                <Calendar className="mr-2 h-5 w-5" />
+                처음 방문을 준비하시나요?
               </CardTitle>
               <CardDescription>
-                온라인으로 먼저 교회를 알아보세요
+                편안한 첫 방문을 위해 안내드립니다
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-slate-700">
-                <strong>네이버플레이스</strong>에서도 주님의교회를 만나실 수 있습니다:
+                <strong>20명 이하가 모이는 작은 교회</strong>라서 처음 오신 분도 부담 없이 예배드릴 수 있습니다.
               </p>
               <ul className="list-disc pl-5 space-y-2 text-slate-600">
-                <li><strong>교회 정보 확인</strong> - 예배시간, 위치, 연락처</li>
-                <li><strong>교회 사진 보기</strong> - 예배당, 외관, 활동 모습</li>
-                <li><strong>리뷰 및 후기</strong> - 성도들의 생생한 경험담</li>
-                <li><strong>오시는 길 안내</strong> - 정확한 위치와 교통 정보</li>
-                <li><strong>교회 소식</strong> - 최신 행사와 공지사항</li>
+                <li><strong>주일예배</strong> - 매주 일요일 오전 11시</li>
+                <li><strong>복장</strong> - 편안한 차림으로 오세요</li>
+                <li><strong>주차</strong> - 교회 앞 넓은 주차공간</li>
+                <li><strong>교제시간</strong> - 예배 후 차와 다과를 나눕니다</li>
+                <li><strong>헌금</strong> - 처음 오신 분은 하지 않으셔도 됩니다</li>
               </ul>
               
-              <div className="mt-4 p-4 bg-green-50 rounded-lg border border-green-200">
-                <p className="text-sm text-green-800 font-medium mb-2">
-                  📍 네이버플레이스에서 "주님의교회" 검색하세요!
+              <div className="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                <p className="text-sm text-blue-800 font-medium mb-2">
+                  💡 처음 오시는 분들께 드리는 팁
                 </p>
-                <p className="text-sm text-green-700">
-                  경주 내남면 → 종교시설 → 주님의교회<br />
-                  또는 "경주 내남면 교회"로 검색해보세요.
+                <p className="text-sm text-blue-700">
+                  • 10분 정도 일찍 오시면 좋아요<br />
+                  • 성경은 교회에서 빌려드립니다<br />
+                  • 궁금한 점은 언제든 물어보세요
                 </p>
               </div>
               
               <div className="pt-4 space-y-3">
-                <Button 
-                  onClick={() => window.open('https://place.naver.com/place/search?query=경주%20내남면%20주님의%20교회', '_blank')}
-                  className="w-full bg-green-500 hover:bg-green-600 text-white flex items-center justify-center"
-                >
-                  <MapPin className="w-5 h-5 mr-2" />
-                  네이버플레이스에서 보기
-                </Button>
-                
                 <Button 
                   onClick={connectToKakao}
                   className="w-full bg-yellow-400 hover:bg-yellow-500 text-black flex items-center justify-center"
@@ -74,9 +67,16 @@ export default function ContactPage() {
                   카카오톡으로 문의하기
                 </Button>
                 
+                <Button 
+                  onClick={() => window.location.href='tel:010-4162-2701'}
+                  className="w-full bg-blue-500 hover:bg-blue-600 text-white flex items-center justify-center"
+                >
+                  <Phone className="w-5 h-5 mr-2" />
+                  전화로 문의하기
+                </Button>
+                
                 <p className="text-sm text-gray-500 text-center">
-                  네이버플레이스에서 교회 정보를 확인하고<br />
-                  카카오톡으로 편하게 문의하세요
+                  미리 연락주시면 경주역에서 픽업도 가능합니다
                 </p>
               </div>
 
