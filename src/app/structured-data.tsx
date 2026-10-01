@@ -39,7 +39,7 @@ export function StructuredData() {
         "@type": "Person", 
         "name": "정성아",
         "jobTitle": "목사",
-        "description": "부산대학교 분자생물학과 학사, 고신대학교 신학대학원 선교학 석사(Th.M) 출신"
+        "description": "부산대학교 분자생물학과 학사, 고신대학교 신학대학원 선교학 석사(Th.M) 출신으로 현 대한예수교장로회(백석) 목사"
       }
     ],
     "hasOfferCatalog": {
