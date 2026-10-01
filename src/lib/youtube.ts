@@ -87,19 +87,34 @@ function parseEntry(entry: string): ChurchVideo | null {
   return { ...base, kind: "sermon", ...parseSermonTitle(rawTitle) };
 }
 
-/** 최신 영상 목록. 실패하면 빈 배열을 돌려주고, 화면은 채널 링크로 대체됩니다. */
+const FEED_ATTEMPTS = 5;
+
+/**
+ * 최신 영상 목록.
+ * 끝내 실패하면 빌드 중에는 빈 배열을 돌려주고(화면은 채널 링크로 대체),
+ * 운영 중 30분마다 새로 만들 때는 오류를 던져 직전에 만든 페이지를 그대로 둡니다.
+ */
 export async function getChurchVideos(): Promise<ChurchVideo[]> {
-  try {
-    const res = await fetch(FEED_URL, { next: { revalidate: 1800 } });
-    if (!res.ok) return [];
-    const xml = await res.text();
-    return (xml.match(/<entry>[\s\S]*?<\/entry>/g) ?? [])
-      .map(parseEntry)
-      .filter((v): v is ChurchVideo => v !== null);
-  } catch (error) {
-    console.error("Error fetching YouTube feed:", error);
-    return [];
+  // 유튜브 RSS는 자주(실측 40%가량) 404·5xx를 돌려줍니다. 실패한 응답이 30분 동안 캐시되지 않도록
+  // 다시 시도할 때는 주소를 조금 바꿔 다른 캐시 키로 받습니다.
+  for (let attempt = 0; attempt < FEED_ATTEMPTS; attempt++) {
+    const url = attempt === 0 ? FEED_URL : `${FEED_URL}&retry=${attempt}`;
+    try {
+      const res = await fetch(url, { next: { revalidate: 1800 } });
+      if (res.ok) {
+        const xml = await res.text();
+        return (xml.match(/<entry>[\s\S]*?<\/entry>/g) ?? [])
+          .map(parseEntry)
+          .filter((v): v is ChurchVideo => v !== null);
+      }
+      console.error(`YouTube feed responded ${res.status} (attempt ${attempt + 1})`);
+    } catch (error) {
+      console.error(`Error fetching YouTube feed (attempt ${attempt + 1}):`, error);
+    }
+    await new Promise((resolve) => setTimeout(resolve, 500 * (attempt + 1)));
   }
+  if (process.env.NEXT_PHASE === "phase-production-build") return [];
+  throw new Error("YouTube feed unavailable");
 }
 
 export function youtubeThumbnail(id: string) {
