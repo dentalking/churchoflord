@@ -142,7 +142,6 @@ export default function AboutPage() {
                   <p>• 고신대학교 신학대학원 신학과 석사 졸업 (M.Div)</p>
                   <p>• 고신대학교 신학대학원 선교학 석사 졸업 (Th.M)</p>
                   <p>• 대한예수교장로회(고신) 목사 안수</p>
-                  <p>• 현 예수교하나님의성회 목사</p>
                 </div>
               </div>
             </div>

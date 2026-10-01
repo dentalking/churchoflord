@@ -15,7 +15,8 @@ export function Footer() {
       <div className="container py-14 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8">
           <div className="md:col-span-5">
-            <p className="font-serif text-3xl md:text-4xl text-stone-50 tracking-tight mb-4">주님의교회</p>
+            <p className="font-serif text-3xl md:text-4xl text-stone-50 tracking-tight mb-2">주님의교회</p>
+            <p className="text-sm text-stone-400 mb-4">예수교하나님의성회</p>
             <p className="text-sm leading-relaxed max-w-xs">
               경주역에서 차로 10분, 산속의 작은 교회.
               <br />
