@@ -73,12 +73,12 @@ const weeklyMeditations = [
 
 export default function MeditationPage() {
   return (
-    <div className="container py-12">
+    <div className="container py-14 md:py-20">
       <div className="max-w-4xl mx-auto">
         {/* 페이지 헤더 */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">말씀 묵상</h1>
-          <p className="text-xl text-slate-600 leading-relaxed">
+          <p className="text-xl text-stone-600 leading-relaxed">
             매일 하나님의 말씀과 함께하는 경건의 시간<br />
             "사람이 떡으로만 살 것이 아니요 하나님의 입으로부터 나오는 모든 말씀으로 살 것이라"
           </p>
@@ -86,9 +86,9 @@ export default function MeditationPage() {
 
         {/* 이번 주 말씀 */}
         <div className="mb-12">
-          <Card className="border-2 border-slate-300 bg-slate-50">
+          <Card className="border border-stone-300 bg-stone-50">
             <CardHeader className="text-center">
-              <div className="w-16 h-16 bg-slate-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-stone-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <BookOpen className="h-8 w-8 text-white" />
               </div>
               <CardTitle className="text-2xl">{currentWeekMeditation.theme}</CardTitle>
@@ -96,12 +96,12 @@ export default function MeditationPage() {
             </CardHeader>
             <CardContent className="text-center">
               <div className="bg-white rounded-lg p-6 mb-6">
-                <blockquote className="text-lg italic text-slate-700 leading-relaxed mb-4">
+                <blockquote className="text-lg italic text-stone-700 leading-relaxed mb-4">
                   "{currentWeekMeditation.verse}"
                 </blockquote>
-                <cite className="text-slate-600 font-medium">- {currentWeekMeditation.reference} -</cite>
+                <cite className="text-stone-600 font-medium">- {currentWeekMeditation.reference} -</cite>
               </div>
-              <p className="text-slate-700 leading-relaxed">
+              <p className="text-stone-700 leading-relaxed">
                 {currentWeekMeditation.description}
               </p>
             </CardContent>
@@ -113,19 +113,19 @@ export default function MeditationPage() {
           <h2 className="text-2xl font-bold mb-8 text-center">주간 묵상 일정</h2>
           <div className="grid grid-cols-1 gap-6">
             {weeklyMeditations.map((meditation, index) => (
-              <Card key={index} className="border border-slate-200 hover:shadow-md transition-shadow duration-200">
+              <Card key={index} className="border border-stone-200 hover:shadow-md transition-shadow duration-200">
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-slate-600 font-bold text-sm">{meditation.date}</span>
+                    <div className="w-16 h-16 bg-stone-100 rounded-full flex items-center justify-center flex-shrink-0">
+                      <span className="text-stone-600 font-bold text-sm">{meditation.date}</span>
                     </div>
                     <div className="flex-1">
                       <h3 className="text-lg font-bold mb-2">{meditation.title}</h3>
-                      <div className="bg-slate-50 rounded-lg p-4 mb-3">
-                        <p className="text-slate-700 italic leading-relaxed">"{meditation.verse}"</p>
-                        <p className="text-slate-600 text-sm mt-2">- {meditation.reference} -</p>
+                      <div className="bg-stone-50 rounded-lg p-4 mb-3">
+                        <p className="text-stone-700 italic leading-relaxed">"{meditation.verse}"</p>
+                        <p className="text-stone-600 text-sm mt-2">- {meditation.reference} -</p>
                       </div>
-                      <p className="text-slate-700 text-sm leading-relaxed">{meditation.meditation}</p>
+                      <p className="text-stone-700 text-sm leading-relaxed">{meditation.meditation}</p>
                     </div>
                   </div>
                 </CardContent>
@@ -138,57 +138,57 @@ export default function MeditationPage() {
         <div className="mb-12">
           <h2 className="text-2xl font-bold mb-8 text-center">묵상 가이드</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="border border-slate-200">
+            <Card className="border border-stone-200">
               <CardHeader>
                 <CardTitle className="text-lg">묵상하는 방법</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3 text-sm">
                   <div className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-slate-600 text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">1</span>
+                    <span className="w-6 h-6 bg-stone-600 text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">1</span>
                     <p><strong>정해진 시간에</strong> 조용한 장소에서 마음을 준비합니다</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-slate-600 text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">2</span>
+                    <span className="w-6 h-6 bg-stone-600 text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">2</span>
                     <p><strong>기도로 시작하여</strong> 하나님의 도우심을 구합니다</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-slate-600 text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">3</span>
+                    <span className="w-6 h-6 bg-stone-600 text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">3</span>
                     <p><strong>본문을 여러 번</strong> 천천히 읽어봅니다</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-slate-600 text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">4</span>
+                    <span className="w-6 h-6 bg-stone-600 text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">4</span>
                     <p><strong>하나님이 주시는 감동</strong>을 기록하고 적용점을 찾습니다</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-slate-600 text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">5</span>
+                    <span className="w-6 h-6 bg-stone-600 text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">5</span>
                     <p><strong>감사 기도로 마무리</strong>하며 하루를 시작합니다</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="border border-slate-200">
+            <Card className="border border-stone-200">
               <CardHeader>
                 <CardTitle className="text-lg">묵상 질문들</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3 text-sm">
-                  <div className="border-l-4 border-slate-400 pl-3">
-                    <p className="font-medium text-slate-900">하나님은 어떤 분이신가?</p>
-                    <p className="text-slate-600">본문에서 하나님의 성품과 속성을 발견해보세요</p>
+                  <div className=" border-stone-400 pl-3">
+                    <p className="font-medium text-stone-900">하나님은 어떤 분이신가?</p>
+                    <p className="text-stone-600">본문에서 하나님의 성품과 속성을 발견해보세요</p>
                   </div>
-                  <div className="border-l-4 border-slate-400 pl-3">
-                    <p className="font-medium text-slate-900">나는 어떤 존재인가?</p>
-                    <p className="text-slate-600">본문이 나에 대해 말하는 것은 무엇인가요?</p>
+                  <div className=" border-stone-400 pl-3">
+                    <p className="font-medium text-stone-900">나는 어떤 존재인가?</p>
+                    <p className="text-stone-600">본문이 나에 대해 말하는 것은 무엇인가요?</p>
                   </div>
-                  <div className="border-l-4 border-slate-400 pl-3">
-                    <p className="font-medium text-slate-900">무엇을 순종해야 하는가?</p>
-                    <p className="text-slate-600">오늘 실천할 수 있는 구체적인 적용점을 찾아보세요</p>
+                  <div className=" border-stone-400 pl-3">
+                    <p className="font-medium text-stone-900">무엇을 순종해야 하는가?</p>
+                    <p className="text-stone-600">오늘 실천할 수 있는 구체적인 적용점을 찾아보세요</p>
                   </div>
-                  <div className="border-l-4 border-slate-400 pl-3">
-                    <p className="font-medium text-slate-900">무엇을 기도할까?</p>
-                    <p className="text-slate-600">본문을 통해 받은 은혜로 기도제목을 정해보세요</p>
+                  <div className=" border-stone-400 pl-3">
+                    <p className="font-medium text-stone-900">무엇을 기도할까?</p>
+                    <p className="text-stone-600">본문을 통해 받은 은혜로 기도제목을 정해보세요</p>
                   </div>
                 </div>
               </CardContent>
@@ -197,9 +197,9 @@ export default function MeditationPage() {
         </div>
 
         {/* 추가 자료 */}
-        <div className="text-center bg-slate-50 rounded-lg p-8 border border-slate-200">
+        <div className="text-center bg-stone-50 rounded-lg p-8 border border-stone-200">
           <h3 className="text-xl font-bold mb-4">더 깊은 말씀 생활을 위해</h3>
-          <p className="text-slate-600 mb-6">
+          <p className="text-stone-600 mb-6">
             체계적인 성경 공부와 제자훈련을 통해 더욱 풍성한 말씀 생활을 경험하세요
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

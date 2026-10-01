@@ -1,449 +1,321 @@
 // src/app/page.tsx
+// 문구의 인용은 방재홍·정성아 목사님의 2026년 7~9월 설교 녹취에서 가져왔습니다.
 import React from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { DiscipleshipJourney } from "@/components/ui/discipleship-journey";
 import Link from "next/link";
 import Image from "next/image";
-import { Calendar, MapPin, Clock, Video, Phone, ChevronRight, Play, BookOpen, Heart, Users } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { DiscipleshipJourney } from "@/components/ui/discipleship-journey";
+import { ChurchVideoSection } from "@/components/youtube/church-video-section";
+
+const facts = [
+  { href: "/worship", label: "주일예배", value: "오전 11시", note: "예배 후 함께 점심을 나눠요" },
+  { href: "/directions", label: "오시는 길", value: "경주역에서 10분", note: "역까지 모시러 갑니다" },
+  { href: "/about", label: "공동체", value: "20명 이하", note: "모두가 서로의 이름을 알아요" },
+  { href: "/sermons", label: "온라인", value: "유튜브 예배", note: "설교와 실시간 방송" },
+];
+
+const visions = [
+  { name: "거룩한 교회", body: "말씀과 기도로 날마다 거룩해집니다." },
+  { name: "건강한 교회", body: "전도와 헌신으로 건강하게 자랍니다." },
+  { name: "행복한 교회", body: "섬기고 나누고 베풀며 행복해집니다." },
+];
+
+const welcomes = [
+  {
+    title: "누구든 사랑으로 맞이합니다",
+    body: "예수님을 알고 싶어 오시는 분이라면 누구든 환영합니다. 지난날로 사람을 판단하지 않습니다.",
+  },
+  {
+    title: "밥 한 끼부터 함께해요",
+    body: "예배가 끝나면 함께 점심을 먹습니다. 힘들고 지친 날일수록 먼저 건네는 말은 “밥 먹자”입니다.",
+  },
+  {
+    title: "늦은 때란 없습니다",
+    body: "하나님은 우리를 아침마다 새롭게 하십니다. 하나님의 달력에는 정년퇴직이 없으니까요.",
+  },
+];
+
+const pastors = [
+  {
+    name: "방재홍 담임목사",
+    style:
+      "성경 원어를 생활의 말로 풀고, 장독대 항아리와 교회 뒤 고구마밭 같은 우리 곁의 그림으로 말씀을 전합니다.",
+    quote: "믿습니다 소리를 백 번 하는 것보다 한 발 발을 떼는 것이 믿음입니다.",
+    source: "「떠나라 보여줄 땅으로」 중에서",
+  },
+  {
+    name: "정성아 협동목사",
+    style:
+      "사도행전을 차례로 읽으며, 초대교회의 이야기를 오늘 박달에 있는 우리 교회의 이야기로 이어 갑니다.",
+    quote: "소수의 무리라 할지라도 성령 하나님은 역사하실 줄 믿습니다.",
+    source: "「성령이 임하시고」 중에서",
+  },
+];
+
+const ministries = [
+  { name: "예배팀", description: "찬양, 음향, 영상" },
+  { name: "교육팀", description: "주일학교, 청년부" },
+  { name: "봉사팀", description: "친교, 환경, 안내" },
+  { name: "전도팀", description: "꽃밭 전도, 심방" },
+  { name: "선교팀", description: "국내외 선교 지원" },
+  { name: "행정팀", description: "재정, 서기, 홍보" },
+  { name: "콩과나무로", description: "나눔 프로젝트" },
+  { name: "기도팀", description: "중보기도, 기도회" },
+];
+
+const textLink =
+  "inline-flex items-center gap-2 font-medium text-stone-900 underline underline-offset-[6px] decoration-stone-300 hover:decoration-stone-900";
 
 export default function Home() {
   return (
     <div className="flex flex-col">
-      {/* 1. 심플한 히어로 섹션 */}
-      <section className="relative h-[60vh] min-h-[400px] sm:h-[70vh] sm:min-h-[500px] flex items-center justify-center">
-        <div className="absolute inset-0 bg-black/40 z-10" />
-        
-        <div className="absolute inset-0 z-0">
-          <Image 
-            src="/images/hero/KakaoTalk_20250416_201705309.jpg" 
-            alt="주님의교회 예배당 전경 - 아름다운 산속에 위치한 교회 건물" 
-            fill 
-            className="object-cover"
-            priority 
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
-          />
-        </div>
-        
-        <div className="container relative z-30 text-white text-center max-w-4xl px-4">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
-            처음 오신 날부터<br/>
-            <span className="text-yellow-300">공동체가 되는 교회</span>
-          </h1>
-          
-          <p className="text-base sm:text-lg md:text-xl mb-8 sm:mb-10 text-slate-100 font-light leading-relaxed">
-            경주역에서 10분, 조용한 산속의 작은 교회<br/>
-            목사님이 당신의 이름을 기억하고, 진심으로 환영하는 곳입니다
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              className="bg-white text-slate-900 hover:bg-slate-100 font-medium px-8 py-4 min-h-[48px]"
-              asChild
-            >
-              <Link href="/worship">
-                예배 안내
-                <ChevronRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-            <Button 
-              size="lg" 
-              className="border-2 border-white bg-white/10 text-white hover:bg-white hover:text-slate-900 font-medium px-8 py-4 min-h-[48px] backdrop-blur-sm"
-              asChild
-            >
-              <Link href="/directions">
-                오시는 길
-                <MapPin className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. 빠른 접근 카드 */}
-      <section className="py-8 sm:py-12 md:py-16 bg-slate-50">
-        <div className="container px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
-            {/* 예배 시간 */}
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-              <Link 
-                href="/worship" 
-                className="block"
-                aria-label="예배 시간 안내 페이지로 이동"
-              >
-                <CardHeader className="pb-2 md:pb-4">
-                  <div 
-                    className="w-10 h-10 md:w-12 md:h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-2 md:mb-3"
-                    aria-hidden="true"
-                  >
-                    <Clock className="h-5 w-5 md:h-6 md:w-6 text-blue-600" />
-                  </div>
-                  <CardTitle className="text-base md:text-lg">예배 시간</CardTitle>
-                </CardHeader>
-                <CardContent className="pt-0">
-                  <div className="space-y-1 md:space-y-2 text-sm text-slate-600">
-                    <p className="font-medium text-slate-900">주일예배</p>
-                    <p className="text-sm">오전 11:00</p>
-                    <p className="text-sm text-blue-600 mt-2 md:mt-3 hidden sm:block">자세히 보기 →</p>
-                  </div>
-                </CardContent>
-              </Link>
-            </Card>
-
-            {/* 오시는 길 */}
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-              <Link 
-                href="/directions" 
-                className="block"
-                aria-label="교회 오시는 길 안내 페이지로 이동"
-              >
-                <CardHeader className="pb-2 md:pb-4">
-                  <div 
-                    className="w-10 h-10 md:w-12 md:h-12 bg-green-100 rounded-lg flex items-center justify-center mb-2 md:mb-3"
-                    aria-hidden="true"
-                  >
-                    <MapPin className="h-5 w-5 md:h-6 md:w-6 text-green-600" />
-                  </div>
-                  <CardTitle className="text-base md:text-lg">오시는 길</CardTitle>
-                </CardHeader>
-                <CardContent className="pt-0">
-                  <div className="space-y-1 md:space-y-2 text-sm text-slate-600">
-                    <p className="font-medium text-slate-900">경주역 10분</p>
-                    <p className="text-sm">픽업 가능</p>
-                    <p className="text-sm text-green-600 mt-2 md:mt-3 hidden sm:block">지도 보기 →</p>
-                  </div>
-                </CardContent>
-              </Link>
-            </Card>
-
-            {/* 온라인 예배 */}
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-              <Link 
-                href="/sermons" 
-                className="block"
-                aria-label="온라인 예배 및 설교 페이지로 이동"
-              >
-                <CardHeader className="pb-2 md:pb-4">
-                  <div 
-                    className="w-10 h-10 md:w-12 md:h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-2 md:mb-3"
-                    aria-hidden="true"
-                  >
-                    <Video className="h-5 w-5 md:h-6 md:w-6 text-purple-600" />
-                  </div>
-                  <CardTitle className="text-base md:text-lg">온라인 예배</CardTitle>
-                </CardHeader>
-                <CardContent className="pt-0">
-                  <div className="space-y-1 md:space-y-2 text-sm text-slate-600">
-                    <p className="font-medium text-slate-900">실시간</p>
-                    <p className="text-sm">유튜브</p>
-                    <p className="text-sm text-purple-600 mt-2 md:mt-3 hidden sm:block">시청하기 →</p>
-                  </div>
-                </CardContent>
-              </Link>
-            </Card>
-
-            {/* 새가족 안내 */}
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-              <Link 
-                href="/newcomer" 
-                className="block"
-                aria-label="새가족 환영 및 안내 페이지로 이동"
-              >
-                <CardHeader className="pb-2 md:pb-4">
-                  <div 
-                    className="w-10 h-10 md:w-12 md:h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-2 md:mb-3"
-                    aria-hidden="true"
-                  >
-                    <Heart className="h-5 w-5 md:h-6 md:w-6 text-amber-600" />
-                  </div>
-                  <CardTitle className="text-base md:text-lg">새가족</CardTitle>
-                </CardHeader>
-                <CardContent className="pt-0">
-                  <div className="space-y-1 md:space-y-2 text-sm text-slate-600">
-                    <p className="font-medium text-slate-900">처음 오신분</p>
-                    <p className="text-sm">맞춤 안내</p>
-                    <p className="text-sm text-amber-600 mt-2 md:mt-3 hidden sm:block">문의하기 →</p>
-                  </div>
-                </CardContent>
-              </Link>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. 교회 소개 */}
-      <section className="py-8 sm:py-12 md:py-16 bg-white">
-        <div className="container px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6">작은 교회라서 가능한 일들</h2>
-            <p className="text-lg text-slate-600 mb-12 leading-relaxed">
-              저희는 20명 이하가 모이는 정말 작은 교회입니다.<br/>
-              그래서 목사님이 모든 성도님의 이름과 이야기를 기억합니다.<br/>
-              <span className="text-slate-700 font-medium">당신도 이 따뜻한 공동체의 일원이 되어주세요.</span>
+      {/* 1. 히어로 — 골로새서 2:6-7, 「깊게 곧게 넘치게」 */}
+      <section className="pt-8 pb-16 md:pt-16 md:pb-24">
+        <div className="container grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          <div className="lg:col-span-7">
+            <h1 className="text-[2.5rem] leading-[1.2] sm:text-6xl lg:text-7xl lg:leading-[1.12] text-stone-900 mb-6 md:mb-8">
+              뿌리는 깊게,
+              <br />
+              줄기는 곧게,
+              <br />
+              열매는 넘치게
+            </h1>
+            <p className="text-lg md:text-xl text-stone-600 leading-relaxed max-w-xl mb-8 md:mb-10">
+              경주 내남면 박달, 산자락의 작은 교회입니다. 은혜에 뿌리를 내리고 날마다 조금씩 새로워지는 공동체로
+              당신을 초대합니다.
             </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <BookOpen className="h-8 w-8 text-slate-600" />
-                </div>
-                <h3 className="font-bold mb-2">궁금한 건 언제든 물어보세요</h3>
-                <p className="text-sm text-slate-600">
-                  예배 중에도, 예배 후에도 편하게 질문하실 수 있어요. 목사님이 직접 성경을 펴서 설명해드립니다.
-                </p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Heart className="h-8 w-8 text-slate-600" />
-                </div>
-                <h3 className="font-bold mb-2">진짜 공동체가 되어드려요</h3>
-                <p className="text-sm text-slate-600">
-                  혼자 오셔도 외롭지 않아요. 예배 후 함께 밥 먹고, 차 마시며 일상을 나누는 진짜 공동체가 있습니다.
-                </p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="h-8 w-8 text-slate-600" />
-                </div>
-                <h3 className="font-bold mb-2">당신의 속도에 맞춰가요</h3>
-                <p className="text-sm text-slate-600">
-                  처음이라 모르는 게 당연해요. 천천히, 당신의 속도에 맞춰 함께 걸어가겠습니다.
-                </p>
-              </div>
-            </div>
-            
-            <div className="mt-12">
-              <Button variant="outline" asChild>
-                <Link href="/about">
-                  교회 소개 자세히 보기
-                  <ChevronRight className="ml-2 h-4 w-4" />
-                </Link>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+              <Button size="lg" className="h-12 md:h-12 px-7 text-base rounded-lg" asChild>
+                <Link href="/worship">예배 안내 보기</Link>
               </Button>
+              <Link href="/directions" className={`h-12 text-base ${textLink}`}>
+                오시는 길
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+
+          <div className="lg:col-span-5">
+            <div className="relative aspect-[4/3] lg:aspect-[4/5] rounded-2xl overflow-hidden bg-stone-200">
+              <Image
+                src="/images/hero/KakaoTalk_20250416_201705309.jpg"
+                alt="소나무와 꽃밭이 있는 주님의교회 마당"
+                fill
+                className="object-cover"
+                priority
+                sizes="(max-width: 1024px) 100vw, 40vw"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. 제자훈련 과정 */}
-      <section className="py-12 md:py-16 bg-white">
+      {/* 2. 한눈에 보는 안내 */}
+      <section aria-label="교회 안내 요약" className="pb-16 md:pb-24">
+        <div className="container">
+          <ul className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-stone-200 rounded-2xl overflow-hidden">
+            {facts.map((fact) => (
+              <li key={fact.href} className="bg-stone-100">
+                <Link
+                  href={fact.href}
+                  className="block h-full p-5 md:p-7 hover:bg-stone-200/60 transition-colors focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-pine-500"
+                >
+                  <p className="text-sm text-stone-500 mb-2">{fact.label}</p>
+                  <p className="font-serif text-xl md:text-2xl text-stone-900 mb-1">{fact.value}</p>
+                  <p className="text-sm text-stone-600">{fact.note}</p>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* 3. 이름과 비전 — 「오직 겸손함으로」 */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
+          <div className="lg:col-span-6">
+            <h2 className="text-3xl md:text-5xl leading-tight text-stone-900 mb-6">
+              주님의 교회는
+              <br />
+              사람의 교회가 아닙니다
+            </h2>
+            <p className="text-lg text-stone-600 leading-relaxed max-w-lg mb-5">
+              예수님이 이 교회의 머리이시고, 주님이 가장 섬김받고 영광 받으시기를 바라며 지은 이름입니다.
+            </p>
+            <p className="text-lg text-stone-600 leading-relaxed max-w-lg mb-8">
+              이곳은 본래 농협 창고였습니다. 예수 믿는 사람들이 모여 예배하니 예배당이 되었습니다. 세상의 기준으로
+              크게 자라려고 세운 교회가 아니라, 한 영혼이 천하보다 귀하기에 이 마을에 세운 교회입니다.
+            </p>
+            <Link href="/about" className={textLink}>
+              교회 소개 읽기
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </div>
+
+          <dl className="lg:col-span-6 grid gap-8 md:gap-10 content-start lg:pt-3">
+            {visions.map((v) => (
+              <div key={v.name}>
+                <dt className="font-serif text-3xl md:text-4xl text-pine-700 mb-2">{v.name}</dt>
+                <dd className="text-stone-600 leading-relaxed">{v.body}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      {/* 4. 작은 교회의 뿌리 — 「깊게 곧게 넘치게」 */}
+      <section className="py-16 md:py-24 bg-pine-50">
+        <div className="container">
+          <figure className="max-w-4xl">
+            <blockquote className="font-serif text-2xl md:text-4xl leading-snug md:leading-snug text-stone-900">
+              “나무가 백 그루가 있어도 뿌리가 깊게 안 되면 다 뽑히고요. 두세 그루가 있어도 뿌리를 깊이 내리면 그
+              나무가 그 자리를 지킵니다.”
+            </blockquote>
+            <figcaption className="mt-6 text-stone-600">
+              방재홍 담임목사, 「깊게 곧게 넘치게」(골로새서 2:6-7) 중에서
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      {/* 5. 처음 오시는 분께 */}
+      <section className="py-16 md:py-24">
+        <div className="container grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
+          <div className="lg:col-span-5">
+            <h2 className="text-3xl md:text-5xl leading-tight text-stone-900 mb-5">
+              처음 오시는
+              <br />
+              당신께
+            </h2>
+            <p className="text-lg text-stone-600 leading-relaxed max-w-md mb-8">
+              스무 명이 채 되지 않는 작은 공동체라, 목사님이 모든 성도의 이름과 이야기를 기억합니다.
+            </p>
+            <Link href="/newcomer" className={textLink}>
+              새가족 안내 보기
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </div>
+
+          <div className="lg:col-span-7 grid gap-10 md:gap-12">
+            {welcomes.map((w) => (
+              <div key={w.title}>
+                <h3 className="text-2xl text-stone-900 mb-3">{w.title}</h3>
+                <p className="text-stone-600 leading-relaxed max-w-xl">{w.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. 말씀을 전하는 사람들 */}
+      <section className="py-16 md:py-24 bg-white" aria-labelledby="pastors-title">
+        <div className="container">
+          <h2 id="pastors-title" className="text-3xl md:text-5xl leading-tight text-stone-900 mb-10 md:mb-14">
+            말씀을 전하는 사람들
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-10">
+            {pastors.map((p) => (
+              <article key={p.name}>
+                <h3 className="text-2xl text-stone-900 mb-3">{p.name}</h3>
+                <p className="text-stone-600 leading-relaxed max-w-lg mb-6">{p.style}</p>
+                <figure>
+                  <blockquote className="font-serif text-xl md:text-2xl leading-relaxed text-pine-800 max-w-lg">
+                    “{p.quote}”
+                  </blockquote>
+                  <figcaption className="mt-2 text-sm text-stone-500">{p.source}</figcaption>
+                </figure>
+              </article>
+            ))}
+          </div>
+          <Link href="/about#pastors" className={`mt-10 md:mt-14 ${textLink}`}>
+            목회자 소개 더 보기
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
+        </div>
+      </section>
+
+      {/* 7. 유튜브 - 영상으로 먼저 만나기 */}
+      <ChurchVideoSection />
+
+      {/* 8. 제자훈련 과정 */}
+      <section className="py-16 md:py-24 bg-white">
         <div className="container">
           <DiscipleshipJourney />
         </div>
       </section>
 
-      {/* 5. 평신도 사역자 */}
-      <section className="py-12 md:py-16 bg-gradient-to-br from-blue-50 to-indigo-100">
+      {/* 9. 함께 섬기기 — 「오직 겸손함으로」 */}
+      <section className="py-16 md:py-24">
         <div className="container">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6">당신도 교회를 함께 만들어가요</h2>
-            <div className="bg-white/70 rounded-lg p-6 mb-8 border border-blue-200">
-              <p className="text-lg text-slate-700 italic mb-2">
-                "우리가 한 몸에 많은 지체를 가졌으나 모든 지체가 같은 기능을 가진 것이 아니니 
-                이와 같이 우리 많은 사람이 그리스도 안에서 한 몸이 되어 서로 지체가 되었느니라"
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 mb-12 md:mb-16">
+            <h2 className="lg:col-span-6 text-3xl md:text-5xl leading-tight text-stone-900">
+              함께 복음을 연주하는
+              <br />
+              공동체
+            </h2>
+            <div className="lg:col-span-6 lg:pt-2">
+              <p className="text-lg text-stone-600 leading-relaxed max-w-lg mb-4">
+                피아노 반주가 드러나지 않아도 찬양 전체를 받쳐 주듯, 섬기는 한 사람이 교회를 세웁니다. 찬양을
+                좋아하시나요? 요리를 잘하시나요? 꽃을 가꾸시나요? 그 마음이 주님의 교회를 풍성하게 합니다.
               </p>
-              <p className="text-slate-600 font-medium">- 로마서 12:4-5 -</p>
+              <figure>
+                <blockquote className="font-serif text-lg text-pine-800">“성숙한 사람이 바보가 아닙니다. 섬기는 사람이 바보가 아니에요.”</blockquote>
+                <figcaption className="mt-1 text-sm text-stone-500">방재홍 담임목사, 「오직 겸손함으로」 중에서</figcaption>
+              </figure>
             </div>
-            
-            <p className="text-lg text-slate-700 mb-12 leading-relaxed">
-              작은 교회라서 당신이 필요해요.<br/>
-              찬양을 좋아하시나요? 아이들을 좋아하시나요? 요리를 잘하시나요?<br/>
-              <strong>당신의 재능과 마음이 교회를 더 풍성하게 만듭니다.</strong>
+          </div>
+
+          <div className="rounded-2xl bg-stone-100 p-6 md:p-10">
+            <h3 className="text-xl md:text-2xl text-stone-900 mb-6">지금 함께할 사역</h3>
+            <ul className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-5 mb-8">
+              {ministries.map((m) => (
+                <li key={m.name}>
+                  <p className="font-medium text-stone-900">{m.name}</p>
+                  <p className="text-sm text-stone-500">{m.description}</p>
+                </li>
+              ))}
+            </ul>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Button size="lg" className="h-12 md:h-12 px-6 rounded-lg" asChild>
+                <Link href="/contact?type=ministry">사역 참여 신청하기</Link>
+              </Button>
+              <Button size="lg" variant="outline" className="h-12 md:h-12 px-6 rounded-lg bg-transparent" asChild>
+                <Link href="/activities#ministry">사역팀 자세히 보기</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 10. 방문 안내 — 요한복음 7:37 */}
+      <section className="bg-pine-800 text-stone-50">
+        <div className="container py-16 md:py-24 grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+          <div className="lg:col-span-7">
+            <p className="font-serif text-lg text-pine-200 mb-4">누구든지 목마르거든 내게로 와서 마시라 (요 7:37)</p>
+            <h2 className="text-4xl md:text-6xl leading-tight mb-6">
+              이번 주일,
+              <br />
+              자리를 비워둘게요
+            </h2>
+            <p className="text-lg leading-relaxed max-w-lg text-stone-50/80">
+              경상북도 경주시 내남면 내외로 2175. 경주역에서 차로 10분이고, 미리 연락 주시면 역으로 모시러 갑니다.
             </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-              <div className="bg-white rounded-lg p-6 shadow-sm border border-blue-100">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Heart className="h-8 w-8 text-blue-600" />
-                </div>
-                <h3 className="font-bold text-lg mb-3">은사 발견</h3>
-                <p className="text-sm text-slate-600 mb-4">
-                  하나님께서 각자에게 주신 고유한 은사와 달란트를 발견하고 개발합니다
-                </p>
-                <ul className="text-xs text-slate-500 space-y-1">
-                  <li>• 은사 진단 테스트</li>
-                  <li>• 개인 상담 및 멘토링</li>
-                  <li>• 다양한 사역 체험 기회</li>
-                </ul>
-              </div>
-              
-              <div className="bg-white rounded-lg p-6 shadow-sm border border-green-100">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <BookOpen className="h-8 w-8 text-green-600" />
-                </div>
-                <h3 className="font-bold text-lg mb-3">사역 훈련</h3>
-                <p className="text-sm text-slate-600 mb-4">
-                  발견한 은사를 효과적으로 사용할 수 있도록 체계적인 훈련을 받습니다
-                </p>
-                <ul className="text-xs text-slate-500 space-y-1">
-                  <li>• 사역별 전문 교육</li>
-                  <li>• 실습과 피드백</li>
-                  <li>• 지속적인 역량 개발</li>
-                </ul>
-              </div>
-              
-              <div className="bg-white rounded-lg p-6 shadow-sm border border-purple-100">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="h-8 w-8 text-purple-600" />
-                </div>
-                <h3 className="font-bold text-lg mb-3">사역 참여</h3>
-                <p className="text-sm text-slate-600 mb-4">
-                  훈련받은 은사로 교회와 지역 사회를 섬기는 사역자가 됩니다
-                </p>
-                <ul className="text-xs text-slate-500 space-y-1">
-                  <li>• 교회 내 다양한 사역팀</li>
-                  <li>• 지역 사회 봉사 활동</li>
-                  <li>• 복음 전파와 제자양육</li>
-                </ul>
-              </div>
-            </div>
-            
-            <div className="bg-white rounded-lg p-8 shadow-sm border border-slate-200">
-              <h3 className="text-xl font-bold mb-4">현재 모집 중인 사역</h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                {[
-                  { name: "예배팀", description: "찬양, 음향, 영상" },
-                  { name: "교육팀", description: "주일학교, 청년부" },
-                  { name: "봉사팀", description: "친교, 환경, 안내" },
-                  { name: "전도팀", description: "지역 전도, 심방" },
-                  { name: "선교팀", description: "국내외 선교 지원" },
-                  { name: "행정팀", description: "재정, 서기, 홍보" },
-                  { name: "콩과나무로", description: "나눔 프로젝트" },
-                  { name: "기도팀", description: "중보기도, 기도회" }
-                ].map((ministry, index) => (
-                  <div key={index} className="text-center p-3 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors">
-                    <h4 className="font-medium text-sm">{ministry.name}</h4>
-                    <p className="text-xs text-slate-600 mt-1">{ministry.description}</p>
-                  </div>
-                ))}
-              </div>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" asChild className="bg-blue-600 hover:bg-blue-700 py-4 min-h-[48px]">
-                  <Link href="/contact?type=ministry">
-                    사역 참여 신청하기
-                    <ChevronRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-                <Button size="lg" variant="outline" asChild className="py-4 min-h-[48px]">
-                  <Link href="/activities#ministry">
-                    사역팀 자세히 보기
-                  </Link>
-                </Button>
-              </div>
-            </div>
           </div>
-        </div>
-      </section>
-
-      {/* 6. 최근 설교 */}
-      <section className="py-12 md:py-16 bg-slate-50">
-        <div className="container">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold mb-4">이번 주 설교</h2>
-              <p className="text-lg text-slate-600">
-                매주 새로운 말씀으로 은혜를 나눕니다
-              </p>
-            </div>
-            
-            <Card className="overflow-hidden">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-                <div className="aspect-video relative bg-slate-200">
-                  <Image
-                    src="/images/hero/KakaoTalk_20250416_201705309.jpg"
-                    alt="방재홍 목사님 설교 영상 썸네일 - 평안을 너희에게 주노라"
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                    <Button 
-                      size="lg" 
-                      className="bg-white/90 text-slate-900 hover:bg-white rounded-full px-6"
-                      asChild
-                    >
-                      <Link href="/sermons">
-                        <Play className="mr-2 h-5 w-5" />
-                        설교 보기
-                      </Link>
-                    </Button>
-                  </div>
-                </div>
-                
-                <div className="p-6 md:p-8 flex flex-col justify-center">
-                  <h3 className="text-2xl font-bold mb-3">
-                    평안을 너희에게 주노라
-                  </h3>
-                  <p className="text-slate-600 mb-4">
-                    방재홍 목사 | 2025.07.21 주일예배
-                  </p>
-                  <p className="text-slate-700 mb-6">
-                    "평안을 너희에게 끼치노니 곧 나의 평안을 너희에게 주노라 
-                    내가 너희에게 주는 것은 세상이 주는 것과 같지 아니하니라" (요 14:27)
-                  </p>
-                  <div className="flex gap-3">
-                    <Button variant="outline" size="sm" asChild>
-                      <Link href="/sermons">모든 설교 보기</Link>
-                    </Button>
-                    <Button variant="outline" size="sm" asChild>
-                      <Link href="/meditation">말씀 묵상</Link>
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. 연락처 & 위치 */}
-      <section className="py-12 md:py-16 bg-slate-800 text-white">
-        <div className="container">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-8">함께하실 준비가 되셨나요?</h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-              <div className="bg-slate-700/50 rounded-lg p-6">
-                <MapPin className="h-8 w-8 mx-auto mb-3 text-green-400" />
-                <h3 className="font-bold mb-2">위치</h3>
-                <p className="text-sm text-slate-300">
-                  경상북도 경주시 내남면 내외로 2175<br/>
-                  경주역에서 차로 10분
-                </p>
-              </div>
-              
-              <div className="bg-slate-700/50 rounded-lg p-6">
-                <Phone className="h-8 w-8 mx-auto mb-3 text-blue-400" />
-                <h3 className="font-bold mb-2">연락처</h3>
-                <p className="text-sm text-slate-300">
-                  010-4162-2701<br/>
-                  방재홍 담임목사
-                </p>
-              </div>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
-                className="bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-medium py-4 min-h-[48px]"
-                asChild
-              >
-                <Link href="/contact?type=first-visit">
-                  처음 방문 문의
-                </Link>
-              </Button>
-              <Button 
-                size="lg" 
-                className="border-2 border-white bg-white/10 text-white hover:bg-white hover:text-slate-900 backdrop-blur-sm py-4 min-h-[48px]"
-                asChild
-              >
-                <Link href="/contact">
-                  일반 문의
-                </Link>
-              </Button>
-            </div>
+          <div className="lg:col-span-5 flex flex-col gap-3 lg:items-end">
+            <Button
+              size="lg"
+              className="h-12 md:h-12 px-7 text-base rounded-lg w-full sm:w-auto bg-stone-50 text-stone-900 hover:bg-white"
+              asChild
+            >
+              <Link href="/contact?type=first-visit">처음 방문 문의하기</Link>
+            </Button>
+            <a
+              href="tel:010-4162-2701"
+              className="inline-flex items-center justify-center h-12 px-2 text-base font-medium underline underline-offset-[6px] decoration-stone-50/40 hover:decoration-stone-50"
+            >
+              010-4162-2701로 전화하기
+            </a>
           </div>
         </div>
       </section>

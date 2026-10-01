@@ -58,9 +58,9 @@ const discipleshipStages: DiscipleshipStage[] = [
       "개인 기도 훈련"
     ],
     icon: Heart,
-    color: "text-green-600",
-    bgColor: "bg-green-50",
-    borderColor: "border-green-200"
+    color: "text-pine-600",
+    bgColor: "bg-pine-50",
+    borderColor: "border-stone-200"
   },
   {
     id: 2,
@@ -83,9 +83,9 @@ const discipleshipStages: DiscipleshipStage[] = [
       "성경 통독 계획"
     ],
     icon: BookOpen,
-    color: "text-blue-600",
-    bgColor: "bg-blue-50",
-    borderColor: "border-blue-200"
+    color: "text-pine-600",
+    bgColor: "bg-pine-50",
+    borderColor: "border-stone-200"
   },
   {
     id: 3,
@@ -108,9 +108,9 @@ const discipleshipStages: DiscipleshipStage[] = [
       "사역 실습 기회"
     ],
     icon: Users,
-    color: "text-purple-600",
-    bgColor: "bg-purple-50",
-    borderColor: "border-purple-200"
+    color: "text-fig-600",
+    bgColor: "bg-fig-50",
+    borderColor: "border-stone-200"
   },
   {
     id: 4,
@@ -133,9 +133,9 @@ const discipleshipStages: DiscipleshipStage[] = [
       "선교 사역 참여"
     ],
     icon: Crown,
-    color: "text-yellow-600",
-    bgColor: "bg-yellow-50",
-    borderColor: "border-yellow-200"
+    color: "text-kraft-600",
+    bgColor: "bg-kraft-50",
+    borderColor: "border-stone-200"
   }
 ];
 
@@ -148,7 +148,7 @@ export function DiscipleshipJourney() {
       {/* 헤더 */}
       <div className="text-center">
         <h2 className="text-3xl font-bold mb-4">제자양육의 여정</h2>
-        <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+        <p className="text-lg text-stone-600 max-w-3xl mx-auto">
           "또 네가 많은 증인 앞에서 내게 들은 바를 충성된 사람들에게 부탁하라 저희가 또 다른 사람들을 가르칠 수 있는 자가 되게 하라" (딤후 2:2)<br />
           소규모 공동체이기에 가능한 개인별 맞춤 제자훈련과 세심한 돌봄을 통한 체계적 양육 과정
         </p>
@@ -165,10 +165,10 @@ export function DiscipleshipJourney() {
             return (
               <div key={stage.id} className="flex flex-col items-center relative">
                 {index < discipleshipStages.length - 1 && (
-                  <div className="absolute top-6 left-12 w-24 h-0.5 bg-slate-200 z-0 hidden md:block">
+                  <div className="absolute top-6 left-12 w-24 h-0.5 bg-stone-200 z-0 hidden md:block">
                     <div 
                       className={`h-full transition-all duration-500 ${
-                        stage.id < selectedStage ? 'bg-green-500' : 'bg-slate-200'
+                        stage.id < selectedStage ? 'bg-pine-500' : 'bg-stone-200'
                       }`}
                       style={{ width: stage.id < selectedStage ? '100%' : '0%' }}
                     />
@@ -177,12 +177,12 @@ export function DiscipleshipJourney() {
                 
                 <button
                   onClick={() => setSelectedStage(stage.id)}
-                  className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 z-10 mb-3 ${
+                  className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-300 z-10 mb-3 ${
                     isActive 
                       ? `${stage.bgColor} ${stage.borderColor} ${stage.color}` 
                       : isCompleted
-                      ? 'bg-green-100 border-green-300 text-green-600'
-                      : 'bg-white border-slate-300 text-slate-400 hover:border-slate-400'
+                      ? 'bg-pine-100 border-stone-200 text-pine-600'
+                      : 'bg-white border-stone-300 text-stone-400 hover:border-stone-400'
                   }`}
                 >
                   {isCompleted ? (
@@ -193,10 +193,10 @@ export function DiscipleshipJourney() {
                 </button>
                 
                 <div className="text-center max-w-24">
-                  <p className={`text-sm font-medium ${isActive ? stage.color : 'text-slate-600'}`}>
+                  <p className={`text-sm font-medium ${isActive ? stage.color : 'text-stone-600'}`}>
                     {stage.title}
                   </p>
-                  <p className="text-xs text-slate-500 mt-1">
+                  <p className="text-xs text-stone-500 mt-1">
                     {stage.duration}
                   </p>
                 </div>
@@ -208,11 +208,11 @@ export function DiscipleshipJourney() {
 
       {/* 선택된 단계 상세 정보 */}
       {currentStage && (
-        <Card className={`${currentStage.borderColor} border-2 transition-all duration-300`}>
+        <Card className={`${currentStage.borderColor} border transition-all duration-300`}>
           <CardHeader className={currentStage.bgColor}>
             <div className="flex items-center justify-between">
               <div className="flex items-center">
-                <div className={`w-12 h-12 rounded-full ${currentStage.bgColor} border-2 ${currentStage.borderColor} flex items-center justify-center mr-4`}>
+                <div className={`w-12 h-12 rounded-full ${currentStage.bgColor} border ${currentStage.borderColor} flex items-center justify-center mr-4`}>
                   <currentStage.icon className={`h-6 w-6 ${currentStage.color}`} />
                 </div>
                 <div>
@@ -230,16 +230,16 @@ export function DiscipleshipJourney() {
           
           <CardContent className="pt-6 space-y-6">
             {/* 설명 */}
-            <p className="text-slate-700 leading-relaxed">
+            <p className="text-stone-700 leading-relaxed">
               {currentStage.description}
             </p>
 
             {/* 성경 말씀 */}
             <div className={`${currentStage.bgColor} rounded-lg p-4 border ${currentStage.borderColor}`}>
-              <p className="text-slate-700 italic mb-2">
+              <p className="text-stone-700 italic mb-2">
                 "{currentStage.scripture}"
               </p>
-              <p className="text-slate-600 text-sm font-medium">
+              <p className="text-stone-600 text-sm font-medium">
                 - {currentStage.reference} -
               </p>
             </div>
@@ -248,13 +248,13 @@ export function DiscipleshipJourney() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <h3 className="font-semibold mb-3 flex items-center">
-                  <Target className="mr-2 h-5 w-5 text-blue-600" />
+                  <Target className="mr-2 h-5 w-5 text-pine-600" />
                   학습 목표
                 </h3>
                 <ul className="space-y-2">
                   {currentStage.goals.map((goal, index) => (
                     <li key={index} className="flex items-center text-sm">
-                      <CheckCircle className="mr-2 h-4 w-4 text-green-500 flex-shrink-0" />
+                      <CheckCircle className="mr-2 h-4 w-4 text-pine-500 flex-shrink-0" />
                       {goal}
                     </li>
                   ))}
@@ -263,13 +263,13 @@ export function DiscipleshipJourney() {
               
               <div>
                 <h3 className="font-semibold mb-3 flex items-center">
-                  <Lightbulb className="mr-2 h-5 w-5 text-purple-600" />
+                  <Lightbulb className="mr-2 h-5 w-5 text-fig-600" />
                   주요 활동
                 </h3>
                 <ul className="space-y-2">
                   {currentStage.activities.map((activity, index) => (
                     <li key={index} className="flex items-center text-sm">
-                      <ArrowRight className="mr-2 h-4 w-4 text-purple-500 flex-shrink-0" />
+                      <ArrowRight className="mr-2 h-4 w-4 text-fig-500 flex-shrink-0" />
                       {activity}
                     </li>
                   ))}
@@ -281,45 +281,45 @@ export function DiscipleshipJourney() {
       )}
 
       {/* 신학적 철학 설명 */}
-      <Card className="bg-slate-50 border-slate-200">
+      <Card className="bg-stone-50 border-stone-200">
         <CardHeader>
           <CardTitle className="text-center">건강한 신학과 제자훈련</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
             <div>
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                <BookOpen className="h-8 w-8 text-blue-600" />
+              <div className="w-16 h-16 bg-pine-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <BookOpen className="h-8 w-8 text-pine-600" />
               </div>
               <h3 className="font-semibold mb-2">성경적 정통성</h3>
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-stone-600">
                 개혁주의 전통과 성령의 역사가 조화된 건전한 신학을 바탕으로 합니다
               </p>
             </div>
             
             <div>
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                <Users className="h-8 w-8 text-green-600" />
+              <div className="w-16 h-16 bg-pine-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <Users className="h-8 w-8 text-pine-600" />
               </div>
               <h3 className="font-semibold mb-2">재생산의 원리</h3>
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-stone-600">
                 제자가 제자를 만드는 영적 재생산을 통해 교회와 하나님 나라가 확장됩니다
               </p>
             </div>
             
             <div>
-              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                <Crown className="h-8 w-8 text-purple-600" />
+              <div className="w-16 h-16 bg-fig-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <Crown className="h-8 w-8 text-fig-600" />
               </div>
               <h3 className="font-semibold mb-2">균형잡힌 신앙</h3>
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-stone-600">
                 말씀과 성령, 개혁주의와 은사주의의 건강한 균형을 추구합니다
               </p>
             </div>
           </div>
           
           <div className="bg-white rounded-lg p-6 mt-6">
-            <p className="text-slate-700 text-center">
+            <p className="text-stone-700 text-center">
               주님의교회는 <strong>고신교단의 개혁주의 정통성</strong>과 <strong>예하성의 성령 충만한 신앙</strong>을 아우르는 
               넓은 스펙트럼의 건강한 신학을 바탕으로, 순수한 복음과 온전한 제자도를 통해 
               그리스도의 몸을 세워가는 공동체입니다.
@@ -331,7 +331,7 @@ export function DiscipleshipJourney() {
       {/* 액션 버튼 */}
       <div className="text-center">
         <div className="space-y-4">
-          <Button size="lg" asChild className="bg-blue-600 hover:bg-blue-700">
+          <Button size="lg" asChild className="bg-pine-600 hover:bg-pine-700">
             <Link href="/newcomer">
               제자양육 과정 시작하기
               <ChevronRight className="ml-2 h-4 w-4" />

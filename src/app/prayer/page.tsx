@@ -94,19 +94,19 @@ export default function PrayerPage() {
   };
 
   return (
-    <div className="container py-12">
+    <div className="container py-14 md:py-20">
       <div className="max-w-4xl mx-auto">
         {/* 헤더 섹션 */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-6">기도 요청</h1>
-          <div className="bg-slate-50 rounded-lg p-6 border border-slate-200 max-w-3xl mx-auto">
-            <p className="text-lg text-slate-700 italic mb-4">
+          <div className="bg-stone-50 rounded-lg p-6 border border-stone-200 max-w-3xl mx-auto">
+            <p className="text-lg text-stone-700 italic mb-4">
               "너희 중에 두세 사람이 땅에서 합심하여 무엇이든지 구하면 
               하늘에 계신 내 아버지께서 그들을 위하여 이루어 주시리라"
             </p>
-            <p className="text-slate-600">- 마태복음 18:19 -</p>
+            <p className="text-stone-600">- 마태복음 18:19 -</p>
           </div>
-          <p className="text-slate-700 mt-6 max-w-3xl mx-auto">
+          <p className="text-stone-700 mt-6 max-w-3xl mx-auto">
             어려운 일이 있으시거나 특별한 기도 제목이 있으시면 언제든지 말씀해 주세요.<br />
             주님의교회 모든 성도들이 함께 중보기도로 섬기겠습니다.
           </p>
@@ -114,43 +114,43 @@ export default function PrayerPage() {
 
         {/* 기도의 약속 */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          <Card className="border border-slate-200">
+          <Card className="border border-stone-200">
             <CardHeader className="text-center">
-              <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                <Heart className="h-6 w-6 text-slate-600" />
+              <div className="w-12 h-12 bg-stone-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <Heart className="h-6 w-6 text-stone-600" />
               </div>
               <CardTitle className="text-lg">함께하는 기도</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-slate-600 text-center">
+              <p className="text-sm text-stone-600 text-center">
                 혼자가 아닙니다. 교회 공동체가 함께 하나님 앞에 나아가 기도합니다.
               </p>
             </CardContent>
           </Card>
 
-          <Card className="border border-slate-200">
+          <Card className="border border-stone-200">
             <CardHeader className="text-center">
-              <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                <Shield className="h-6 w-6 text-slate-600" />
+              <div className="w-12 h-12 bg-stone-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <Shield className="h-6 w-6 text-stone-600" />
               </div>
               <CardTitle className="text-lg">개인정보 보호</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-slate-600 text-center">
+              <p className="text-sm text-stone-600 text-center">
                 익명 요청 가능하며, 개인 정보는 기도 목적으로만 사용됩니다.
               </p>
             </CardContent>
           </Card>
 
-          <Card className="border border-slate-200">
+          <Card className="border border-stone-200">
             <CardHeader className="text-center">
-              <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                <Users className="h-6 w-6 text-slate-600" />
+              <div className="w-12 h-12 bg-stone-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <Users className="h-6 w-6 text-stone-600" />
               </div>
               <CardTitle className="text-lg">지속적인 관심</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-slate-600 text-center">
+              <p className="text-sm text-stone-600 text-center">
                 일회성이 아닌 지속적인 관심과 기도로 함께합니다.
               </p>
             </CardContent>
@@ -158,7 +158,7 @@ export default function PrayerPage() {
         </div>
 
         {/* 기도 요청 폼 */}
-        <Card className="border border-slate-200">
+        <Card className="border border-stone-200">
           <CardHeader>
             <CardTitle className="text-xl">기도 요청서</CardTitle>
             <CardDescription>
@@ -282,8 +282,8 @@ export default function PrayerPage() {
               </div>
 
               {submitStatus.type && (
-                <Alert className={submitStatus.type === "success" ? "border-green-200 bg-green-50" : "border-red-200 bg-red-50"}>
-                  <AlertDescription className={submitStatus.type === "success" ? "text-green-700" : "text-red-700"}>
+                <Alert className={submitStatus.type === "success" ? "border-stone-200 bg-pine-50" : "border-stone-200 bg-red-50"}>
+                  <AlertDescription className={submitStatus.type === "success" ? "text-pine-700" : "text-red-700"}>
                     {submitStatus.message}
                   </AlertDescription>
                 </Alert>
@@ -304,9 +304,9 @@ export default function PrayerPage() {
         </Card>
 
         {/* 추가 안내 */}
-        <div className="mt-12 text-center bg-slate-50 rounded-lg p-8 border border-slate-200">
+        <div className="mt-12 text-center bg-stone-50 rounded-lg p-8 border border-stone-200">
           <h3 className="text-xl font-bold mb-4">기도 후 나눔</h3>
-          <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
+          <p className="text-stone-600 mb-6 max-w-2xl mx-auto">
             기도 응답의 간증이나 감사 제목이 있으시면 언제든지 나누어 주세요. 
             함께 하나님의 선하심을 찬양하며 격려받을 수 있습니다.
           </p>

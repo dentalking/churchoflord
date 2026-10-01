@@ -66,7 +66,7 @@ export function NaverMapButtonSmall({ className = "" }: { className?: string }) 
 export function PickupServiceButton({ className = "" }: { className?: string }) {
   return (
     <MapButton 
-      className={`w-full bg-blue-600 hover:bg-blue-700 ${className}`}
+      className={`w-full bg-pine-600 hover:bg-pine-700 ${className}`}
       onClick={() => window.open('https://pf.kakao.com/_xjxoEdn', '_blank')}
     >
       <MessageSquare className="mr-2 h-4 w-4" />
@@ -80,7 +80,7 @@ export function OnlineWorshipButton({ className = "" }: { className?: string }) 
     <MapButton 
       size="lg"
       className={`bg-red-600 hover:bg-red-700 ${className}`}
-      onClick={() => window.open('https://youtube.com/@churchoflord/live', '_blank')}
+      onClick={() => window.open('https://www.youtube.com/@BjhBang/streams', '_blank')}
     >
       <Video className="mr-2 h-5 w-5" />
       온라인 예배 참여
@@ -92,7 +92,7 @@ export function KakaoTalkButton({ children, className = "" }: { children: React.
   return (
     <MapButton 
       size="sm"
-      className={`w-full bg-yellow-400 hover:bg-yellow-500 text-black ${className}`}
+      className={`w-full bg-kraft-400 hover:bg-kraft-500 text-black ${className}`}
       onClick={() => window.open('https://pf.kakao.com/_xjxoEdn', '_blank')}
     >
       {children}

@@ -1,0 +1,48 @@
+[   26720ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3123/discipleship?_rsc=1ld0r:0
+[   26720ms] [ERROR] Failed to fetch RSC payload for http://localhost:3123/discipleship. Falling back to browser navigation. TypeError: Failed to fetch
+    at y (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:129168)
+    at h (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:128095)
+    at http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:19356
+    at Object.u [as task] (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:28113)
+    at c.s (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:28818)
+    at c.enqueue (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:28243)
+    at s (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:19319)
+    at i (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:18844)
+    at l (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:164877)
+    at Object.prefetch (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:103562)
+    at http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:65315
+    at O (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:65354)
+    at m (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:65096)
+    at IntersectionObserver.rootMargin (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:64015) @ http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:0
+[   40345ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3123/activities?_rsc=1ld0r#ministry:0
+[   40345ms] [ERROR] Failed to fetch RSC payload for http://localhost:3123/activities#ministry. Falling back to browser navigation. TypeError: Failed to fetch
+    at y (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:129168)
+    at h (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:128095)
+    at http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:19356
+    at Object.u [as task] (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:28113)
+    at c.s (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:28818)
+    at c.enqueue (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:28243)
+    at s (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:19319)
+    at i (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:18844)
+    at l (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:164877)
+    at Object.prefetch (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:103562)
+    at http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:65315
+    at O (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:65354)
+    at m (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:65096)
+    at IntersectionObserver.rootMargin (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:64015) @ http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:0
+[ 1250372ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3123/discipleship?_rsc=1ld0r:0
+[ 1250372ms] [ERROR] Failed to fetch RSC payload for http://localhost:3123/discipleship. Falling back to browser navigation. TypeError: Failed to fetch
+    at y (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:129168)
+    at h (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:128095)
+    at http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:19356
+    at Object.u [as task] (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:28113)
+    at c.s (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:28818)
+    at c.enqueue (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:28243)
+    at s (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:19319)
+    at i (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:18844)
+    at l (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:164877)
+    at Object.prefetch (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:103562)
+    at http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:65315
+    at O (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:65354)
+    at m (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:65096)
+    at IntersectionObserver.rootMargin (http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:1:64015) @ http://localhost:3123/_next/static/chunks/684-9c838a6ba1bba8da.js:0

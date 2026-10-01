@@ -34,21 +34,21 @@ export default function NoticesPage() {
   };
 
   return (
-    <div className="container py-12">
+    <div className="container py-14 md:py-20">
       <h1 className="text-4xl font-bold mb-8">공지사항</h1>
       
       {/* 하이라이트 공지 */}
       {loading ? (
         <div className="mb-12">
-          <Card className="bg-slate-50">
+          <Card className="bg-stone-50">
             <CardContent className="py-8">
-              <p className="text-center text-gray-500">불러오는 중...</p>
+              <p className="text-center text-stone-500">불러오는 중...</p>
             </CardContent>
           </Card>
         </div>
       ) : highlightedNotice ? (
         <div className="mb-12">
-          <Card className="bg-slate-50">
+          <Card className="bg-stone-50">
             <CardHeader>
               <CardTitle className="text-2xl">{highlightedNotice.title}</CardTitle>
               <CardDescription>
@@ -75,7 +75,7 @@ export default function NoticesPage() {
             <input
               type="text"
               placeholder="검색..."
-              className="px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-slate-300"
+              className="px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-stone-300"
             />
             <Button variant="outline">검색</Button>
           </div>
@@ -83,11 +83,11 @@ export default function NoticesPage() {
         
         {loading ? (
           <div className="py-8">
-            <p className="text-center text-gray-500">불러오는 중...</p>
+            <p className="text-center text-stone-500">불러오는 중...</p>
           </div>
         ) : notices.length === 0 ? (
           <div className="py-8">
-            <p className="text-center text-gray-500">등록된 공지사항이 없습니다.</p>
+            <p className="text-center text-stone-500">등록된 공지사항이 없습니다.</p>
           </div>
         ) : (
           <Table>

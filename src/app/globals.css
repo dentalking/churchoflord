@@ -6,8 +6,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-pretendard), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-serif-kr), ui-serif, Georgia, serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -43,26 +43,85 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+
+/* 주님의교회 팔레트 — 아이보리 바탕, 먹색 글자, 산속 소나무의 초록(pine)을 포인트로.
+   kraft는 콩·흙의 따뜻한 갈색, fig는 드물게 쓰는 보조색입니다.
+   새로 쓸 때는 stone / pine / kraft / fig 만 쓰세요. */
+@theme {
+  --color-stone-50: #FAF9F5;
+  --color-stone-100: #F0EEE6;
+  --color-stone-200: #E8E6DC;
+  --color-stone-300: #D1CFC5;
+  --color-stone-400: #A3A199;
+  --color-stone-500: #73726C;
+  --color-stone-600: #5E5D59;
+  --color-stone-700: #3D3D3A;
+  --color-stone-800: #262624;
+  --color-stone-900: #141413;
+  --color-stone-950: #0E0E0D;
+
+  --color-pine-50: #F1F5F1;
+  --color-pine-100: #DDE8DF;
+  --color-pine-200: #BCD2C0;
+  --color-pine-300: #93B59A;
+  --color-pine-400: #6A9474;
+  --color-pine-500: #4A7656;
+  --color-pine-600: #3A5F45;
+  --color-pine-700: #2F4D39;
+  --color-pine-800: #263E2F;
+  --color-pine-900: #1C2E23;
+
+
+  --color-kraft-50: #FBF5EF;
+  --color-kraft-100: #F5E8DB;
+  --color-kraft-200: #EBD3BA;
+  --color-kraft-300: #E0BC9B;
+  --color-kraft-400: #D4A27F;
+  --color-kraft-500: #C38A62;
+  --color-kraft-600: #A8714C;
+  --color-kraft-700: #87593C;
+  --color-kraft-800: #66432D;
+  --color-kraft-900: #4A3021;
+
+  --color-fig-50: #FAF0F3;
+  --color-fig-100: #F3DCE4;
+  --color-fig-200: #E7B9C9;
+  --color-fig-300: #D995AE;
+  --color-fig-400: #CE7D99;
+  --color-fig-500: #C46686;
+  --color-fig-600: #A8506F;
+  --color-fig-700: #883F59;
+  --color-fig-800: #673044;
+  --color-fig-900: #4A2331;
+
+  /* 그림자 대신 면과 여백으로 구분합니다 */
+  --shadow-xs: 0 0 #0000;
+  --shadow-sm: 0 0 #0000;
+  --shadow-md: 0 1px 2px rgb(20 20 19 / 0.04);
+  --shadow-lg: 0 2px 8px rgb(20 20 19 / 0.06);
+  --shadow-xl: 0 4px 16px rgb(20 20 19 / 0.08);
+}
+
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --radius: 0.75rem;
+  --background: #FAF9F5;
+  --foreground: #141413;
+  --card: #FFFFFF;
+  --card-foreground: #141413;
+  --popover: #FFFFFF;
+  --popover-foreground: #141413;
+  --primary: #141413;
+  --primary-foreground: #FAF9F5;
+  --secondary: #F0EEE6;
+  --secondary-foreground: #141413;
+  --muted: #F0EEE6;
+  --muted-foreground: #5E5D59;
+  --accent: #F0EEE6;
+  --accent-foreground: #141413;
+  --destructive: #B53333;
+  --border: #E8E6DC;
+  --input: #D1CFC5;
+  --ring: #4A7656;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -112,44 +171,16 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
-/* src/app/globals.css 파일 수정 */
 .container {
-  padding-left: 2rem !important;
-  padding-right: 2rem !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  max-width: calc(100% - 4rem) !important; /* 좌우 패딩 합계를 뺀 값 */
-}
-
-@media (min-width: 640px) {
-  .container {
-    padding-left: 2.5rem !important;
-    padding-right: 2.5rem !important;
-    max-width: calc(100% - 5rem) !important;
-  }
+  width: 100%;
+  max-width: 76rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
 }
 
 @media (min-width: 768px) {
   .container {
-    padding-left: 3rem !important;
-    padding-right: 3rem !important;
-    max-width: calc(100% - 6rem) !important;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container {
-    padding-left: 4rem !important;
-    padding-right: 4rem !important;
-    max-width: calc(100% - 8rem) !important;
-  }
-}
-
-@media (min-width: 1280px) {
-  .container {
-    padding-left: 5rem !important;
-    padding-right: 5rem !important;
-    max-width: calc(100% - 10rem) !important;
+    padding-inline: 2.5rem;
   }
 }
 
@@ -160,4 +191,24 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* 제목은 세리프로 — 굵기보다 크기와 자간으로 위계를 만듭니다.
+   (레이어 밖에 두어 각 페이지의 font-bold보다 우선합니다) */
+h1:not(.font-sans),
+h2:not(.font-sans),
+h3:not(.font-sans) {
+  font-family: var(--font-serif-kr), ui-serif, Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+body {
+  word-break: keep-all;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-pine-200);
 }

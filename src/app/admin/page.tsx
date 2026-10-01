@@ -43,7 +43,7 @@ export default function AdminPage() {
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-50">
+      <div className="min-h-screen flex items-center justify-center bg-stone-50">
         <Card className="w-full max-w-md">
           <CardHeader>
             <CardTitle>관리자 로그인</CardTitle>
@@ -78,7 +78,7 @@ export default function AdminPage() {
       <div className="flex justify-between items-center mb-8">
         <div>
           <h1 className="text-3xl font-bold">관리자 페이지</h1>
-          <p className="text-gray-600">주님의교회 웹사이트를 관리하세요</p>
+          <p className="text-stone-600">주님의교회 웹사이트를 관리하세요</p>
         </div>
         <Button variant="outline" onClick={handleLogout}>
           로그아웃
@@ -458,12 +458,12 @@ function NoticeManager({ adminPassword }: { adminPassword: string }) {
           {loading ? (
             <p className="text-center py-4">불러오는 중...</p>
           ) : notices.length === 0 ? (
-            <p className="text-center py-4 text-gray-500">등록된 공지사항이 없습니다.</p>
+            <p className="text-center py-4 text-stone-500">등록된 공지사항이 없습니다.</p>
           ) : filteredAndSortedNotices.length === 0 ? (
-            <p className="text-center py-4 text-gray-500">검색 결과가 없습니다.</p>
+            <p className="text-center py-4 text-stone-500">검색 결과가 없습니다.</p>
           ) : (
             <>
-              <div className="mb-4 text-sm text-gray-600">
+              <div className="mb-4 text-sm text-stone-600">
                 총 {filteredAndSortedNotices.length}개의 공지사항
               </div>
               <Table>
@@ -536,7 +536,7 @@ function NoticeManager({ adminPassword }: { adminPassword: string }) {
                 {isImportant && <span className="text-red-500">[중요] </span>}
                 {title || '제목 없음'}
               </h2>
-              <div className="flex gap-4 text-sm text-gray-600 mt-2">
+              <div className="flex gap-4 text-sm text-stone-600 mt-2">
                 <span>카테고리: {category}</span>
                 <span>작성자: 방재홍 목사</span>
                 <span>{new Date().toLocaleDateString('ko-KR')}</span>
@@ -768,7 +768,7 @@ function SermonManager({ adminPassword }: { adminPassword: string }) {
           {loading ? (
             <p className="text-center py-4">불러오는 중...</p>
           ) : sermons.length === 0 ? (
-            <p className="text-center py-4 text-gray-500">등록된 설교가 없습니다.</p>
+            <p className="text-center py-4 text-stone-500">등록된 설교가 없습니다.</p>
           ) : (
             <Table>
               <TableHeader>
@@ -1032,7 +1032,7 @@ function EventManager({ adminPassword }: { adminPassword: string }) {
           {loading ? (
             <p className="text-center py-4">불러오는 중...</p>
           ) : events.length === 0 ? (
-            <p className="text-center py-4 text-gray-500">등록된 이벤트가 없습니다.</p>
+            <p className="text-center py-4 text-stone-500">등록된 이벤트가 없습니다.</p>
           ) : (
             <Table>
               <TableHeader>
@@ -1210,11 +1210,11 @@ function PrayerManager({ adminPassword }: { adminPassword: string }) {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'pending': return 'text-yellow-600 bg-yellow-50';
-      case 'praying': return 'text-blue-600 bg-blue-50';
-      case 'answered': return 'text-green-600 bg-green-50';
-      case 'completed': return 'text-gray-600 bg-gray-50';
-      default: return 'text-gray-600 bg-gray-50';
+      case 'pending': return 'text-kraft-600 bg-kraft-50';
+      case 'praying': return 'text-pine-600 bg-pine-50';
+      case 'answered': return 'text-pine-600 bg-pine-50';
+      case 'completed': return 'text-stone-600 bg-stone-50';
+      default: return 'text-stone-600 bg-stone-50';
     }
   };
 
@@ -1247,7 +1247,7 @@ function PrayerManager({ adminPassword }: { adminPassword: string }) {
                   id="status"
                   value={status}
                   onChange={(e) => setStatus(e.target.value)}
-                  className="w-full p-2 border border-gray-300 rounded-md"
+                  className="w-full p-2 border border-stone-300 rounded-md"
                 >
                   <option value="pending">대기</option>
                   <option value="praying">기도 중</option>
@@ -1308,7 +1308,7 @@ function PrayerManager({ adminPassword }: { adminPassword: string }) {
                 <select
                   value={filterCategory}
                   onChange={(e) => setFilterCategory(e.target.value)}
-                  className="p-2 border border-gray-300 rounded-md"
+                  className="p-2 border border-stone-300 rounded-md"
                 >
                   <option value="전체">모든 분류</option>
                   <option value="건강">건강</option>
@@ -1323,7 +1323,7 @@ function PrayerManager({ adminPassword }: { adminPassword: string }) {
                 <select
                   value={filterStatus}
                   onChange={(e) => setFilterStatus(e.target.value)}
-                  className="p-2 border border-gray-300 rounded-md"
+                  className="p-2 border border-stone-300 rounded-md"
                 >
                   <option value="전체">모든 상태</option>
                   <option value="pending">대기</option>
@@ -1353,16 +1353,16 @@ function PrayerManager({ adminPassword }: { adminPassword: string }) {
                       <TableCell className="font-medium">
                         <div>
                           <div className="font-medium">
-                            {request.is_anonymous && <span className="text-gray-500">[익명] </span>}
+                            {request.is_anonymous && <span className="text-stone-500">[익명] </span>}
                             {request.title}
                           </div>
-                          <div className="text-sm text-gray-500 truncate max-w-xs">
+                          <div className="text-sm text-stone-500 truncate max-w-xs">
                             {request.content}
                           </div>
                         </div>
                       </TableCell>
                       <TableCell>
-                        <span className="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-700">
+                        <span className="px-2 py-1 text-xs rounded-full bg-stone-100 text-stone-700">
                           {request.category}
                         </span>
                       </TableCell>
@@ -1381,7 +1381,7 @@ function PrayerManager({ adminPassword }: { adminPassword: string }) {
                         {request.is_urgent && <span className="text-red-500">🔴</span>}
                       </TableCell>
                       <TableCell>
-                        {request.is_private && <span className="text-blue-500">🔒</span>}
+                        {request.is_private && <span className="text-pine-500">🔒</span>}
                       </TableCell>
                       <TableCell>
                         {new Date(request.created_at).toLocaleDateString('ko-KR')}
@@ -1410,7 +1410,7 @@ function PrayerManager({ adminPassword }: { adminPassword: string }) {
               </Table>
 
               {filteredPrayerRequests.length === 0 && (
-                <p className="text-center py-8 text-gray-500">기도 요청이 없습니다.</p>
+                <p className="text-center py-8 text-stone-500">기도 요청이 없습니다.</p>
               )}
             </>
           )}
@@ -1554,7 +1554,7 @@ function TrashManager({ adminPassword }: { adminPassword: string }) {
               {loading ? (
                 <p className="text-center py-4">불러오는 중...</p>
               ) : currentItems.length === 0 ? (
-                <p className="text-center py-8 text-gray-500">휴지통이 비어있습니다.</p>
+                <p className="text-center py-8 text-stone-500">휴지통이 비어있습니다.</p>
               ) : (
                 <Table>
                   <TableHeader>
@@ -1653,7 +1653,7 @@ function SettingsManager() {
             />
           </div>
 
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-stone-500">
             기본 정보 수정은 개발자에게 문의하세요.
           </p>
         </CardContent>
@@ -1670,9 +1670,9 @@ function SettingsManager() {
           <div className="space-y-2">
             <p className="text-sm">
               <span className="font-medium">상태:</span> 
-              <span className="text-green-600 ml-2">정상 연동 (환경 변수 설정 필요)</span>
+              <span className="text-pine-600 ml-2">정상 연동 (환경 변수 설정 필요)</span>
             </p>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-stone-600">
               .env.local 파일에 Supabase 연결 정보를 설정해주세요.
             </p>
           </div>

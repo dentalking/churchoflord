@@ -1,12 +1,26 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Noto_Serif_KR } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { Header } from "@/components/navigation/header";
 import { Footer } from "@/components/navigation/footer";
 import { FloatingChat } from "@/components/ui/floating-chat";
 import { StructuredData } from "./structured-data";
 
-const inter = Inter({ subsets: ["latin"] });
+const pretendard = localFont({
+  src: "../../node_modules/pretendard/dist/web/variable/woff2/PretendardVariable.woff2",
+  weight: "45 920",
+  display: "swap",
+  variable: "--font-pretendard",
+});
+
+const serif = Noto_Serif_KR({
+  weight: ["400", "500", "600"],
+  subsets: ["latin"],
+  display: "swap",
+  preload: false,
+  variable: "--font-serif-kr",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -59,10 +73,10 @@ export default function RootLayout({
       <head>
         <StructuredData />
       </head>
-      <body className={inter.className}>
+      <body className={`${pretendard.variable} ${serif.variable} font-sans`}>
         <div className="flex flex-col min-h-screen">
           <Header />
-          <main className="flex-1 py-8 md:py-12">
+          <main className="flex-1">
             {children}
           </main>
           <Footer />

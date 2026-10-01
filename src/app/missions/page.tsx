@@ -68,14 +68,14 @@ export default function MissionsPage() {
   ];
 
   return (
-    <div className="container py-12">
+    <div className="container py-14 md:py-20">
       {/* 헤더 섹션 */}
       <div className="text-center mb-12">
         <Badge className="mb-4">🌍 선교 비전</Badge>
         <h1 className="text-4xl font-bold mb-6">
-          경주에서 <span className="text-orange-600">땅끝까지</span>
+          경주에서 <span className="text-kraft-600">땅끝까지</span>
         </h1>
-        <p className="text-lg text-slate-700 max-w-3xl mx-auto">
+        <p className="text-lg text-stone-700 max-w-3xl mx-auto">
           "오직 성령이 너희에게 임하시면 너희가 권능을 받고 예루살렘과 온 유대와 사마리아와 
           땅 끝까지 이르러 내 증인이 되리라" (행 1:8)
         </p>
@@ -83,20 +83,20 @@ export default function MissionsPage() {
 
       {/* 선교 비전 섹션 */}
       <section className="mb-16">
-        <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-8 md:p-12">
+        <div className="bg-kraft-50 rounded-2xl p-8 md:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
               <h2 className="text-2xl font-bold mb-6">
                 성경적 선교의 원리
               </h2>
-              <div className="bg-white rounded-lg p-6 border border-slate-200 mb-6">
-                <p className="text-slate-700 italic mb-2">
+              <div className="bg-white rounded-lg p-6 border border-stone-200 mb-6">
+                <p className="text-stone-700 italic mb-2">
                   "너희는 가서 모든 민족을 제자로 삼아 아버지와 아들과 성령의 이름으로 세례를 베풀고 
                   내가 너희에게 분부한 모든 것을 가르쳐 지키게 하라"
                 </p>
-                <p className="text-slate-600 text-sm">- 마태복음 28:19-20 -</p>
+                <p className="text-stone-600 text-sm">- 마태복음 28:19-20 -</p>
               </div>
-              <p className="text-lg mb-6 text-slate-700 leading-relaxed">
+              <p className="text-lg mb-6 text-stone-700 leading-relaxed">
                 주님의교회는 <strong>이 지역에서 시작하여</strong> 
                 온 세계로 복음을 전하는 선교적 교회입니다. 
                 지역 교회가 곧 <strong>선교하는 교회</strong>가 되어야 한다는 
@@ -104,30 +104,30 @@ export default function MissionsPage() {
               </p>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <div className="bg-orange-100 p-2 rounded-full">
-                    <MapPin className="h-5 w-5 text-orange-600" />
+                  <div className="bg-kraft-100 p-2 rounded-full">
+                    <MapPin className="h-5 w-5 text-kraft-600" />
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">예루살렘: 경주와 경북</h3>
-                    <p className="text-slate-600">지역 복음화와 교회 개척</p>
+                    <p className="text-stone-600">지역 복음화와 교회 개척</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="bg-orange-100 p-2 rounded-full">
-                    <Globe className="h-5 w-5 text-orange-600" />
+                  <div className="bg-kraft-100 p-2 rounded-full">
+                    <Globe className="h-5 w-5 text-kraft-600" />
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">땅끝: 해외 선교</h3>
-                    <p className="text-slate-600">선교사 파송과 현지 교회 지원</p>
+                    <p className="text-stone-600">선교사 파송과 현지 교회 지원</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="bg-orange-100 p-2 rounded-full">
-                    <Users className="h-5 w-5 text-orange-600" />
+                  <div className="bg-kraft-100 p-2 rounded-full">
+                    <Users className="h-5 w-5 text-kraft-600" />
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">제자 삼기: 현지 리더 양육</h3>
-                    <p className="text-slate-600">재생산하는 제자를 세우는 선교</p>
+                    <p className="text-stone-600">재생산하는 제자를 세우는 선교</p>
                   </div>
                 </div>
               </div>
@@ -147,11 +147,11 @@ export default function MissionsPage() {
       {/* 선교 전략 */}
       <section className="mb-16">
         <h2 className="text-3xl font-bold text-center mb-12">
-          주님의교회 <span className="text-orange-600">선교 전략</span>
+          주님의교회 <span className="text-kraft-600">선교 전략</span>
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <Card className="border-t-4 border-t-red-500">
+          <Card className="">
             <CardHeader>
               <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4">
                 <Target className="h-6 w-6 text-red-600" />
@@ -159,52 +159,52 @@ export default function MissionsPage() {
               <CardTitle className="text-lg">전략적 선교</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-stone-600">
                 미전도 종족과 창의적 접근 지역을 우선으로 
                 전략적 선교사를 파송합니다.
               </p>
             </CardContent>
           </Card>
 
-          <Card className="border-t-4 border-t-blue-500">
+          <Card className="">
             <CardHeader>
-              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                <Users className="h-6 w-6 text-blue-600" />
+              <div className="w-12 h-12 bg-pine-100 rounded-full flex items-center justify-center mb-4">
+                <Users className="h-6 w-6 text-pine-600" />
               </div>
               <CardTitle className="text-lg">제자훈련 선교</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-stone-600">
                 현지인 제자훈련을 통해 재생산하는 
                 토착 교회를 세웁니다.
               </p>
             </CardContent>
           </Card>
 
-          <Card className="border-t-4 border-t-green-500">
+          <Card className="">
             <CardHeader>
-              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                <HandHeart className="h-6 w-6 text-green-600" />
+              <div className="w-12 h-12 bg-pine-100 rounded-full flex items-center justify-center mb-4">
+                <HandHeart className="h-6 w-6 text-pine-600" />
               </div>
               <CardTitle className="text-lg">전인적 선교</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-stone-600">
                 복음 전도와 함께 교육, 의료, 복지를 통한 
                 전인적 선교를 추구합니다.
               </p>
             </CardContent>
           </Card>
 
-          <Card className="border-t-4 border-t-purple-500">
+          <Card className="">
             <CardHeader>
-              <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
-                <Church className="h-6 w-6 text-purple-600" />
+              <div className="w-12 h-12 bg-fig-100 rounded-full flex items-center justify-center mb-4">
+                <Church className="h-6 w-6 text-fig-600" />
               </div>
               <CardTitle className="text-lg">협력 선교</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-stone-600">
                 선교 단체 및 현지 교회와 협력하여 
                 효과적인 선교를 수행합니다.
               </p>
@@ -238,8 +238,8 @@ export default function MissionsPage() {
               <CardContent>
                 <p className="text-sm font-medium mb-3">{missionary.ministry}</p>
                 <div className="space-y-2">
-                  <h4 className="text-sm font-semibold text-slate-700">기도제목</h4>
-                  <ul className="text-sm text-slate-600 space-y-1">
+                  <h4 className="text-sm font-semibold text-stone-700">기도제목</h4>
+                  <ul className="text-sm text-stone-600 space-y-1">
                     {missionary.prayer.map((item, idx) => (
                       <li key={idx}>• {item}</li>
                     ))}
@@ -253,13 +253,13 @@ export default function MissionsPage() {
 
       {/* 국내 선교 */}
       <section className="mb-16">
-        <div className="bg-blue-50 rounded-2xl p-8">
+        <div className="bg-pine-50 rounded-2xl p-8">
           <div className="text-center mb-8">
             <Badge variant="secondary" className="mb-4">🇰🇷 국내 선교</Badge>
             <h2 className="text-2xl font-bold mb-4">
               농어촌 및 미자립 교회 지원
             </h2>
-            <p className="text-slate-700 max-w-2xl mx-auto">
+            <p className="text-stone-700 max-w-2xl mx-auto">
               국내의 작고 어려운 교회들과 함께하며, 
               특히 농어촌과 도서 지역의 미자립 교회를 지원합니다.
             </p>
@@ -269,10 +269,10 @@ export default function MissionsPage() {
             {domesticMissions.map((mission, index) => (
               <div key={index} className="bg-white rounded-lg p-6">
                 <h3 className="font-bold mb-2">{mission.region}</h3>
-                <p className="text-sm text-slate-600 mb-2">
+                <p className="text-sm text-stone-600 mb-2">
                   <strong>{mission.church}</strong>
                 </p>
-                <p className="text-sm text-slate-500">{mission.support}</p>
+                <p className="text-sm text-stone-500">{mission.support}</p>
               </div>
             ))}
           </div>
@@ -287,25 +287,25 @@ export default function MissionsPage() {
             <h2 className="text-2xl font-bold mb-4">
               함께 떠나는 단기선교
             </h2>
-            <p className="text-slate-700 mb-6">
+            <p className="text-stone-700 mb-6">
               매년 여름과 겨울, 청년부와 장년부가 함께 
               단기선교를 떠납니다. 직접 선교 현장을 체험하고 
               선교사님들을 격려하는 귀한 시간입니다.
             </p>
             
             <div className="space-y-4 mb-6">
-              <div className="bg-slate-50 p-4 rounded-lg">
+              <div className="bg-stone-50 p-4 rounded-lg">
                 <h3 className="font-semibold mb-2">2025년 여름 단기선교</h3>
-                <p className="text-sm text-slate-600">
+                <p className="text-sm text-stone-600">
                   • 일정: 7월 15-25일 (10박 11일)<br />
                   • 지역: 캄보디아 프놈펜<br />
                   • 사역: 어린이 VBS, 의료봉사, 건축봉사
                 </p>
               </div>
               
-              <div className="bg-slate-50 p-4 rounded-lg">
+              <div className="bg-stone-50 p-4 rounded-lg">
                 <h3 className="font-semibold mb-2">2025년 겨울 단기선교</h3>
-                <p className="text-sm text-slate-600">
+                <p className="text-sm text-stone-600">
                   • 일정: 12월 20-27일 (7박 8일)<br />
                   • 지역: 국내 농어촌 지역<br />
                   • 사역: 연탄봉사, 김장나눔, 성탄예배
@@ -319,7 +319,7 @@ export default function MissionsPage() {
           </div>
           
           <div className="grid grid-cols-2 gap-4">
-            <div className="aspect-square bg-slate-200 rounded-lg relative overflow-hidden">
+            <div className="aspect-square bg-stone-200 rounded-lg relative overflow-hidden">
               <Image 
                 src="/images/activities/20250419_001222.png" 
                 alt="단기선교 활동 1" 
@@ -327,7 +327,7 @@ export default function MissionsPage() {
                 className="object-cover"
               />
             </div>
-            <div className="aspect-square bg-slate-200 rounded-lg relative overflow-hidden">
+            <div className="aspect-square bg-stone-200 rounded-lg relative overflow-hidden">
               <Image 
                 src="/images/hero/KakaoTalk_20250416_201705309.jpg" 
                 alt="단기선교 활동 2" 
@@ -335,7 +335,7 @@ export default function MissionsPage() {
                 className="object-cover"
               />
             </div>
-            <div className="aspect-square bg-slate-200 rounded-lg relative overflow-hidden">
+            <div className="aspect-square bg-stone-200 rounded-lg relative overflow-hidden">
               <Image 
                 src="/images/bean-tree/KakaoTalk_20250418_233455866.jpg" 
                 alt="단기선교 활동 3" 
@@ -343,7 +343,7 @@ export default function MissionsPage() {
                 className="object-cover"
               />
             </div>
-            <div className="aspect-square bg-slate-200 rounded-lg relative overflow-hidden">
+            <div className="aspect-square bg-stone-200 rounded-lg relative overflow-hidden">
               <Image 
                 src="/images/events/KakaoTalk_20250418_233455866_03.jpg" 
                 alt="단기선교 활동 4" 
@@ -357,41 +357,41 @@ export default function MissionsPage() {
 
       {/* 지역 특별 선교 */}
       <section className="mb-16">
-        <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8">
+        <div className="bg-pine-50 rounded-2xl p-8">
           <div className="text-center mb-8">
             <Badge variant="secondary" className="mb-4">🏘️ 지역 선교</Badge>
             <h2 className="text-2xl font-bold mb-4">
-              이 지역, <span className="text-green-600">우리의 예루살렘</span>
+              이 지역, <span className="text-pine-600">우리의 예루살렘</span>
             </h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             <div className="bg-white/70 rounded-lg p-6 text-center">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="h-8 w-8 text-green-600" />
+              <div className="w-16 h-16 bg-pine-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="h-8 w-8 text-pine-600" />
               </div>
               <h3 className="font-semibold mb-2">이웃 전도</h3>
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-stone-600">
                 아파트 단지별 전도팀을 구성하여 이웃에게 복음을 전합니다
               </p>
             </div>
             
             <div className="bg-white/70 rounded-lg p-6 text-center">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Heart className="h-8 w-8 text-green-600" />
+              <div className="w-16 h-16 bg-pine-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Heart className="h-8 w-8 text-pine-600" />
               </div>
               <h3 className="font-semibold mb-2">문화 사역</h3>
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-stone-600">
                 음악회, 강좌, 육아 프로그램 등으로 지역 주민과 소통합니다
               </p>
             </div>
             
             <div className="bg-white/70 rounded-lg p-6 text-center">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <HandHeart className="h-8 w-8 text-green-600" />
+              <div className="w-16 h-16 bg-pine-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <HandHeart className="h-8 w-8 text-pine-600" />
               </div>
               <h3 className="font-semibold mb-2">섬김 봉사</h3>
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-stone-600">
                 콩과나무로 나눔, 돌봄 서비스로 이웃 사랑을 실천합니다
               </p>
             </div>
@@ -401,7 +401,7 @@ export default function MissionsPage() {
 
       {/* 선교 후원 안내 */}
       <section className="mb-16">
-        <Card className="bg-orange-50 border-orange-200">
+        <Card className="bg-kraft-50 border-stone-200">
           <CardHeader className="text-center">
             <CardTitle className="text-2xl">선교 후원에 동참해주세요</CardTitle>
             <CardDescription>여러분의 기도와 후원이 선교의 큰 힘이 됩니다</CardDescription>
@@ -410,21 +410,21 @@ export default function MissionsPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
               <div className="text-center">
                 <h3 className="font-semibold mb-2">🙏 기도 후원</h3>
-                <p className="text-sm text-slate-600">
+                <p className="text-sm text-stone-600">
                   매월 첫째 주 금요일 선교기도회에 참여하여 
                   선교사님들을 위해 기도해주세요
                 </p>
               </div>
               <div className="text-center">
                 <h3 className="font-semibold mb-2">💰 재정 후원</h3>
-                <p className="text-sm text-slate-600">
+                <p className="text-sm text-stone-600">
                   정기 또는 일시 후원으로 선교 사역에 
                   동참하실 수 있습니다
                 </p>
               </div>
               <div className="text-center">
                 <h3 className="font-semibold mb-2">🎁 물품 후원</h3>
-                <p className="text-sm text-slate-600">
+                <p className="text-sm text-stone-600">
                   선교지에 필요한 의료용품, 학용품, 
                   생필품 등을 후원해주세요
                 </p>
@@ -432,20 +432,20 @@ export default function MissionsPage() {
             </div>
             
             <div className="bg-white rounded-lg p-4 text-center">
-              <p className="text-sm text-slate-600 mb-2">선교 후원 계좌</p>
+              <p className="text-sm text-stone-600 mb-2">선교 후원 계좌</p>
               <p className="font-medium">농협 123-456-789012 (주님의교회)</p>
-              <p className="text-xs text-slate-500 mt-2">* 후원금은 100% 선교 사역에 사용됩니다</p>
+              <p className="text-xs text-stone-500 mt-2">* 후원금은 100% 선교 사역에 사용됩니다</p>
             </div>
           </CardContent>
         </Card>
       </section>
 
       {/* CTA 섹션 */}
-      <section className="text-center py-12 bg-slate-50 rounded-2xl">
+      <section className="text-center py-12 bg-stone-50 rounded-2xl">
         <h2 className="text-2xl font-bold mb-4">
-          함께 가는 <span className="text-orange-600">선교의 동역자</span>
+          함께 가는 <span className="text-kraft-600">선교의 동역자</span>
         </h2>
-        <p className="text-lg text-slate-700 mb-8 max-w-2xl mx-auto">
+        <p className="text-lg text-stone-700 mb-8 max-w-2xl mx-auto">
           "가서 모든 민족을 제자로 삼으라"는 주님의 지상명령에 
           순종하여 함께 선교의 사명을 감당합시다.
         </p>

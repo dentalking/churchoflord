@@ -34,11 +34,11 @@ export function FloatingChat() {
       {/* 플로팅 채팅 카드 */}
       {isOpen && (
         <div className="fixed bottom-24 right-4 z-50 w-80 max-w-[calc(100vw-2rem)]">
-          <Card className="shadow-2xl border-0 bg-white/95 backdrop-blur-sm">
+          <Card className="shadow-xl bg-white">
             <CardHeader className="pb-3">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                  <div className="w-2 h-2 bg-pine-500 rounded-full" aria-hidden="true"></div>
                   <CardTitle className="text-lg">주님의교회 상담</CardTitle>
                 </div>
                 <Button
@@ -58,7 +58,7 @@ export function FloatingChat() {
             <CardContent className="space-y-3">
               {/* 카카오톡 채널 버튼 */}
               <Button 
-                className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-medium"
+                className="w-full bg-kraft-200 hover:bg-kraft-300 text-stone-900 font-medium"
                 onClick={() => {
                   // 카카오톡 채널로 이동 (실제 채널 URL로 교체 필요)
                   window.open('https://pf.kakao.com/_xjxoEdn', '_blank');
@@ -71,7 +71,7 @@ export function FloatingChat() {
               {/* 전화 문의 버튼 */}
               <Button 
                 variant="outline" 
-                className="w-full text-green-600 border-green-600 hover:bg-green-50"
+                className="w-full"
                 asChild
               >
                 <Link href="tel:010-4162-2701">
@@ -82,10 +82,10 @@ export function FloatingChat() {
               
               {/* 온라인 예배 참여 버튼 */}
               <Button 
-                className="w-full bg-red-600 hover:bg-red-700 text-white font-medium" 
+                className="w-full" 
                 onClick={() => {
-                  // 온라인 예배 링크로 이동 (실제 스트리밍 URL로 교체 필요)
-                  window.open('https://youtube.com/@churchoflord/live', '_blank');
+                  // 유튜브 실시간 방송 목록으로 이동
+                  window.open('https://www.youtube.com/@BjhBang/streams', '_blank');
                 }}
               >
                 <Video className="mr-2 h-4 w-4" />
@@ -93,7 +93,7 @@ export function FloatingChat() {
               </Button>
 
               {/* 빠른 정보 */}
-              <div className="text-sm text-slate-600 space-y-1 pt-2 border-t">
+              <div className="text-sm text-stone-600 space-y-1 pt-2 border-t">
                 <div className="flex items-center gap-2">
                   <Clock className="h-3 w-3" />
                   <span>주일예배 오전 11시</span>
@@ -108,10 +108,10 @@ export function FloatingChat() {
               <div className="pt-2">
                 <Link 
                   href="/contact" 
-                  className="text-sm text-blue-600 hover:underline"
+                  className="text-sm text-pine-600 hover:underline"
                   onClick={() => setIsOpen(false)}
                 >
-                  → 방문 예약하기
+                  방문 예약하기
                 </Link>
               </div>
             </CardContent>
@@ -122,7 +122,8 @@ export function FloatingChat() {
       {/* 플로팅 버튼 */}
       <Button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-4 z-50 w-14 h-14 rounded-full shadow-2xl bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 border-4 border-white"
+        className="fixed bottom-6 right-4 z-50 size-14 md:size-14 p-0 rounded-full shadow-xl bg-stone-900 hover:bg-stone-700"
+        aria-label={isOpen ? "문의 창 닫기" : "문의하기"}
         size="sm"
       >
         {isOpen ? (
@@ -131,15 +132,6 @@ export function FloatingChat() {
           <MessageCircle className="h-6 w-6 text-white" />
         )}
       </Button>
-
-      {/* 알림 배지 (처음 3초간만 표시) */}
-      {!isOpen && isVisible && (
-        <div className="fixed bottom-[4.5rem] right-2 z-50 animate-bounce">
-          <div className="bg-red-500 text-white text-xs px-2 py-1 rounded-full shadow-lg">
-            문의해보세요!
-          </div>
-        </div>
-      )}
     </>
   );
 }

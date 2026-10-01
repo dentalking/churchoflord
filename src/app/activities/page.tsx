@@ -76,7 +76,7 @@ export default function ActivitiesPage() {
   ];
 
   return (
-    <div className="container py-12">
+    <div className="container py-14 md:py-20">
       <h1 className="text-4xl font-bold mb-8">교회 활동</h1>
       
       <Tabs defaultValue="beantree">
@@ -140,15 +140,15 @@ export default function ActivitiesPage() {
             
             {loading ? (
               <div className="text-center py-12">
-                <Loader2 className="h-8 w-8 animate-spin mx-auto mb-4 text-green-600" />
-                <p className="text-slate-600">제품 목록을 불러오고 있습니다...</p>
-                <p className="text-sm text-slate-500 mt-2">잠시만 기다려 주세요</p>
+                <Loader2 className="h-8 w-8 animate-spin mx-auto mb-4 text-pine-600" />
+                <p className="text-stone-600">제품 목록을 불러오고 있습니다...</p>
+                <p className="text-sm text-stone-500 mt-2">잠시만 기다려 주세요</p>
               </div>
             ) : error ? (
               <div className="text-center py-12">
                 <AlertCircle className="h-12 w-12 mx-auto mb-4 text-red-500" />
-                <h4 className="text-lg font-semibold text-slate-800 mb-2">제품 목록을 불러올 수 없습니다</h4>
-                <p className="text-slate-600 mb-4">{error}</p>
+                <h4 className="text-lg font-semibold text-stone-800 mb-2">제품 목록을 불러올 수 없습니다</h4>
+                <p className="text-stone-600 mb-4">{error}</p>
                 <Button 
                   onClick={fetchProducts}
                   variant="outline"
@@ -160,11 +160,11 @@ export default function ActivitiesPage() {
               </div>
             ) : products.length === 0 ? (
               <div className="text-center py-12">
-                <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-stone-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">📦</span>
                 </div>
-                <h4 className="text-lg font-semibold text-slate-800 mb-2">아직 등록된 제품이 없습니다</h4>
-                <p className="text-slate-600 mb-4">곧 건강하고 맛있는 제품들을 준비해서 선보일 예정입니다.</p>
+                <h4 className="text-lg font-semibold text-stone-800 mb-2">아직 등록된 제품이 없습니다</h4>
+                <p className="text-stone-600 mb-4">곧 건강하고 맛있는 제품들을 준비해서 선보일 예정입니다.</p>
                 <Button 
                   onClick={fetchProducts}
                   variant="outline"
@@ -177,14 +177,14 @@ export default function ActivitiesPage() {
             ) : (
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
-                  <p className="text-sm text-slate-600">
+                  <p className="text-sm text-stone-600">
                     총 {products.length}개의 제품이 있습니다
                   </p>
                   <Button 
                     onClick={fetchProducts}
                     variant="ghost"
                     size="sm"
-                    className="text-slate-500 hover:text-slate-700"
+                    className="text-stone-500 hover:text-stone-700"
                   >
                     <RefreshCw className="mr-2 h-4 w-4" />
                     새로고침
@@ -194,7 +194,7 @@ export default function ActivitiesPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                   {products.map((product) => (
                     <Card key={product.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                      <div className="aspect-square relative bg-gray-100">
+                      <div className="aspect-square relative bg-stone-100">
                         {product.image_url ? (
                           <Image 
                             src={product.image_url} 
@@ -203,20 +203,20 @@ export default function ActivitiesPage() {
                             className="object-cover"
                           />
                         ) : (
-                          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-green-50 to-green-100">
+                          <div className="w-full h-full flex items-center justify-center bg-pine-50">
                             <div className="text-center">
                               <span className="text-4xl mb-2 block">🌱</span>
-                              <span className="text-sm text-gray-500">이미지 준비중</span>
+                              <span className="text-sm text-stone-500">이미지 준비중</span>
                             </div>
                           </div>
                         )}
                       </div>
                       <CardContent className="p-4">
-                        <h4 className="font-semibold mb-1 text-slate-800">{product.name}</h4>
+                        <h4 className="font-semibold mb-1 text-stone-800">{product.name}</h4>
                         {product.description && (
-                          <p className="text-sm text-slate-600 mb-2 line-clamp-2">{product.description}</p>
+                          <p className="text-sm text-stone-600 mb-2 line-clamp-2">{product.description}</p>
                         )}
-                        <p className="text-lg font-bold text-green-600">
+                        <p className="text-lg font-bold text-pine-600">
                           {product.price.toLocaleString()}원
                         </p>
                       </CardContent>
@@ -232,7 +232,7 @@ export default function ActivitiesPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               {beanTreeImages.map((image, index) => (
                 <div key={image.id} className="overflow-hidden rounded-lg">
-                  <div className="aspect-square bg-slate-200 relative">
+                  <div className="aspect-square bg-stone-200 relative">
                     <Image 
                       src="/images/bean-tree/KakaoTalk_20250418_233455866.jpg" 
                       alt={image.title} 
@@ -253,14 +253,14 @@ export default function ActivitiesPage() {
         <TabsContent value="mission">
           <div className="mb-8">
             <h2 className="text-2xl font-bold mb-4">복음 전파</h2>
-            <p className="mb-6 text-slate-700">
+            <p className="mb-6 text-stone-700">
               "가서 모든 민족을 제자로 삼아 아버지와 아들과 성령의 이름으로 세례를 베풀고" (마 28:19)<br />
               주님의 지상 명령에 순종하여 이 지역에 복음을 전하는 것이 우리의 사명입니다.
             </p>
             
-            <div className="bg-blue-50 p-6 rounded-lg mb-8 border border-blue-200">
-              <h3 className="text-xl font-bold mb-3 text-blue-900">복음의 능력</h3>
-              <p className="text-blue-800">
+            <div className="bg-pine-50 p-6 rounded-lg mb-8 border border-stone-200">
+              <h3 className="text-xl font-bold mb-3 text-pine-900">복음의 능력</h3>
+              <p className="text-pine-800">
                 "내가 복음을 부끄러워하지 아니하노니 이 복음은 모든 믿는 자에게 구원을 주시는 하나님의 능력이 됨이라" (롬 1:16)<br />
                 복음의 능력을 믿고 의지하며, 말씀을 중심으로 한 겸손한 전도를 실천합니다. 
                 화려한 방법보다는 성령의 역사하심을 의지합니다.
@@ -273,7 +273,7 @@ export default function ActivitiesPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {missionImages.map((image) => (
                 <div key={image.id} className="overflow-hidden rounded-lg">
-                  <div className="aspect-video bg-slate-200 relative">
+                  <div className="aspect-video bg-stone-200 relative">
                     <Image 
                       src="/images/activities/20250419_001222.png" 
                       alt={image.title} 
@@ -294,7 +294,7 @@ export default function ActivitiesPage() {
         <TabsContent value="community">
           <div className="mb-8">
             <h2 className="text-2xl font-bold mb-4">신앙 공동체의 교제</h2>
-            <p className="mb-6 text-slate-700">
+            <p className="mb-6 text-stone-700">
               "그들이 사도의 가르침을 받아 서로 교제하고 떡을 떼며 오로지 기도하기를 힘쓰니라" (행 2:42)<br />
               초대교회의 모범을 따라 말씀을 중심으로 한 진실한 교제와 
               서로를 격려하며 신앙 안에서 자라가는 공동체 생활을 추구합니다.
@@ -306,7 +306,7 @@ export default function ActivitiesPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               {communityImages.map((image) => (
                 <div key={image.id} className="overflow-hidden rounded-lg">
-                  <div className="aspect-square bg-slate-200 relative">
+                  <div className="aspect-square bg-stone-200 relative">
                     <Image 
                       src="/images/hero/KakaoTalk_20250416_201705309.jpg" 
                       alt={image.title} 
@@ -327,7 +327,7 @@ export default function ActivitiesPage() {
         <TabsContent value="ministry">
           <div className="mb-8">
             <h2 className="text-2xl font-bold mb-4">평신도 사역</h2>
-            <p className="mb-6 text-slate-700">
+            <p className="mb-6 text-stone-700">
               "그가 어떤 사람은 사도로, 어떤 사람은 선지자로, 어떤 사람은 복음 전하는 자로, 
               어떤 사람은 목사와 교사로 삼으셨으니 이는 성도를 온전하게 하여 봉사의 일을 하게 하며 
               그리스도의 몸을 세우려 하심이라" (엡 4:11-12)<br />
@@ -335,10 +335,10 @@ export default function ActivitiesPage() {
             </p>
           </div>
           
-          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-8 mb-8">
+          <div className="bg-kraft-50 border border-stone-200 rounded-lg p-8 mb-8">
             <div className="max-w-3xl mx-auto text-center">
               <h3 className="text-2xl font-bold mb-4">함께 만들어갈 사역</h3>
-              <p className="text-slate-700 mb-6">
+              <p className="text-stone-700 mb-6">
                 현재 소규모로 운영되고 있는 우리 교회는 새로 오시는 분들과 함께 
                 다양한 사역을 시작하려 합니다. 당신의 은사와 재능이 필요합니다!
               </p>
@@ -381,7 +381,7 @@ export default function ActivitiesPage() {
                 </Card>
               </div>
               
-              <p className="text-slate-600 mb-6">
+              <p className="text-stone-600 mb-6">
                 소규모 교회의 장점은 모든 성도가 사역에 참여할 수 있다는 것입니다.<br />
                 당신의 작은 섬김이 교회 전체에 큰 변화를 만듭니다.
               </p>
@@ -392,7 +392,7 @@ export default function ActivitiesPage() {
             </div>
           </div>
           
-          <div className="bg-indigo-50 rounded-lg p-8">
+          <div className="bg-pine-50 rounded-lg p-8">
             <h3 className="text-xl font-bold mb-4">소규모 교회의 특별한 기회</h3>
             <p className="mb-6">
               작은 교회이기에 당신의 섬김이 더욱 의미 있습니다. <br />
@@ -401,19 +401,19 @@ export default function ActivitiesPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
               <div className="bg-white p-4 rounded">
                 <h4 className="font-medium mb-2">즉시 참여</h4>
-                <p className="text-sm text-slate-600">
+                <p className="text-sm text-stone-600">
                   복잡한 절차 없이 바로 사역에 참여할 수 있습니다
                 </p>
               </div>
               <div className="bg-white p-4 rounded">
                 <h4 className="font-medium mb-2">다양한 경험</h4>
-                <p className="text-sm text-slate-600">
+                <p className="text-sm text-stone-600">
                   여러 분야의 사역을 경험하며 은사를 발견합니다
                 </p>
               </div>
               <div className="bg-white p-4 rounded">
                 <h4 className="font-medium mb-2">함께 성장</h4>
-                <p className="text-sm text-slate-600">
+                <p className="text-sm text-stone-600">
                   교회와 함께 성장하는 기쁨을 누릴 수 있습니다
                 </p>
               </div>

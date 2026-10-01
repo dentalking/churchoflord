@@ -36,16 +36,16 @@ export default function NoticeDetailPage() {
 
   if (loading) {
     return (
-      <div className="container py-12">
-        <p className="text-center text-gray-500">불러오는 중...</p>
+      <div className="container py-14 md:py-20">
+        <p className="text-center text-stone-500">불러오는 중...</p>
       </div>
     );
   }
 
   if (!notice) {
     return (
-      <div className="container py-12">
-        <p className="text-center text-gray-500">공지사항을 찾을 수 없습니다.</p>
+      <div className="container py-14 md:py-20">
+        <p className="text-center text-stone-500">공지사항을 찾을 수 없습니다.</p>
         <div className="text-center mt-4">
           <Button asChild>
             <Link href="/notices">목록으로 돌아가기</Link>
@@ -56,7 +56,7 @@ export default function NoticeDetailPage() {
   }
 
   return (
-    <div className="container py-12">
+    <div className="container py-14 md:py-20">
       <Button 
         variant="ghost" 
         onClick={() => router.back()}
@@ -84,7 +84,7 @@ export default function NoticeDetailPage() {
         </CardHeader>
         <CardContent>
           <div className="prose max-w-none">
-            <p className="whitespace-pre-wrap text-gray-700">{notice.content}</p>
+            <p className="whitespace-pre-wrap text-stone-700">{notice.content}</p>
           </div>
         </CardContent>
         <CardFooter className="flex justify-between">

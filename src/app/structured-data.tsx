@@ -108,7 +108,8 @@ export function StructuredData() {
       "수제 발효식품"
     ],
     "sameAs": [
-      "https://business.naver.com/churchoflord"
+      "https://business.naver.com/churchoflord",
+      "https://www.youtube.com/@BjhBang"
     ]
   };
 

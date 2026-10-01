@@ -91,9 +91,9 @@ export default function ContactForm() {
       <Card>
         <CardContent className="py-8">
           <div className="text-center space-y-4">
-            <CheckCircle2 className="h-12 w-12 text-green-500 mx-auto" />
+            <CheckCircle2 className="h-12 w-12 text-pine-500 mx-auto" />
             <h3 className="text-xl font-semibold">문의가 전송되었습니다!</h3>
-            <p className="text-gray-600">
+            <p className="text-stone-600">
               빠른 시간 내에 답변 드리겠습니다. 감사합니다.
             </p>
             <Button

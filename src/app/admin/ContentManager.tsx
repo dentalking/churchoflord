@@ -319,9 +319,9 @@ export default function ContentManager({ adminPassword }: ContentManagerProps) {
                       {progress === -1 ? (
                         <span className="text-red-500 text-sm">실패</span>
                       ) : progress === 100 ? (
-                        <span className="text-green-500 text-sm">완료</span>
+                        <span className="text-pine-500 text-sm">완료</span>
                       ) : (
-                        <span className="text-blue-500 text-sm">업로드 중...</span>
+                        <span className="text-pine-500 text-sm">업로드 중...</span>
                       )}
                     </div>
                   ))}
@@ -334,7 +334,7 @@ export default function ContentManager({ adminPassword }: ContentManagerProps) {
                   <h4 className="font-medium mb-2">업로드된 이미지 ({uploadedImages.length}개)</h4>
                   <div className="grid grid-cols-4 gap-2">
                     {uploadedImages.map((url, index) => (
-                      <div key={index} className="relative aspect-square bg-gray-100 rounded overflow-hidden">
+                      <div key={index} className="relative aspect-square bg-stone-100 rounded overflow-hidden">
                         <Image
                           src={url}
                           alt={`업로드된 이미지 ${index + 1}`}
@@ -348,7 +348,7 @@ export default function ContentManager({ adminPassword }: ContentManagerProps) {
               )}
             </div>
           ) : (
-            <p className="text-center text-gray-500 py-4">
+            <p className="text-center text-stone-500 py-4">
               대량 업로드 모드를 활성화하여 여러 이미지를 한 번에 업로드하세요.
             </p>
           )}
@@ -404,7 +404,7 @@ export default function ContentManager({ adminPassword }: ContentManagerProps) {
                 <Label>제품 이미지</Label>
                 <div className="space-y-2">
                   {previewUrl && (
-                    <div className="relative w-full h-48 bg-gray-100 rounded-lg overflow-hidden">
+                    <div className="relative w-full h-48 bg-stone-100 rounded-lg overflow-hidden">
                       <Image
                         src={previewUrl}
                         alt="제품 미리보기"
@@ -478,7 +478,7 @@ export default function ContentManager({ adminPassword }: ContentManagerProps) {
           {loading ? (
             <p className="text-center py-4">불러오는 중...</p>
           ) : products.length === 0 ? (
-            <p className="text-center py-4 text-gray-500">등록된 제품이 없습니다.</p>
+            <p className="text-center py-4 text-stone-500">등록된 제품이 없습니다.</p>
           ) : (
             <Table>
               <TableHeader>
@@ -496,7 +496,7 @@ export default function ContentManager({ adminPassword }: ContentManagerProps) {
                   <TableRow key={product.id}>
                     <TableCell>
                       {product.image_url ? (
-                        <div className="relative w-16 h-16 bg-gray-100 rounded overflow-hidden">
+                        <div className="relative w-16 h-16 bg-stone-100 rounded overflow-hidden">
                           <Image
                             src={product.image_url}
                             alt={product.name}
@@ -505,8 +505,8 @@ export default function ContentManager({ adminPassword }: ContentManagerProps) {
                           />
                         </div>
                       ) : (
-                        <div className="w-16 h-16 bg-gray-200 rounded flex items-center justify-center">
-                          <span className="text-gray-400 text-xs">이미지 없음</span>
+                        <div className="w-16 h-16 bg-stone-200 rounded flex items-center justify-center">
+                          <span className="text-stone-400 text-xs">이미지 없음</span>
                         </div>
                       )}
                     </TableCell>
